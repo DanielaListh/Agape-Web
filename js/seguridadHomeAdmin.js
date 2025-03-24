@@ -7,7 +7,7 @@ function verificarAcceso() {
     if (!token && userRole !== 3) {// se verifica si ese userRole del local es un admin
      //si token es diferente y userRole es diferente de 3
          alert("Acceso no autorizado");
-         window.location.href = 'http://localhost:3000/loginAdmin/'; // Redirigir al login
+         window.location.href = 'http://localhost:3000/Agape/loginAdmin/'; // Redirigir al login
     }
  }
 window.onload = verificarAcceso;

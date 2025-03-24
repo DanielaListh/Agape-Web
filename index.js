@@ -46,11 +46,6 @@ const estadosRouter = require('./routers/estados.router');
 const usuariosMiddleware = require('./middleware/usuarios.middleware');
 app.use('/estados', estadosRouter);
 
-// servir la pagina html cuando se hace una solicitus get a /adminHome
-app.get('/adminHome', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
-   res.sendFile(path.join(__dirname,'html', 'adminHome.html'));
-});
-
 
 // Ejemplo de ruta específica al home del modulo admin
 app.get('/Agape', (req, res) => {
@@ -71,14 +66,29 @@ app.get('/Agape/loginAdmin', (req,res) => {
 });
 
 //rutas dentro del modulo admin
-app.get('/Agape/verEspecialidades', (req, res) => {
-   res.sendFile(path.join(__dirname, 'html', 'verEspecialidadesMedicas.html'));
+//app.get('/Agape/verEspecialidades/', (req, res) => {
+   //res.sendFile(path.join(__dirname, 'html', 'verEspecialidadesMedicas.html'));
+//});
+
+//app.get('/Agape/crearEspecialidad', (req, res) => {
+  // res.sendFile(path.join(__dirname, 'html', 'crearEspecMedica.html'));
+//});
+
+// servir la pagina html cuando se hace una solicitud get a /adminHome
+app.get('/adminHome', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
+   res.sendFile(path.join(__dirname,'html', 'adminHome.html'));
 });
 
-app.get('/Agape/crearEspecialidad', (req, res) => {
-   res.sendFile(path.join(__dirname, 'html', 'crearEspecMedica.html'));
+
+// servir la pagina html cuando se hace una solicitus get a /adminHome
+app.get('/adminHome/verEspecialidades', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
+   res.sendFile(path.join(__dirname,'html', 'verEspecialidadesMedicas.html'));
 });
 
+// servir la pagina html cuando se hace una solicitus get a /adminHome
+app.get('/adminHome/crearEspecialidad', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
+   res.sendFile(path.join(__dirname,'html', 'crearEspecMedica.html'));
+});
 
 
 

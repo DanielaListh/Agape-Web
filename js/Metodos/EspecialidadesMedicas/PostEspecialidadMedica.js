@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // script para mostrar las especialidades medicas del front del lado del 
 //administrador para que se muestren en el front del ADMIN
 
@@ -25,29 +26,77 @@ document.getElementById('especialidadMedicaForm').addEventListener('submit', fun
     })
     .catch(error => console.error('Error:', error)); //captura los errores
 });
+=======
+// script inetermedio entre el  POST de html y las rutas de especialidades medicas para el POST
+// Crear Especialidades Medicas Admin
+const multer = require('multer'); // requiere multer para manejar la subida de archivos
+>>>>>>> Stashed changes
 
 
-//obtener y mostrar las especialidades medicas
-function obtenerEspecialidades() {
-  fetch('/especialidadesmedicas') //busca en la ruta /especialidadesmedicas 
-    .then(response => response.json()) // la respuesta de un json
-    .then(data => { // la convierte
-      const especialidadesList = document.getElementById('especialidadesList');
-      especialidadesList.innerHTML = '';
-      data.forEach(especialidad => {
-        const div = document.createElement('div');
-        div.textContent = `Nombre: ${especialidad.nombre}, Descripción: ${especialidad.descripcion}`;
-        if (especialidad.imagenUrl) {
-          const img = document.createElement('img');
-          img.src = especialidad.imagenUrl;
-          img.alt = especialidad.nombre;
-          div.appendChild(img);
+
+//validacion del formulario id=form-Create-EspMedicas
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById('form-Create-EspMedicas');
+  
+    if (form) { // Aseguramos que el formulario existe antes de agregar el event listener
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+  
+        // capturamos los valores de los campos
+        const nombreEspMedica = document.getElementById('nombreEspecialidadMedica').value.trim();
+        const descripcionMedica = document.getElementById('descripcionMedica').value.trim();
+        const imagenUpLoad = document.getElementById('inputImagen');
+  
+        // Validamos que el nombre de la especialidad médica no esté vacío
+        if (!nombreEspMedica) {
+          alert("El nombre de la especialidad médica es obligatorio.");
+          return;
         }
-        especialidadesList.appendChild(div);
+  
+        // Validamos que la descripción no esté vacía
+        if (!descripcionMedica) {
+          alert("La descripción de la especialidad médica es obligatoria.");
+          return;
+        }
+  
+        // Validamos que haya un archivo seleccionado y que sea una imagen válida
+        if (!imagenUpLoad.files || imagenUpLoad.files.length === 0) {
+          alert("Por favor, sube una imagen.");
+          return;
+        }
+  
+        const file = imagenUpLoad.files[0];
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        if (!validImageTypes.includes(file.type)) {
+          alert("El archivo debe ser una imagen válida (JPEG, PNG, GIF).");
+          return;
+        }
+  
+        // Si todo está bien, enviamos los datos al servidor (simulación)
+        const formData = new FormData();
+        formData.append('nombreEspecialidadMedica', nombreEspMedica);
+        formData.append('descripcionMedica', descripcionMedica);
+        formData.append('imagen', file);
+  
+        try {
+          const response = await fetch('http://localhost:3000/especialidades/', {
+            method: 'POST',
+            body: formData,
+          });
+  
+          if (response.ok) {
+            alert("Especialidad médica creada con éxito.");
+            form.reset();
+          } else {
+            const errorData = await response.json();
+            alert(`Error al crear la especialidad médica: ${errorData.message}`);
+          }
+        } catch (error) {
+          console.error("Hubo un error al enviar los datos:", error);
+          alert("Hubo un error inesperado. Por favor, inténtalo de nuevo.");
+        }
       });
-    })
-    .catch(error => console.error('Error:', error));
-}
-
-// Llamar a la función obtenerEspecialidades al cargar la página
-obtenerEspecialidades();
+    }
+  });
+  
+          

@@ -114,7 +114,7 @@ body {
     display: flex;
     margin: 0 10px 0 10px;
     background-color: white;
-    height: 60px;
+    height: 50px;
     border-radius: 15px;
     justify-content: end;
     gap: 5px;
@@ -122,9 +122,11 @@ body {
 }
 
 .barra-horizontal-sup button{
-    border: 1px solid #f6f6f401;
-    background-color: white;
-    border-radius: 20px;
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+    background-color: #f6f6f400;
+    border: 1px solid #f6f6f400;
 }
 
 .barra-horizontal-sup img{
@@ -182,6 +184,7 @@ body {
     height: 540px;
     padding: 20px;
     margin: 10px;
+    padding-left: 60px;
 }
 
 /*en el home de admin*/
@@ -307,6 +310,155 @@ body {
 }
 
 .search-btn button:hover{
+    background-color: #fde2ea;
+    border: 1px solid #fde2ea;
+    color: #0569d396;
+    transition: 0.4s;
+}
+
+/*Crear del CRUD*/
+
+.content-view-create{
+    background-color: white;
+    border-radius: 25px;
+    height: 560px;
+    margin: 10px;
+    margin-bottom: 0;
+    width: 700px;
+    padding: 20px;
+    padding-bottom: 0;
+    padding-left: 60px;
+}
+
+.content-view-create h3{
+    color: #003064;
+    font-family: "Open Sans", serif;
+    font-weight: 700;
+}
+
+.form-Create-EM{
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-contend, 
+.form-contend-descripcion {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: -19px;
+}
+
+.form-contend label,
+.form-contend-descripcion label{
+    color: #003064;
+    font-family: 'Opens sans', sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+.form-contend input{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #f9cbd8;
+    height: 40px;
+    width: 500px;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 1em; 
+}
+
+.form-contend-descripcion textarea{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #f9cbd8;
+    height: 80px;
+    width: 500px;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 1em;
+}
+
+
+.form-contend input::placeholder,
+.form-contend-descripcion input::placeholder{
+    color: #e3b5c2;
+}
+
+.form-contend input:hover,
+.form-contend-descripcion input:hover{
+    border: 2px solid #ff91b0;
+    transition: 0.6s;
+}
+
+.form-contend-img label{
+    color: #003064;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: -19px;
+}
+
+.form-contend-img input{
+    cursor: pointer;
+    outline: none;
+    font-weight: 400;
+    font-size: 0.8em;
+    margin-left: -19px;
+}
+
+/* el pseudo elemento webkit-file-upload-button que es intrinseco en input */
+/**/
+input[type="file"]::-webkit-file-upload-button {
+    color: #003064;
+    appearance: none;
+    background-color: #fde2ea00;
+    border-radius: 5px;
+    border: 1px solid #fde2ea;
+    cursor: pointer;
+    height: 30px;
+    margin-top: 6px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover{
+    border: 1px solid #ff91b0;
+    transition: 0.6s;
+}
+
+
+.imgUpLoad{ /*es el div donde se mostrara la imagen subida*/
+    margin-top: 10px;
+    border: 2px solid #f9cbd8;
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
+    margin-left: -19px;
+}
+
+.imgSubida{
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.create button{
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    background-color: #f9cbd8;
+    height: 30px;
+    width: 180px;
+    margin: 10px 10px;
+    font-family: "Open Sans", serif;
+    font-weight: 500;
+    color: #003064;
+    cursor: pointer;
+}
+
+.create button:hover{
     background-color: #fde2ea;
     border: 1px solid #fde2ea;
     color: #0569d396;
