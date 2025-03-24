@@ -7,7 +7,7 @@ function cerrarSession(){
         localStorage.removeItem("userRole");// tambien removemos el rol que se habia iniciado
         alert("¡Sesión cerrada con éxito!");
         // Redirigir al login
-        window.location.href = 'http://localhost:3000/loginAdmin/';  // falla
+        window.location.href = 'http://localhost:3000/Agape/loginAdmin/';  // falla
     } else{
         alert("Usted sige con la session activa")
         //no anda el else

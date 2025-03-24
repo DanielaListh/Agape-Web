@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrearEspecialidadMedica</title>
+    <link rel="stylesheet" href="/css/AdminStyle.css">
+    <link rel="stylesheet" href="/css/tableStyle.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <img src="/css/Imagenes/LogoAgape.png" alt="">
+        </div>
+        <ul class="menu">
+            <li><a href="/html/adminHome.html">Home</a></li>
+
+            <li class="submenu">
+                <a class="submenu_a" href="#">Gestión de Tablas</a>
+                <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                <ul class="submenu-content">
+                    <li class="submenu">
+                        <a href="#">Especialidades</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="/html/verEspecialidadesMedicas.html">Ver especialidades</a></li>
+                            <li><a href="/html/crearEspecMedica.html">Crear especialidad</a></li>
+                            <li><a href="#">Editar especialidad</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Estados</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#">Ver estados</a></li>
+                            <li><a href="#">Crear estado</a></li>
+                            <li><a href="#">Editar estado</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Géneros</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#">Ver géneros</a></li>
+                            <li><a href="#">Crear género</a></li>
+                            <li><a href="#">Editar género</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Médicos</a>
+                        <img class="arrow list_arrow" class="arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#">Lista de médicos</a></li>
+                            <li><a href="#">Agregar médico</a></li>
+                            <li><a href="#">Edicar médico</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Roles</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#">Ver roles</a></li>
+                            <li><a href="#">Crear rol</a></li>
+                            <li><a href="#">Editar rol</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Usuarios</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#">Lista de usuarios</a></li>
+                            <li><a href="#">Agregar usuario</a></li>
+                            <li><a href="#">Editar usuario</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a class="submenu_a" href="#">Estadísticas</a>
+                <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" >
+            </li>
+        </ul>
+    </nav> 
+
+    <div class="contenedor-padre">
+
+        <div class="barra-horizontal-sup">
+          <div class="icon-chat"><button><img src="/css/Imagenes/chat.png" alt=""></button></div>
+          <div class="icon-notificacion"><button><img src="/css/Imagenes/bell.png" alt=""></button></div>
+          <div id="icon-user-perfil" class="icon-user-perfil"><button><img src="/css/Imagenes/user.svg" alt=""></button></div>
+          <div id="sub-menu" class="sub-menu hidden">
+            <ul>
+                <li><a class="a-link" href="#" id="logout">Ver perfil</a></li>
+                <li><a class="a-link" href="#" id="logout" onclick="cerrarSession()">Cerrar Sesion</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <h1>Especialidades Médicas</h1>
+        <div class="content-view-create">
+    
+            <div class="tittle">
+              <div class="barra-rosa"></div>
+              <h3>Crear Especialidad Médica</h3>
+            </div>
+
+            <form class="form-Create-EM" id="form-Create-EspMedicas" action="http://localhost:3000/especialidades/" method="POST" enctype="multipart/form-data">
+                <div class="form-contend">
+                    <label for="nombreEspecialidad">Nombre especialidad</label>
+                    <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
+                    <input id="nombreEspecialidad" type="text" name="nombreEspecialidad" required>
+                </div>
+                <div class="form-contend-descripcion">
+                    <label for="descripcionEspecialidad">Descripción especialidad</label>
+                    <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
+                    <textarea name="descripcionEspecialidad" id="descripcionEspecialidad" rows="5" cols="10" required></textarea>
+                </div>
+                <div class="form-contend-img">
+                    <label for="imagenEspMedica">Imagen de especialidad médica</label>
+                    <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
+                    <input type="file" id="inputImagen" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
+                    <div id="preview"></div>
+                </div>
+                <div class="create">
+                    <button type="submit">Crear</button>
+                </div>
+            </form>
+      
+            <div class="board-view">
+              <div id="tabla-especialidades-medicas" class="board-content">
+              </div>
+            </div>
+      
+          </div>
+        
+        </div>
+      </div>
+
+      <script src="/js/navBarAdmin.js"></script>
+      <script src="/js/cerrarSesion.js"></script>]
+      <script src="/js/previsualizacionImagenes.js"></script>
+
+
+
+</body>
+</html>
