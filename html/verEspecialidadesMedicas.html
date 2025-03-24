@@ -13,7 +13,7 @@
             <img src="/css/Imagenes/LogoAgape.png" alt="">
         </div>
         <ul class="menu">
-            <li><a href="/html/adminHome.html">Home</a></li>
+            <li><a href="#" onclick="irHome()">Home</a></li>
 
             <li class="submenu">
                 <a class="submenu_a" href="#">Gestión de Tablas</a>
@@ -23,8 +23,8 @@
                         <a href="#">Especialidades</a>
                         <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
                         <ul class="submenu-content">
-                            <li><a href="/html/verEspecialidadesMedicas.html">Ver especialidades</a></li>
-                            <li><a href="/html/crearEspecMedica.html">Crear especialidad</a></li>
+                            <li><a href="#" onclick="verEspecialidades()">Ver especialidades</a></li>
+                            <li><a href="#" onclick="crearEspecialidad()">Crear especialidad</a></li>
                             <li><a href="#">Editar especialidad</a></li>
                         </ul>
                     </li>
@@ -130,6 +130,7 @@
 
     <script src="/js/navBarAdmin.js"></script>
     <script src="/js/Metodos/EspecialidadesMedicas/getAll.js"></script>
+    <script src="/js/llamadoDeRutasAdmin.js"></script>
 
 </body>
 </html>

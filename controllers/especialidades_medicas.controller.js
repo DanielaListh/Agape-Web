@@ -49,7 +49,6 @@ const crearEspecialidad = (req, res) => {
     const imagenUrl = saveImage(req.file); // Guardar la imagen subida y almacenar la URL en imagenUrl
     const { nombreEspecialidadMedica, descripcionMed } = req.body; // Obtener los datos del cuerpo de la solicitud
     const sql = "INSERT INTO especialidades_medicas (nombre_especialidad_med, descripcion_especialidad_med, imagen_especialidad_med) VALUES (?, ?, ?)";
-
     db.query(sql, [nombreEspecialidadMedica, descripcionMed, imagenUrl], (error, result) => {
         if (error) {
             console.log("Error al insertar la especialidad médica:", error);

@@ -42,7 +42,16 @@ router.get('/', controller.especialidadesMedicas);
 router.get('/:idEspecialidad', controller.especialidad); // coincide con el la const busqueda
 
 // Método POST para crear
-router.post('/', upload, controller.crearEspecialidad);
+//router.post('/', upload, controller.crearEspecialidad);
+router.post("/", (req, res, next) => {
+    upload(req, res, function (err) {
+      if (err) {
+        return res.status(400).json({ error: err.message });
+      }
+      next();
+    });
+  }, controller.crearEspecialidad);
+  
 
 // Método PUT para buscar por ID y actualizar
 router.put('/:idEspecialidad', upload, controller.actualizarEspecialidad);

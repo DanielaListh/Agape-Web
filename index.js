@@ -1,9 +1,9 @@
 // esto es un endpoint
 
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 require('dotenv').config(); //luego lo veremos pero son las variables de entorno, \se requiere las variables de entorno ejemplo PORT
-const app = express();// incicio la applicacion  express
+const app = express();// para leer JSON
 const path =require('path');
 
 app.use(express.json()); // en el cuerpo de la peticion vendra un json y se transforma en un objeto js y asi poder usarlo
@@ -11,7 +11,7 @@ app.use(express.json()); // en el cuerpo de la peticion vendra un json y se tran
 app.use(express.urlencoded({ extended: true })); // para datos de formularios
 
 
-app.use(cors());//ENCABEZADO CORS para el envio o transporte de emails
+app.use(cors());// Para permitir peticiones desde el frontend
 
 //se utilizan para servir archivos estaticos en una web
 //Esto permite que Express sirva correctamente tus archivos CSS, JavaScript e imágenes.

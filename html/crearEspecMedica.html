@@ -13,7 +13,7 @@
             <img src="/css/Imagenes/LogoAgape.png" alt="">
         </div>
         <ul class="menu">
-            <li><a href="/html/adminHome.html">Home</a></li>
+            <li><a href="#" onclick="irHome()">Home</a></li>
 
             <li class="submenu">
                 <a class="submenu_a" href="#">Gestión de Tablas</a>
@@ -23,8 +23,8 @@
                         <a href="#">Especialidades</a>
                         <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
                         <ul class="submenu-content">
-                            <li><a href="/html/verEspecialidadesMedicas.html">Ver especialidades</a></li>
-                            <li><a href="/html/crearEspecMedica.html">Crear especialidad</a></li>
+                            <li><a href="#" onclick="verEspecialidades()">Ver especialidades</a></li>
+                            <li><a href="#" onclick="crearEspecialidad()">Crear especialidad</a></li>
                             <li><a href="#">Editar especialidad</a></li>
                         </ul>
                     </li>
@@ -107,19 +107,19 @@
 
             <form class="form-Create-EM" id="form-Create-EspMedicas" action="http://localhost:3000/especialidades/" method="POST" enctype="multipart/form-data">
                 <div class="form-contend">
-                    <label for="nombreEspecialidad">Nombre especialidad</label>
+                    <label for="nombreEspecialidadMedica">Nombre especialidad</label>
                     <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                    <input id="nombreEspecialidad" type="text" name="nombreEspecialidad" required>
+                    <input id="nombreEspecialidadMedica" type="text" name="nombreEspecialidadMedica" required>
                 </div>
                 <div class="form-contend-descripcion">
-                    <label for="descripcionEspecialidad">Descripción especialidad</label>
+                    <label for="descripcionMed">Descripción especialidad</label>
                     <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                    <textarea name="descripcionEspecialidad" id="descripcionEspecialidad" rows="5" cols="10" required></textarea>
+                    <textarea name="descripcionMed" id="descripcionMed" rows="5" cols="10" required></textarea>
                 </div>
                 <div class="form-contend-img">
-                    <label for="imagenEspMedica">Imagen de especialidad médica</label>
+                    <label for="imagenUrl">Imagen de especialidad médica</label>
                     <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                    <input type="file" id="inputImagen" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
+                    <input type="file" id="imagenUrl" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
                     <div id="preview"></div>
                 </div>
                 <div class="create">
@@ -138,8 +138,9 @@
       </div>
 
       <script src="/js/navBarAdmin.js"></script>
-      <script src="/js/cerrarSesion.js"></script>]
+      <script src="/js/cerrarSesion.js"></script>
       <script src="/js/previsualizacionImagenes.js"></script>
+      <script src="/js/llamadoDeRutasAdmin.js"></script>
 
 
 

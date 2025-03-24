@@ -1,6 +1,6 @@
 //script para previsualizar las imagenes que se desean subir a traves de los formularios del crud
 
-document.getElementById('inputImagen').addEventListener('change', function(event){ 
+document.getElementById('imagenUrl').addEventListener('change', function(event){ 
     //el evento change se activa cuando el usuario selecciona un archivo desde el input
     //change procesa los archivos seleccionados
     const preview = document.getElementById('preview');
