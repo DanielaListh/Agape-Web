@@ -20,7 +20,7 @@ app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/imagenes', express.static(path.join(__dirname, 'css','imagenes')));
 //servir archivos estaticos desde la carpeta 'uploads'
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-//config de archivos estaticos para la acrpeta html
+//config de archivos estaticos para la carpeta html
 app.use(express.static(path.join(__dirname, 'html')));
 
 
@@ -52,7 +52,7 @@ app.get('/adminHome', (req,res) => { // la ruta raiz del proyecto o pag principa
 });
 
 
-// Ejemplo de ruta específica al home
+// Ejemplo de ruta específica al home del modulo admin
 app.get('/Agape', (req, res) => {
    res.sendFile(path.join(__dirname, 'html', 'index.html'));
 });
@@ -70,6 +70,14 @@ app.get('/Agape/loginAdmin', (req,res) => {
    res.sendFile(path.join(__dirname,'html', 'loginAdmin.html'));
 });
 
+//rutas dentro del modulo admin
+app.get('/Agape/verEspecialidades', (req, res) => {
+   res.sendFile(path.join(__dirname, 'html', 'verEspecialidadesMedicas.html'));
+});
+
+app.get('/Agape/crearEspecialidad', (req, res) => {
+   res.sendFile(path.join(__dirname, 'html', 'crearEspecMedica.html'));
+});
 
 
 

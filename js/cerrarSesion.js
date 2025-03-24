@@ -7,15 +7,16 @@ function cerrarSession(){
         localStorage.removeItem("userRole");// tambien removemos el rol que se habia iniciado
         alert("¡Sesión cerrada con éxito!");
         // Redirigir al login
-        window.location.href = 'http://localhost:3000/Agape/loginAdmin/';  // falla
+        
+        window.location.href = 'http://localhost:3000/Agape/loginAdmin/';
     } else{
         alert("Usted sige con la session activa")
-        //no anda el else
+        
     }
 
 }
 
-//el metodo ya esta siendo llamado desde el scropt del admin
+//el metodo ya esta siendo llamado desde el script del admin
 //veremos mas adelante de que manera es mejor colocarlo, si un llamado al boton desde este sript
 // o si es mejor desde el html
 //document.getElementById("logoutButton").addEventListener("click", cerrarSesion);
