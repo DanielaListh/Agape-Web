@@ -54,8 +54,15 @@ const crearEspecialidad = (req, res) => {
             console.log("Error al insertar la especialidad médica:", error);
             return res.status(500).json({ error: "Error: intente más tarde" });
         }
+
+        console.log("Backend: Especialidad médica insertada correctamente en la base de datos");//ayuda a ver si el backend esta andando bien
+
         const especialidadM = { ...req.body, id: result.insertId };
-        res.status(201).json(especialidadM);
+        res.status(201).json({
+            success:true,
+            message: "Especialidad medica creada con exito",
+            especialidad: especialidadM
+        });//esto se muestra en un formato json
     });
 };
 

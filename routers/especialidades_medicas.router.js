@@ -43,7 +43,7 @@ router.get('/:idEspecialidad', controller.especialidad); // coincide con el la c
 
 // Método POST para crear
 //router.post('/', upload, controller.crearEspecialidad);
-router.post("/", (req, res, next) => {
+router.post('/', (req, res, next) => {
     upload(req, res, function (err) {
       if (err) {
         return res.status(400).json({ error: err.message });
