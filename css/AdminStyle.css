@@ -176,15 +176,17 @@ body {
     font-family: "Open Sans", serif;
     font-weight: 800;
     margin: 10px;
+    margin-top: -5px;
 }
 
 .content-view {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 25px;
-    height: 540px;
-    padding: 20px;
+    height: 600px;
+    padding: 10px;
     margin: 10px;
     padding-left: 60px;
+    margin-top: -15px;
 }
 
 /*en el home de admin*/
@@ -217,25 +219,11 @@ body {
 /* search-content parte de botones y de busqueda por id*/
 
 .search-content{
-    margin: 5px;
+    margin: 8px;
     display: flex;
     height: 80px;
     border-radius: 20px;
-    justify-content: center;
     align-items: center;
-}
-
-.search input{
-    cursor: pointer;
-    outline: none;
-    padding-left: 5px;
-    color: #003064;
-    font-weight: 400;
-    font-size: 0.9em;   
-}
-
-.search input::placeholder{
-    color: #e3b5c2;
 }
 
 .refresh button{
@@ -244,7 +232,8 @@ body {
     background-color: #f9cbd8;
     height: 30px;
     width: 180px;
-    margin: 5px 10px;
+    margin: 5px 0;
+    margin-right: 60px;
     font-family: "Open Sans", serif;
     font-weight: 500;
     color: #003064;
@@ -271,6 +260,31 @@ body {
     flex-direction: column;
     align-items: flex-start;
     width: auto;
+    padding-right: 70px;
+}
+
+.search input{
+    cursor: pointer;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 0.9em; 
+    border-radius: 5px;
+    height: 30px;
+    border: 3px solid #f9cbd8;  
+}
+
+.search input::placeholder{
+    color: #e3b5c2;
+}
+
+.search input:hover{
+    border: 3px solid #ff91b0;
+}
+
+.search img{
+    margin-left: 80px;
 }
 
 .search a{
@@ -286,25 +300,27 @@ body {
     font-weight: 500;
 }
 
-.search input{
-    border-radius: 5px;
-    height: 30px;
-    border: 3px solid #f9cbd8;
+.mensaje-error{
+    margin-top: 5px;
+    width: 370px;
+    min-width: 370px;
+    height: 20px;
 }
 
-.search input:hover{
-    border: 3px solid #fde2ea;
+.p-error{
+    color: #fd2e69;
+    font-size: 0.9em;
+    font-weight: 400;
 }
 
 .search-btn button {
-    margin: 0 5px;
+    
     background-color: #f9cbd8;
     color: #003064;
     border-radius: 20px;
     border: 1px solid #f9cbd8;
-    justify-content: center;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-weight: 600;
     cursor: pointer;
 }

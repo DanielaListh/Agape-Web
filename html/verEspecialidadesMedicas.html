@@ -6,11 +6,12 @@
     <title>Ver Especialidades Medicas</title>
     <link rel="stylesheet" href="/css/AdminStyle.css">
     <link rel="stylesheet" href="/css/tableStyle.css">
+    <link rel="stylesheet" href="/css/modalStyle.css">
 </head>
 <body>
     <nav class="sidebar">
         <div class="logo">
-            <img src="/css/Imagenes/LogoAgape.png" alt="">
+            <img src="/css/Imagenes/AgapeLogoPink.png" alt="">
         </div>
         <ul class="menu">
             <li><a href="#" onclick="irHome()">Home</a></li>
@@ -86,10 +87,16 @@
     <div class="contenedor-padre">
 
         <div class="barra-horizontal-sup">
-          <div class="icon-chat"><img src="/css/Imagenes/chat.png" alt=""></div>
-          <div class="icon-notificacion"><img src="/css/Imagenes/bell.png" alt=""></div>
-          <div class="icon-user-perfil"><img src="/css/Imagenes/user.svg" alt=""></div>
-        </div>
+            <div class="icon-chat"><button><img src="/css/Imagenes/chat.png" alt=""></button></div>
+            <div class="icon-notificacion"><button><img src="/css/Imagenes/bell.png" alt=""></button></div>
+            <div id="icon-user-perfil" class="icon-user-perfil"><button><img src="/css/Imagenes/user.svg" alt=""></button></div>
+            <div id="sub-menu" class="sub-menu hidden">
+              <ul>
+                  <li><a class="a-link" href="#" id="logout">Ver perfil</a></li>
+                  <li><a class="a-link" href="#" id="logout" onclick="cerrarSession()">Cerrar Sesion</a></li>
+              </ul>
+            </div>
+          </div>
     
         <h1>Especialidades Médicas</h1>
         
@@ -108,17 +115,23 @@
             <div class="barra-rosa2"></div>
     
             <div class="search">
-              <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a>
-              <label for="busqueda-especialidad-input">Ingresa el ID de la especialidad</label>
-              <input id="especialidad-id" type="number" placeholder="ID especialidad">
+              <a href="#"><img src="/css/Imagenes/icon-duda.png" width="15"></a>
+              <label for="nombreEspecialidadMedica">Ingresa el nombre de la especialidad</label>
+              <input id="nombreEspecialidadMedica" type="text" placeholder="nombre especialidad">
+              <div class="mensaje-error">
+                <p class="p-error"></p>
+              </div>
+              
             </div>
             <div class="search-btn">
-              <button onclick="buscarEspecialidad()">buscar</button>
+              <button id="btn-buscar-especialidad" onclick="buscarEspecialidad()">buscar</button>
               <div id="notification"></div>
               <div id="especialidad-details"></div>
             </div>
-    
           </div>
+
+
+
     
           <div class="board-view">
             <div id="tabla-especialidades-medicas" class="board-content">
@@ -128,9 +141,43 @@
         </div>
       </div>
 
+
+      <section class="modal">
+        <div class="modal-container">
+            <div class="titulo-alerta">
+                <h2>¡Alerta! confirma la eliminación</h2>
+            </div>
+            <div class="info-especialidades">
+                <div class="info-izq">
+                    <ul>
+                        <li><p><span class="p-label">ID: </span><span class="">{826487}</span></p></li>
+                        <li><p><span class="p-label">Nombre: </span><span class="">{dkhdk kjwdkb}</span></p></li>
+                        <li><p><span class="p-label">Descripcion: </span><span class="">{loren ipsu kmankjand kjbaJDB KDJNKADB KJDNKDN }</span></p></li>
+                        <li><p><span class="p-label">Fecha de alta: </span><span class="">{12/12/12}</span></p></li>
+                    </ul>
+                </div>
+                <div class="info-der">
+                    <p class="p-label">Imagen:</p>
+                    <div class="previa-img"><img src="" alt=""></div>
+                </div>
+            </div>
+            <div class="texto-aviso">
+             <p>Si confirmas se borraran los datos del id:{} de la Base de Datos permanentemente</p>
+            </div>
+            <div class="btns-eliminar">
+                <div><button class="btn-eliminar">Eliminar</button></div>
+                <div><button class="btn-cancelar">Cancelar</button></div>
+            </div>
+        </div>
+      </section>
+
+
+
     <script src="/js/navBarAdmin.js"></script>
     <script src="/js/Metodos/EspecialidadesMedicas/getAll.js"></script>
     <script src="/js/llamadoDeRutasAdmin.js"></script>
+    <script src="/js/cerrarSesion.js"></script>
+    <script src="/js/modalDeleteEspeMed.js"></script>
 
 </body>
 </html>

@@ -38,8 +38,23 @@ const controller = require("../controllers/especialidades_medicas.controller");
 // Método GET para todas las especialidades
 router.get('/', controller.especialidadesMedicas);
 
-// Método GET para una sola especialidad
-router.get('/:idEspecialidad', controller.especialidad); // coincide con el la const busqueda
+// Método GET para una (1) sola especialidad
+router.get('/:parametro', (req, res) => {
+    let { parametro } = req.params;
+
+    const id = Number(parametro);
+
+    if (!isNaN(id) && Number.isInteger(id)) {// isNaN = es un no numero, !isNaN = si es un numero
+        // Es un ID valido (entero)
+        req.params.idEspecialidad = id;
+        controller.especialidadMedicaId(req, res);
+    } else {
+        // Es un nombre
+        req.params.nombreEspecialidadMedica = parametro.trim();
+        controller.especialidadMedicaNombre(req, res);
+    }
+});
+
 
 // Método POST para crear
 //router.post('/', upload, controller.crearEspecialidad);

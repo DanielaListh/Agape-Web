@@ -1,0 +1,101 @@
+.modal{
+    background-color: rgba(3, 3, 3, 0.23);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    opacity: 0; /*hace que no se muestre el modal*/
+    pointer-events: none; /*permite hacer click en los alementos de atras*/
+}
+
+.modal--show{
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.modal-container{
+    margin: auto;/*centrado horizontal y vertical auto*/
+    width: 70%;
+    max-width: 500px;
+    height: 430px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    padding: 10px;
+    border: 2px solid #f9cbd8;
+    justify-items: center;
+}
+
+.titulo-alerta h2{
+    margin-top: 10px;
+    color: #003064;
+    font-weight: 700;
+    text-align: center;
+}
+
+.info-especialidades{
+    margin-top: 10px;
+    display: flex;
+    height: 260px;
+    width: 455px;
+    padding: 5px 10px;
+    color: #003064;
+}
+
+.info-izq{
+    width: 290px;
+    display: flex;
+}
+
+.p-label{
+    font-weight: 600;
+}
+
+.info-der{
+    margin-right: -40px;
+}
+
+.previa-img{
+    margin-top: 5px;
+    border: 2px solid #f9cbd8;
+    width: 170px;
+    height: 230px;
+    border-radius: 20px;
+}
+
+.texto-aviso{
+    margin-top: 15px;
+    text-align: center;
+    color: #003064;
+}
+
+.btns-eliminar{
+    display: flex;
+    margin-top: 20px;
+    gap: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-eliminar,
+.btn-cancelar {
+    background-color: #f9cbd8;
+    color: #003064;
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    align-items: center;
+    padding: 10px 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.eliminar-confirmacion:hover,
+.eliminar-cancelacion:hover{
+    background-color: #fde2ea;
+    border: 1px solid #fde2ea;
+    color: #0569d396;
+    transition: 0.4s;
+}
+

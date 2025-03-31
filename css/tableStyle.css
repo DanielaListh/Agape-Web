@@ -1,30 +1,71 @@
-
-.barra-sup-horizontal-tabla{
-    background-color: rgb(250, 215, 247);
-}
+/*estos estilos aplican solamente al div board-content y los objetos internos a el como la tabla*/
 
 .board-content {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #fff0f000;
-    padding: 8px;
-    text-align: left;
+    margin-top: 60px;
+    width: 1000px; /* Ajusta el ancho según necesites */
+    height: 430px; /* Ajusta la altura según necesites */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    overflow-x: hidden; /* Opcional, oculta el scroll horizontal */
+    border: 2px solid #ffd8e09d; /* Opcional, añade un borde */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
     border-radius: 5px;
 }
 
+/* Estilo del scroll del div que contiene la tabla*/
+
+.board-content::-webkit-scrollbar {
+    width: 6px; /* ancho del scroll vertical */
+}
+
+  /* fondo del area de la barra */
+.board-content::-webkit-scrollbar-track {
+    background: #ffdddf1d;
+}
+
+/* Color de la barra de desplazamiento */
+.board-content::-webkit-scrollbar-thumb {
+    background: #fde2ea;;
+    border-radius: 5px;
+}
+
+/* Color cuando pasas el mouse sobre la barra */
+.board-content::-webkit-scrollbar-thumb:hover {
+    background: #ff8fab;
+}
+  
+
+table{
+    width: 100%; /*para que la tabla ocupe el 100% del div */
+    border-collapse: collapse; /*elimina los espcacios de los bordes*/
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+}
+
 th {
+    position: sticky;
+    height: 20px;
+    top: 0;
     background-color: #fff0f0;
+    color: #003064;
+    font-weight: 500;
+    z-index: 1;
+    
 }
 
 td {
-    background-color: #fbf2f299;
+    justify-content: baseline;
+    align-items: center;
     font-size: 0.9em;
+    border: 1px solid #ffe9e980;
+    
 }
 
-.btn {
+.btn-edit, .btn-trash {
     background-color: #fbf2f200;
     cursor: pointer;
 }
