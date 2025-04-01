@@ -49,8 +49,9 @@
     display: flex;
 }
 
-.p-label{
+.p-label {
     font-weight: 600;
+    color: #003064;
 }
 
 .info-der{
