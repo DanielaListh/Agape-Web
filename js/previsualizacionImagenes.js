@@ -1,4 +1,4 @@
-//script para previsualizar las imagenes que se desean subir a traves de los formularios del crud
+//script para previsualizar las imagenes que se desean subir a traves de los formularios del crud, post especialidad medica
 
 document.getElementById('imagenUrl').addEventListener('change', function(event){ 
     //el evento change se activa cuando el usuario selecciona un archivo desde el input

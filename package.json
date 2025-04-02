@@ -1,7 +1,7 @@
 {
-    "name": "antares_web",
+    "name": "agape_api_restful",
     "version": "1.0.0",
-    "description": "Descripción del proyecto",
+    "description": "Agape Web is a RESTful API website I am developing to enhance my skills in technologies such as HTML5, CSS, JavaScript, Node.js, Express, Jsonwebtoken, bcryptjs, Cors, and Mysql2. The project centers on a clinic that provides specialized medical consultations across various fields, with a strong emphasis on promoting holistic health and the overall",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",

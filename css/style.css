@@ -898,6 +898,7 @@ input[type="file"]{
   align-items: center;
   cursor: pointer;
   width: 300px;
+  height: 400px;
   margin-top: 20px;
   border-radius: 10px;
 }

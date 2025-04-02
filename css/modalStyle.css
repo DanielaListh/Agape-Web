@@ -16,11 +16,12 @@
     pointer-events: unset;
 }
 
+/*el cuadro visible con la info y botones*/
 .modal-container{
     margin: auto;/*centrado horizontal y vertical auto*/
     width: 70%;
     max-width: 500px;
-    height: 430px;
+    height: 470px;
     background-color: rgb(255, 255, 255);
     border-radius: 25px;
     padding: 10px;
@@ -54,20 +55,21 @@
     color: #003064;
 }
 
-.info-der{
-    margin-right: -40px;
-}
 
 .previa-img{
     margin-top: 5px;
     border: 2px solid #f9cbd8;
-    width: 170px;
-    height: 230px;
+    width: 200px;
+    height: 266.5px;
+    border-radius: 20px;
+}
+
+.previa-img img{
     border-radius: 20px;
 }
 
 .texto-aviso{
-    margin-top: 15px;
+    margin-top: 35px;
     text-align: center;
     color: #003064;
 }

@@ -172,11 +172,9 @@ body {
 
 .contenedor-padre h1{
     color: #003064;
-    padding: 10px;
     font-family: "Open Sans", serif;
     font-weight: 800;
     margin: 10px;
-    margin-top: -5px;
 }
 
 .content-view {
@@ -314,7 +312,6 @@ body {
 }
 
 .search-btn button {
-    
     background-color: #f9cbd8;
     color: #003064;
     border-radius: 20px;
@@ -337,9 +334,8 @@ body {
 .content-view-create{
     background-color: white;
     border-radius: 25px;
-    height: 560px;
-    margin: 10px;
-    margin-bottom: 0;
+    height: 600px;
+    margin: 5px 10px;
     width: 700px;
     padding: 20px;
     padding-bottom: 0;
@@ -361,10 +357,19 @@ body {
 
 .form-contend, 
 .form-contend-descripcion {
-    margin-top: 5px;
     margin-bottom: 5px;
     margin-left: -19px;
+    width: 600px;
 }
+
+.form-contend{
+  height: 87px;
+}
+
+.form-contend-descripcion{
+    height: 132px;
+}
+
 
 .form-contend label,
 .form-contend-descripcion label{
@@ -385,6 +390,8 @@ body {
     color: #003064;
     font-weight: 400;
     font-size: 1em; 
+    margin-bottom: 5px;
+    font-family: sans-serif;
 }
 
 .form-contend-descripcion textarea{
@@ -398,6 +405,8 @@ body {
     color: #003064;
     font-weight: 400;
     font-size: 1em;
+    margin-bottom: 5px;
+    font-family: sans-serif;
 }
 
 
@@ -410,6 +419,14 @@ body {
 .form-contend-descripcion input:hover{
     border: 2px solid #ff91b0;
     transition: 0.6s;
+}
+
+#error-msg-input,
+#error-msg-textarea{
+    color: #880228;
+    font-size: 1em;
+    font-weight: 400;
+    display: none;
 }
 
 .form-contend-img label{
@@ -445,19 +462,19 @@ input[type="file"]::-webkit-file-upload-button:hover{
     transition: 0.6s;
 }
 
-
-.imgUpLoad{ /*es el div donde se mostrara la imagen subida*/
+/*es el div donde se mostrara la imagenSubida*/
+.imgUpLoad{ 
     margin-top: 10px;
     border: 2px solid #f9cbd8;
     height: 200px;
-    width: 300px;
+    width: 200px;
     border-radius: 10px;
     margin-left: -19px;
 }
 
 .imgSubida{
     height: 200px;
-    width: 300px;
+    width: 200px;
     border-radius: 10px;
 }
 

@@ -31,7 +31,7 @@ async function ObtenerEspecialidadesMedicas() {
 //obtener solo UNA especialidad medica mediante el id Y TRAERLA AL FRONT
 async function buscarEspecialidad(){
   const nombreEspecialidadMedica = document.getElementById('nombreEspecialidadMedica').value;
-  if (!nombreEspecialidadMedica) {
+  if (!nombreEspecialidadMedica){
       //alert("no se proporcionaron datos suficientes en la busqueda");
       const parrafoError = document.querySelector(".p-error");
       parrafoError.textContent = "no se proporcionaron datos suficientes en la busqueda";
