@@ -49,7 +49,7 @@
             <div class="imageSingup">
                 <img src="/css/Imagenes/abrazo.jpg" alt="Persona en silla de ruedas">
             </div>
-            <form class="form" action="http://localhost:3000/usuarios/register" method="POST" enctype="multipart/form-data">
+            <form class="form" id="form-registro" action="http://localhost:3000/usuarios/register/" method="POST" enctype="multipart/form-data">
               <h2>Regístrate</h2>
                 <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Elije un nombre de usuario" required>
                 <input type="email" id="correoElectronico" name="correoElectronico" placeholder="Elije un email" required>
@@ -74,6 +74,9 @@
               <div> 
                 <label for="imagenPerfil" class="custom-imagenPerfil">Selecciona una imagen para tu perfil</label>
                 <input type="file" id="imagenPerfil" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
+              </div>
+              <div class="error-msg-registro">
+                <p id="error-msg"></p>
               </div>
               <div class="terminos-condiciones">
                 <input type="checkbox" onclick="agreesubmit(this)" name="condiciones"/> Estoy de acuerdo con los <a href="#" target="_blank" class="enlace-terminos">términos y condiciones</a><br/>
@@ -146,37 +149,7 @@
         </div>
     </footer>
 
-    <script>
-
-      import Toastify from 'toastify-js';
-      import "toastify-js/src/toastify.css";
-
-      function mostrarNotificacion(token) {
-      Toastify({
-          text: `Token JWT: ${token}`,
-          duration: 40000, // 30 segundos
-          close: true,
-          gravity: "top", // `top` o `bottom`
-          position: "right", // `left`, `center` o `right`
-          backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-        }).showToast();
-      }
-
-
-      document.querySelector('form').addEventListener('submit', function(event) {
-          const fileInput = document.getElementById('imagenPerfil');
-       const file = fileInput.files[0];
-       if (file) {
-            const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
-            if (!validTypes.includes(file.type)) {
-                alert('Solo se permiten archivos de tipo PNG o JPG.');
-               event.preventDefault();
-           }
-       }
-      });
-
-
-  </script>
+    <script src="/js/crearUsuario"></script>
   <script src="/js/rutasIndex.js"></script>
 
 </body>

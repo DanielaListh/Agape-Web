@@ -12,16 +12,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const errorMsgInput = document.getElementById("error-msg-input");
   const errorMsgTextarea = document.getElementById("error-msg-textarea")
 
-  const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+  const regex = /^[,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
 
   function validarInputs(input) {
     if (!regex.test(input.value)) {
       errorMsgInput.style.display = "block";
-      input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+      input.value = input.value.replace(/[^,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
       setTimeout(() => (errorMsgInput.style.display = "none"), 5000);
       return;
     } else {
       errorMsgInput.style.display = "none";
+    }if(input.value.length > 50){
+      errorMsgInput.style.display = "block";
+      input.value = input.value.slice(0, 50);//corta el contenido que supera los 250
+      setTimeout(() => (errorMsgInput.style.display = "none"), 5000);
+      return;
     }
   }
 
@@ -33,6 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     } else {
       errorMsgTextarea.style.display = "none";
+    }
+    if(textarea.value.length > 250){
+      errorMsgTextarea.style.display = "block";
+      textarea.value = textarea.value.slice(0, 250);//corta el contenido que supera los 250
+      setTimeout(() => (errorMsgTextarea.style.display = "none"), 5000);
+      return;
     }
   }
 

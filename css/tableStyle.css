@@ -1,9 +1,9 @@
 /*estos estilos aplican solamente al div board-content y los objetos internos a el como la tabla*/
 
 .board-content {
-    margin-top: 60px;
+    margin-top: 20px;
     width: 1000px; /* Ajusta el ancho según necesites */
-    height: 430px; /* Ajusta la altura según necesites */
+    height: 470px; /* Ajusta la altura según necesites */
     overflow-y: auto; /* Habilita el scroll vertical */
     overflow-x: hidden; /* Opcional, oculta el scroll horizontal */
     border: 2px solid #ffd8e09d; /* Opcional, añade un borde */

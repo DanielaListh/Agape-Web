@@ -58,9 +58,9 @@ body{
 
 .mini-content-portada {
   display: flex;
-  padding-bottom: 10px;
   justify-content: center;
   align-items: center;
+  height: 80px;
 }
 
 .isotipo {
@@ -128,7 +128,7 @@ body{
   align-items: center;
   justify-content:center;
   background-color: #f6f6f4;
-  height: 60px;
+  height: 35px;
   border-radius: 10px;
 }
 
@@ -138,6 +138,7 @@ body{
 }
 
 .navbar ul {
+  margin-top: -8px;
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -179,7 +180,7 @@ body{
 .navbar ul li a:hover::after {
   width: 100%;
   left: 0;
-  background: #006eff;
+  background: #38b6ff;
 }
 
 
@@ -230,48 +231,43 @@ body{
   display: flex;
   align-items: center;
   height: 674px;
+  margin-top: -50PX;
 }
 
 /*width = ancho, height = alto*/
 
-.form-container img {
-  width: 700px;
-  height: 674px;
+.form-container img {/*esta es la imagen de registro y login*/
+  width: 800px;
+  height: 600px;
   border-radius: 50px;
   overflow: hidden;
   object-fit: cover;
 }
 
-
-/*notificacion de envio de formulario*/
-.notificacion {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #0059ff;
-  color: #f0f0f0;
-  padding: 10px 20px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 48, 100, 1);
-  display: none;
+.imageSingup img{
+  width: 1000px;
+  height: 600px;
+  border-radius: 50px;
+  overflow: hidden;
+  object-fit: cover;
 }
-
 /*formulario de registro*/
 
 .form {
-  width: 50%;
-  height: auto;
+  width: 40%;
+  height: 600PX;/*height: 25px;*/
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50px;
   margin-left:20px; /*marginleft 20px para registro y margin rigth 20px para login*/
   justify-content: center;
   text-align: center;
+  align-items: center;
 }
 
 .form-login {
-  width: 50%;
-  height: 674px;
+  width: 40%;
+  height: 600px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50px;
@@ -282,9 +278,9 @@ body{
 
 .form h2 {
   text-align: center;
-  margin:20px;
+  margin:5px;
   color: #333;
-  font-size: 7vh;
+  font-size: 6vh;
 }
 
 .form-login h2 {
@@ -296,12 +292,12 @@ body{
 
 .form label, .form a {
   color: #333;
-  font-size: 2vh;
+  font-size: 1.5vh;
 }
 
 .form-login label, .form-login a {
   color: #333;
-  font-size: 2vh;
+  font-size: 1.5vh;
 }
 
 .terminos-condiciones input, 
@@ -309,6 +305,7 @@ body{
   display: flex;
   align-items: flex-start; /* alinea verticalmente los elementos */
   margin-bottom: 10px;
+  font-size: 2vh;
 }
 
 .form a:hover{
@@ -328,7 +325,7 @@ body{
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 1.9vh;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
 }
@@ -342,7 +339,7 @@ body{
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 1.9vh;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
 }
@@ -394,7 +391,7 @@ input[type="file"]{
   display: none;
 }
 
-.custom-imagenPerfil {
+.custom-imagenPerfil { /*label para subir la img*/
   display: inline-block;
   padding: 15px 0;
   cursor: pointer;
@@ -403,7 +400,7 @@ input[type="file"]{
   background-color: rgba(215, 9, 9, 0.005);
   color: #1e1e1e;
   transition: background-color 0.3, color 0.3;
-  width: 500px;
+  width: 400px;
 }
 
 .custom-imagenPerfil:hover {
@@ -411,21 +408,26 @@ input[type="file"]{
   color: #df9d01;
 }
 
+.error-msg-registro{
+  margin: 5px 0;
+  color: #c60d0d;
+}
 
 .form button {
-  width: 250px;
-  height: 50px;
+  width: 200px;
+  height: 30px;
   color: #285fc5;
   border:3px solid #285fc5;
   cursor: pointer;
   border-radius: 50px;
-  font-size: 3vh;
+  font-size: 2.5vh;
   font-weight: 600;
   background-color: rgba(255, 255, 255, 0.1);
+  margin: 5px 0;
 }
 
 .form-login button {
-  width: 250px;
+  width: 200px;
   height: 50px;
   color: #285fc5;
   border:3px solid #285fc5;
@@ -438,13 +440,14 @@ input[type="file"]{
 }
 
 .form button:hover {
-  border:3px solid #ffc353;
-  color: #fabc5e;
+  border:3px solid #38b6ff;
+  transition: 0.5s;
+  color: #38b6ff;
 }
 
 .form-login button:hover {
-  border:3px solid #ffc353;
-  color: #fabc5e;
+  border:3px solid #38b6ff;
+  color: #38b6ff;
 }
 
 .form .login-link {
@@ -498,7 +501,18 @@ input[type="file"]{
   color: #8b5402;
 }
 
-
+/*notificacion de envio de formulario*/
+.notificacion {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0059ff;
+  color: #f0f0f0;
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 48, 100, 1);
+  display: none;
+}
 
 /*portada se refiere a la imagen y la info con en boton*/
 /*carusel*/
@@ -770,28 +784,18 @@ input[type="file"]{
  align-content: space-between;
  align-items: center;
  justify-content: center;
- 
-}
-
-.Servicios-Container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; /*para que ocupe varias lineas y no una sola*/
-  padding: 0 0  0 40px;
-  justify-content:start;
-  text-align: center;
 }
 
 .content-h2{
   display: block;
+  margin-bottom: 20px;
   justify-content: center;
   align-items: center;
-  background-image: url(/css/Imagenes/eclipse1.png);
   background-size: auto;
   background-repeat: no-repeat;
   background-position:right;
   background-size: 40%;
-  height: 700px;
+  height: auto;
 }
 
 .h2-servicios1 {
@@ -816,12 +820,6 @@ input[type="file"]{
   color: #0091ff;
 }
 
-.p-servicios {
-  font-size: 1.8em;
-  text-align: center;
-  margin-top: 100px;
-  
-}
 
 .buscador-container {
   background-color: rgba(255, 223, 236, 0.3);
@@ -872,21 +870,37 @@ input[type="file"]{
   border: 2px #0091ff solid;
 }
 
-.content-services {
-  display: block;
-  width:400px;
-  text-align: center;
-  margin: 80px 10px 80px 10px;
+/*Servicios del index traidos de la base de datos*/
+
+.Servicios-Container {/*div padre*/
+  display: flex;
+  padding: 0px 100px  5px 40px; 
 }
 
-.content-services:hover {
+.divHijo{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;/*para que ocupe varias lineas y no una sola*/
+  padding-right: 40px;
+  margin-left: 10px;
+}
+
+.divNieto {
+  width:400px;
+  align-items: center;
+  text-align: center;
+  margin: 20px 5px 20px 10px;
   background-color: rgba(0, 48, 100, 1);
   border-radius: 20px;
-  transition: 0.9s;
-
+  margin: 20px 20px;
 }
 
-.content-services h3 {
+.divNieto:hover {
+  background-color: rgb(9, 83, 161);
+  transition: 0.9s;
+}
+
+.divNieto h3 {
   text-align: center;
   font-size: 1.5em;
   cursor: pointer;
@@ -894,24 +908,21 @@ input[type="file"]{
   color:#fbefd7;
 }
 
-.content-services img {
+.divNieto img {
   align-items: center;
-  cursor: pointer;
   width: 300px;
   height: 400px;
   margin-top: 20px;
   border-radius: 10px;
 }
 
-.content-services p{
-  font-size: 1.2em;
+.divNieto p{
+  font-size: 1em;
   margin-top: 10px;
   text-align: center;
-  align-items: center;
   margin-bottom: 20px;
-  width: 360px;
+  color: #fbefd7;
 }
-
 
 /*Contacto*/
 

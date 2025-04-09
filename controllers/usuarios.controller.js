@@ -3,9 +3,8 @@ const app  = express();
 ////const router = expres.Router();
 const jwt = require ("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-//const multer = require('multer');
-const fs = require('fs'); // proporciona una API que interactua con archivos, puede renombrar archivos, leerlos, darles nombre, eliminarlos, etc.
-const nodemailer = require('nodemailer');
+const fs = require('fs'); // proporciona una API que interactua con archivos, puede renombrar archivos, leerlos, darles nombre, eliminarlos, etc.//
+//const nodemailer = require('nodemailer'); // mucho peo con gmail
 const cors = require('cors');
 
 app.use(express.json());
@@ -24,13 +23,13 @@ function saveImage(file) {
 }
 
 //configuracion de transporte de correo electronico, se utiliza variables de entorno para seguridad
-const transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass:process.env.EMAIL_PASS
-    }
-});
+//const transporter = nodemailer.createTransport({
+   // service: 'Gmail',
+    //auth: {
+    //    user: process.env.EMAIL_USER,
+    //    pass:process.env.EMAIL_PASS
+    //}
+//});
 
 
 //POST crear un usuario REGISTRAR
@@ -83,15 +82,15 @@ const crearUsuario = async (req, res) => {
         //Cuando jwt.sign(...) genera el token exitosamente, la operación se considera resuelta tambien.
 
         // Configurar opciones del correo
-        const mailOptions = {
-            from: 'tuemail@ejemplo.com',
-            to: correoElectronico,
-            subject: 'Bienvenido a la plataforma',
-            text: `Hola ${nombreUsuario}, tu cuenta ha sido creada exitosamente.`
-        };
+        //const mailOptions = {
+          //  from: 'danielabh1997@gmail.com',
+           // to: correoElectronico,
+           // subject: 'Bienvenido a la plataforma Agape',
+           // text: `Hola ${nombreUsuario}, tu cuenta ha sido creada exitosamente.`
+        //};
 
         // Enviar correo
-        await transporter.sendMail(mailOptions);
+        //await transporter.sendMail(mailOptions);
         //retorna una promesa que se RESUELVE cuando el correo se envía exitosamente.
 
         res.status(201).json({

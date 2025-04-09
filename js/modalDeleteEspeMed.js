@@ -112,7 +112,7 @@ document.addEventListener("click", async (event) => {
       const response = await fetch(`http://localhost:3000/especialidades/${idEspecialidad}`, { method: "DELETE" });
       if (!response.ok) throw new Error("Error al eliminar el registro");
       alert("Registro eliminado con éxito");
-      document.querySelector(".modal").style.display = "none"; // Cierra el modal después de eliminar
+      document.querySelector(".modal").classList.remove("modal--show"); //elimina el modal, antes lo ocultaba
       //actuallizar o renderizar autoaticamente la tabla
       ObtenerEspecialidadesMedicas();
     } catch (error) {

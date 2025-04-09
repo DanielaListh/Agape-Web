@@ -12,6 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+
+            //hacer validaciones
+            // que la contraseña tenga un min de 6 caracteres y un max de 20 caracteres
+            // que el usuario tenga un .com
+            //que el email del usuario tenga minimo 4 caracteres(aplicar tambien en el registro)
+
             try {
                 const response = await fetch('http://localhost:3000/usuarios/login/', {
                     method: 'POST',
