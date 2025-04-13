@@ -91,7 +91,7 @@ body{
 }
 
 .direccion-spot a:hover{
-  color: #38b6ff;
+  color: #4cb5f9;
 }
 
 .contain-button-indice {
@@ -116,8 +116,8 @@ body{
 }
 
 .button-indice:hover{
-  background-color: #38b6ff;
-  border:3px solid #38b6ff;
+  background-color: #4cb5f9;
+  border:3px solid #4cb5f9;
 }
 
 
@@ -195,7 +195,7 @@ body{
 /* Estilos personalizados para la barra de desplazamiento */ 
 
 ::-webkit-scrollbar { 
-  width: 20px;
+  width: 10px;
   
 } 
 
@@ -309,14 +309,17 @@ body{
 }
 
 .form a:hover{
-  color: #0059ff;
+  color: #4cb5f9;
 }
 
 .form-login a:hover{
-  color: #0059ff;
+  color: #4cb5f9;
 }
 
-.form input {
+#nombreUsuario,
+#correoElectronico,
+#fechaNacimiento,
+#imagenPerfil {
   margin-top: 7px;
   margin-bottom: 5px;
   justify-content: center;
@@ -328,6 +331,41 @@ body{
   font-size: 1.9vh;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
+  outline: none;
+}
+
+/*mensaje en el input password*/
+.password-container{
+  position: relative;
+  margin-left: 40px;
+  width: 310px;
+  border-bottom: 1.5px solid #003064;
+  border-radius: 5px;
+}
+
+.password-input{
+  margin-top: 7px;
+  margin-bottom: 5px;
+  margin-left: -70px;
+  width: 240px;
+  padding: 10px;
+  font-size: 2vh;
+  background-color: rgba(215, 9, 9, 0.005);
+  color: #333;
+  border: none;
+  outline: none;/*se coloca outline none para evitar que se marque un borde al rededor del input al hacer click sobre el*/
+}
+
+.toggle-btn{ /*es el btn donde se mostrara el mensaje Mostrar o Ocultar*/
+  position: absolute;
+  margin-top: 15px;
+  background:none;
+  cursor:pointer;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  color: #003064;
+  font-weight: 600;
 }
 
 .form-login input {
@@ -344,10 +382,6 @@ body{
   color: #333;
 }
 
-input:hover {
-  border-color: #df9d01;
-  outline: none;
-}
 
 .form select {
   margin: 7px;
@@ -362,6 +396,7 @@ input:hover {
   appearance: none; /* Para ocultar el icono por defecto */ 
   -webkit-appearance: none; 
   -moz-appearance:none;
+  outline: none;
 }
 
 select {
@@ -372,7 +407,6 @@ select {
 }
 
 /* aplicar estilos a los options, se busca que se vea minimalista*/
-
 select option {
   background-color: rgba(252, 201, 135, 0.621);
   color: #333;
@@ -400,7 +434,7 @@ input[type="file"]{
   background-color: rgba(215, 9, 9, 0.005);
   color: #1e1e1e;
   transition: background-color 0.3, color 0.3;
-  width: 400px;
+  width: 300px;
 }
 
 .custom-imagenPerfil:hover {
@@ -413,7 +447,7 @@ input[type="file"]{
   color: #c60d0d;
 }
 
-.form button {
+.btn-submit {
   width: 200px;
   height: 30px;
   color: #285fc5;
@@ -439,15 +473,15 @@ input[type="file"]{
   margin: 20px;
 }
 
-.form button:hover {
-  border:3px solid #38b6ff;
+.btn-submit:hover {
+  border:3px solid #4cb5f9;
   transition: 0.5s;
-  color: #38b6ff;
+  color: #4cb5f9;
 }
 
 .form-login button:hover {
-  border:3px solid #38b6ff;
-  color: #38b6ff;
+  border:3px solid #4cb5f9;
+  color: #4cb5f9;
 }
 
 .form .login-link {

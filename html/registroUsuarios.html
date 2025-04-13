@@ -53,7 +53,10 @@
               <h2>Regístrate</h2>
                 <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Elije un nombre de usuario" required>
                 <input type="email" id="correoElectronico" name="correoElectronico" placeholder="Elije un email" required>
-                <input type="password" id="password" name="password" placeholder="Crea tu contraseña" required>
+                <div class="password-container">
+                  <input type="password" id="password" name="password" class="password-input" placeholder="Crea tu contraseña" required>
+                  <button type="button" id="toggle-password" class="toggle-btn">Mostrar</button>
+                </div>
                 <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
               <div>
                   <label for="idRol"></label>
@@ -82,7 +85,7 @@
                 <input type="checkbox" onclick="agreesubmit(this)" name="condiciones"/> Estoy de acuerdo con los <a href="#" target="_blank" class="enlace-terminos">términos y condiciones</a><br/>
               </div>
               <div>
-                  <button type="submit">Regístrate</button>
+                  <button class="btn-submit" type="submit">Regístrate</button>
               </div>
               <div class="or">
                 <div class="linea-div"></div>
@@ -151,6 +154,7 @@
 
     <script src="/js/crearUsuario"></script>
   <script src="/js/rutasIndex.js"></script>
+  <script src="/js/passwordToggle.js"></script>
 
 </body>
 </html>
