@@ -236,7 +236,7 @@ body{
 
 /*width = ancho, height = alto*/
 
-.form-container img {/*esta es la imagen de registro y login*/
+.imageSingup img {/*esta es la imagen de registro y login*/
   width: 800px;
   height: 600px;
   border-radius: 50px;
@@ -278,9 +278,8 @@ body{
 
 .form h2 {
   text-align: center;
-  margin:5px;
   color: #333;
-  font-size: 6vh;
+  font-size: 5vh;
 }
 
 .form-login h2 {
@@ -318,17 +317,17 @@ body{
 
 #nombreUsuario,
 #correoElectronico,
-#fechaNacimiento,
-#imagenPerfil {
+#fechaNacimiento{
   margin-top: 7px;
   margin-bottom: 5px;
   justify-content: center;
   width: 80%;
+  height: 30px;
   padding: 10px;
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
-  font-size: 1.9vh;
+  font-size: 2.5vh;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
   outline: none;
@@ -339,17 +338,18 @@ body{
   position: relative;
   margin-left: 40px;
   width: 310px;
+  height: 30px;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
 }
 
 .password-input{
-  margin-top: 7px;
   margin-bottom: 5px;
   margin-left: -70px;
   width: 240px;
+  height: 30px;
   padding: 10px;
-  font-size: 2vh;
+  font-size: 2.5vh;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
   border: none;
@@ -358,10 +358,10 @@ body{
 
 .toggle-btn{ /*es el btn donde se mostrara el mensaje Mostrar o Ocultar*/
   position: absolute;
-  margin-top: 15px;
+  margin-top: 5px;
   background:none;
   cursor:pointer;
-  font-size: 18px;
+  font-size: 15px;
   outline: none;
   border: none;
   color: #003064;
@@ -391,7 +391,7 @@ body{
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 16px;
   color: #333;
   appearance: none; /* Para ocultar el icono por defecto */ 
   -webkit-appearance: none; 
@@ -411,7 +411,7 @@ select option {
   background-color: rgba(252, 201, 135, 0.621);
   color: #333;
   padding: 8px 12px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 select:hover {
@@ -421,20 +421,47 @@ select:hover {
 
 /*mejorar la estetica del input file (imagenes)*/
 /*ocultamos el imput file, y mediante clases e id hacemos llamada al imput desde el label*/
-input[type="file"]{
-  display: none;
+.content-img{
+ justify-items: center;
+}
+.content-img p { /*label para subir la img*/
+  display: inline-block;
+  color: #1e1e1e;
+  height: 20px;
+  font-size: 15px;
 }
 
-.custom-imagenPerfil { /*label para subir la img*/
-  display: inline-block;
-  padding: 15px 0;
+#imagenPerfil {
+  margin-bottom: 5px;
+}
+
+input[type="file"]::-webkit-file-upload-button{
+  color: #003064;
+  appearance: none;
+  background-color: #fde2ea00;
   cursor: pointer;
-  border-bottom: 1.5px solid #333 ;
-  border-radius: 10px;
-  background-color: rgba(215, 9, 9, 0.005);
-  color: #1e1e1e;
-  transition: background-color 0.3, color 0.3;
-  width: 300px;
+  height: 25px;
+  border: 2px solid #38b6ff;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover{
+  border: 1px solid #ff91b0;
+  transition: 0.6s;
+}
+
+.imgUpLoadRegistro{
+  width: 150px;
+  height: 130px;
+  border-radius: 20px;
+  border: 1.5px solid #333;
+}
+
+.imgSubidaRegistro {
+  width: 150px;
+  height: 130px;
+  border-radius: 20px;
 }
 
 .custom-imagenPerfil:hover {
@@ -444,7 +471,8 @@ input[type="file"]{
 
 .error-msg-registro{
   margin: 5px 0;
-  color: #c60d0d;
+  color: #ba0606;
+  height: 22px;
 }
 
 .btn-submit {
@@ -1090,6 +1118,7 @@ input::placeholder, textarea::placeholder {
 .footer {
   background-color: #003064;
   margin: 0 40px;
+  margin-top: -40px;
   padding: 10px;
   font-family: Arial, sans-serif;
   border-radius: 25px;

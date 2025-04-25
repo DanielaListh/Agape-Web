@@ -1,7 +1,6 @@
-// OBTENER LAS ESPECIALIDADES MEDICAS DE LA BBDD TRAIDAS CON FETCH 
-// Y MOSTRARLAS EN EL FRONT
+// OBTENER LAS ESPECIALIDADES MEDICAS DE LA BBDD TRAIDAS CON FETCH Y MOSTRARLAS EN EL FRONT
 
-//obtiene todas las especialidades medicas existentes 
+//obtiene todas las especialidades medicas existentes automaticamente
 async function ObtenerEspecialidadesMedicas() {
   const link='http://localhost:3000/especialidades/';
 
@@ -28,7 +27,7 @@ async function ObtenerEspecialidadesMedicas() {
   }
 
 
-//obtener solo UNA especialidad medica mediante el id Y TRAERLA AL FRONT
+//obtener solo UNA especialidad medica mediante el nombre Y TRAERLA AL FRONT
 async function buscarEspecialidad(){
   const nombreEspecialidadMedica = document.getElementById('nombreEspecialidadMedica').value;
   if (!nombreEspecialidadMedica){
@@ -44,7 +43,7 @@ async function buscarEspecialidad(){
       parrafoError.textContent = "Solo se permiten letras en la búsqueda";
        setTimeout(() => parrafoError.textContent = "", 6000);
     return;
-}
+  }
   try {
       const response = await fetch(`http://localhost:3000/especialidades/${nombreEspecialidadMedica}`);
       if (!response.ok) {

@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const regex = /^[,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
 
-  function validarInputs(input) {
-    if (!regex.test(input.value)) {
-      errorMsgInput.style.display = "block";
-      input.value = input.value.replace(/[^,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
-      setTimeout(() => (errorMsgInput.style.display = "none"), 5000);
+  function validarInputs(input) { //imput en el form 
+    if (!regex.test(input.value)) {//si el test de regex con el valor del input es diferente
+      errorMsgInput.style.display = "block";//el error se muestra
+      input.value = input.value.replace(/[^,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
+      setTimeout(() => (errorMsgInput.style.display = "none"), 5000);// luego se muestra el error y se cambia el estilo a none
       return;
     } else {
       errorMsgInput.style.display = "none";

@@ -1,12 +1,13 @@
 //conexion a base de datos
-const mysql=require("mysql2"); // va a requerir 
+const mysql = require("mysql2"); // va a requerir 
 
 const connection = mysql.createConnection({ // la constante de la conexion que necesita esos atributos
     host:"localhost",
     user:"root",
     password:"",
-    database:"bbdd_antares"
-});
+    database:"bbdd_antares", 
+    port: 3307
+}); //el puerto al cual va a estar escuhcando a la base de datos
 
 connection.connect((error) => {
     if(error){

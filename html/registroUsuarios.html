@@ -49,7 +49,7 @@
             <div class="imageSingup">
                 <img src="/css/Imagenes/abrazo.jpg" alt="Persona en silla de ruedas">
             </div>
-            <form class="form" id="form-registro" action="http://localhost:3000/usuarios/register/" method="POST" enctype="multipart/form-data">
+            <form class="form" id="form-registro" action="http://localhost:3000/usuarios/register" method="POST" enctype="multipart/form-data">
               <h2>Regístrate</h2>
                 <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Elije un nombre de usuario" required>
                 <input type="email" id="correoElectronico" name="correoElectronico" placeholder="Elije un email" required>
@@ -58,14 +58,14 @@
                   <button type="button" id="toggle-password" class="toggle-btn">Mostrar</button>
                 </div>
                 <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-              <div>
+                <div>
                   <label for="idRol"></label>
                   <select class="campoRol" id="idRol" name="idRol" required>
                       <option value="1">Paciente</option>
                       <option value="2">Médico</option>
                       <option value="3">Administrador</option>
-               </select>
-              </div>
+                  </select>
+                </div>
               <div>
                <label for="idGenero"></label>
                   <select id="idGenero" name="idGenero" required>
@@ -74,16 +74,19 @@
                       <option value="3">Binario</option>
                   </select>
               </div>
-              <div> 
-                <label for="imagenPerfil" class="custom-imagenPerfil">Selecciona una imagen para tu perfil</label>
-                <input type="file" id="imagenPerfil" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
+              <div class="content-img"> 
+                <p>Selecciona una imagen para tu perfil</p>
+                <input type="file" id="imagenPerfil" name="imagenPerfil" accept=".png, .jpg, .jpeg, image/*" required>
+                <div id="preview-registro">
+                  <div class="imgUpLoadRegistro"></div>
+                </div>
               </div>
               <div class="error-msg-registro">
                 <p id="error-msg"></p>
               </div>
-              <div class="terminos-condiciones">
+              <!--<div class="terminos-condiciones">
                 <input type="checkbox" onclick="agreesubmit(this)" name="condiciones"/> Estoy de acuerdo con los <a href="#" target="_blank" class="enlace-terminos">términos y condiciones</a><br/>
-              </div>
+              </div> -->
               <div>
                   <button class="btn-submit" type="submit">Regístrate</button>
               </div>
@@ -152,9 +155,10 @@
         </div>
     </footer>
 
-    <script src="/js/crearUsuario"></script>
+  <script src="/js/crearUsuario.js"></script>
   <script src="/js/rutasIndex.js"></script>
   <script src="/js/passwordToggle.js"></script>
+  <script src="/js/previewImagenRegistro.js"></script>
 
 </body>
 </html>
