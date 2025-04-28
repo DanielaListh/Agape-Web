@@ -335,7 +335,7 @@ body {
     border-radius: 25px;
     height: 600px;
     margin: 5px 10px;
-    width: 700px;
+    width: 500px;
     padding: 20px;
     padding-bottom: 0;
     padding-left: 60px;
@@ -383,7 +383,7 @@ body {
     border-radius: 5px;
     border: 2px solid #f9cbd8;
     height: 40px;
-    width: 500px;
+    width: 370px;
     outline: none;
     padding-left: 5px;
     color: #003064;
@@ -398,7 +398,7 @@ body {
     border-radius: 5px;
     border: 2px solid #f9cbd8;
     height: 80px;
-    width: 500px;
+    width: 350px;
     outline: none;
     padding-left: 5px;
     color: #003064;
@@ -468,7 +468,6 @@ input[type="file"]::-webkit-file-upload-button:hover{
     height: 200px;
     width: 200px;
     border-radius: 10px;
-    margin-left: -19px;
 }
 
 .imgSubida{
@@ -496,3 +495,252 @@ input[type="file"]::-webkit-file-upload-button:hover{
     color: #0569d396;
     transition: 0.4s;
 }
+
+/*MODIFICAR DE ESPECIALIDADES MEDICAS*/
+.content-view-modify{
+    background-color: white;
+    border-radius: 25px;
+    height: 600px;
+    margin: 5px 10px;
+    width: 500px;
+    padding: 20px;
+    padding-bottom: 0;
+    padding-left: 60px;
+}
+
+.content-view-modify h3{
+    color: #003064;
+    font-family: "Open Sans", serif;
+    font-weight: 700;
+}
+
+.container-search{
+    display: flex;
+    align-items: center;
+}
+
+.search-modify {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+}
+
+.search-modify input{
+    cursor: pointer;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 0.9em; 
+    border-radius: 5px;
+    height: 30px;
+    border: 3px solid #f9cbd8;  
+}
+
+.search-modify input::placeholder{
+    color: #e3b5c2;
+}
+
+.search-modify input:hover{
+    border: 3px solid #ff91b0;
+}
+
+.search-modify img{
+    margin-left: 80px;
+}
+
+.search-modify a{
+    margin-left: 185px;
+    margin-bottom: -15 px;
+}
+
+.search-modify label{
+    align-items: flex-start;
+    font-family: "Opens Sans", sans-serif;
+    color: #003064;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.search-btn-modify button {
+    background-color: #f9cbd8;
+    color: #003064;
+    border-radius: 20px;
+    border: 1px solid #f4c9d5;
+    align-items: center;
+    padding: 10px 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-btn-modify button:hover{
+    background-color: #fde2ea;
+    border: 1px solid #fde2ea;
+    color: #0569d396;
+    transition: 0.4s;
+}
+
+/*DIV que contiene el form*/
+.content-form-modify-espec-medicas{
+    margin: 10px;
+    padding: 15px;
+    height: 450px;
+    border-radius: 15px;
+    border: 2px solid #d52658;
+    overflow-y: auto; /* Habilita el scroll vertical */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+/* Estilo del scroll del div que contiene la tabla*/
+
+.content-form-modify-espec-medicas::-webkit-scrollbar {
+    width: 6px; /* ancho del scroll vertical */
+}
+
+  /* fondo del area de la barra */
+.content-form-modify-espec-medicas::-webkit-scrollbar-track {
+    background: #ffdddf1d;
+}
+
+/* Color de la barra de desplazamiento */
+.content-form-modify-espec-medicas::-webkit-scrollbar-thumb {
+    background: #fde2ea;;
+    border-radius: 5px;
+}
+
+/* Color cuando pasas el mouse sobre la barra */
+.content-form-modify-espec-medicas::-webkit-scrollbar-thumb:hover {
+    background: #ff8fab;
+}
+
+.id-espec-medicas,
+.fecha-espec-medicas{
+    color: #003064;
+    font-family: 'Opens sans', sans-serif;
+    letter-spacing: 0.5px;
+    padding: 5px 0px;
+}
+
+.form-contend-modify, 
+.form-contend-descripcion-modify {
+    padding: 5px 0px;
+}
+
+.form-contend-modify{
+  height: auto;
+}
+
+.form-contend-descripcion-modify{
+    height: auto;
+}
+
+
+.form-contend-modify label,
+.form-contend-descripcion-modify label{
+    color: #003064;
+    font-family: 'Opens sans', sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+.form-contend-modify input{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #f9cbd8;
+    height: 40px;
+    width: 370px;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 1em; 
+    font-family: sans-serif;
+}
+
+.form-contend-descripcion-modify textarea{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #f9cbd8;
+    height: 80px;
+    width: 350px;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 1em;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+}
+
+
+.form-contend-modify input::placeholder,
+.form-contend-descripcion-modify input::placeholder{
+    color: #e3b5c2;
+}
+
+.form-contend-modify input:hover,
+.form-contend-descripcion-modify input:hover{
+    border: 2px solid #ff91b0;
+    transition: 0.6s;
+}
+
+#error-msg-input,
+#error-msg-textarea{
+    color: #880228;
+    font-size: 1em;
+    font-weight: 400;
+    display: none;
+}
+
+.form-contend-img-modify label{
+    color: #003064;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.form-contend-img-modify input{
+    cursor: pointer;
+    outline: none;
+    font-weight: 400;
+    font-size: 0.8em;
+}
+
+/* el pseudo elemento webkit-file-upload-button que es intrinseco en input */
+/**/
+input[type="file"]::-webkit-file-upload-button {
+    color: #003064;
+    appearance: none;
+    background-color: #fde2ea00;
+    border-radius: 5px;
+    border: 1px solid #fde2ea;
+    cursor: pointer;
+    height: 30px;
+    margin-top: 6px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover{
+    border: 1px solid #ff91b0;
+    transition: 0.6s;
+}
+
+.modify button{
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    background-color: #f9cbd8;
+    height: 30px;
+    width: 180px;
+    margin: 10px 10px;
+    font-family: "Open Sans", serif;
+    font-weight: 500;
+    color: #003064;
+    cursor: pointer;
+}
+
+.modify button:hover{
+    background-color: #fde2ea;
+    color: #0569d396;
+    transition: 0.4s;
+}
+

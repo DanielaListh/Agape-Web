@@ -47,7 +47,7 @@ router.get('/:parametro', (req, res) => {
     if (!isNaN(id) && Number.isInteger(id)) {// isNaN = es un no numero, !isNaN = si es un numero
         // Es un ID valido (entero)
         req.params.idEspecialidad = id;
-        controller.especialidadMedicaId(req, res);
+        controller.especialidadMedicaId(req, res);// no se ejecuta
     } else {
         // Es un nombre
         req.params.nombreEspecialidadMedica = parametro.trim();
@@ -68,8 +68,8 @@ router.post('/', (req, res, next) => {
   }, controller.crearEspecialidad);
   
 
-// Método PUT para buscar por ID y actualizar
-router.put('/:idEspecialidad', upload, controller.actualizarEspecialidad);
+// Método PUT para buscar por nombre y actualizar
+router.put('/nombreEspecialidad', upload, controller.modificarEspecialidad);
 
 // Método DELETE para borrar una especialidad
 router.delete('/:idEspecialidad', controller.borrarEspecialidad);

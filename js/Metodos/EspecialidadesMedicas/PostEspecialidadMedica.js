@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     } else {
       errorMsgInput.style.display = "none";
-    }if(input.value.length > 50){
+    }if(input.value.length > 0){
       errorMsgInput.style.display = "block";
       input.value = input.value.slice(0, 50);//corta el contenido que supera los 250
       setTimeout(() => (errorMsgInput.style.display = "none"), 5000);

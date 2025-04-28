@@ -14,7 +14,16 @@ function crearEspecialidad(){
     window.location.href='http://localhost:3000/adminHome/crearEspecialidad/';
 }
 
-//funtion modificarEspecialidad(){
-// window.location.href = '';
-//}
+function modificarEspecialidad(){
+    window.location.href = 'http://localhost:3000/adminHome/modificarEspecialidad/';
+}
+
+// USUARIOS
+function verUsuarios(){
+    window.location.href='http://localhost:3000/adminHome/verUsuarios/';
+}
+
+function modificarUsuario(){
+    window.location.href = 'http://localhost:3000/adminHome/modificarUsuario/';
+}
 

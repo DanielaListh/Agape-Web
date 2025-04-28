@@ -112,7 +112,8 @@ const crearEspecialidad = (req, res) => {
 
 
 // método o controlador put
-const actualizarEspecialidad = (req, res) => {
+// nombreEspecialidad
+const modificarEspecialidad = (req, res) => {
     console.log(req.file); // mostrar los datos en la consola o terminal
     if (!req.file) {
         return res.status(400).send('No se subió ningún archivo');
@@ -158,6 +159,6 @@ module.exports = {
     especialidadMedicaId,
     especialidadMedicaNombre,
     crearEspecialidad,
-    actualizarEspecialidad,
+    modificarEspecialidad,
     borrarEspecialidad,
 };

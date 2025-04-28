@@ -90,6 +90,10 @@ app.get('/adminHome/crearEspecialidad', (req,res) => { // la ruta raiz del proye
    res.sendFile(path.join(__dirname,'html', 'crearEspecMedica.html'));
 });
 
+// servir la pagina html cuando se hace una solicitus get a /adminHome
+app.get('/adminHome/modificarEspecialidad', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
+   res.sendFile(path.join(__dirname,'html', 'modificarEspecMedica.html'));
+});
 
 
 
