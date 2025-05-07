@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2024 a las 18:57:56
+-- Servidor: 127.0.0.1:3307
+-- Tiempo de generación: 07-05-2025 a las 03:10:20
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bbdd_antares`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `administradores`
+--
+
+CREATE TABLE `administradores` (
+  `id_usuario` int(11) DEFAULT NULL,
+  `permisos` text DEFAULT NULL,
+  `estado_conexion` tinyint(1) DEFAULT 0,
+  `ultima_conexion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `administradores`
+--
+
+INSERT INTO `administradores` (`id_usuario`, `permisos`, `estado_conexion`, `ultima_conexion`) VALUES
+(43, 'none', 0, '2025-03-13 16:46:30'),
+(44, 'none', 0, '2025-03-13 16:51:34'),
+(45, 'none', 0, '2025-03-16 23:02:31'),
+(46, 'none', 0, '2025-03-16 23:21:06'),
+(47, 'none', 0, '2025-03-25 23:48:57'),
+(48, 'none', 0, '2025-03-25 23:49:11'),
+(49, 'none', 0, '2025-03-25 23:49:26'),
+(50, 'none', 0, '2025-03-25 23:50:01'),
+(59, 'none', 0, '2025-04-08 17:06:19'),
+(62, 'none', 0, '2025-04-08 23:34:21'),
+(65, 'none', 0, '2025-04-25 17:28:58'),
+(69, 'none', 0, '2025-04-25 19:07:32'),
+(70, 'none', 0, '2025-04-25 21:14:32');
 
 -- --------------------------------------------------------
 
@@ -69,9 +101,15 @@ CREATE TABLE `especialidades_medicas` (
 --
 
 INSERT INTO `especialidades_medicas` (`id_especialidad_medica`, `nombre_especialidad_med`, `descripcion_especialidad_med`, `fecha_alta_especialidad_med`, `imagen_especialidad_med`) VALUES
-(1, 'Cardiología', 'Diagnóstico y tratamiento de enfermedades del corazón y del sistema circulatorio', '2024-10-20 05:43:16', NULL),
-(2, 'Cirugía Cardiovascular', 'Intervenciones quirúrgicas en el corazón y los vasos sanguíneos.', '2024-10-20 15:17:28', NULL),
-(4, 'Pediatria', 'Ayuda a la salud de los niños', '2024-11-05 23:25:00', './uploads/Captura de pantalla 2024-10-31 010554.png');
+(42, 'Cardiología', 'Diagnóstico y tratamiento de enfermedades del corazón y del sistema circulatorio', '2025-04-02 14:10:42', './uploads/Especialidades-Medicas.png'),
+(43, 'Pediatría', 'Cuidado integral de la salud de los niños desde el nacimiento hasta la adolescencia, incluye la prevención, tratamiento de enfermedades y apoyo en su desarrollo físico y emocional', '2025-04-02 14:30:31', './uploads/Especialidades-Medicas (1).png'),
+(44, 'Oftalmología', 'Diagnóstico tratamiento y prevención de enfermedades relacionadas con los ojos y la visión', '2025-04-02 14:49:11', './uploads/Especialidades-Medicas (2).png'),
+(45, 'Odontología', 'Prevención diagnóstico y tratamiento de enfermedades y trastornos de los dientes, encías y boca', '2025-04-02 14:52:11', './uploads/Especialidades-Medicas (3).png'),
+(46, 'Ginecología', 'Atención médica de la salud reproductiva y enfermedades del sistema reproductor femenino', '2025-04-02 14:55:15', './uploads/Especialidades-Medicas (4).png'),
+(47, 'Imagenología', 'Uso de técnicas de imagen como ecografias para diagnosticar enfermedades', '2025-04-02 14:56:12', './uploads/imagenologia.png'),
+(48, 'caracolas muackataaaaa', 'las caracolas se mueven mucho', '2025-04-30 16:39:16', './uploads/DiseÃ±o sin tÃ­tulo (3).png'),
+(52, 'Laboratorio', 'Analizamos muestras biológicas como sangre y orina para diagnosticar y tratar enfermedades', '2025-04-08 17:16:58', './uploads/Especialidades-Medicas (6).png'),
+(53, 'prueba', 'otra prueba', '2025-04-08 19:40:42', './uploads/Especialidades-Medicas (5).png');
 
 -- --------------------------------------------------------
 
@@ -223,13 +261,7 @@ CREATE TABLE `medicos` (
 --
 
 INSERT INTO `medicos` (`id_usuario`, `codigo_medico`, `biografia_medico`) VALUES
-(25, 'MED123457', 'La Dra. Maria Fernandez es una especialista en gastroenterologia con más de 10 años de experiencia.'),
-(26, 'MED1234457', 'La Dra. Keren Cururo es una especialista en psicologia con más de 10 años de experiencia.'),
-(27, 'none', 'none'),
-(28, 'none', 'none'),
-(31, 'none', 'none'),
-(32, 'none', 'none'),
-(36, 'none', 'none');
+(51, 'none', 'none');
 
 -- --------------------------------------------------------
 
@@ -340,21 +372,30 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_electronico`, `password`, `fecha_nacimiento`, `fecha_alta_sistema`, `id_rol`, `imagen_perfil_usuario`, `id_genero`, `es_borrado`) VALUES
-(17, 'juana', 'Adriana@hotmail.com', '$2a$08$8z60QAPEEDV.ehZ2AEdl3eksYe1XyKb9y2ylfa05/zGOlW83ck8qC', '1997-11-17', '2024-10-28 04:04:08', 2, './uploads/face3.jpg', 0, 0),
-(23, 'keren', 'Adrdawdiana@hotmail.com', '$2a$08$FpreGN5jvHA7o9LkaRiOGuHfbDZ7HfIkzs8jfi8BS2/ekyZfKpjLG', '1997-11-17', '2024-10-30 19:04:36', 2, './uploads/Captura de pantalla 2024-10-30 140924.png', 0, 0),
-(25, 'keren333', 'keren3@hotmail.com', '$2a$08$k116KNCBMHB2yI0/AHXN3eSAxrMpcTaWJwja9CrxFjAaDb2vk32ga', '1997-11-18', '2024-10-30 19:26:08', 2, './uploads/Captura de pantalla 2024-10-30 141218.png', 0, 0),
-(26, 'keren334', 'keren3@hotmail.com', '$2a$08$lLHi9pCfmeQXAKRE.aV9g.Qq0ubnqNJ2xM9pUueRsb8XV5wK4XsVy', '1997-11-18', '2024-10-30 19:37:06', 2, './uploads/white roses.jpeg', 0, 0),
-(27, 'keren334', 'keren3@hotmail.com', '$2a$08$iBPqfvpI.yqPFFytBjc.7uUo.4EeecJd.09JWwB8JTDwmhHqG6WRe', '1997-11-18', '2024-10-30 19:54:51', 2, './uploads/white roses.jpeg', 0, 0),
-(28, 'keren334auuu', 'keren3auuu@hotmail.com', '$2a$08$MK0b7n0Q72x1uxcOOqJjIOlmGri9x6UI5A9fB2a91eaxrySnrNFrK', '1997-11-18', '2024-10-30 19:57:17', 2, './uploads/Captura de pantalla 2024-10-29 181047.png', 0, 0),
-(31, 'keren334auuua33', 'keren34auuu@hotmail.com', '$2a$08$JLvDXvn046/szjsiXOijm.hY2ZQlBmiaDxef5M5XBCMirKynLu2x.', '1997-11-14', '2024-10-31 16:02:19', 2, './uploads/Admiral-Infographic700x700px-07.jpg', 2, 0),
-(32, 'kerenaaaaaaa334auuua33', 'keren34auuu@hotmail.com', '$2a$08$xM5mA5YJ.me.WxFcIKtrG.My/sw0FYKzhFg3xiqlW/1m81LR3tHjG', '1997-11-14', '2024-10-31 16:03:48', 2, './uploads/Admiral-Infographic700x700px-07.jpg', 2, 0),
-(33, 'macarena', 'keren34auuu@hotmail.com', '$2a$08$IsZnyJwQU7yZozpI9IfIse8zVt10D4LZ3qHyK50wD.iHxz49OfBgC', '1997-11-14', '2024-10-31 16:04:05', 1, './uploads/Admiral-Infographic700x700px-07.jpg', 2, 0),
-(34, 'macarena', 'maca34auuu@hotmail.com', '$2a$08$yk74DYEiWbBAvB3Xl1w.F.yM/NTE4aPfKkim2bDaB/AUGc0.Nk6pO', '1997-11-14', '2024-10-31 18:02:56', 1, './uploads/white roses.jpeg', 1, 0),
-(36, 'prueba2', 'Adriana@hotmail.com', '$2a$08$b7yvM1TcWb7oE77p68tNf.LBvPDzNOvCjfaaFKDsoHD9HEbtzQjWq', '1997-10-16', '2024-11-06 12:09:41', NULL, './uploads/Captura de pantalla 2024-11-05 225952.png', 2, 0);
+(43, 'prueba55', 'danielabh1997@gmail.com', '$2a$08$MKP85hQG9AC8l9/pDpXTlefIu9i92r7WdlgZtyy2RY6YBuGmT7YE2', '2025-03-06', '2025-03-13 13:46:29', 3, './uploads/icon-duda.png', 2, 0),
+(44, 'Auyandome', 'auyandome1@gmail.com', '$2a$08$2qWwBgS7jv19PJaKy1xKvOcU33wHk5qyH8xgIfqlWAyryZNtmDmCW', '2025-03-03', '2025-03-13 13:51:34', 3, './uploads/edit (1).png', 1, 0),
+(45, 'pampita', 'pampita@gmail.com', '$2a$08$bzIX1wnD2L4TBP/BObje.eZo1Q188XDsQ2DN3szFcexYuDnfNO5S6', '2025-03-12', '2025-03-16 20:02:30', 3, './uploads/DiseÃ±o sin tÃ­tulo (2).png', 2, 0),
+(46, 'AnaMaria', 'maria@gmail.com', '$2a$08$j2BHnrzKXEfbqFu3XIscn.d1hyAQB8FPTnCwFRlTVecq2lJyUtBW6', '2025-03-03', '2025-03-16 20:21:06', 3, './uploads/Front Page Notion.png', 2, 0),
+(47, 'auuu', 'auu@gmail.com', '$2a$08$lXXKBAL2SqhZUG8F3QLcdu5I4I2LqSJNcp3qPYacmolrnBPClRY1a', '2025-03-03', '2025-03-25 20:48:57', 3, './uploads/Front Page Notion (1).png', 1, 0),
+(48, 'auuu', 'auu@gmail.com', '$2a$08$zdXjYLNI0mS8WUutXvG1i.fMgH7wJdVhbw6iJyK9UiaO5Np3BbNle', '2025-03-03', '2025-03-25 20:49:11', 3, './uploads/Front Page Notion (1).png', 1, 0),
+(49, 'auuu', 'auu@gmail.com', '$2a$08$LmmUIG3tphN79O9L09PX/edwbZXwcyDIOx/k1kzRu390GhVX514Da', '2025-03-03', '2025-03-25 20:49:26', 3, './uploads/Front Page Notion (1).png', 1, 0),
+(50, 'auuu1', 'auu1@gmail.com', '$2a$08$ZZ0QiTYLWPLozFdBk5MCTeZL2UBW0j0Z35n6FZ/ReYc3mxaXUPa/O', '2025-03-03', '2025-03-25 20:50:01', 3, './uploads/Front Page Notion (1).png', 1, 0),
+(51, 'danita', 'danita@gmail.com', '$2a$08$C6HuUKJF92Ybr51DoZuhauEJezJmxuhUnlsxUgp/ZzxQ0u1oMSfTi', '2025-04-01', '2025-04-03 23:56:25', 2, './uploads/gastro.png', 2, 0),
+(59, 'Miguel', 'miguelEdu@gmail.com', '$2a$08$76JUccWxVEF3ZVo5XhT37.uFlK/3jg9ZU8zihg7rX.MTOyEozRyjO', '2025-03-31', '2025-04-08 13:06:19', 3, './uploads/Banner Para Linkedin Recursos Humanos FotogrÃ¡fico Gris Claro (1).png', 1, 0),
+(62, 'prueba1111', 'prueba111@gmail.com', '$2a$08$7zsQLaYmsWsBgO/KfXdsRu4NBhE3LPr.O9kh0hQSvRHqbYPgs/bRW', '2025-04-01', '2025-04-08 19:34:21', 3, './uploads/Especialidades-Medicas (6).png', 1, 0),
+(65, 'dalilagebelluis', 'dalila@gmail.com', '$2a$08$OTkqqlvDYLpC1PJOiodTLuoP/0MVkxcvM7s3xOtMdJCuiFmCMkjvq', '0000-00-00', '2025-04-25 13:28:58', 3, './uploads/DiseÃ±o sin tÃ­tulo (5).png', 2, 0),
+(69, 'luisgerardo', 'luis@gmail.com', '$2a$08$uOOqi1LqhoReB/vWbL.CWe1/3N/1.KLe6eqW3aBjBPVSn3HzfX3RK', '2025-04-09', '2025-04-25 15:07:31', 3, './uploads/DiseÃ±o sin tÃ­tulo (5).png', 3, 0),
+(70, 'paulitoLindo', 'paulito1@gmail.com', '$2a$08$vnjz3Ka3thIKrqR6shVnEuZJymung9PZjpiNMNDK5SzBknchDdW4K', '0000-00-00', '2025-04-25 17:14:32', 3, './uploads/DiseÃ±o sin tÃ­tulo (5).png', 1, 0);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `administradores`
+--
+ALTER TABLE `administradores`
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `ciudades`
@@ -490,7 +531,7 @@ ALTER TABLE `direcciones`
 -- AUTO_INCREMENT de la tabla `especialidades_medicas`
 --
 ALTER TABLE `especialidades_medicas`
-  MODIFY `id_especialidad_medica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_especialidad_medica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `estados`
@@ -562,11 +603,17 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `administradores`
+--
+ALTER TABLE `administradores`
+  ADD CONSTRAINT `administradores_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
 -- Filtros para la tabla `ciudades`
@@ -619,13 +666,6 @@ ALTER TABLE `pacientes`
 ALTER TABLE `perfiles`
   ADD CONSTRAINT `perfiles_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE,
   ADD CONSTRAINT `perfiles_ibfk_2` FOREIGN KEY (`id_direccion`) REFERENCES `direcciones` (`id_direccion`);
-
---
--- Filtros para la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD CONSTRAINT `fk_genero` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id_genero`),
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
