@@ -1,148 +1,290 @@
-//url ir a /adminHome/modificarEspecialidad
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("form-Modify-EspMedicas");
+  const form = document.getElementById("form-Modify-EspMedicas");
   
-    if (!form) {
-      console.error("form no encontrado en el DOM");
+  if (!form) {
+    console.error("form no encontrado en el DOM");
+    return;
+  }
+
+  const inputBusqueda = document.getElementById('inputNombreEspecialidadMedica');
+  const selectCoincidencias = document.getElementById('listaCoincidencias');
+  const parrafoError = document.getElementById("p-error");
+  const regex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
+
+  function mostrarParrafoError(mensaje) {
+    parrafoError.textContent = mensaje;
+    setTimeout(() => (parrafoError.textContent = ""), 6000);
+  }
+
+  // Escuchar la escritura del usuario
+  inputBusqueda.addEventListener('input', async function () { // escuhamos a lo que sea ingresado por el input
+    const valor = inputBusqueda.value.trim();
+    if (valor.length < 2){
+      selectCoincidencias.style.display = 'none';
+      return false;
+    }
+
+    if(!regex.test(valor)){
+      mostrarParrafoError("no se admiten numeros ni caracteres especiales");
+      selectCoincidencias.style.display = 'none';
       return;
     }
-  
-    const inputNombreEspecialidad = document.getElementById("nombreEspecialidadMedica");
-    const inputDescripcionMed = document.getElementById("descripcionMed");
-    const imagenUrl = document.getElementById("imagenUrl");
-    const errorMsg = document.getElementById("error-msg");
 
-    function mostrarError(mensaje){
-        errorMsg.textContent = "mensaje";
-        setTimeout(() => (errorMsg.textContent = ""), 6000);
-    }
-  
-    const regex = /^[,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-  
-    function validarInput(input){ //imput en el form osea nombre de especialidad medica
+    //inicio del get
+    try {
+      const response = await fetch(`http://localhost:3000/especialidades?nombre=${encodeURIComponent(valor)}`);
+      if (!response.ok) throw new Error("Error al buscar especialidades");
 
-        if (!input.value.trim()) {
-            mostrarError("El nombre de la especialidad medica es necesaria");
-            return false;
-        }
-        if(!regex.test(input.value)) {//si el test de regex con el valor del input es diferente
-            mostrarError("No se admiten caracteres especiales ni numeros");
-            input.value = input.value.replace(/[^,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
-            return false;
-        } 
-        if(input.value.length > 50){
-            mostrarError("Solo se admiten 50 caracteres");
-            input.value = input.value.slice(0, 50);//corta el contenido que supera los 250
-            return false;
-        }
-        return true;
+      const especialidades = await response.json();
+      mostrarCoincidencias(especialidades);
+    } catch (error) {
+      console.error("Error en la búsqueda:", error);
+      selectCoincidencias.style.display = 'none';
     }
-  
-    function validarTextarea(textarea){
-
-        if(!regex.test(textarea.value)){
-            mostrarError("No se admiten caracteres especialies ni numeros");
-            textarea.value= textarea.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
-            return false;
-        }
-        if(textarea.value.length > 250){
-            mostrarError("No debe superar los 250 caracteres");
-            textarea.value = textarea.value.slice(0, 250);//corta el contenido que supera los 250
-            return false;
-        }
-        if(input.value.length < 10){
-            mostrarError("Debes describir la especialidad medica");
-            return false;
-        }
-        return true;
-    }
-  
-    inputNombreEspecialidad.addEventListener("input", function () {
-      validarInput(inputNombreEspecialidad);
-    });
-  
-    inputDescripcionMed.addEventListener("input", function () {// no deberia ser textatrea?
-      validarTextarea(inputDescripcionMed);
-    });
-  
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
-  
-      console.log("formulario encontrado, ejecutando fetch...");
-  
-      const nombreEspecialidadMedica = inputNombreEspecialidad.value.trim();
-      const descripcionMed = inputDescripcionMed.value.trim();
-  
-      if (!nombreEspecialidadMedica || !descripcionMed) {
-        alert("Todos los campos son obligatorios.");
-        return;
-      }
-  
-      if (!imagenUrl || !imagenUrl.files || imagenUrl.files.length === 0) {
-        console.error("El input de imagen no fue encontrado en el DOM o está vacío.");
-        return;
-      }
-  
-      const file = imagenUrl.files[0];
-      const validImageTypes = ["image/jpeg", "image/png", "image/gif"];
-      if (!validImageTypes.includes(file.type)) {
-        mostrarError("El archivo debe ser una imagen válida (JPEG, PNG, GIF).");
-        return false;
-      }
-  
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const image = new Image();
-        image.src = event.target.result;
-  
-        image.onload = async () => {
-          if (image.width !== 300 || image.height !== 400) {
-            mostrarError("La imagen debe ser de 300x400 px.");
-            return false;
-          }
-  
-          console.log("Imagen válida, procesando...");
-  
-          const formData = new FormData();
-          formData.append("nombreEspecialidadMedica", nombreEspecialidadMedica);
-          formData.append("descripcionMed", descripcionMed);
-          formData.append("imagenUrl", file);
-  
-          for (let [key, value] of formData.entries()) {
-            console.log(`${key}:`, value);
-          }
-  
-          console.log("Iniciando solicitud fetch...");
-  
-          try {
-            const response = await fetch("http://localhost:3000/especialidades/", {
-              method: "POST",
-              body: formData,
-            });
-  
-            if (!response.ok) {
-              const errorData = await response.json();
-              throw new Error(errorData.message || "Error en la solicitud");
-            }
-  
-            alert("Especialidad médica creada con éxito.");
-            form.reset();
-            window.location.href = "http://localhost:3000/adminHome/verEspecialidades/";
-          } catch (error) {
-            console.error("Error:", error);
-            alert("Hubo un error inesperado. Inténtalo de nuevo.");
-          }
-          return true;
-        };
-  
-        image.onerror = () => {
-          mostrarError("No se pudo cargar la imagen.");
-        };
-      };
-  
-      reader.readAsDataURL(file);
-    });
   });
+
+  //mostrar las coincidencias del get en un select options
+  function mostrarCoincidencias(especialidades) {
+    if (especialidades.length === 0) {
+      selectCoincidencias.style.display = 'none';
+      return;
+    }
+
+    selectCoincidencias.innerHTML = ''; // Limpiar previas
+    especialidades.forEach(especialidad => {
+      const option = document.createElement('option');
+      option.value = especialidad.nombre_especialidad_med;
+      option.textContent = especialidad.nombre_especialidad_med;
+      selectCoincidencias.appendChild(option);
+    });
+
+    selectCoincidencias.style.display = 'block';
+  }
+
+  // Cuando el usuario selecciona una coincidencia
+  selectCoincidencias.addEventListener('change', async function () {
+    const nombreSeleccionado = selectCoincidencias.value;
+
+    try {
+      //const response = await fetch(`http://localhost:3000/especialidades/${nombreSeleccionado}`);
+      const response = await fetch(`http://localhost:3000/especialidades/${encodeURIComponent(nombreSeleccionado)}`);
+
+      if (!response.ok) {
+        mostrarParrafoError("Error al obtener la especialidad seleccionada");
+        return;
+      }
+
+      const data = await response.json();
+      mostrarDataForm(data); // Tu función ya existente
+      selectCoincidencias.style.display = 'none';
+      // prueba para ver lo que trae data
+    console.log("inicio de data");
+    console.log(data);
+    console.log("fin de data");
+    } catch (error) {
+      console.error("Error al obtener la especialidad:", error);
+    }
+  });
+
+  // mostrar la especialidad seleccionada
+  function mostrarDataForm(especialidad) {
+
+    if(Array.isArray(especialidad)){
+      especialidad = especialidad[0];
+    }
+
+    if(!especialidad || !especialidad.id_especialidad_medica){
+      mostrarParrafoError("no se encontraron resultados de la especialidad");
+      return;
+    }
+
+    const idEspecialidadMedica = document.getElementById("spamId");
+    const fechaOriginal = document.getElementById("spamFecha");
+    const nombreEspecialidadMedica = document.getElementById("nombreEspecialidadMedica");
+    const descripcionEspecialidadMedica = document.getElementById("descripcionMed");
+    const imagenEspecialidadMedica = document.getElementById("imagenUrl");
+
+    const baseUrl = "http://localhost:3000/";
+    //const imgURL = baseUrl + especialidad.imagenEspecialidadMedica;
+    const imgURL = baseUrl + especialidad.imagen_especialidad_med.replace('./', '');
+
+
+    idEspecialidadMedica.textContent = especialidad.id_especialidad_medica;
+    nombreEspecialidadMedica.value = especialidad.nombre_especialidad_med;
+    descripcionEspecialidadMedica.value = especialidad.descripcion_especialidad_med;
+    fechaOriginal.textContent = especialidad.fecha_alta_especialidad_med;
+    imagenEspecialidadMedica.src = imgURL;
+
+    // se busca formatear la fecha para presentarla en el front de una manera mas accesible
+    const fechaFormat = new Date(fechaOriginal).toISOString().split("T")[0];
+    fechaAltaEespecialidad.value = fechaFormat;
+
+    console.log("especialidad cargada", especialidad);
+
+  }
+
+
+//VALIDAR LOS INPUTS ANTES DEL EVENTO SUBMIT DE PUT// 
+const errorMsgNombre = document.getElementById('error-msg-nombre');
+const errorMsgDescripcion = document.getElementById('error-msg-descripcion');
+const errorMsgImagen = document.getElementById('error-msg-imagen');
+
+// se hacen varias funciones de mostrar error porque los errores se 
+// muestran en lugares diferentes dependiendo de cada input
+function mostrarErrorMsgNombre(mensaje){
+  errorMsgNombre.textContent = mensaje;
+  setTimeout(() => (errorMsgNombre.textContent = ""), 6000);
+}
+
+function mostrarErrorMsgDescripcion(mensaje){
+  errorMsgDescripcion.textContent = mensaje;
+  setTimeout(() => (errorMsgDescripcion.textContent = ""), 6000);
+}
+
+function mostrarErrorMsgImagen(mensaje){
+  errorMsgImagen.textContent = mensaje;
+  setTimeout(() => (errorMsgImagen.textContent = ""), 6000);
+}
+
+const regexInput = /^[,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+
+function validarInput(input){ //imput en el form osea nombre de especialidad medica
+
+    if (!input.value.trim()) {
+        mostrarErrorMsgNombre("El nombre de la especialidad medica es necesaria");
+        return false;
+    }
+    if(!regexInput.test(input.value)) {//si el test de regex con el valor del input es diferente
+        mostrarErrorMsgNombre("No se admiten caracteres especiales ni numeros");
+        input.value = input.value.replace(/[^,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
+        return false;
+    } 
+    if(input.value.length > 50){
+        mostrarErrorMsgNombre("Solo se admiten 50 caracteres");
+        input.value = input.value.slice(0, 50);//corta el contenido que supera los 250
+        return false;
+    }
+    return true;
+}
+
+function validarTextarea(textarea){
+  if(textarea.value.length < 10){
+    mostrarErrorMsgDescripcion("Debes describir la especialidad medica");
+    return false;
+  }
+  if(!regexInput.test(textarea.value)){
+    mostrarErrorMsgDescripcion("No se admiten numeros ni caracteres especiales");
+    textarea.value= textarea.value.replace(/[^,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+    return false;
+  }
+  if(textarea.value.length > 250){
+    mostrarErrorMsgDescripcion("No debe superar los 250 caracteres");
+    textarea.value = textarea.value.slice(0, 250);//corta el contenido que supera los 250
+    return false;
+    }
+  return true;
+}
+
+inputNombreEspecialidad.addEventListener("input", function () {
+  validarInput(inputNombreEspecialidad);
+});
+
+inputDescripcionMed.addEventListener("input", function () {// no deberia ser textatrea?
+  validarTextarea(inputDescripcionMed);
+});
+
+
+
+
+  //hacer el put
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    console.log("formulario encontrado, ejecutando fetch...");
+
+    const nombreEspecialidadMedica = inputNombreEspecialidad.value.trim();
+    const descripcionMed = inputDescripcionMed.value.trim();
+    const idEspecialidad = document.getElementById("spamId").textContent;
+
+    if(!nombreEspecialidadMedica){
+      mostrarErrorMsgNombre("El nombre no puede quedar vacio");
+      return;
+    }
+    if(!descripcionMed){
+      mostrarErrorMsgDescripcion("La descripcion es necesaria");
+      return;
+    }
+
+    if (!imagenUrl || !imagenUrl.files || imagenUrl.files.length === 0) {
+      console.error("El archivo de imagen no fue encontrado en el DOM o está vacío.");
+      mostrarErrorMsgImagen("El archivo de imagen no fue encontrado en el DOM");
+      return;
+    }
+
+    const file = imagenUrl.files[0];
+    const validImageTypes = ["image/jpeg", "image/png", "image/gif"];
+    if (!validImageTypes.includes(file.type)) {
+      mostrarErrorMsgImagen("El archivo debe ser una imagen válida (JPEG, PNG, GIF).");
+      return false;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const image = new Image();
+      image.src = event.target.result;
+
+      image.onload = async () => {
+        if (image.width !== 300 || image.height !== 400) {
+          mostrarErrorMsgImagen("La imagen debe ser de 300x400 px.");
+          return false;
+        }
+
+        console.log("Imagen válida, procesando...");
+
+        const formData = new FormData();
+        formData.append("nombreEspecialidadMedica", nombreEspecialidadMedica);
+        formData.append("descripcionMed", descripcionMed);
+        formData.append("imagenUrl", file);
+
+        for (let [key, value] of formData.entries()) {
+          console.log(`${key}:`, value);
+        }
+
+        console.log("Iniciando solicitud fetch...");
+        
+
+        try {
+          const response = await fetch(`http://localhost:3000/especialidades/${idEspecialidad}`, {
+            method: "PUT",
+            body: formData,
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || "Error en la solicitud");
+          }
+
+          alert("Especialidad médica creada con éxito.");
+          form.reset();
+          window.location.href = "http://localhost:3000/adminHome/verEspecialidades/";
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Hubo un error inesperado. Inténtalo de nuevo.");
+        }
+        return true;
+      };
+
+      image.onerror = () => {
+        mostrarError("No se pudo cargar la imagen.");
+      };
+    };
+
+    reader.readAsDataURL(file);
+  });
+});
+
+
+
+
   

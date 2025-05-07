@@ -105,67 +105,74 @@
             </div>
             <div class="container-search">
                 <div class="search-modify">
-                    <a href="#"><img src="/css/Imagenes/icon-duda.png" width="15"></a>
-                    <label for="nombreEspecialidadMedica">Ingresa el nombre de la especialidad</label>
-                    <input id="nombreEspecialidadMedica" type="text" placeholder="nombre especialidad">
+                    <label for="inputNombreEspecialidadMedica">Ingresa el nombre de la especialidad</label>
+                    <input id="inputNombreEspecialidadMedica" type="text" placeholder="nombre especialidad">
+                    <select id="listaCoincidencias" size="2" style="display:none;"></select>
                     <div class="mensaje-error">
-                        <p class="p-error"></p>
+                        <p id="p-error"></p>
                     </div>
                 </div>
-                <div class="search-btn-modify">
+                <!-- <div class="search-btn-modify">
                     <button id="btn-buscar-especialidad" onclick="buscarEspecialidad()">buscar</button>
                     <div id="notification"></div>
-                    <div id="especialidad-details"></div>
-                </div>
+                </div> -->
             </div>
-    
 
             <div class="content-form-modify-espec-medicas">
                 <form class="form-modify-EspMedicas" id="form-Modify-EspMedicas" action="http://localhost:3000/especialidades/" method="PUT" enctype="multipart/form-data">
-                    <div class="id-espec-medicas">
-                        <p>ID <span id="verIdEspecialidadMedica">2567</span></p>
+                    <div class="content-data-p">
+                        <div class="datos-espec-medicas">
+                            <p>ID<span id="spamId" class="span-datos-especialidad-medica"></span></p>
+                        </div>
+                        <div class="datos-espec-medicas">
+                            <p>Fecha Act.<span id="spamFecha" class="span-datos-especialidad-medica"></span></p>
+                        </div>
                     </div>
-                    <div class="fecha-espec-medicas">
-                        <p>Fecha <span id="verIdEspecialidadMedica">30/01/2023</span></p>
-                    </div>
+                    
 
                     <div class="form-contend-modify">
                         <label for="nombreEspecialidadMedica">Nombre especialidad</label>
                         <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                        <input id="nombreEspecialidadMedica" type="text" name="nombreEspecialidadMedica" required>
-                        <p id="error-msg"></p>
-
+                        <input id="nombreEspecialidadMedica" type="text" name="nombreEspecialidadMedica" required />
+                        <div class="error-msg">
+                            <p id="error-msg-nombre"></p>
+                        </div>
                     </div>
                     <div class="form-contend-descripcion-modify">
                         <label for="descripcionMed">Descripción especialidad</label>
                         <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
                         <textarea name="descripcionMed" id="descripcionMed" rows="5" cols="10" required></textarea>
-                        <p id="error-msg"></p>
+                        <div class="error-msg">
+                            <p id="error-msg-descripcion"></p>
+                        </div>
                     </div>
                     
                     <div class="form-contend-img-modify">
                         <label for="imagenUrl">Imagen de especialidad médica</label>
                         <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                        <input type="file" id="imagenUrl" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
+                        <img type="file" id="imagenUrl" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
                         <div id="preview"></div>
-                        <p id="error-msg"></p>
+                        <div class="error-msg">
+                            <p id="error-msg-imagen"></p>
+                        </div>
+                        
                     </div>
-                    
+
                     <div class="modify">
                         <button type="submit">Modificar</button>
                     </div>
                 </form>
+                
             </div>
 
         </div>
-    
     </div>
-
 
     <script src="/js/navBarAdmin.js"></script>
     <script src="/js/llamadoDeRutasAdmin.js"></script>
     <script src="/js/cerrarSesion.js"></script>
     <script src="/js/previsualizacionImagenes.js"></script>
+    <script src="/js/Metodos/EspecialidadesMedicas/putEspecialidadMedica.js"></script>
 
 </body>
 </html>

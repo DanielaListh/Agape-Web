@@ -69,7 +69,7 @@ router.post('/', (req, res, next) => {
   
 
 // Método PUT para buscar por nombre y actualizar
-router.put('/nombreEspecialidad', upload, controller.modificarEspecialidad);
+router.put('/:idEspecialidad', upload, controller.modificarEspecialidad);
 
 // Método DELETE para borrar una especialidad
 router.delete('/:idEspecialidad', controller.borrarEspecialidad);

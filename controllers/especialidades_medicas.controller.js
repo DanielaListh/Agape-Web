@@ -112,18 +112,24 @@ const crearEspecialidad = (req, res) => {
 
 
 // método o controlador put
-// nombreEspecialidad
+// lo ideal es que lo busque por nombre y realice la modificacion por el id
 const modificarEspecialidad = (req, res) => {
     console.log(req.file); // mostrar los datos en la consola o terminal
+    
+
+    const { idEspecialidad } = req.params; // obtener el id de la especialidad como parámetro para buscar el registro a actualizar
+    if (isNaN(idEspecialidad)) {
+        return res.status(400).json({ error: "El id de la especialidad debe ser un número válido" });
+    }
+    
+
     if (!req.file) {
         return res.status(400).send('No se subió ningún archivo');
     }
 
     const imagenUrl = saveImage(req.file); // guardar la imagen subida y almacenar la URL en imagenUrl
-    const { idEspecialidad } = req.params; // obtener el id de la especialidad como parámetro para buscar el registro a actualizar
-    const { nombreEspecialidadMedica, descripcionMed } = req.body; // Obtener los datos del cuerpo de la solicitud
+    const { nombreEspecialidadMedica ,descripcionMed } = req.body; // Obtener los datos del cuerpo de la solicitud
     const sql = "UPDATE especialidades_medicas SET nombre_especialidad_med = ?, descripcion_especialidad_med = ?, imagen_especialidad_med = ? WHERE id_especialidad_medica = ?";
-
     db.query(sql, [nombreEspecialidadMedica, descripcionMed, imagenUrl, idEspecialidad], (error, result) => {
         if (error) {
             console.log("Error al actualizar la especialidad médica:", error);
@@ -132,7 +138,7 @@ const modificarEspecialidad = (req, res) => {
         if (result.affectedRows === 0) {
             return res.status(404).send({ error: "Error: la especialidad médica a modificar no existe" });
         }
-        const especialidadM = { ...req.body, ...req.params };
+        const especialidadM = { ...req.params, ...req.body, imagenUrl: imagenUrl };
         res.json(especialidadM);
     });
 };

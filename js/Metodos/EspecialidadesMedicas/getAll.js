@@ -78,7 +78,7 @@ function mostrarEnTabla(data){
   if (data.length === 0) {// si el resultado es nulo traido de la bbdd entonces que muestre el mensaje
     contenedorTabla.innerHTML = '<p>No se encontraron resultados.</p>';
     return;
-}
+  }
   //base del link para tener el path absoluto de las img
   const baseUrl="http://localhost:3000/"; // la barra al final / es importante para cumplir con toda la ruta
 
