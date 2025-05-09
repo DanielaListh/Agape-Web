@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Escuchar la escritura del usuario
   inputBusqueda.addEventListener('input', async function () { // escuhamos a lo que sea ingresado por el input
     const valor = inputBusqueda.value.trim();
-    if (valor.length < 2){
+    if (valor.length < 1){
       selectCoincidencias.style.display = 'none';
       return false;
     }
@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //mostrar las coincidencias del get en un select options
-  function mostrarCoincidencias(especialidades) {
-    if (especialidades.length === 0) {
-      selectCoincidencias.style.display = 'none';
-      return;
-    }
+    function mostrarCoincidencias(especialidades) {
+      if (especialidades.length === 0) {
+        selectCoincidencias.style.display = 'none';
+        return;
+      }
 
     selectCoincidencias.innerHTML = ''; // Limpiar previas
     especialidades.forEach(especialidad => {
@@ -62,8 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Cuando el usuario selecciona una coincidencia
-  selectCoincidencias.addEventListener('change', async function () {
+    selectCoincidencias.addEventListener('change', async function () {
     const nombreSeleccionado = selectCoincidencias.value;
+    selectCoincidencias.style.display = 'none';// al seleccionar una concidencia ya correcta, se quita el menu
 
     try {
       //const response = await fetch(`http://localhost:3000/especialidades/${nombreSeleccionado}`);
@@ -78,13 +79,20 @@ document.addEventListener("DOMContentLoaded", function () {
       mostrarDataForm(data); // Tu función ya existente
       selectCoincidencias.style.display = 'none';
       // prueba para ver lo que trae data
-    console.log("inicio de data");
-    console.log(data);
-    console.log("fin de data");
-    } catch (error) {
-      console.error("Error al obtener la especialidad:", error);
-    }
+      console.log("inicio de data");
+      console.log(data);
+      console.log("fin de data");
+      } catch (error) {
+        console.error("Error al obtener la especialidad:", error);
+      }
   });
+
+
+  const idEspecialidadMedica = document.getElementById("spamId");
+  const fechaOriginal = document.getElementById("spamFecha");
+  const nombreEspecialidadMedica = document.getElementById("nombreEspecialidadMedica");
+  const descripcionEspecialidadMedica = document.getElementById("descripcionMed");
+  const imagenEspecialidadMedica = document.getElementById("imagenActual");
 
   // mostrar la especialidad seleccionada
   function mostrarDataForm(especialidad) {
@@ -97,12 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
       mostrarParrafoError("no se encontraron resultados de la especialidad");
       return;
     }
-
-    const idEspecialidadMedica = document.getElementById("spamId");
-    const fechaOriginal = document.getElementById("spamFecha");
-    const nombreEspecialidadMedica = document.getElementById("nombreEspecialidadMedica");
-    const descripcionEspecialidadMedica = document.getElementById("descripcionMed");
-    const imagenEspecialidadMedica = document.getElementById("imagenUrl");
 
     const baseUrl = "http://localhost:3000/";
     //const imgURL = baseUrl + especialidad.imagenEspecialidadMedica;
@@ -125,8 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //VALIDAR LOS INPUTS ANTES DEL EVENTO SUBMIT DE PUT// 
-const errorMsgNombre = document.getElementById('error-msg-nombre');
-const errorMsgDescripcion = document.getElementById('error-msg-descripcion');
+const errorMsgNombre = document.getElementById("error-msg-nombre");
+const errorMsgDescripcion = document.getElementById("error-msg-descripcion");
 const errorMsgImagen = document.getElementById('error-msg-imagen');
 
 // se hacen varias funciones de mostrar error porque los errores se 
@@ -146,55 +148,56 @@ function mostrarErrorMsgImagen(mensaje){
   setTimeout(() => (errorMsgImagen.textContent = ""), 6000);
 }
 
-const regexInput = /^[,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-
+const regexInput = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+const regexTextarea = /^[,.a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
 
 function validarInput(input){ //imput en el form osea nombre de especialidad medica
-
-    if (!input.value.trim()) {
-        mostrarErrorMsgNombre("El nombre de la especialidad medica es necesaria");
-        return false;
-    }
-    if(!regexInput.test(input.value)) {//si el test de regex con el valor del input es diferente
-        mostrarErrorMsgNombre("No se admiten caracteres especiales ni numeros");
-        input.value = input.value.replace(/[^,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
-        return false;
-    } 
-    if(input.value.length > 50){
-        mostrarErrorMsgNombre("Solo se admiten 50 caracteres");
-        input.value = input.value.slice(0, 50);//corta el contenido que supera los 250
-        return false;
-    }
-    return true;
+  if (!input.value.trim()) {
+    mostrarErrorMsgNombre("El nombre de la especialidad medica es necesaria");
+    return false;
+  }
+  if(!regexInput.test(input.value)) {//si el test de regex con el valor del input es diferente
+    mostrarErrorMsgNombre("No se admiten caracteres especiales ni numeros");
+    input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
+    return false;
+  } 
+  if(input.value.length > 30){
+    mostrarErrorMsgNombre("Como maximo se admiten 30 caracteres");
+    input.value = input.value.slice(0, 30);//corta el contenido que supera los 250
+    return false;
+  }
+  return true;
 }
 
-function validarTextarea(textarea){
-  if(textarea.value.length < 10){
-    mostrarErrorMsgDescripcion("Debes describir la especialidad medica");
+function validarTextarea(input){
+  if (!input.value.trim()) {
+    mostrarErrorMsgDescripcion("La descripcion de la especialidad medica es necesaria");
     return false;
   }
-  if(!regexInput.test(textarea.value)){
+  if(!regexTextarea.test(input.value)){
     mostrarErrorMsgDescripcion("No se admiten numeros ni caracteres especiales");
-    textarea.value= textarea.value.replace(/[^,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+    input.value= input.value.replace(/[^,.a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
     return false;
   }
-  if(textarea.value.length > 250){
-    mostrarErrorMsgDescripcion("No debe superar los 250 caracteres");
-    textarea.value = textarea.value.slice(0, 250);//corta el contenido que supera los 250
+  if(input.value.length < 10){
+    mostrarErrorMsgDescripcion("La especialidad medica debe ser mayor a 10 caracteres");
+    return false;
+  }
+  if(input.value.length > 200){
+    mostrarErrorMsgDescripcion("No debe superar los 200 caracteres");
+    input.value = input.value.slice(0, 200);//corta el contenido que supera los 250
     return false;
     }
   return true;
 }
 
-inputNombreEspecialidad.addEventListener("input", function () {
-  validarInput(inputNombreEspecialidad);
+nombreEspecialidadMedica.addEventListener("input", function () {
+  validarInput(nombreEspecialidadMedica);
 });
 
-inputDescripcionMed.addEventListener("input", function () {// no deberia ser textatrea?
-  validarTextarea(inputDescripcionMed);
+descripcionEspecialidadMedica.addEventListener("input", function () {// no deberia ser textatrea?
+  validarTextarea(descripcionEspecialidadMedica);
 });
-
-
 
 
   //hacer el put
@@ -203,15 +206,15 @@ inputDescripcionMed.addEventListener("input", function () {// no deberia ser tex
 
     console.log("formulario encontrado, ejecutando fetch...");
 
-    const nombreEspecialidadMedica = inputNombreEspecialidad.value.trim();
-    const descripcionMed = inputDescripcionMed.value.trim();
+    const nombreInput = nombreEspecialidadMedica.value.trim();
+    const descripcionInput = descripcionEspecialidadMedica.value.trim();
     const idEspecialidad = document.getElementById("spamId").textContent;
 
-    if(!nombreEspecialidadMedica){
+    if(!nombreInput){
       mostrarErrorMsgNombre("El nombre no puede quedar vacio");
       return;
     }
-    if(!descripcionMed){
+    if(!descripcionInput){
       mostrarErrorMsgDescripcion("La descripcion es necesaria");
       return;
     }
@@ -228,7 +231,7 @@ inputDescripcionMed.addEventListener("input", function () {// no deberia ser tex
       mostrarErrorMsgImagen("El archivo debe ser una imagen válida (JPEG, PNG, GIF).");
       return false;
     }
-
+ // quedamos en mejorar el front con la imagen traida del back
     const reader = new FileReader();
     reader.onload = (event) => {
       const image = new Image();
@@ -243,8 +246,8 @@ inputDescripcionMed.addEventListener("input", function () {// no deberia ser tex
         console.log("Imagen válida, procesando...");
 
         const formData = new FormData();
-        formData.append("nombreEspecialidadMedica", nombreEspecialidadMedica);
-        formData.append("descripcionMed", descripcionMed);
+        formData.append("nombreEspecialidadMedica", nombreInput);
+        formData.append("descripcionMed", descripcionInput);
         formData.append("imagenUrl", file);
 
         for (let [key, value] of formData.entries()) {

@@ -335,7 +335,7 @@ body {
 .content-view-create{
     background-color: white;
     border-radius: 25px;
-    height: 600px;
+    height: 640px;
     margin: 5px 10px;
     width: 500px;
     padding: 20px;
@@ -356,31 +356,31 @@ body {
     justify-content: center;
 }
 
-.form-contend, 
-.form-contend-descripcion {
+.form-contend-nombre-post, 
+.form-contend-descripcion-post {
     margin-bottom: 5px;
     margin-left: -19px;
     width: 600px;
 }
 
-.form-contend{
+.form-contend-nombre-post{
   height: 87px;
 }
 
-.form-contend-descripcion{
+.form-contend-descripcion-post{
     height: 132px;
 }
 
 
-.form-contend label,
-.form-contend-descripcion label{
+.form-contend-nombre-post label,
+.form-contend-descripcion-post label{
     color: #003064;
     font-family: 'Opens sans', sans-serif;
     letter-spacing: 0.5px;
     font-weight: 400;
 }
 
-.form-contend input{
+.form-contend-nombre-post input{
     cursor: pointer;
     border-radius: 5px;
     border: 2px solid #f9cbd8;
@@ -395,7 +395,7 @@ body {
     font-family: sans-serif;
 }
 
-.form-contend-descripcion textarea{
+.form-contend-descripcion-post textarea{
     cursor: pointer;
     border-radius: 5px;
     border: 2px solid #f9cbd8;
@@ -411,13 +411,13 @@ body {
 }
 
 
-.form-contend input::placeholder,
-.form-contend-descripcion input::placeholder{
+.form-contend-nombre-post input::placeholder,
+.form-contend-descripcion-post input::placeholder{
     color: #e3b5c2;
 }
 
-.form-contend input:hover,
-.form-contend-descripcion input:hover{
+.form-contend-nombre-post input:hover,
+.form-contend-descripcion-post input:hover{
     border: 2px solid #ff91b0;
     transition: 0.6s;
 }
@@ -426,32 +426,32 @@ body {
     margin: 5px 0;
     padding: 3px;
     height: 20px;
-    background-color: #3086e124;
 }
 
 #error-msg-nombre,
 #error-msg-descripcion,
 #error-msg-imagen{
-    color: #880228;
+    color: #c10339;
     font-size: 1em;
     font-weight: 400;
-    display: none;
-    background-color: #d0a6b2;
 }
 
-.form-contend-img label{
-    color: #003064;
-    margin-top: 15px;
-    margin-bottom: 5px;
+.form-contend-img-post{
     margin-left: -19px;
 }
 
-.form-contend-img input{
+.form-contend-img-post label{
+    color: #003064;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    
+}
+
+.form-contend-img-post input{
     cursor: pointer;
     outline: none;
     font-weight: 400;
     font-size: 0.8em;
-    margin-left: -19px;
 }
 
 /* el pseudo elemento webkit-file-upload-button que es intrinseco en input */
@@ -486,6 +486,27 @@ input[type="file"]::-webkit-file-upload-button:hover{
     width: 200px;
     border-radius: 10px;
 }
+
+/*div de error*/
+
+.errorMsgNombrePost,
+.errorMsgDescripcionPost,
+.errorMsgImgPost{
+    width: 430px;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.errorMsgNombrePost,
+.errorMsgDescripcionPost,
+.errorMsgImgPost p{
+    color: #af0622;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+/*boton submit crear*/
 
 .create button{
     border-radius: 20px;
@@ -599,7 +620,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
     padding: 10px;
     height: 450px;
     border-radius: 15px;
-    border: 2px solid #d52658;
+    border: 2px solid #d52657a0;
     overflow-y: auto; /* Habilita el scroll vertical */
     box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
 }
@@ -715,6 +736,11 @@ input[type="file"]::-webkit-file-upload-button:hover{
     transition: 0.6s;
 }
 
+.form-contend-img-modify{
+    display: block;
+    height: auto;
+}
+
 .form-contend-img-modify label{
     color: #003064;
     margin-top: 15px;
@@ -722,10 +748,24 @@ input[type="file"]::-webkit-file-upload-button:hover{
 }
 
 .form-contend-img-modify input{
+    display: flex;/*en este caso ayuda a que el imput esta abajo de la imagen*/
+    margin-top: 5px;
     cursor: pointer;
     outline: none;
     font-weight: 400;
     font-size: 0.8em;
+}
+
+/*aqui se mostrara la imagen traida del get*/
+/*preview es un div, donde se muestra de manera dinamica un div y dentro de ese div se renderiza una imagen*/ 
+
+.imgSubidaPut{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    border: 2px solid #f9cbd8;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /* el pseudo elemento webkit-file-upload-button que es intrinseco en input */
@@ -746,6 +786,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
     transition: 0.6s;
 }
 
+/*boton de submit para el modificar*/
 .modify button{
     border-radius: 20px;
     border: 1px solid #f9cbd8;

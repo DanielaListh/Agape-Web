@@ -150,8 +150,9 @@
                     <div class="form-contend-img-modify">
                         <label for="imagenUrl">Imagen de especialidad médica</label>
                         <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                        <img type="file" id="imagenUrl" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
-                        <div id="preview"></div>
+                        <img id="imagenActual" class="imgSubidaPut" src="" alt="">
+                        <input type="file" id="imagenUrl" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
+
                         <div class="error-msg">
                             <p id="error-msg-imagen"></p>
                         </div>
@@ -171,8 +172,9 @@
     <script src="/js/navBarAdmin.js"></script>
     <script src="/js/llamadoDeRutasAdmin.js"></script>
     <script src="/js/cerrarSesion.js"></script>
-    <script src="/js/previsualizacionImagenes.js"></script>
+    <script src="/js/PutprevisualizacionImagenes.js"></script>
     <script src="/js/Metodos/EspecialidadesMedicas/putEspecialidadMedica.js"></script>
+    <script src="/js/seguridadHomeAdmin.js"></script>
 
 </body>
 </html>

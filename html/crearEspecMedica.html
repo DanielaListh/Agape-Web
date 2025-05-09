@@ -106,28 +106,35 @@
             </div>
 
             <form class="form-Create-EM" id="form-Create-EspMedicas" action="http://localhost:3000/especialidades/" method="POST" enctype="multipart/form-data">
-                <div class="form-contend">
+
+                <div class="form-contend-nombre-post">
                     <label for="nombreEspecialidadMedica">Nombre especialidad</label>
                     <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
                     <input id="nombreEspecialidadMedica" type="text" name="nombreEspecialidadMedica" required>
-                    <p id="error-msg-input">El nombre no debe contener caracteres especiales ni superar los 30c</p>
-
+                    <div class="errorMsgNombrePost">
+                        <p id="error-msg-input-post"></p>
+                    </div>
                 </div>
-                <div class="form-contend-descripcion">
+
+                <div class="form-contend-descripcion-post">
                     <label for="descripcionMed">Descripción especialidad</label>
                     <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
                     <textarea name="descripcionMed" id="descripcionMed" rows="5" cols="10" required></textarea>
-                    <p id="error-msg-textarea"></p>
-
-
+                    <div class="errorMsgDescripcionPost">
+                        <p id="error-msg-textarea-post"></p>
+                    </div>
                 </div>
                 
-                <div class="form-contend-img">
+                <div class="form-contend-img-post">
                     <label for="imagenUrl">Imagen de especialidad médica</label>
                     <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
                     <input type="file" id="imagenUrl" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
                     <div id="preview"></div>
+                    <div class="errorMsgImgPost">
+                        <p id="error-msg-img-post"></p>
+                    </div>
                 </div>
+
                 <div class="create">
                     <button type="submit">Crear</button>
                 </div>
@@ -140,7 +147,7 @@
 
       <script src="/js/navBarAdmin.js"></script>
       <script src="/js/cerrarSesion.js"></script>
-      <script src="/js/previsualizacionImagenes.js"></script>
+      <script src="/js/PostprevisualizacionImagenes.js"></script>
       <script src="/js/llamadoDeRutasAdmin.js"></script>
       <script src="/js/seguridadHomeAdmin.js"></script>
       <script src="/js/Metodos/EspecialidadesMedicas/PostEspecialidadMedica.js"></script>

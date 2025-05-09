@@ -9,51 +9,77 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputNombreEspecialidad = document.getElementById("nombreEspecialidadMedica");
   const inputDescripcionMed = document.getElementById("descripcionMed");
   const imagenUrl = document.getElementById("imagenUrl");
-  const errorMsgInput = document.getElementById("error-msg-input");
-  const errorMsgTextarea = document.getElementById("error-msg-textarea")
+  const errorMsgInput = document.getElementById("error-msg-input-post");
+  const errorMsgTextarea = document.getElementById("error-msg-textarea-post");
+  const errorMsgImg = document.getElementById("error-msg-img-post");
 
-  const regex = /^[,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+// se hacen varias funciones de mostrar error porque los errores se 
+// muestran en lugares diferentes dependiendo de cada input
+function mostrarErrorMsgNombre(mensaje){
+  errorMsgInput.textContent = mensaje;
+  setTimeout(() => (errorMsgInput.textContent = ""), 6000);
+}
 
-  function validarInputs(input) { //imput en el form 
-    if (!regex.test(input.value)) {//si el test de regex con el valor del input es diferente
-      errorMsgInput.style.display = "block";//el error se muestra
-      input.value = input.value.replace(/[^,a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
-      setTimeout(() => (errorMsgInput.style.display = "none"), 5000);// luego se muestra el error y se cambia el estilo a none
-      return;
-    } else {
-      errorMsgInput.style.display = "none";
-    }if(input.value.length > 0){
-      errorMsgInput.style.display = "block";
-      input.value = input.value.slice(0, 50);//corta el contenido que supera los 250
-      setTimeout(() => (errorMsgInput.style.display = "none"), 5000);
-      return;
-    }
+function mostrarErrorMsgDescripcion(mensaje){
+  errorMsgTextarea.textContent = mensaje;
+  setTimeout(() => (errorMsgTextarea.textContent = ""), 6000);
+}
+
+function mostrarErrorMsgImagen(mensaje){// OJO QUE NO SE ESTA USANDO
+  errorMsgImg.textContent = mensaje;
+  setTimeout(() => (errorMsgImg.textContent = ""), 6000);
+}
+
+const regexInput = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+const regexTextarea = /^[,.a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+function validarInput(input){ //imput en el form osea nombre de especialidad medica
+  if (!input.value.trim()) {
+    mostrarErrorMsgNombre("El nombre de la especialidad medica es necesaria");
+    return false;
   }
-
-  function validarTextarea(textarea){
-    if(!regex.test(textarea.value)){
-      errorMsgTextarea.style.display = "block";
-      textarea.value= textarea.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
-      setTimeout(() => (errorMsgTextarea.style.display = "none"), 5000);
-      return;
-    } else {
-      errorMsgTextarea.style.display = "none";
-    }
-    if(textarea.value.length > 250){
-      errorMsgTextarea.style.display = "block";
-      textarea.value = textarea.value.slice(0, 250);//corta el contenido que supera los 250
-      setTimeout(() => (errorMsgTextarea.style.display = "none"), 5000);
-      return;
-    }
+  if(!regexInput.test(input.value)) {//si el test de regex con el valor del input es diferente
+    mostrarErrorMsgNombre("No se admiten caracteres especiales ni numeros");
+    input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
+    return false;
+  } 
+  if(input.value.length > 30){
+    mostrarErrorMsgNombre("Como maximo se admiten 30 caracteres");
+    input.value = input.value.slice(0, 30);//corta el contenido que supera los 250
+    return false;
   }
+  return true;
+}
 
-  inputNombreEspecialidad.addEventListener("input", function () {
-    validarInputs(inputNombreEspecialidad);
-  });
+function validarTextarea(input){
+  if (!input.value.trim()) {
+    mostrarErrorMsgDescripcion("La descripcion de la especialidad medica es necesaria");
+    return false;
+  }
+  if(!regexTextarea.test(input.value)){
+    mostrarErrorMsgDescripcion("No se admiten numeros ni caracteres especiales");
+    input.value= input.value.replace(/[^,.a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+    return false;
+  }
+  if(input.value.length < 10){
+    mostrarErrorMsgDescripcion("La especialidad medica debe ser mayor a 10 caracteres");
+    return false;
+  }
+  if(input.value.length > 200){
+    mostrarErrorMsgDescripcion("No debe superar los 200 caracteres");
+    input.value = input.value.slice(0, 200);//corta el contenido que supera los 250
+    return false;
+    }
+  return true;
+}
 
-  inputDescripcionMed.addEventListener("input", function () {
-    validarTextarea(inputDescripcionMed);
-  });
+inputNombreEspecialidad.addEventListener("input", function () {
+  validarInput(inputNombreEspecialidad);
+});
+
+inputDescripcionMed.addEventListener("input", function () {// no deberia ser textatrea?
+  validarTextarea(inputDescripcionMed);// si no sirve ver en html y ponerle input en ves de textarea
+});
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -70,15 +96,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!imagenUrl || !imagenUrl.files || imagenUrl.files.length === 0) {
       console.error("El input de imagen no fue encontrado en el DOM o está vacío.");
+      mostrarErrorMsgImagen("La imagen no fue encontrada");
       return;
     }
 
     const file = imagenUrl.files[0];
     const validImageTypes = ["image/jpeg", "image/png", "image/gif"];
     if (!validImageTypes.includes(file.type)) {
-      alert("El archivo debe ser una imagen válida (JPEG, PNG, GIF).");
+      mostrarErrorMsgImagen("El archivo debe ser una imagen(JPEG, PNG, GIF).");
       return;
     }
+
+    //podemosvalidar aqui todo sobre img!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -87,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       image.onload = async () => {
         if (image.width !== 300 || image.height !== 400) {
-          alert("La imagen debe ser de 300x400 px.");
+          mostrarErrorMsgImagen("La imagen debe ser de 300*400px.");
           return;
         }
 
@@ -127,8 +156,8 @@ document.addEventListener("DOMContentLoaded", function () {
       image.onerror = () => {
         alert("No se pudo cargar la imagen.");
       };
+      
     };
-
     reader.readAsDataURL(file);
   });
 });
