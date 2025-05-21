@@ -45,7 +45,7 @@ const crearEstado = (req,res) => {
 
 
 //metodo o controlador put
-const actualizarEstado= (req,res) => {
+const actualizarEstado = (req,res) => {
     const {idEstado} = req.params; // me pide que requiera el id como parametro
     const {nombreEstado} = req.body;// le mandamos body de los datos a modificar
     const sql="UPDATE estados SET nombre_estado = ?  WHERE id_estado = ?";

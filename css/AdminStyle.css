@@ -806,3 +806,151 @@ input[type="file"]::-webkit-file-upload-button:hover{
     transition: 0.4s;
 }
 
+/*Perfil de usuario Administrador*/
+
+
+.content-view-perfilUsuario{
+    background-color: #ffffff;
+    border-radius: 25px;
+    height: 600px;
+    padding: 10px;
+    margin: 10px;
+    padding-left: 60px;
+}
+
+.Titulo2{
+    color: #003064;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.content-formulario-y-eliminar{
+    display: flex;
+}
+
+.content-formulario{
+    display: flex;
+    background-color: #ffffffc0;
+    width: 650px;
+    height: 550px;
+    border-radius: 20px;
+}
+
+.content-imgPerfil{
+    display: block;
+    width: 300px;
+    margin: 10px;
+}
+
+.imgPerfil{
+    background-color: #000000;
+    margin: 10px 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.buttonEditarImagen{
+ margin: 5px 90px;
+}
+
+.buttonEditarImagen button{
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    background-color: #f9cbd8;
+    height: 30px;
+    width: 100px;
+    margin: 10px 10px;
+    font-family: "Open Sans", serif;
+    font-weight: 500;
+    color: #003064;
+    cursor: pointer;
+}
+
+.subTitulo{
+    color: #003064;
+}
+
+.dataIneditable{
+    padding: 5px;
+    display: block;
+}
+
+.dataIneditable-Id,
+.dataIneditable-Rol,
+.dataIneditable-Fecha{
+    display: flex;
+    padding: 5px;
+    height: 20px;
+    align-items: center;
+}
+
+.dataIneditable-Id p,
+.dataIneditable-Rol p,
+.dataIneditable-Fecha p{
+    margin: 5px;
+    color: #003064;
+    font-weight: 500;
+}
+
+.dataIneditable-Id input,
+.dataIneditable-Rol input,
+.dataIneditable-Fecha input{
+    pad: 2px;
+    color: #003064;
+    font-weight: 400;
+    border: 1px solid #9f9a9cd1;
+}
+
+/*form*/
+.dataEditable{
+    display: block;
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+
+}
+
+.dataEditable p{
+    color: #003064;
+}
+
+/*div eliminar perfil*/
+
+.content-eliminar-perfil{
+    background-color: #ffffff80;
+    height: 100px;
+    width: 300px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 400px;
+    margin-left: 10px;
+}
+
+.tituloBorrar{
+    font-weight: 600;
+    color: #003064;
+}
+
+.textoBorrar{
+    font-size: 0.9em;
+    font-weight: 400;
+    color: #003064;
+}
+
+.buttonEliminarPerfil{
+    margin: 5px 70px;
+}
+
+.buttonEliminarPerfil button{
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    background-color: #f9cbd8;
+    height: 30px;
+    width: 100px;
+    margin: 10px 10px;
+    font-family: "Open Sans", serif;
+    font-weight: 500;
+    color: #003064;
+    cursor: pointer;
+}

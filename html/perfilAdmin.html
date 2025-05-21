@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="/css/AdminStyle.css">
+    <link rel="stylesheet" href="/css/tableStyle.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <img src="/css/Imagenes/LogoAgape.png" alt="">
+        </div>
+        <ul class="menu">
+            <li><a href="#" onclick="irHome()">Home</a></li>
+
+            <li class="submenu">
+                <a class="submenu_a" href="#">Gestión de Tablas</a>
+                <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                <ul class="submenu-content">
+                    <li class="submenu">
+                        <a href="#">Especialidades</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a id="verEspecialidades" href="#" onclick="verEspecialidades()">Ver especialidades</a></li>
+                            <li><a id="crearEspecialidad" href="#" onclick="crearEspecialidad()">Crear especialidad</a></li>
+                            <li><a id="modificarEspecialidad" href="#" onclick="modificarEspecialidad()">Editar especialidad</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Provincias</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#" onclick="verProvincias()">Ver provincia</a></li>
+                            <li><a href="#">Crear provincia</a></li>
+                            <li><a href="#">Editar provincia</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Géneros</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#">Ver géneros</a></li>
+                            <li><a href="#">Crear género</a></li>
+                            <li><a href="#">Editar género</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Médicos</a>
+                        <img class="arrow list_arrow" class="arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#">Lista de médicos</a></li>
+                            <li><a href="#">Agregar médico</a></li>
+                            <li><a href="#">Edicar médico</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Roles</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#">Ver roles</a></li>
+                            <li><a href="#">Crear rol</a></li>
+                            <li><a href="#">Editar rol</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">Usuarios</a>
+                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <ul class="submenu-content">
+                            <li><a href="#">Lista de usuarios</a></li>
+                            <li><a href="#">Agregar usuario</a></li>
+                            <li><a href="#">Editar usuario</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a class="submenu_a" href="#">Estadísticas</a>
+                <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" >
+            </li>
+        </ul>
+    </nav> 
+
+    <div class="contenedor-padre">
+
+        <div class="barra-horizontal-sup">
+          <div class="icon-chat"><button><img src="/css/Imagenes/chat.png" alt=""></button></div>
+          <div class="icon-notificacion"><button><img src="/css/Imagenes/bell.png" alt=""></button></div>
+          <div id="icon-user-perfil" class="icon-user-perfil"><button><img src="/css/Imagenes/user.svg" alt=""></button></div>
+          <div id="sub-menu" class="sub-menu hidden">
+            <ul>
+                <li><a class="a-link" href="/html/perfilAdmin.html" onclick="irMiPerfil()" id="verPerfil">Ver perfil</a></li>
+                <li><a class="a-link" href="#" id="logout" onclick="cerrarSession()">Cerrar Sesion</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <h1 id="SaludoUser">!Hola {user}!</h1>
+        <div class="content-view-perfilUsuario" id="imgEclipse">
+            
+            <h2 class="Titulo2">Mi Perfil</h2>
+            
+            <div class="content-formulario-y-eliminar">
+                <div class="content-formulario">
+                    <div class="content-imgPerfil">
+                        <p class="subTitulo">Imagen de Perfil</p>
+                        <div class="imgPerfil">
+                            <img src="" alt="">
+                        </div>
+                        <div class="buttonEditarImagen"><button>Editar</button></div>
+
+                        <div class="dataIneditable">
+                            <div class="dataIneditable-Id">
+                                <p>ID</p>
+                                <input type="text" id="idUser">
+                            </div>
+                            <div class="dataIneditable-Rol">
+                                <p>Rol</p>
+                                <input type="text" id="rolUser">
+                            </div>
+                            <div class="dataIneditable-Fecha">
+                                <p for="">Fecha actualizacion</p>
+                                <input type="date" id="FechaActualizacion" name="FechaActualizacion">
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+            
+                    <form class="dataEditable" id="formPerfil" action="http://localhost:3000/usuarios/" method="PUT" enctype="multipart/form-data">
+                        <p>Nombre</p>
+                        <input type="text" id="nombreUsuario" name="nombreUsuario">
+
+                        <p>Correo Electronico</p>
+                        <input type="email" id="correoElectronico" name="correoElectronico">
+
+                        <div class="password-container-edit">
+                            <p>contraseña</p>
+                            <input type="password" id="password" name="password" class="password-input">
+                            <button type="button" id="toggle-password" class="toggle-btn">Mostrar</button>
+                        </div>
+                        <p>Fecha de nacimiento</p>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+
+                        <p>Genero</p>
+                        <select class="campoGenero" id="idGenero" name="idGenero">
+                        <option value="1">Hombre</option>
+                        <option value="2">Mujer</option>
+                        <option value="3">Prefiero no especificar</option>
+                        </select>
+                        <div>
+                            <button class="btn-submit" type="submit">Guardar cambios</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="content-eliminar-perfil">
+                    <p class="tituloBorrar">Borrar mi perfil</p>
+                    <p class="textoBorrar">Realiza la eliminacion del perfil de la base de datos del sistema, no hay marcha atras.</p>
+                    <div class="buttonEliminarPerfil">
+                        <button id="EliminarPerfil" onclick="eliminarPerfil()">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/navBarAdmin.js"></script>
+    <script src="/js/passwordToggle.js"></script>
+    <script src="/js/cerrarSesion.js"></script>
+    <script src="/js/seguridadHomeAdmin.js"></script>
+    <script src="/js/llamadoDeRutasAdmin.js"></script>
+
+
+
+</body>
+</html>

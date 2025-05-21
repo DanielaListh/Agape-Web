@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const correoElectronico = document.getElementById('correoElectronico');
     const password = document.getElementById('password');
     const inputFechaNacimiento = document.getElementById('fechaNacimiento');
-    const fechaNacimientoISO = fechaNacimiento.toISOString().split("T")[0]; // YYYY-MM-DD cambia el formato de
     const imagenUrl = document.getElementById('imagenPerfil');
     const alertaError = document.getElementById('error-msg');
 
@@ -73,16 +72,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return true;
     }
 
-    const fechaNacimiento = new Date (inputFechaNacimiento);
+    let fechaNacimiento = null;
     const hoy = new Date();
 
     function validarFechaNacimiento(fechaNacimiento){
         if(fechaNacimiento > hoy){
-            mostrarError("La fecha de nacimiento debe se valida");
+            mostrarError("La fecha de nacimiento debe ser valida");
             return false;
          }
         //calcular edad
-        const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();// obtiene la edad
+        let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();// obtiene la edad
         const mesDeDiferencia = hoy.getMonth() - fechaNacimiento.getMonth();// obtiene el mes de diferencia
         if(mesDeDiferencia < 0 || (mesDeDiferencia === 0 && hoy.getDate() < fechaNacimiento.getDate())){
               edad--; // Ajustar edad si el mes/día actual está antes del cumpleaños
@@ -103,8 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
     password.addEventListener("input", () => validarPassword(password));
 
     inputFechaNacimiento.addEventListener("input", () => {
-        const fecha = new Date (inputFechaNacimiento.value);
-        validarFechaNacimiento(fecha);
+        fechaNacimiento = new Date (inputFechaNacimiento.value);
+        validarFechaNacimiento(fechaNacimiento);
     }); 
         
 
@@ -116,6 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // cuando utilizamos en el html select debemos inicializar las constantes o variables dentro del evento listener con accion submit
         // ya que al cargar la pagina se toma como valor el predeterminado valor 1 y no se llega a tomar el valor que el usuario elije
+
+        fechaNacimiento = new Date (inputFechaNacimiento.value);
+        const fechaNacimientoISO = fechaNacimiento.toISOString().split("T")[0];
         
         const idRol = parseInt(document.getElementById('idRol').value);
         const idGenero = parseInt(document.getElementById('idGenero').value);
@@ -174,10 +176,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         const errorData = await response.json();
                         throw new Error(errorData.message || "Error en la solicitud");
                     }
+                    const data = await response.json();// leer el json antes de redireccionar
+                    console.log("respuesta del backend: ", data);
 
                     alert("Usuario creado con éxito.");
                     form.reset();
+                    //redireccion de pagina
                     window.location.href = "http://localhost:3000/Agape/loginAdmin/";
+                    
                 } catch (error) {
                     console.error("Error:", error);
                     alert("Hubo un error inesperado al crear el usuario. Inténtalo de nuevo.");

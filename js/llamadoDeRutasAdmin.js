@@ -27,3 +27,8 @@ function modificarUsuario(){
     window.location.href = 'http://localhost:3000/adminHome/modificarUsuario/';
 }
 
+
+// Provincias
+function verProvincias(){
+    window.location.href='http://localhost:3000/adminHome/verProvincias/';
+}

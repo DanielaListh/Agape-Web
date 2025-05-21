@@ -43,8 +43,9 @@ const generoRouter = require('./routers/generos.router');
 app.use('/generos', generoRouter);
 
 const estadosRouter = require('./routers/estados.router');
-const usuariosMiddleware = require('./middleware/usuarios.middleware');
 app.use('/estados', estadosRouter);
+//const usuariosMiddleware = require('./middleware/usuarios.middleware');
+
 
 
 // Ejemplo de ruta específica al home del modulo admin
@@ -79,7 +80,7 @@ app.get('/adminHome', (req,res) => { // la ruta raiz del proyecto o pag principa
    res.sendFile(path.join(__dirname,'html', 'adminHome.html'));
 });
 
-
+//Especialidades Medicas
 // servir la pagina html cuando se hace una solicitus get a /adminHome
 app.get('/adminHome/verEspecialidades', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
    res.sendFile(path.join(__dirname,'html', 'verEspecialidadesMedicas.html'));
@@ -93,6 +94,11 @@ app.get('/adminHome/crearEspecialidad', (req,res) => { // la ruta raiz del proye
 // servir la pagina html cuando se hace una solicitus get a /adminHome
 app.get('/adminHome/modificarEspecialidad', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
    res.sendFile(path.join(__dirname,'html', 'modificarEspecMedica.html'));
+});
+
+// Estados o Provincias
+app.get('/adminHome/verProvincias', (req,res) => {
+   res.sendFile(path.join(__dirname, 'html', 'verProvincias.html'));
 });
 
 
