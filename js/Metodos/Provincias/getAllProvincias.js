@@ -17,9 +17,9 @@ async function ObtenerProvincias() {
     // mover hacia arriba de la tabla pero no anda bien ya que no va hasta el extremo superior del div
     //const tablaContenedor = document.getElementById('tabla-especialidades-medicas');
     //tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => {
-        tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
+      //setTimeout(() => {
+        //tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      //}, 300);
     }
     catch(error){
       console.error('Hubo un problema con la solicitud: ' + error); // los errores los vere en la consola
@@ -29,21 +29,26 @@ async function ObtenerProvincias() {
 
 //obtener solo UNA especialidad medica mediante el nombre Y TRAERLA AL FRONT
 async function buscarProvincia(){
-  const nombreProvincia = document.getElementById('nombreEstado').value;
-  if (!nombreProvincia){
-      //alert("no se proporcionaron datos suficientes en la busqueda");
-      const parrafoError = document.querySelector(".p-error");
-      parrafoError.textContent = "no se proporcionaron datos suficientes en la busqueda";
-       setTimeout(() => parrafoError.textContent = "", 6000);
-      return;
-  }
-  if (!/^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/.test(nombreProvincia)) {
-    //alert("Solo se permiten letras en la búsqueda");
+  const nombreEstado = document.getElementById('nombreEstado').value;
+  const regex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
+
+  if (!nombreEstado){
+    //alert("no se proporcionaron datos suficientes en la busqueda");
     const parrafoError = document.querySelector(".p-error");
-      parrafoError.textContent = "Solo se permiten letras en la búsqueda";
-       setTimeout(() => parrafoError.textContent = "", 6000);
+    parrafoError.textContent = "no se proporcionaron datos en la busqueda";
+    setTimeout(() => parrafoError.textContent = "", 6000);
     return;
   }
+
+  if (!regex.test(nombreEstado)) {
+    //alert("Solo se permiten letras en la búsqueda");
+    const parrafoError = document.querySelector(".p-error");
+    parrafoError.textContent = "Solo se permiten letras en la búsqueda";
+    nombreEstado = nombreEstado.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");// no funciona esta linea porque no esta en un evento listener
+    setTimeout(() => parrafoError.textContent = "", 6000);
+    return;
+  }
+
   try {
       const response = await fetch(`http://localhost:3000/estados/${nombreEstado}`);
       if (!response.ok) {
@@ -62,7 +67,7 @@ async function buscarProvincia(){
       mostrarEnTabla(data); //mostrar el resultado de la busqueda en la tabla, antes data estaba dentro de [], lo que hacia que trajera
       //resultados undefined.
       //displayEspecialidad(data);
-  } catch (error) {
+    } catch (error) {
       const parrafoError = document.querySelector(".p-error");
       parrafoError.textContent = "Lo sentimos, ocurrio un error inesperado";
       setTimeout(() => parrafoError.textContent = "", 6000);
@@ -116,17 +121,17 @@ function mostrarEnTabla(data){
 //////////////////////
 
   //el evento de escucha del boton refrescar, espera que se haga click para ser usado
-  document.getElementById('btn-refrescar-get').addEventListener('click', () => {
-    ObtenerProvincias();
-  });
+document.getElementById('btn-refrescar-get').addEventListener('click', () => {
+  ObtenerProvincias();
+});
 
   /////////////////////////
 //el evento al boton de busqueda
-document.getElementById('btn-buscar-especialidad').addEventListener('click', () => {
+document.getElementById('btn-buscar-provincia').addEventListener('click', () => {
   buscarProvincia();
 });
 
 /////////////////////////
 
 // llama a la funcion de manera automatica al cargar la pag, sin necesidad del refresh
-document.addEventListener('DOMContentLoaded', ObtenerProvincias);
+document.addEventListener('DOMContentLoaded', ObtenerProvincias());

@@ -13,7 +13,7 @@ const obtenerEstados = (req,res) => { // falta el req
 };
 
 
-//controlador para un estado
+//controlador para un estado por id
 const obtenerEstado = (req,res) => { //aqui le falto al profe el req y res
     const {idEstado} = req.params; // aqui el profe coloco id_peliculas, pero a mi no me hizo falta
     const sql = "SELECT * FROM estados WHERE id_estado = ?"; // se deja el ? para evitar inyeccciones externas
@@ -26,6 +26,42 @@ const obtenerEstado = (req,res) => { //aqui le falto al profe el req y res
             return res.status(404).send({error : "error: No existe el estado buscado"});
         };
         res.json(rows[0]);// si no hay error que devuelva las filas, []muestra el elemento en esa posicion
+    });
+};
+
+// Get para una (1) estado o provincia por nombre
+const provinciaNombre = (req, res) => {
+    let {nombreEstado} = req.params;
+
+    // Validación: debe ser un string y no puede ser un número ni exceder 50 caracteres
+    if (!nombreEstado) {
+        return res.status(400).json({
+            error: "Error: El parámetro debe ser un texto válido."
+        });
+    } 
+
+    nombreEstado = nombreEstado.trim();// quitamos los espacios vacios
+
+    // Validación: debe contener solo letras y no exceder 50 caracteres
+    const regex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]{1,20}$/;
+    if (!regex.test(nombreEstado)) {
+        return res.status(400).json({
+            error: "Error: El nombre de la provincia debe contener solo letras y tener un máximo de 20 caracteres."
+        });
+    }
+
+    const sql = "SELECT * FROM estados WHERE nombre_estado LIKE ?"; //sentencia que permite buscar por coincidencias de caracteres
+    db.query(sql, [`${nombreEstado}%`], (error, rows) => {
+        if (error) {
+            return res.status(500).json({ error: "Error: intente más tarde" });
+            // hay que buscar la manera de mostrar los errores en el dom en forma de notificacion
+            //para facilidad del usuario n
+        }
+        if (rows.length == 0) {
+            return res.status(404).json({ error: "Error: No existe la provincia buscada" });
+        }
+        //res.json(rows[0]);// antes al utilizar [0] solo nos traia el primer registro que coincidia
+        res.json(rows); // nos muestra todos los registros que coinciden con la busqueda
     });
 };
 
@@ -85,6 +121,7 @@ const borrarEstado = (req,res) => {
 module.exports = {
     obtenerEstados,
     obtenerEstado,
+    provinciaNombre,
     crearEstado,
     actualizarEstado,
     borrarEstado,

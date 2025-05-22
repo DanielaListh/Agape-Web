@@ -13,73 +13,73 @@ document.addEventListener("DOMContentLoaded", function () {
   const errorMsgTextarea = document.getElementById("error-msg-textarea-post");
   const errorMsgImg = document.getElementById("error-msg-img-post");
 
-// se hacen varias funciones de mostrar error porque los errores se 
-// muestran en lugares diferentes dependiendo de cada input
-function mostrarErrorMsgNombre(mensaje){
-  errorMsgInput.textContent = mensaje;
-  setTimeout(() => (errorMsgInput.textContent = ""), 6000);
-}
-
-function mostrarErrorMsgDescripcion(mensaje){
-  errorMsgTextarea.textContent = mensaje;
-  setTimeout(() => (errorMsgTextarea.textContent = ""), 6000);
-}
-
-function mostrarErrorMsgImagen(mensaje){// OJO QUE NO SE ESTA USANDO
-  errorMsgImg.textContent = mensaje;
-  setTimeout(() => (errorMsgImg.textContent = ""), 6000);
-}
-
-const regexInput = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-const regexTextarea = /^[,.a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-
-function validarInput(input){ //imput en el form osea nombre de especialidad medica
-  if (!input.value.trim()) {
-    mostrarErrorMsgNombre("El nombre de la especialidad medica es necesaria");
-    return false;
+  // se hacen varias funciones de mostrar error porque los errores se 
+  // muestran en lugares diferentes dependiendo de cada input
+  function mostrarErrorMsgNombre(mensaje){
+    errorMsgInput.textContent = mensaje;
+    setTimeout(() => (errorMsgInput.textContent = ""), 6000);
   }
-  if(!regexInput.test(input.value)) {//si el test de regex con el valor del input es diferente
-    mostrarErrorMsgNombre("No se admiten caracteres especiales ni numeros");
-    input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
-    return false;
-  } 
-  if(input.value.length > 30){
-    mostrarErrorMsgNombre("Como maximo se admiten 30 caracteres");
-    input.value = input.value.slice(0, 30);//corta el contenido que supera los 250
-    return false;
-  }
-  return true;
-}
 
-function validarTextarea(input){
-  if (!input.value.trim()) {
-    mostrarErrorMsgDescripcion("La descripcion de la especialidad medica es necesaria");
-    return false;
+  function mostrarErrorMsgDescripcion(mensaje){
+    errorMsgTextarea.textContent = mensaje;
+    setTimeout(() => (errorMsgTextarea.textContent = ""), 6000);
   }
-  if(!regexTextarea.test(input.value)){
-    mostrarErrorMsgDescripcion("No se admiten numeros ni caracteres especiales");
-    input.value= input.value.replace(/[^,.a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
-    return false;
+
+  function mostrarErrorMsgImagen(mensaje){// OJO QUE NO SE ESTA USANDO
+    errorMsgImg.textContent = mensaje;
+    setTimeout(() => (errorMsgImg.textContent = ""), 6000);
   }
-  if(input.value.length < 10){
-    mostrarErrorMsgDescripcion("La especialidad medica debe ser mayor a 10 caracteres");
-    return false;
-  }
-  if(input.value.length > 200){
-    mostrarErrorMsgDescripcion("No debe superar los 200 caracteres");
-    input.value = input.value.slice(0, 200);//corta el contenido que supera los 250
-    return false;
+
+  const regexInput = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+  const regexTextarea = /^[,.a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+  function validarInput(input){ //imput en el form osea nombre de especialidad medica
+    if (!input.value.trim()) {
+      mostrarErrorMsgNombre("El nombre de la especialidad medica es necesaria");
+      return false;
     }
-  return true;
-}
+    if(!regexInput.test(input.value)) {//si el test de regex con el valor del input es diferente
+      mostrarErrorMsgNombre("No se admiten caracteres especiales ni numeros");
+      input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
+      return false;
+    } 
+    if(input.value.length > 30){
+      mostrarErrorMsgNombre("Como maximo se admiten 30 caracteres");
+      input.value = input.value.slice(0, 30);//corta el contenido que supera los 250
+      return false;
+    }
+    return true;
+  }
 
-inputNombreEspecialidad.addEventListener("input", function () {
-  validarInput(inputNombreEspecialidad);
-});
+  function validarTextarea(input){
+    if (!input.value.trim()) {
+      mostrarErrorMsgDescripcion("La descripcion de la especialidad medica es necesaria");
+      return false;
+    }
+    if(!regexTextarea.test(input.value)){
+      mostrarErrorMsgDescripcion("No se admiten numeros ni caracteres especiales");
+      input.value= input.value.replace(/[^,.a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+      return false;
+    }
+    if(input.value.length < 10){
+      mostrarErrorMsgDescripcion("La especialidad medica debe ser mayor a 10 caracteres");
+      return false;
+    }
+    if(input.value.length > 200){
+      mostrarErrorMsgDescripcion("No debe superar los 200 caracteres");
+      input.value = input.value.slice(0, 200);//corta el contenido que supera los 250
+      return false;
+      }
+    return true;
+  }
 
-inputDescripcionMed.addEventListener("input", function () {// no deberia ser textatrea?
-  validarTextarea(inputDescripcionMed);// si no sirve ver en html y ponerle input en ves de textarea
-});
+  inputNombreEspecialidad.addEventListener("input", function () {
+    validarInput(inputNombreEspecialidad);
+  });
+
+  inputDescripcionMed.addEventListener("input", function () {// no deberia ser textatrea?
+    validarTextarea(inputDescripcionMed);// si no sirve ver en html y ponerle input en ves de textarea
+  });
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
