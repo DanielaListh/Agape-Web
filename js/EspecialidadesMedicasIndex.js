@@ -57,4 +57,3 @@ document.addEventListener("DOMContentLoaded", async function (){
     };
     await mostrarEspecialidadesMedicasIndex();// luego de renderizar muestra las espcialidades en el DOM
 });
-

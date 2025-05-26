@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Admin</title>
+    <title>Formulario de Registro</title>
     <link rel="icon" href="css/ImageAntaresWeb/logoWEB.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="/css/style.css">
@@ -11,12 +11,11 @@
 
 </head>
 <body class="body-image">
-
   <!-- Navbar -->
   <div class="menu-container">
     <div class="mini-content-portada">
       <div class="isotipo">
-        <a href="#"><img src="/css/Imagenes/LogoAgape.png" alt=""></a>
+        <a href="/html/index.html"><img src="/css/Imagenes/LogoAgape.png" alt=""></a>
       </div>
       <div class="direccion-spot">
         <img src="/css/Imagenes/spot blue.png" alt="">
@@ -34,7 +33,7 @@
       </label>
       <nav class="navbar">
         <ul>
-          <li><a  href="/Agape/">Home</a></li>
+          <li><a href="/Agape/">Home</a></li>
           <li><a id="nuestraHistoria" href="/Agape/#nuestraHistoria">Nuestra Clínica</a></li>
           <li><a id="servicios" href="/Agape/#servicios">Servicios que Ofrecemos</a></li>
           <li><a id="turnos" href="/Agape/#turnos">Consigue turno</a></li>
@@ -47,29 +46,58 @@
 
     <div class="container">
         <div class="form-container">
-            <form id="form-login" class="form-login" action="http://localhost:3000/usuarios/login/" method="POST" enctype="multipart/form-data">
-              <h2>Log In</h2>
-                <input type="email" id="correoElectronico" name="correoElectronico" placeholder="escribe tu email" required>
-                <input type="password" id="password" name="password" placeholder="coloca tu contraseña" required>
+            <div class="imageSingup">
+                <img src="/css/Imagenes/abrazo.jpg" alt="Persona en silla de ruedas">
+            </div>
+            <form class="form" id="form-registro" action="http://localhost:3000/usuarios/register" method="POST" enctype="multipart/form-data">
+              <h2>Regístrate</h2>
+                <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Elije un nombre de usuario" required>
+                <input type="email" id="correoElectronico" name="correoElectronico" placeholder="Elije un email" required>
+                <div class="password-container">
+                  <input type="password" id="password" name="password" class="password-input" placeholder="Crea tu contraseña" required>
+                  <button type="button" id="toggle-password" class="toggle-btn">Mostrar</button>
+                </div>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                <div>
+                  <label for="idRol"></label>
+                  <select class="campoRol" id="idRol" name="idRol" required>
+                      <option value="1">Paciente</option>
+                      <option value="2">Médico</option>
+                      <option value="3">Administrador</option>
+                  </select>
+                </div>
               <div>
-                  <button id="redirectBtn" type="submit">Login</button>
+               <label for="idGenero"></label>
+                  <select id="idGenero" name="idGenero" required>
+                      <option value="1">Masculino</option>
+                      <option value="2">Femenino</option>
+                      <option value="3">Binario</option>
+                  </select>
               </div>
-              <div class="or-login">
+              <div class="content-img"> 
+                <p>Selecciona una imagen para tu perfil</p>
+                <input type="file" id="imagenPerfil" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
+                <div id="preview-registro">
+                  <div class="imgUpLoadRegistro"></div>
+                </div>
+              </div>
+              <div class="error-msg-registro">
+                <p id="error-msg"></p>
+              </div>
+              <!--<div class="terminos-condiciones">
+                <input type="checkbox" onclick="agreesubmit(this)" name="condiciones"/> Estoy de acuerdo con los <a href="#" target="_blank" class="enlace-terminos">términos y condiciones</a><br/>
+              </div> -->
+              <div>
+                  <button class="btn-submit" type="submit">Regístrate</button>
+              </div>
+              <div class="or">
                 <div class="linea-div"></div>
                 <div class="O"> O </div>
                 <div class="linea-div"></div>
               </div>
-              <a href="#" onclick="irRegistroAdmin()" class="login-link"><span class="color3">si no tienes cuenta, </span><span class="color4">Regístrate</span></a>
+              <a href="#" onclick="irLoginAdmin()" class="login-link"><span class="color3">si ya tienes cuenta, </span><span class="color4">Inicia Sesión</span></a>
           </form>
-
-          
-
-          <div class="imageSingup">
-            <img src="/css/Imagenes/Screenshot (1).png" alt="personal medico atendiendo a paciente">
-        </div>
-
-          <div id="notificacion" class="notificacion"> ¡Inicio de sesion exitoso! </div>
-          <div id="errorMessage" style="color: red;"></div>
+          <div id="notificacion" class="notificacion"> ¡Registro creado exitosamente! </div>
 
         </div>
     </div>
@@ -127,9 +155,10 @@
         </div>
     </footer>
 
-    <script src="/js/Metodos/EspecialidadesMedicas/envioFormLogin.js"></script>
-    <script src="/js/rutasIndex.js"></script>
-    
+  <script src="/js/usuarios/crearUsuario.js"></script>
+  <script src="/js/rutasIndex.js"></script>
+  <script src="/js/passwordToggle.js"></script>
+  <script src="/js/usuarios/previewImagenRegistro.js"></script>
 
 </body>
 </html>

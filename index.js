@@ -56,14 +56,14 @@ app.get('/Agape', (req, res) => {
 //ruta para ir a el registro de admin
 app.get('/Agape/registerAdmin', (req,res) =>{
    console.log('accediendo al registro');
-   res.sendFile(path.join(__dirname, 'html', 'registroUsuarios.html'));
+   res.sendFile(path.join(__dirname, 'html', 'Usuarios', 'registroUsuarios.html'));
 })
 
 // servir la pagina html cuando se hace una solicitud
 // ruta cuando se quiere loguear un admin
 app.get('/Agape/loginAdmin', (req,res) => { 
    console.log('accediendo a /loginAdmin');
-   res.sendFile(path.join(__dirname,'html', 'loginAdmin.html'));
+   res.sendFile(path.join(__dirname,'html', 'Usuarios', 'loginAdmin.html'));
 });
 
 //rutas dentro del modulo admin
@@ -83,35 +83,35 @@ app.get('/adminHome', (req,res) => { // la ruta raiz del proyecto o pag principa
 //Especialidades Medicas
 // servir la pagina html cuando se hace una solicitus get a /adminHome
 app.get('/adminHome/verEspecialidades', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
-   res.sendFile(path.join(__dirname,'html', 'verEspecialidadesMedicas.html'));
+   res.sendFile(path.join(__dirname,'html', 'EspecialidadesMedicas' ,'verEspecialidadesMedicas.html'));
 });
 
 // servir la pagina html cuando se hace una solicitus get a /adminHome
 app.get('/adminHome/crearEspecialidad', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
-   res.sendFile(path.join(__dirname,'html', 'crearEspecMedica.html'));
+   res.sendFile(path.join(__dirname,'html', 'EspecialidadesMedicas', 'crearEspecMedica.html'));
 });
 
 // servir la pagina html cuando se hace una solicitus get a /adminHome
 app.get('/adminHome/modificarEspecialidad', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
-   res.sendFile(path.join(__dirname,'html', 'modificarEspecMedica.html'));
+   res.sendFile(path.join(__dirname,'html', 'EspecialidadesMedicas', 'modificarEspecMedica.html'));
 });
 
 // Estados o Provincias
 app.get('/adminHome/verProvincias', (req,res) => {
-   res.sendFile(path.join(__dirname, 'html', 'verProvincias.html'));
+   res.sendFile(path.join(__dirname, 'html', 'Provincias','verProvincias.html'));
 });
 
 //Generos
 app.get('/adminHome/verGeneros', (req,res) => {
-   res.sendFile(path.join(__dirname, 'html', 'verGeneros.html'));
+   res.sendFile(path.join(__dirname, 'html', 'Generos', 'verGeneros.html'));
 })
 
 app.get('/adminHome/crearGeneros', (req,res) => {
-   res.sendFile(path.join(__dirname, 'html', 'crearGeneros.html'));
+   res.sendFile(path.join(__dirname, 'html', 'Generos', 'crearGeneros.html'));
 })
 
 app.get('/adminHome/modificarGenero', (req,res) =>{
-   res.sendFile(path.join(__dirname, 'html', 'modificarGenero.html'));
+   res.sendFile(path.join(__dirname, 'html', 'Generos', 'modificarGenero.html'));
 })
 
 

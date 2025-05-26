@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Especialidades Medicas</title>
+    <title>Ver Provincias</title>
     <link rel="stylesheet" href="/css/AdminStyle.css">
+    <link rel="stylesheet" href="/css/tableStyle.css">
+    <link rel="stylesheet" href="/css/modalStyle.css">
 </head>
 <body>
     <nav class="sidebar">
@@ -32,8 +34,8 @@
                         <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
                         <ul class="submenu-content">
                             <li><a href="#" onclick="verProvincias()">Ver provincias</a></li>
-                            <li><a href="#">Crear provincia</a></li>
-                            <li><a href="#">Editar provincia</a></li>
+                            <li><a href="#">Crear provincias</a></li>
+                            <li><a href="#">Editar provincias</a></li>
                         </ul>
                     </li>
                     <li class="submenu">
@@ -94,87 +96,85 @@
                   <li><a class="a-link" href="#" id="logout" onclick="cerrarSession()">Cerrar Sesion</a></li>
               </ul>
             </div>
-        </div>
+          </div>
     
-        <h1>Especialidades Médicas</h1>
+        <h1>Provincias</h1>
         
-        <div class="content-view-modify">
-            <div class="tittle">
-                <div class="barra-rosa"></div>
-                <h3>Modificar Especialidad Médica</h3>
+        <div class="content-view">
+    
+          <div class="tittle">
+            <div class="barra-rosa"></div>
+            <h3>Visualizar Provincias</h3>
+          </div>
+    
+          <div class="search-content">
+            <div class="refresh">
+              <button id="btn-refrescar-get">Refrescar</button>
             </div>
-            <div class="container-search">
-                <div class="search-modify">
-                    <label for="inputNombreEspecialidadMedica">Ingresa el nombre de la especialidad</label>
-                    <input id="inputNombreEspecialidadMedica" type="text" placeholder="nombre especialidad">
-                    <select id="listaCoincidencias" size="2" style="display:none;"></select>
-                    <div class="mensaje-error">
-                        <p id="p-error"></p>
+    
+            <div class="barra-rosa2"></div>
+    
+            <div class="search">
+              <a href="#"><img src="/css/Imagenes/icon-duda.png" width="15"></a>
+              <label for="nombreEstado">Ingresa el nombre de la provincia</label>
+              <input id="nombreEstado" name="nombreEstado" type="text" placeholder="nombre estado o provincia">
+              <div class="mensaje-error">
+                <p class="p-error"></p>
+              </div>
+              
+            </div>
+            <div class="search-btn">
+              <button id="btn-buscar-provincia" onclick="buscarProvincia()">buscar</button>
+              <div id="notification"></div>
+              <div id="provincia-details"></div>
+            </div>
+          </div>
+    
+          <div class="board-view">
+            <div id="tabla-provincias" class="board-content">
+            </div>
+          </div>
+    
+        </div>
+      </div>
+
+
+      <section class="modal">
+        <div class="modal-container">
+            <div class="titulo-alerta">
+                <h2>¡Alerta! confirma la eliminación</h2>
+            </div>
+            <div class="info-especialidades">
+                <div class="info-izq">
+                    <ul>
+                        <li class="p-label" id="idProvincia">ID: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="nombreProvincia">Nombre: <span style="font-weight: 400;"></span></li>
+                    </ul>
+                </div>
+                <div class="info-der">
+                    <p class="p-label">Imagen:</p>
+                    <div class="previa-img">
+                        <img src="" alt="" width="200">
                     </div>
                 </div>
-                <!-- <div class="search-btn-modify">
-                    <button id="btn-buscar-especialidad" onclick="buscarEspecialidad()">buscar</button>
-                    <div id="notification"></div>
-                </div> -->
             </div>
-
-            <div class="content-form-modify-espec-medicas">
-                <form class="form-modify-EspMedicas" id="form-Modify-EspMedicas" action="http://localhost:3000/especialidades/" method="PUT" enctype="multipart/form-data">
-                    <div class="content-data-p">
-                        <div class="datos-espec-medicas">
-                            <p>ID<span id="spamId" class="span-datos-especialidad-medica"></span></p>
-                        </div>
-                        <div class="datos-espec-medicas">
-                            <p>Fecha Act.<span id="spamFecha" class="span-datos-especialidad-medica"></span></p>
-                        </div>
-                    </div>
-                    
-
-                    <div class="form-contend-modify">
-                        <label for="nombreEspecialidadMedica">Nombre especialidad</label>
-                        <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                        <input id="nombreEspecialidadMedica" type="text" name="nombreEspecialidadMedica" required />
-                        <div class="error-msg">
-                            <p id="error-msg-nombre"></p>
-                        </div>
-                    </div>
-                    <div class="form-contend-descripcion-modify">
-                        <label for="descripcionMed">Descripción especialidad</label>
-                        <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                        <textarea name="descripcionMed" id="descripcionMed" rows="5" cols="10" required></textarea>
-                        <div class="error-msg">
-                            <p id="error-msg-descripcion"></p>
-                        </div>
-                    </div>
-                    
-                    <div class="form-contend-img-modify">
-                        <label for="imagenUrl">Imagen de especialidad médica</label>
-                        <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                        <img id="imagenActual" class="imgSubidaPut" src="" alt="">
-                        <input type="file" id="imagenUrl" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
-
-                        <div class="error-msg">
-                            <p id="error-msg-imagen"></p>
-                        </div>
-                        
-                    </div>
-
-                    <div class="modify">
-                        <button type="submit">Modificar</button>
-                    </div>
-                </form>
-                
+            <div class="texto-aviso">
+             <p>Si confirmas se borraran los datos del id:<span style="font-weight: 600;"></span> de la Base de Datos permanentemente</p>
             </div>
-
+            <div class="btns-eliminar">
+                <div><button class="btn-eliminar">Eliminar</button></div>
+                <div><button class="btn-cancelar">Cancelar</button></div>
+            </div>
         </div>
-    </div>
+      </section>
+
+
 
     <script src="/js/navBarAdmin.js"></script>
+    <script src="/js/Metodos/Provincias/getProvincias.js"></script>
     <script src="/js/llamadoDeRutasAdmin.js"></script>
-    <script src="/js/cerrarSesion.js"></script>
-    <script src="/js/PutprevisualizacionImagenes.js"></script>
-    <script src="/js/Metodos/EspecialidadesMedicas/putEspecialidadMedica.js"></script>
-    <script src="/js/seguridadHomeAdmin.js"></script>
+    <script src="/js/usuarios/cerrarSesion.js"></script>
+    <!--<script src="/js/seguridadHomeAdmin.js"></script>-->
 
 </body>
 </html>

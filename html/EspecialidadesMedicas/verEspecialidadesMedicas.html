@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Generos</title>
+    <title>Ver Especialidades Medicas</title>
     <link rel="stylesheet" href="/css/AdminStyle.css">
     <link rel="stylesheet" href="/css/tableStyle.css">
     <link rel="stylesheet" href="/css/modalStyle.css">
@@ -34,8 +34,8 @@
                         <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
                         <ul class="submenu-content">
                             <li><a href="#" onclick="verProvincias()">Ver provincias</a></li>
-                            <li><a href="#">Crear provincias</a></li>
-                            <li><a href="#">Editar provincias</a></li>
+                            <li><a href="#">Crear provincia</a></li>
+                            <li><a href="#">Editar provincia</a></li>
                         </ul>
                     </li>
                     <li class="submenu">
@@ -98,13 +98,13 @@
             </div>
           </div>
     
-        <h1>Generos</h1>
+        <h1>Especialidades Médicas</h1>
         
         <div class="content-view">
     
           <div class="tittle">
             <div class="barra-rosa"></div>
-            <h3>Visualizar Géneros</h3>
+            <h3>Visualizar Especialidades Médicas</h3>
           </div>
     
           <div class="search-content">
@@ -116,22 +116,22 @@
     
             <div class="search">
               <a href="#"><img src="/css/Imagenes/icon-duda.png" width="15"></a>
-              <label for="nombreGenero">Ingresa el nombre del género</label>
-              <input id="nombreGenero" name="nombreGenero" type="text" placeholder="nombrel del genero">
+              <label for="nombreEspecialidadMedica">Ingresa el nombre de la especialidad</label>
+              <input id="nombreEspecialidadMedica" type="text" placeholder="nombre especialidad">
               <div class="mensaje-error">
                 <p class="p-error"></p>
               </div>
               
             </div>
             <div class="search-btn">
-              <button id="btn-buscar-genero" onclick="buscarGenero()">buscar</button>
+              <button id="btn-buscar-especialidad" onclick="buscarEspecialidad()">buscar</button>
               <div id="notification"></div>
-              <div id="genero-details"></div>
+              <div id="especialidad-details"></div>
             </div>
           </div>
     
           <div class="board-view">
-            <div id="tabla-generos" class="board-content">
+            <div id="tabla-especialidades-medicas" class="board-content">
             </div>
           </div>
     
@@ -144,12 +144,20 @@
             <div class="titulo-alerta">
                 <h2>¡Alerta! confirma la eliminación</h2>
             </div>
-            <div class="info-generos">
+            <div class="info-especialidades">
                 <div class="info-izq">
                     <ul>
-                        <li class="p-label" id="idGenero">ID: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="nombreGenero">Nombre: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="idEspecialidad">ID: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="nombreEspecialidad">Nombre: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="descripcionEspecialidad">Descripción: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="fechaAltaEspecialidad">Fecha de alta: <span style="font-weight: 400;"></span></li>
                     </ul>
+                </div>
+                <div class="info-der">
+                    <p class="p-label">Imagen:</p>
+                    <div class="previa-img">
+                        <img src="" alt="" width="200">
+                    </div>
                 </div>
             </div>
             <div class="texto-aviso">
@@ -165,10 +173,11 @@
 
 
     <script src="/js/navBarAdmin.js"></script>
-    <script src="/js/Metodos/Generos/getAllGeneros.js"></script>
+    <script src="/js/Metodos/EspecialidadesMedicas/getEspecialidadMedica.js"></script>
     <script src="/js/llamadoDeRutasAdmin.js"></script>
-    <script src="/js/cerrarSesion.js"></script>
-    <script src="/js/Metodos/Generos/deleteGeneros.js"></script>
+    <script src="/js/usuarios/cerrarSesion.js"></script>
+    <script src="/js/Metodos/EspecialidadesMedicas/deleteEspecialidadMedica.js"></script>
+    <script src="/js/seguridadHomeAdmin.js"></script>
 
 </body>
 </html>
