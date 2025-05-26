@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Especialidades Medicas</title>
+    <title>Modificar Genero</title>
     <link rel="stylesheet" href="/css/AdminStyle.css">
-    <link rel="stylesheet" href="/css/tableStyle.css">
-    <link rel="stylesheet" href="/css/modalStyle.css">
 </head>
 <body>
     <nav class="sidebar">
@@ -96,87 +94,61 @@
                   <li><a class="a-link" href="#" id="logout" onclick="cerrarSession()">Cerrar Sesion</a></li>
               </ul>
             </div>
-          </div>
-    
-        <h1>Especialidades Médicas</h1>
-        
-        <div class="content-view">
-    
-          <div class="tittle">
-            <div class="barra-rosa"></div>
-            <h3>Visualizar Especialidades Médicas</h3>
-          </div>
-    
-          <div class="search-content">
-            <div class="refresh">
-              <button id="btn-refrescar-get">Refrescar</button>
-            </div>
-    
-            <div class="barra-rosa2"></div>
-    
-            <div class="search">
-              <a href="#"><img src="/css/Imagenes/icon-duda.png" width="15"></a>
-              <label for="nombreEspecialidadMedica">Ingresa el nombre de la especialidad</label>
-              <input id="nombreEspecialidadMedica" type="text" placeholder="nombre especialidad">
-              <div class="mensaje-error">
-                <p class="p-error"></p>
-              </div>
-              
-            </div>
-            <div class="search-btn">
-              <button id="btn-buscar-especialidad" onclick="buscarEspecialidad()">buscar</button>
-              <div id="notification"></div>
-              <div id="especialidad-details"></div>
-            </div>
-          </div>
-    
-          <div class="board-view">
-            <div id="tabla-especialidades-medicas" class="board-content">
-            </div>
-          </div>
-    
         </div>
-      </div>
-
-
-      <section class="modal">
-        <div class="modal-container">
-            <div class="titulo-alerta">
-                <h2>¡Alerta! confirma la eliminación</h2>
+    
+        <h1>Generos</h1>
+        
+        <div class="content-view-modify">
+            <div class="tittle">
+                <div class="barra-rosa"></div>
+                <h3>Modificar Genero</h3>
             </div>
-            <div class="info-especialidades">
-                <div class="info-izq">
-                    <ul>
-                        <li class="p-label" id="idEspecialidad">ID: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="nombreEspecialidad">Nombre: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="descripcionEspecialidad">Descripción: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="fechaAltaEspecialidad">Fecha de alta: <span style="font-weight: 400;"></span></li>
-                    </ul>
-                </div>
-                <div class="info-der">
-                    <p class="p-label">Imagen:</p>
-                    <div class="previa-img">
-                        <img src="" alt="" width="200">
+            <div class="container-search">
+                <div class="search-modify">
+                    <label for="inputNombreGenero">Ingresa el nombre del genero</label>
+                    <input id="inputNombreGenero" type="text" placeholder="nombre genero">
+                    <select id="listaCoincidencias" size="2" style="display:none;"></select>
+                    <div class="mensaje-error">
+                        <p id="p-error"></p>
                     </div>
                 </div>
+                <!-- <div class="search-btn-modify">
+                    <button id="btn-buscar-especialidad" onclick="buscarEspecialidad()">buscar</button>
+                    <div id="notification"></div>
+                </div> -->
             </div>
-            <div class="texto-aviso">
-             <p>Si confirmas se borraran los datos del id:<span style="font-weight: 600;"></span> de la Base de Datos permanentemente</p>
-            </div>
-            <div class="btns-eliminar">
-                <div><button class="btn-eliminar">Eliminar</button></div>
-                <div><button class="btn-cancelar">Cancelar</button></div>
+
+            <div class="content-form-modify-espec-medicas">
+                <form class="form-modify-EspMedicas" id="form-Modify-Genero">
+                    <div class="content-data-p">
+                        <div class="datos-espec-medicas">
+                            <p>ID<span id="spamId" class="span-datos-especialidad-medica"></span></p>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-contend-modify">
+                        <label for="nombreGenero">Nombre genero</label>
+                        <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
+                        <input id="nombreGenero" type="text" name="nombreGenero" required />
+                        <div class="error-msg">
+                            <p id="error-msg-nombre"></p>
+                        </div>
+                    </div>
+
+                    <div class="modify">
+                        <button type="submit">Modificar</button>
+                    </div>
+                </form>
             </div>
         </div>
-      </section>
-
-
+    </div>
 
     <script src="/js/navBarAdmin.js"></script>
-    <script src="/js/Metodos/EspecialidadesMedicas/getAll.js"></script>
     <script src="/js/llamadoDeRutasAdmin.js"></script>
     <script src="/js/cerrarSesion.js"></script>
-    <script src="/js/modalDeleteEspeMed.js"></script>
+    <script src="/js/Metodos/Generos/putGeneros.js"></script>
+    <!--<script src="/js/seguridadHomeAdmin.js"></script>-->
 
 </body>
 </html>

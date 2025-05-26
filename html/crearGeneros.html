@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Especialidades Medicas</title>
+    <title>Crear Generos</title>
     <link rel="stylesheet" href="/css/AdminStyle.css">
     <link rel="stylesheet" href="/css/tableStyle.css">
-    <link rel="stylesheet" href="/css/modalStyle.css">
 </head>
 <body>
     <nav class="sidebar">
@@ -49,7 +48,7 @@
                     </li>
                     <li class="submenu">
                         <a href="#">Médicos</a>
-                        <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                        <img class="arrow list_arrow" class="arrow" src="/css/Imagenes/arrow.svg" alt="">
                         <ul class="submenu-content">
                             <li><a href="#">Lista de médicos</a></li>
                             <li><a href="#">Agregar médico</a></li>
@@ -77,106 +76,61 @@
                 </ul>
             </li>
 
-            <li class="submenu">
+            <li>
                 <a class="submenu_a" href="#">Estadísticas</a>
-                <img class="arrow list_arrow" class="list_arrow" src="/css/Imagenes/arrow.svg" alt="">
+                <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" >
             </li>
         </ul>
-    </nav>
+    </nav> 
 
     <div class="contenedor-padre">
 
         <div class="barra-horizontal-sup">
-            <div class="icon-chat"><button><img src="/css/Imagenes/chat.png" alt=""></button></div>
-            <div class="icon-notificacion"><button><img src="/css/Imagenes/bell.png" alt=""></button></div>
-            <div id="icon-user-perfil" class="icon-user-perfil"><button><img src="/css/Imagenes/user.svg" alt=""></button></div>
-            <div id="sub-menu" class="sub-menu hidden">
-              <ul>
-                  <li><a class="a-link" href="#" id="logout">Ver perfil</a></li>
-                  <li><a class="a-link" href="#" id="logout" onclick="cerrarSession()">Cerrar Sesion</a></li>
-              </ul>
-            </div>
+          <div class="icon-chat"><button><img src="/css/Imagenes/chat.png" alt=""></button></div>
+          <div class="icon-notificacion"><button><img src="/css/Imagenes/bell.png" alt=""></button></div>
+          <div id="icon-user-perfil" class="icon-user-perfil"><button><img src="/css/Imagenes/user.svg" alt=""></button></div>
+          <div id="sub-menu" class="sub-menu hidden">
+            <ul>
+                <li><a class="a-link" href="#" id="logout">Ver perfil</a></li>
+                <li><a class="a-link" href="#" id="logout" onclick="cerrarSession()">Cerrar Sesion</a></li>
+            </ul>
           </div>
-    
-        <h1>Especialidades Médicas</h1>
+        </div>
         
-        <div class="content-view">
+        <h1>Géneros</h1>
+        <div class="content-view-create">
     
-          <div class="tittle">
-            <div class="barra-rosa"></div>
-            <h3>Visualizar Especialidades Médicas</h3>
+            <div class="tittle">
+              <div class="barra-rosa"></div>
+              <h3>Crear Géneros</h3>
+            </div>
+
+            <form class="form-Create-EM" id="form-Create-Generos">
+
+                <div class="form-contend-nombre-post">
+                    <label for="nombreGenero">Nombre genero</label>
+                    <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
+                    <input id="nombreGenero" type="text" name="nombreGenero" required>
+                    <div class="errorMsgNombrePost">
+                        <p id="error-msg-input-post"></p>
+                    </div>
+                </div>
+
+                <div class="create">
+                    <button type="submit">Crear</button>
+                </div>
+            </form>
           </div>
-    
-          <div class="search-content">
-            <div class="refresh">
-              <button id="btn-refrescar-get">Refrescar</button>
-            </div>
-    
-            <div class="barra-rosa2"></div>
-    
-            <div class="search">
-              <a href="#"><img src="/css/Imagenes/icon-duda.png" width="15"></a>
-              <label for="nombreEspecialidadMedica">Ingresa el nombre de la especialidad</label>
-              <input id="nombreEspecialidadMedica" type="text" placeholder="nombre especialidad">
-              <div class="mensaje-error">
-                <p class="p-error"></p>
-              </div>
-              
-            </div>
-            <div class="search-btn">
-              <button id="btn-buscar-especialidad" onclick="buscarEspecialidad()">buscar</button>
-              <div id="notification"></div>
-              <div id="especialidad-details"></div>
-            </div>
-          </div>
-    
-          <div class="board-view">
-            <div id="tabla-especialidades-medicas" class="board-content">
-            </div>
-          </div>
-    
+        
         </div>
       </div>
 
 
-      <section class="modal">
-        <div class="modal-container">
-            <div class="titulo-alerta">
-                <h2>¡Alerta! confirma la eliminación</h2>
-            </div>
-            <div class="info-especialidades">
-                <div class="info-izq">
-                    <ul>
-                        <li class="p-label" id="idEspecialidad">ID: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="nombreEspecialidad">Nombre: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="descripcionEspecialidad">Descripción: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="fechaAltaEspecialidad">Fecha de alta: <span style="font-weight: 400;"></span></li>
-                    </ul>
-                </div>
-                <div class="info-der">
-                    <p class="p-label">Imagen:</p>
-                    <div class="previa-img">
-                        <img src="" alt="" width="200">
-                    </div>
-                </div>
-            </div>
-            <div class="texto-aviso">
-             <p>Si confirmas se borraran los datos del id:<span style="font-weight: 600;"></span> de la Base de Datos permanentemente</p>
-            </div>
-            <div class="btns-eliminar">
-                <div><button class="btn-eliminar">Eliminar</button></div>
-                <div><button class="btn-cancelar">Cancelar</button></div>
-            </div>
-        </div>
-      </section>
-
-
-
-    <script src="/js/navBarAdmin.js"></script>
-    <script src="/js/Metodos/EspecialidadesMedicas/getAll.js"></script>
-    <script src="/js/llamadoDeRutasAdmin.js"></script>
-    <script src="/js/cerrarSesion.js"></script>
-    <script src="/js/modalDeleteEspeMed.js"></script>
+      <script src="/js/navBarAdmin.js"></script>
+      <script src="/js/cerrarSesion.js"></script>
+      <script src="/js/llamadoDeRutasAdmin.js"></script>
+      <!-- <script src="/js/seguridadHomeAdmin.js"></script> -->
+      <script src="/js/Metodos/Generos/postGeneros.js"></script>
 
 </body>
 </html>

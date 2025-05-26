@@ -26,7 +26,7 @@ const especialidadesMedicas = (req, res) => {
 //Get para 1 especialidad por ID
 const especialidadMedicaId = (req,res) =>{
     let { idEspecialidad }  = req.params;
-    idEspecialidad = Number(idEspecialidad);//pasa la var a int
+    idEspecialidad = Number(idEspecialidad); //pasa la var a int
 
     //validar si es un numero y mandar la consulta buscando por id
     if(!Number.isInteger(idEspecialidad) || idEspecialidad <= 0){

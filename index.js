@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 require('dotenv').config(); //luego lo veremos pero son las variables de entorno, \se requiere las variables de entorno ejemplo PORT
 const app = express();// para leer JSON
-const path =require('path');
+const path = require('path');
 
 app.use(express.json()); // en el cuerpo de la peticion vendra un json y se transforma en un objeto js y asi poder usarlo
 //Middleware para transformar el cuerpo de la peticion a Json
@@ -101,6 +101,18 @@ app.get('/adminHome/verProvincias', (req,res) => {
    res.sendFile(path.join(__dirname, 'html', 'verProvincias.html'));
 });
 
+//Generos
+app.get('/adminHome/verGeneros', (req,res) => {
+   res.sendFile(path.join(__dirname, 'html', 'verGeneros.html'));
+})
+
+app.get('/adminHome/crearGeneros', (req,res) => {
+   res.sendFile(path.join(__dirname, 'html', 'crearGeneros.html'));
+})
+
+app.get('/adminHome/modificarGenero', (req,res) =>{
+   res.sendFile(path.join(__dirname, 'html', 'modificarGenero.html'));
+})
 
 
 const PORT = process.env.PORT || 3000;// que coloque en el puerto lo que este definido en el servidor o por default 3000. env=enviroment
