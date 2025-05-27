@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  //trae y muestra los datos obtenidos del registro al formulario
+  const params = new URLSearchParams(window.location.search);
+  const idProvincia = params.get("id");
+
+    if (idProvincia) {
+      // Hacer fetch con ese ID
+      fetch(`http://localhost:3000/estados/${idProvincia}`)
+        .then(res => res.json())
+        .then(data => mostrarDataForm(data))
+        .catch(err => console.error("Error al traer datos:", err));
+    }
+
   const form = document.getElementById("form-Modify-Provincia");
   const inputBusqueda = document.getElementById("inputNombreProvincia");
   const selectCoincidencias = document.getElementById("listaCoincidencias");

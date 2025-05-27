@@ -118,6 +118,20 @@ function mostrarEnTabla(data){
   contenedorTabla.innerHTML = tabla;
 }
 
+/////////////////////
+// agregado de eneto al hacer click en el btn de editar, toma el id del registro y lo redirecciona al  form para editar
+document.addEventListener("click", (event) =>{
+  const btnEdit = event.target.closest(".btn-edit button");
+  if(btnEdit){
+    const idGenero = btnEdit.getAttribute("data-id-genero");
+    if(idGenero){
+      window.location.href = `http://localhost:3000/adminHome/modificarGenero?id=${idGenero}`;
+      //observar que se coloca `` para el enlace, esto ayuda a el string con interpolacion, a que la variable pueda pasar por una
+      //variable en la ruta 
+    }
+  }
+});
+
 //////////////////////
 
   //el evento de escucha del boton refrescar, espera que se haga click para ser usado

@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  const params = new URLSearchParams(window.location.search);
+  const idGenero = params.get("id");
+
+  if (idGenero) {
+    // Hacer fetch con ese ID
+    fetch(`http://localhost:3000/generos/${idGenero}`)
+      .then(res => res.json())
+      .then(data => mostrarDataForm(data))
+      .catch(err => console.error("Error al traer datos:", err));
+  }
+
+
   const form = document.getElementById("form-Modify-Genero");
   const inputBusqueda = document.getElementById("inputNombreGenero");
   const selectCoincidencias = document.getElementById("listaCoincidencias");

@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  //trae y muestra los datos obtenidos del registro al formulario
+  const params = new URLSearchParams(window.location.search);
+  const idEspecialidad = params.get("id");
+
+  if (idEspecialidad) {
+    // Hacer fetch con ese ID
+    fetch(`http://localhost:3000/especialidades/${idEspecialidad}`)
+      .then(res => res.json())
+      .then(data => mostrarDataForm(data))
+      .catch(err => console.error("Error al traer datos:", err));
+  }
+
   const form = document.getElementById("form-Modify-EspMedicas");
   
   if (!form) {
