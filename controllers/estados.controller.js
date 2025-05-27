@@ -14,23 +14,33 @@ const obtenerEstados = (req,res) => { // falta el req
 
 
 //controlador para un estado por id
-const obtenerEstado = (req,res) => { //aqui le falto al profe el req y res
-    const {idEstado} = req.params; // aqui el profe coloco id_peliculas, pero a mi no me hizo falta
-    const sql = "SELECT * FROM estados WHERE id_estado = ?"; // se deja el ? para evitar inyeccciones externas
-    db.query(sql,[idEstado],(error,rows) => {
+const obtenerEstadoID = (req,res) => { //aqui le falto al profe el req y res
+    let {idEstado} = req.params; // aqui el profe coloco id_peliculas, pero a mi no me hizo falta
+    idEstado = Number(idEstado);
+
+    //validar
+    if(!Number.isInteger(idEstado) || idEstado <= 0){
+        return res.status(400).json({error: "El ID ingresado debe ser un numero existente en la base de datos"});
+    }
+
+    const sqlInt = "SELECT * FROM estados WHERE id_estado = ?"; // se deja el ? para evitar inyeccciones externas
+    db.query(sqlInt,[idEstado],(error,rows) => {
         console.log(rows);
         if(error){ // si hay un error que retorne cual es el error
+            console.error("Error al obtener la provincia:", error);
             return res.status(500).json({error : "Error: intente mas tarde"});
         }
         if(rows.length == 0){ // si las filas modificadas son cero significa que no encontro nada
-            return res.status(404).send({error : "error: No existe el estado buscado"});
+            return res.status(404).send({error : "error: No existe la provincia buscada"});
         };
-        res.json(rows[0]);// si no hay error que devuelva las filas, []muestra el elemento en esa posicion
+        res.json(rows);// si no hay error que devuelva las filas
     });
 };
 
+
+
 // Get para una (1) estado o provincia por nombre
-const provinciaNombre = (req, res) => {
+const obtenerProvinciaNombre = (req, res) => {
     let {nombreEstado} = req.params;
 
     // Validación: debe ser un string y no puede ser un número ni exceder 50 caracteres
@@ -51,7 +61,7 @@ const provinciaNombre = (req, res) => {
     }
 
     const sql = "SELECT * FROM estados WHERE nombre_estado LIKE ?"; //sentencia que permite buscar por coincidencias de caracteres
-    db.query(sql, [`${nombreEstado}%`], (error, rows) => {
+    db.query(sql, [`%${nombreEstado}%`], (error, rows) => {
         if (error) {
             return res.status(500).json({ error: "Error: intente más tarde" });
             // hay que buscar la manera de mostrar los errores en el dom en forma de notificacion
@@ -68,14 +78,15 @@ const provinciaNombre = (req, res) => {
 //post
 const crearEstado = (req,res) => {
     const {nombreEstado} = req.body;// le mandamos a crear el body
+
     const sql = "INSERT INTO estados (nombre_estado) VALUES(?)";
     db.query(sql,[nombreEstado],(error,result) => {
         console.log(result);
         if(error){ // si hay un error que retorne cual es el error
             return res.status(500).json({error : "Error: intente mas tarde"});
         }
-        const estadoCreado = {...req.body, id: result.insertId}; // reconstruir el objeto body
-        res.status(201).json(estadoCreado); // muestra el creado con exito
+        //const estadoCreado = {...req.body, id: result.insertId}; // reconstruir el objeto body
+        res.status(201).json({mensaje: "provincia creada con exito"}); // muestra el creado con exito
     });
 };
 
@@ -120,8 +131,8 @@ const borrarEstado = (req,res) => {
 //exportar las funciones del modulo
 module.exports = {
     obtenerEstados,
-    obtenerEstado,
-    provinciaNombre,
+    obtenerEstadoID,
+    obtenerProvinciaNombre,
     crearEstado,
     actualizarEstado,
     borrarEstado,

@@ -101,6 +101,14 @@ app.get('/adminHome/verProvincias', (req,res) => {
    res.sendFile(path.join(__dirname, 'html', 'Provincias','verProvincias.html'));
 });
 
+app.get('/adminHome/crearProvincias', (req,res) => {
+   res.sendFile(path.join(__dirname, 'html', 'Provincias', 'crearProvincias.html'));
+});
+
+app.get('/adminHome/modificarProvincias', (req,res) => {
+   res.sendFile(path.join(__dirname, 'html', 'Provincias', 'modificarProvincia.html'));
+});
+
 //Generos
 app.get('/adminHome/verGeneros', (req,res) => {
    res.sendFile(path.join(__dirname, 'html', 'Generos', 'verGeneros.html'));

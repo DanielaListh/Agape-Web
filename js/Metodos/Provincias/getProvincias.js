@@ -99,12 +99,12 @@ function mostrarEnTabla(data){
         <td>${provincias.id_estado}</td>
         <td>${provincias.nombre_estado}</td>
         <td class="btn-edit">
-          <button data-id-especialidad="${provincias.id_estado}">
+          <button data-id-estado ="${provincias.id_estado}">
             <img src=/css/Imagenes/edit.png alt="editar" width="30">
           </button>
         </td>
         <td class="btn-trash">
-          <button data-id-especialidad="${provincias.id_estado}">
+          <button data-id-estado ="${provincias.id_estado}">
             <img src=/css/Imagenes/delete.png alt="eliminar" width="30">
           </button>
         </td>

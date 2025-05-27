@@ -30,7 +30,15 @@ function modificarUsuario(){
 
 // Provincias
 function verProvincias(){
-    window.location.href='http://localhost:3000/adminHome/verProvincias/';
+    window.location.href = 'http://localhost:3000/adminHome/verProvincias/';
+}
+
+function crearProvincias(){
+    window.location.href = 'http://localhost:3000/adminHome/crearProvincias/';
+}
+
+function modificarProvincias(){
+    window.location.href = 'http://localhost:3000/adminHome/modificarProvincias/';
 }
 
 // Generos
