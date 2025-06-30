@@ -1,5 +1,5 @@
-//este script muestra los registros existentes en la tabla especialidades_medicas de la base de datos en el index en tiempo real
-//cuando se cargue el dom
+//este script muestra los registros existentes en la tabla especialidades_medicas de la base de datos 
+// en el index en tiempo real cuando se cargue el dom
 
 //procesar la url de las img para que se puedan previsualizar
 

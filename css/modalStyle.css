@@ -96,8 +96,8 @@
 
 .eliminar-confirmacion:hover,
 .eliminar-cancelacion:hover{
-    background-color: #fde2ea;
-    border: 1px solid #fde2ea;
+    background-color: #ab526c;
+    border: 1px solid #a91b46;
     color: #0569d396;
     transition: 0.4s;
 }

@@ -105,7 +105,8 @@ body {
 .contenedor-padre {
     display: flexbox;
     margin-left: 370px;
-    width: 74vw;
+    width: 72vw;
+    height: auto;
 }
 
 /*Barra horizontal Superior*/
@@ -180,7 +181,7 @@ body {
 .content-view {
     background-color: rgb(255, 255, 255);
     border-radius: 25px;
-    height: 600px;
+    height: 520px;
     padding: 10px;
     margin: 10px;
     padding-left: 60px;

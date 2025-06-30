@@ -5,6 +5,19 @@ function irHome(){
     window.location.href= 'http://localhost:3000/adminHome/';
 }
 
+//CARACTERISTICAS CLINICAS
+function verCaracteristicasClinicas(){
+    window.location.href = 'http://localhost:3000/adminHome/verCaracteristicasClinicas';
+}
+
+function crearCaracteristicaClinicas(){
+    window.location.href = 'http://localhost:3000/adminHome/crearCaracteristicaClinica';
+}
+
+function modificarCaracteristicaClinicas(){
+    window.location.href = 'http://localhost:3000/adminHome/modificarCaracteristicaClinica';
+}
+
 //ESPECIALIDADES MEDICAS
 function verEspecialidades(){
     window.location.href='http://localhost:3000/adminHome/verEspecialidades/';

@@ -23,6 +23,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 //config de archivos estaticos para la carpeta html
 app.use(express.static(path.join(__dirname, 'html')));
 
+const caracteristicasClinicasRouter = require('./routers/caracteristicasClinicas.router');
+app.use('/caracteristicasClinicas', caracteristicasClinicasRouter);
 
 const especialidadesMedicasRouter = require('./routers/especialidades_medicas.router'); // que coloque en esta constante lo que hay en ese modulo
 app.use('/especialidades', especialidadesMedicasRouter); // prefijo de la ruta especialidades
@@ -78,6 +80,20 @@ app.get('/Agape/loginAdmin', (req,res) => {
 // servir la pagina html cuando se hace una solicitud get a /adminHome
 app.get('/adminHome', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
    res.sendFile(path.join(__dirname,'html', 'adminHome.html'));
+});
+
+//Caracteristicas Clinicas
+// servir la pagina html cuando se hace una solicitus get a /adminHome
+app.get('/adminHome/verCaracteristicasClinicas', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
+   res.sendFile(path.join(__dirname,'html', 'CaracteristicasClinicas' ,''));//falta rellenar
+});
+
+app.get('/adminHome/crearCaracteristicaClinica', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
+   res.sendFile(path.join(__dirname,'html', 'CaracteristicasClinicas', 'crearCaractClinica.html'));
+});
+
+app.get('/adminHome/modificarCaracteristicaClinica', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
+   res.sendFile(path.join(__dirname,'html', 'CaracteristicasClinicas', ''));//falta rellenar
 });
 
 //Especialidades Medicas
