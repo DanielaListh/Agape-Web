@@ -298,6 +298,7 @@ body {
     font-weight: 500;
 }
 
+/*mensaje de error de la busqueda de los puts*/
 .mensaje-error{
     margin-top: 5px;
     margin-bottom: 5px;
@@ -548,6 +549,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
 }
 
 .container-search{
+    position: relative; /* importante para usar position absolute en hijos */
     display: flex;
     align-items: center;
 }
@@ -558,6 +560,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
     flex-direction: column;
     align-items: flex-start;
     width: auto;
+    position: relative;/*importante para el select*/
 }
 
 .search-modify input{
@@ -570,6 +573,17 @@ input[type="file"]::-webkit-file-upload-button:hover{
     border-radius: 5px;
     height: 20px;
     border: 3px solid #f9cbd8;  
+}
+
+/*input de busqueda, select options*/
+#listaCoincidencias{
+    position: absolute;
+    top: 65%; /* aparece debajo del input*/
+    background-color: #ffe8eebb;
+    border: 1px solid #f4c9d5;
+    color: #003064;
+    /*z-index: 400;*/ /*creia que era la posicion de apilamiento de los objetos pero no, era el top*/
+    display: none;/*debe ir por default*/
 }
 
 .search-modify input::placeholder{
@@ -617,7 +631,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
 
 /*DIV que contiene el form*/
 .content-form-modify-espec-medicas{
-    margin: 0px 5px 5px 5px;
+    margin: 10px 5px 5px 5px;
     padding: 10px;
     height: 450px;
     border-radius: 15px;
@@ -646,13 +660,6 @@ input[type="file"]::-webkit-file-upload-button:hover{
 /* Color cuando pasas el mouse sobre la barra */
 .content-form-modify-espec-medicas::-webkit-scrollbar-thumb:hover {
     background: #ff8fab;
-}
-
-/*input de busqueda, select options*/
-#listaCoincidencias{
-    background-color: #ffe8eebb;
-    border: 1px solid #f4c9d5;
-    color: #003064;
 }
 
 .content-data-p{

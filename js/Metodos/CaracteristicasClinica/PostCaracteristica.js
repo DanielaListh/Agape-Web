@@ -43,9 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
       input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
       return false;
     } 
-    if(input.value.length > 20){
-      mostrarErrorMsgNombre("Como maximo se admiten 20 caracteres");
-      input.value = input.value.slice(0, 20);//corta el contenido que supera los 250
+    if(input.value.length > 35){
+      mostrarErrorMsgNombre("Como maximo se admiten 35 caracteres");
+      input.value = input.value.slice(0, 35);//corta el contenido que supera los 250
       return false;
     }
     return true;
@@ -65,9 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
       mostrarErrorMsgDescripcion("La caracteristica debe ser mayor a 10 caracteres");
       return false;
     }
-    if(input.value.length > 100){
-      mostrarErrorMsgDescripcion("La caracteristica no debe superar los 100 caracteres");
-      input.value = input.value.slice(0, 100);//corta el contenido que supera los 250
+    if(input.value.length > 150){
+      mostrarErrorMsgDescripcion("La caracteristica no debe superar los 150 caracteres");
+      input.value = input.value.slice(0, 150);//corta el contenido que supera los 250
       return false;
       }
     return true;
@@ -115,8 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
       image.src = event.target.result;
 
       image.onload = async () => {
-        if (image.width !== 80 || image.height !== 80) {
-          mostrarErrorMsgImagen("La imagen debe ser de 80*80px.");
+        if (image.width !== 512 || image.height !== 512) {
+          mostrarErrorMsgImagen("La imagen debe ser de 512*512px.");
           return;
         }
 
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           alert("Caracteristica Clinica creada con éxito.");
           form.reset();
-          window.location.href = "http://localhost:3000/adminHome/verEspecialidades/"; // mientras dejamos esta linea hasta no tener armado el maquetado de ver caracteristicas
+          window.location.href = "http://localhost:3000/adminHome/verCaracteristicasClinicas/"; // mientras dejamos esta linea hasta no tener armado el maquetado de ver caracteristicas
         } catch (error) {
           console.error("Error:", error);
           alert("Hubo un error inesperado. Inténtalo de nuevo.");

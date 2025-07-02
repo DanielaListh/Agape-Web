@@ -104,7 +104,7 @@ body{
 .contain-button-indice a{
   color: white;
   font-weight: 500;
-  font-size: 1.0em;
+  font-size: 0.8rem;
 }
 
 .button-indice {
@@ -159,7 +159,7 @@ body{
 .navbar a{
   color: #003064;
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
@@ -224,7 +224,8 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 50px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .form-container {
@@ -237,7 +238,8 @@ body{
 /*width = ancho, height = alto*/
 
 .imageSingup img {/*esta es la imagen de registro y login*/
-  width: 800px;
+  width: 100%;
+  min-width: 800px;
   height: 600px;
   border-radius: 50px;
   overflow: hidden;
@@ -245,7 +247,8 @@ body{
 }
 
 .imageSingup img{
-  width: 1000px;
+  width: 100%;
+  min-width: 800px;
   height: 600px;
   border-radius: 50px;
   overflow: hidden;
@@ -279,24 +282,19 @@ body{
 .form h2 {
   text-align: center;
   color: #333;
-  font-size: 5vh;
+  font-size: 2rem;
 }
 
 .form-login h2 {
   text-align: center;
   margin:50px 20px;
   color: #333;
-  font-size: 7vh;
+  font-size: 2.5rem;
 }
 
-.form label, .form a {
+.form label, .form a, .form-login label, .form-login a {
   color: #333;
-  font-size: 1.5vh;
-}
-
-.form-login label, .form-login a {
-  color: #333;
-  font-size: 1.5vh;
+  font-size: 1rem;
 }
 
 .terminos-condiciones input, 
@@ -304,14 +302,10 @@ body{
   display: flex;
   align-items: flex-start; /* alinea verticalmente los elementos */
   margin-bottom: 10px;
-  font-size: 2vh;
+  font-size: 1rem;
 }
 
-.form a:hover{
-  color: #4cb5f9;
-}
-
-.form-login a:hover{
+.form a:hover, .form-login a:hover{
   color: #4cb5f9;
 }
 
@@ -327,7 +321,7 @@ body{
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
-  font-size: 2.5vh;
+  font-size: 1rem;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
   outline: none;
@@ -349,7 +343,7 @@ body{
   width: 240px;
   height: 30px;
   padding: 10px;
-  font-size: 2.5vh;
+  font-size: 1rem;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
   border: none;
@@ -361,7 +355,7 @@ body{
   margin-top: 5px;
   background:none;
   cursor:pointer;
-  font-size: 15px;
+  font-size: 1rem;
   outline: none;
   border: none;
   color: #003064;
@@ -377,7 +371,7 @@ body{
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
-  font-size: 1.9vh;
+  font-size: 1rem;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
 }
@@ -391,7 +385,7 @@ body{
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 1rem;
   color: #333;
   appearance: none; /* Para ocultar el icono por defecto */ 
   -webkit-appearance: none; 
@@ -411,7 +405,7 @@ select option {
   background-color: rgba(252, 201, 135, 0.621);
   color: #333;
   padding: 8px 12px;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 select:hover {
@@ -428,7 +422,7 @@ select:hover {
   display: inline-block;
   color: #1e1e1e;
   height: 20px;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 #imagenPerfil {
@@ -443,7 +437,7 @@ input[type="file"]::-webkit-file-upload-button{
   height: 25px;
   border: 2px solid #38b6ff;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 input[type="file"]::-webkit-file-upload-button:hover{
@@ -482,7 +476,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
   border:3px solid #285fc5;
   cursor: pointer;
   border-radius: 50px;
-  font-size: 2.5vh;
+  font-size: 1rem;
   font-weight: 600;
   background-color: rgba(255, 255, 255, 0.1);
   margin: 5px 0;
@@ -495,7 +489,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
   border:3px solid #285fc5;
   cursor: pointer;
   border-radius: 50px;
-  font-size: 3vh;
+  font-size: 1rem;
   font-weight: 600;
   background-color: rgba(255, 255, 255, 0.1);
   margin: 20px;
@@ -601,7 +595,6 @@ input[type="file"]::-webkit-file-upload-button:hover{
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-
 }
 
 .carousel-images img {
@@ -624,7 +617,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
 
 
 .portada-info h1 {
-  font-size: 5em;
+  font-size: 4.5rem;
   text-transform: uppercase;
   color: #ffffff;
 }
@@ -635,7 +628,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
 }
 
 .portada-info h4{
-  font-size: 2em;
+  font-size: 2rem;
   color: #ffffff;
 }
 
@@ -650,7 +643,6 @@ input[type="file"]::-webkit-file-upload-button:hover{
   flex-direction: column;
   padding: 10px 0px;
   width: 250px;
-
 }
 
 .btn-info button {
@@ -663,14 +655,14 @@ input[type="file"]::-webkit-file-upload-button:hover{
 }
 
 .infoAlcance {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: 200;
   justify-content: center;
   align-items: center;
 }
 
 .unclick {
-  font-size: 2em;
+  font-size: 2rem;
   justify-content: center;
   align-items: center;
 }
@@ -681,8 +673,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
   align-items: center;
   color: #ffffff;
   font-weight: 700;
-  font-size: 1.3em;
-
+  font-size: 1.3rem;
 }
 
 .btn-info button:hover{
@@ -704,47 +695,60 @@ input[type="file"]::-webkit-file-upload-button:hover{
 .sobre-nosotros {
   text-align: center;
   margin-top: 100px;
-  height: 500px;
+  height: auto;
 }
 
 .sobre-nosotros h2{
-  margin: 10px 0px;
+  margin: 5px 0px;
   color: #003064;
-  font-size: 2.5em;
+  font-size: 2.5rem;
 }
 
 .sobre-nosotros h3 {
-  margin: 20px 0px;
   color: #003064;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
+/*padre de las notas*/
 .content-notes{
   margin-top: 50px;
   display: flex;
+  padding: 10px 20px  5px 40px;
+  height: auto;
+  gap: 20px;
   justify-content: center;
-  gap: 30px;
+  margin: 20px 5px 20px 5px;
+  flex-wrap: wrap;
 }
 
 .notes {
-  text-align:start;
-  width: 340px;
-  height: auto;
+  display: flex;
+  /*para que ocupe varias lineas y no una sola*/
   background-color: #ffffff;
+  width: 370px;
+  height: 220px;
   border-radius: 20px;
   color: #003064;
   box-shadow: 1px 1px 7px #888888;
-  padding: 30px;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 10px;
 }
 
+
 .notes:hover{
-  box-shadow: 1px 1px 7px #0091ff;
-  transition: 2s;
+  box-shadow: 3px 3px 7px #0091ff;
+  transition: 0.7s;
 }
 
 .notes h4 {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin: 10px 0px;
+}
+
+.notes p{
+  font-size: 0.8rem;
 }
 
 .notes img {
@@ -1132,13 +1136,10 @@ input::placeholder, textarea::placeholder {
 
 .footer {
   background-color: #003064;
-  margin: 0 40px;
-  margin-top: -40px;
   padding: 10px;
   font-family: Arial, sans-serif;
-  border-radius: 25px;
   height: 260px;
-  width: 1450px;
+  width: 100%;
 }
 
 .list-footer {

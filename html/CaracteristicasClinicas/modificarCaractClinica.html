@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar Genero</title>
+    <title>Modificar Caracteristicas Clinicas</title>
     <link rel="stylesheet" href="/css/AdminStyle.css">
 </head>
 <body>
@@ -105,18 +105,18 @@
             </div>
         </div>
     
-        <h1>Generos</h1>
+        <h1>Caracteristicas Clinicas</h1>
         
         <div class="content-view-modify">
             <div class="tittle">
                 <div class="barra-rosa"></div>
-                <h3>Modificar Genero</h3>
+                <h3>Modificar caracteristica clinica</h3>
             </div>
             <div class="container-search">
                 <div class="search-modify">
-                    <label for="inputNombreGenero">Ingresa el nombre del genero</label>
-                    <input id="inputNombreGenero" type="text" placeholder="nombre genero">
-                    <select id="listaCoincidencias" size="2" style="display:none;"></select>
+                    <label for="inputNombreCaracteristica">Ingresa el nombre de la caracteristica</label>
+                    <input id="inputNombreCaracteristica" type="text" placeholder="nombre caracteristica">
+                    <select id="listaCoincidencias" size="2"></select>
                     <div class="mensaje-error">
                         <p id="p-error"></p>
                     </div>
@@ -128,36 +128,62 @@
             </div>
 
             <div class="content-form-modify-espec-medicas">
-                <form class="form-modify-EspMedicas" id="form-Modify-Genero">
+                <form class="form-modify-EspMedicas" id="form-Modify-Caracteristicas" action="http://localhost:3000/caracteristicasClinicas/" method="PUT" enctype="multipart/form-data">
                     <div class="content-data-p">
                         <div class="datos-espec-medicas">
                             <p>ID<span id="spamId" class="span-datos-especialidad-medica"></span></p>
+                        </div>
+                        <div class="datos-espec-medicas">
+                            <p>Fecha Act.<span id="spamFecha" class="span-datos-especialidad-medica"></span></p>
                         </div>
                     </div>
                     
 
                     <div class="form-contend-modify">
-                        <label for="nombreGenero">Nombre genero</label>
+                        <label for="nombreCaractClinica">Nombre Caracteristica Clinica</label>
                         <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                        <input id="nombreGenero" type="text" name="nombreGenero" required />
+                        <input id="nombreCaractClinica" type="text" name="nombreCaractClinica" required/>
                         <div class="error-msg">
                             <p id="error-msg-nombre"></p>
                         </div>
+                    </div>
+                    <div class="form-contend-descripcion-modify">
+                        <label for="descripcionCaract">Descripción Caracteristica Clinica</label>
+                        <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
+                        <textarea name="descripcionCaract" id="descripcionCaract" rows="5" cols="10" required></textarea>
+                        <div class="error-msg">
+                            <p id="error-msg-descripcion"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-contend-img-modify">
+                        <label for="imagenUrl">Imagen Caracteristica Clinica</label>
+                        <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
+                        <img id="imagenCaractClinica" class="imgSubidaPut" src="" alt="">
+                        <input type="file" id="imagenUrl" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
+
+                        <div class="error-msg">
+                            <p id="error-msg-imagen"></p>
+                        </div>
+                        
                     </div>
 
                     <div class="modify">
                         <button type="submit">Modificar</button>
                     </div>
                 </form>
+                
             </div>
+
         </div>
     </div>
 
     <script src="/js/navBarAdmin.js"></script>
     <script src="/js/llamadoDeRutasAdmin.js"></script>
     <script src="/js/usuarios/cerrarSesion.js"></script>
-    <script src="/js/Metodos/Generos/putGeneros.js"></script>
-    <script src="/js/seguridadHomeAdmin.js"></script>
+    <script src="/js/Metodos/CaracteristicasClinica/putPrevisualizacionImgCaract.js"></script>
+    <script src="/js/Metodos/CaracteristicasClinica/putCaracteristicaClinica.js"></script>
+    <script src=""></script>
 
 </body>
 </html>

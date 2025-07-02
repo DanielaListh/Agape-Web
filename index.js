@@ -85,7 +85,7 @@ app.get('/adminHome', (req,res) => { // la ruta raiz del proyecto o pag principa
 //Caracteristicas Clinicas
 // servir la pagina html cuando se hace una solicitus get a /adminHome
 app.get('/adminHome/verCaracteristicasClinicas', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
-   res.sendFile(path.join(__dirname,'html', 'CaracteristicasClinicas' ,''));//falta rellenar
+   res.sendFile(path.join(__dirname,'html', 'CaracteristicasClinicas' ,'verCaracteristicaClinica.html'));//falta rellenar
 });
 
 app.get('/adminHome/crearCaracteristicaClinica', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
@@ -93,7 +93,7 @@ app.get('/adminHome/crearCaracteristicaClinica', (req,res) => { // la ruta raiz 
 });
 
 app.get('/adminHome/modificarCaracteristicaClinica', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio
-   res.sendFile(path.join(__dirname,'html', 'CaracteristicasClinicas', ''));//falta rellenar
+   res.sendFile(path.join(__dirname,'html', 'CaracteristicasClinicas', 'modificarCaractClinica.html'));//falta rellenar
 });
 
 //Especialidades Medicas
