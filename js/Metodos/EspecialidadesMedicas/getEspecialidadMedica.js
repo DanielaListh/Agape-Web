@@ -4,69 +4,92 @@
 async function ObtenerEspecialidadesMedicas() {
   const link='http://localhost:3000/especialidades/';
 
-    try{
-      const res = await fetch(link); // traemos de la bbdd las especialidades medicas a travez del link
+  try{
+    const res = await fetch(link); // traemos de la bbdd las especialidades medicas a travez del link
 
-      if(!res.ok){
-        throw new Error('Error en la solicitud: ' + res.status);
-      }
-      const data = await res.json(); // data es un array de objetos que contiene las especialidades médicas obtenidas del servidor
-      console.log(data);
-      mostrarEnTabla(data);//pasamos explícitamente el array data como argumento a la función mostrarEnTabla 
+    if(!res.ok){
+      throw new Error('Error en la solicitud: ' + res.status);
+    }
+    const data = await res.json(); // data es un array de objetos que contiene las especialidades médicas obtenidas del servidor
+    console.log(data);
+    mostrarEnTabla(data);//pasamos explícitamente el array data como argumento a la función mostrarEnTabla 
 
     // mover hacia arriba de la tabla pero no anda bien ya que no va hasta el extremo superior del div
     //const tablaContenedor = document.getElementById('tabla-especialidades-medicas');
     //tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => {
-        tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
-    }
-    catch(error){
-      console.error('Hubo un problema con la solicitud: ' + error); // los errores los vere en la consola
-    }
+    setTimeout(() => {
+      tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
   }
+  catch(error){
+    console.error('Hubo un problema con la solicitud: ' + error); // los errores los vere en la consola
+  }
+}
 
+// funciones de validaciones
+const inputNombre = document.getElementById('nombreEspecialidadMedica');
+const errorMsgInput = document.getElementById("p-error");
+
+function mostrarErrorInput(mensaje){
+  errorMsgInput.textContent = mensaje;
+  setTimeout(() => (errorMsgInput.textContent = ""), 6000);
+}
+
+const regexInput = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+function validarBusquedaInput(input){
+
+  if (!input.value.trim()){
+    mostrarErrorInput("no se proporcionaron datos suficientes en la busqueda");
+    return false;
+  }
+  if (!regexInput.test(input.value)){
+    mostrarErrorInput("Solo se permiten letras en la búsqueda");
+    input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+    return false;
+  }
+  if(input.value.length > 10){
+    mostrarErrorInput("superaste el maximo de caracteres");
+    input.value = input.value.slice(0, 10);//corta el contenido que supera los 250
+    return false;
+  }
+    
+  errorMsgInput.textContent = "";//esto es dinamico?
+  return true;
+}
+
+inputNombre.addEventListener("input", (event) => {
+  validarBusquedaInput(inputNombre);// pasar el elemento completo
+});
 
 //obtener solo UNA especialidad medica mediante el nombre Y TRAERLA AL FRONT
 async function buscarEspecialidad(){
-  const nombreEspecialidadMedica = document.getElementById('nombreEspecialidadMedica').value;
-  if (!nombreEspecialidadMedica){
-      //alert("no se proporcionaron datos suficientes en la busqueda");
-      const parrafoError = document.querySelector(".p-error");
-      parrafoError.textContent = "no se proporcionaron datos suficientes en la busqueda";
-       setTimeout(() => parrafoError.textContent = "", 6000);
-      return;
-  }
-  if (!/^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/.test(nombreEspecialidadMedica)) {
-    //alert("Solo se permiten letras en la búsqueda");
-    const parrafoError = document.querySelector(".p-error");
-      parrafoError.textContent = "Solo se permiten letras en la búsqueda";
-       setTimeout(() => parrafoError.textContent = "", 6000);
-    return;
-  }
+  const nombreEspecialidadMedica = inputNombre.value.trim();
+
   try {
-      const response = await fetch(`http://localhost:3000/especialidades/${nombreEspecialidadMedica}`);
-      if (!response.ok) {
-        if(response.status === 404){
-          //alert("No se encontro la especialidad buscada");
-          const parrafoError = document.querySelector(".p-error");
-          parrafoError.textContent = "No se encontro la especialidad buscada";
-          setTimeout(() => parrafoError.textContent = "", 7000);
-        } else {
-          throw new Error('Error: ' + response.statusText);
-        }
-        return;
+    const response = await fetch(`http://localhost:3000/especialidades/${nombreEspecialidadMedica}`);
+    if (!response.ok) {
+      if(response.status === 404){
+        //alert("No se encontro la especialidad buscada");
+        const parrafoError = document.querySelector(".p-error");
+        parrafoError.textContent = "No se encontro la especialidad buscada";
+        setTimeout(() => parrafoError.textContent = "", 7000);
+      } else {
+        throw new Error('Error: ' + response.statusText);
       }
+      return;
+    }
       
-      const data = await response.json();
-      mostrarEnTabla(data); //mostrar el resultado de la busqueda en la tabla, antes data estaba dentro de [], lo que hacia que trajera
-      //resultados undefined.
-      //displayEspecialidad(data);
-  } catch (error) {
-      const parrafoError = document.querySelector(".p-error");
-      parrafoError.textContent = "Lo sentimos, ocurrio un error inesperado";
-      setTimeout(() => parrafoError.textContent = "", 6000);
-      alert(error.message);
+    const data = await response.json();
+    mostrarEnTabla(data); //mostrar el resultado de la busqueda en la tabla, antes data estaba dentro de [], lo que hacia que trajera
+    //resultados undefined.
+    //displayEspecialidad(data);
+  }
+  catch (error) {
+    const parrafoError = document.querySelector(".p-error");
+    parrafoError.textContent = "Lo sentimos, ocurrio un error inesperado";
+    setTimeout(() => parrafoError.textContent = "", 6000);
+    alert(error.message);
   }
 }
 

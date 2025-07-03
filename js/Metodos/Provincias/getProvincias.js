@@ -24,30 +24,46 @@ async function ObtenerProvincias() {
     catch(error){
       console.error('Hubo un problema con la solicitud: ' + error); // los errores los vere en la consola
     }
-  }
+}
 
+// funciones de validaciones
+const inputNombre = document.getElementById('nombreEstado');
+const errorMsgInput = document.getElementById("p-error");
+
+function mostrarErrorInput(mensaje){
+  errorMsgInput.textContent = mensaje;
+  setTimeout(() => (errorMsgInput.textContent = ""), 6000);
+}
+
+const regexInput = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+function validarBusquedaInput(input){
+
+  if (!input.value.trim()){
+    mostrarErrorInput("no se proporcionaron datos suficientes en la busqueda");
+    return false;
+  }
+  if (!regexInput.test(input.value)){
+    mostrarErrorInput("Solo se permiten letras en la búsqueda");
+    input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+    return false;
+  }
+  if(input.value.length > 10){
+    mostrarErrorInput("superaste el maximo de caracteres");
+    input.value = input.value.slice(0, 10);//corta el contenido que supera los 250
+    return false;
+  }
+  errorMsgInput.textContent = "";//esto es dinamico?
+  return true;
+}
+
+inputNombre.addEventListener("input", (event) => {
+  validarBusquedaInput(inputNombre);// pasar el elemento completo
+});
 
 //obtener solo UNA especialidad medica mediante el nombre Y TRAERLA AL FRONT
 async function buscarProvincia(){
-  const nombreEstado = document.getElementById('nombreEstado').value;
-  const regex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
-
-  if (!nombreEstado){
-    //alert("no se proporcionaron datos suficientes en la busqueda");
-    const parrafoError = document.querySelector(".p-error");
-    parrafoError.textContent = "no se proporcionaron datos en la busqueda";
-    setTimeout(() => parrafoError.textContent = "", 6000);
-    return;
-  }
-
-  if (!regex.test(nombreEstado)) {
-    //alert("Solo se permiten letras en la búsqueda");
-    const parrafoError = document.querySelector(".p-error");
-    parrafoError.textContent = "Solo se permiten letras en la búsqueda";
-    nombreEstado = nombreEstado.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");// no funciona esta linea porque no esta en un evento listener
-    setTimeout(() => parrafoError.textContent = "", 6000);
-    return;
-  }
+  const nombreEstado = inputNombre.value.trim();
 
   try {
       const response = await fetch(`http://localhost:3000/estados/${nombreEstado}`);
