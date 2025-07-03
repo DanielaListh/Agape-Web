@@ -122,17 +122,19 @@ function mostrarEnTabla(data){
 //////////////////////
 
 // agregado de eneto al hacer click en el btn de editar, toma el id del registro y lo redirecciona al  form para editar
-//document.addEventListener("click", (event) =>{
-  //const btnEdit = event.target.closest(".btn-edit button");
-  //if(btnEdit){
-   // const idCaracteristica = btnEdit.getAttribute("data-id-caracteristica");
-   // if(idCaracteristica){
-   //   window.location.href = `http://localhost:3000/adminHome/modificarEspecialidad?id=${idEspecialidad}`;
-      ////observar que se coloca `` para el enlace, esto ayuda a el string con interpolacion, a que la variable pueda pasar por una
-      ////variable en la ruta 
-   /// }
- // }
-//});
+document.addEventListener("click", (event) =>{
+  const btnEdit = event.target.closest(".btn-edit button");
+  if(btnEdit){// si es btn edit 
+    // la const idCaracteristica obtiene el atributo data-id-caracteristica
+    const idCaracteristica = btnEdit.getAttribute("data-id-caracteristica");
+    //con eso pasamos el id de ese registo a otra direccion para editar
+    if(idCaracteristica){
+      window.location.href = `http://localhost:3000/adminHome/modificarCaracteristicaClinica?id=${idCaracteristica}`;
+      //observar que se coloca `` para el enlace, esto ayuda a el string con interpolacion, a que la variable 
+      // pueda pasar por una variable en la ruta 
+    }
+  }
+});
 // hay que hacer primero el modificar
 
 

@@ -310,6 +310,10 @@ body {
     height: 20px;
 }
 
+.p-error{
+    color: #af0622;
+}
+
 #p-error{
     color: #fd2e69;
     font-size: 0.9em;
