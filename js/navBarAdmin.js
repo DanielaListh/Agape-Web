@@ -1,10 +1,11 @@
+// script de movimiento dinamico en barra izq
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".submenu > a, .submenu > .arrow").forEach(element => {
         element.addEventListener("click", function (e) {
             e.preventDefault(); // Evita la navegación si es un <a>
 
             let parent = this.closest(".submenu"); // Encuentra el submenú más cercano
-            let link = parent.querySelector("a"); // Encuentra el enlace dentro del submenú
+            //let link = parent.querySelector("a"); // Encuentra el enlace dentro del submenú
             let arrow = parent.querySelector(".arrow"); // Encuentra la flecha dentro del submenú
             
             // Alternar la clase 'open' en el submenú y 'rotate' en el arrow

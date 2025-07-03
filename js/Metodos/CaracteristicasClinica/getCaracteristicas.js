@@ -84,7 +84,7 @@ function mostrarEnTabla(data){
   const baseUrl="http://localhost:3000/"; // la barra al final / es importante para cumplir con toda la ruta
 
   //creo la tabla y el encabezado
-  let tabla = '<table><thead><tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Fecha de Alta</th><th>Imagen</th><th><th></th></th></tr></thead><tbody>';
+  let tabla = '<table><thead><tr><th style="width: 30px;">ID</th><th style="width: 180px;">Nombre</th><th style="width: 180px;">Descripción</th><th style="width: 80px;">Fecha de Alta</th><th style="width: 80px;">Imagen</th><th><th></th></th></tr></thead><tbody>';
 
   //add las filas de datos
   data.forEach(caracteristica => {

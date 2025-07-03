@@ -16,7 +16,7 @@ body {
 
 .sidebar {
     background-color: white;
-    width: 370px;
+    width: 340px;
     position: fixed; /*recordar poner fixed a la tabla*/
     height: 100vh;/*ocupa el 100% del area visible de la pag*/
     overflow-y:auto;
@@ -33,14 +33,18 @@ body {
     color: #003064;
     display: block;
     padding: 5px 0;/*0*/
-    margin-left: 40px;
+    margin-left: 20px;
     text-decoration: none;
     font-weight: 700;
 }
 
 .menu li {
-    padding: 5px 30px;
+    padding: 5px 20px;
     cursor: pointer;
+}
+
+.submenu {
+    max-width:300px ;
 }
 
 .submenu li {
@@ -98,22 +102,20 @@ body {
 }
 
 
-
-
 /* Contenedor padre*/
 
 .contenedor-padre {
     display: flexbox;
-    margin-left: 370px;
-    width: 72vw;
+    margin-left: 340px;
+    width: 73%;
     height: auto;
 }
 
 /*Barra horizontal Superior*/
-
 .barra-horizontal-sup{
+    width: 90%;
+    margin: 0 10px;
     display: flex;
-    margin: 0 10px 0 10px;
     background-color: white;
     height: 50px;
     border-radius: 15px;
@@ -176,15 +178,17 @@ body {
     font-family: "Open Sans", serif;
     font-weight: 800;
     margin: 10px;
+    font-size: 1.5rem;
 }
 
 .content-view {
     background-color: rgb(255, 255, 255);
     border-radius: 25px;
-    height: 520px;
+    height: 460px;
     padding: 10px;
     margin: 10px;
-    padding-left: 60px;
+    padding-left: 40px;
+    width: 85%;
 }
 
 /*en el home de admin*/
@@ -258,7 +262,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     width: auto;
-    padding-right: 70px;
 }
 
 .search input{
@@ -305,7 +308,6 @@ body {
     width: 370px;
     min-width: 370px;
     height: 20px;
-    background-color: #d0a6b221;
 }
 
 #p-error{
@@ -337,7 +339,9 @@ body {
 .content-view-create{
     background-color: white;
     border-radius: 25px;
-    height: 640px;
+    height: auto;
+    min-height: 440px;
+    max-height: 500;
     margin: 5px 10px;
     width: 500px;
     padding: 20px;
@@ -352,10 +356,35 @@ body {
 }
 
 .form-Create-EM{
-    padding: 10px;
+    height: 390px;
+    padding: 10px 10px 10px 20px;
     margin: 10px;
     align-items: center;
     justify-content: center;
+    overflow-y: auto; /* Habilita el scroll vertical */
+    overflow-x: hidden;
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+/*estilos de scroll*/
+.form-Create-EM::-webkit-scrollbar {
+    width: 6px; /* ancho del scroll vertical */
+}
+
+  /* fondo del area de la barra */
+.form-Create-EM::-webkit-scrollbar-track {
+    background: #ffdddf1d;
+}
+
+/* Color de la barra de desplazamiento */
+.form-Create-EM::-webkit-scrollbar-thumb {
+    background: #fde2ea;;
+    border-radius: 5px;
+}
+
+/* Color cuando pasas el mouse sobre la barra */
+.form-Create-EM::-webkit-scrollbar-thumb:hover {
+    background: #ff8fab;
 }
 
 .form-contend-nombre-post, 
@@ -534,7 +563,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
 .content-view-modify{
     background-color: white;
     border-radius: 25px;
-    height: 600px;
+    height: 450px;
     margin: 5px 10px;
     width: 500px;
     padding: 20px;
@@ -633,9 +662,8 @@ input[type="file"]::-webkit-file-upload-button:hover{
 .content-form-modify-espec-medicas{
     margin: 10px 5px 5px 5px;
     padding: 10px;
-    height: 450px;
+    height: 310px;
     border-radius: 15px;
-    border: 2px solid #d52657a0;
     overflow-y: auto; /* Habilita el scroll vertical */
     box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
 }

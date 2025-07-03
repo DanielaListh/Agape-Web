@@ -2,8 +2,9 @@
 
 .board-content {
     margin-top: 20px;
-    width: 930px; /* Ajusta el ancho según necesites */
-    height: 390px; /* Ajusta la altura según necesites */
+    width: 750px; /* Ajusta el ancho según necesites */
+    height: auto;
+    max-height: 320px; /* Ajusta la altura según necesites */
     overflow-y: auto; /* Habilita el scroll vertical */
     overflow-x: hidden; /* Opcional, oculta el scroll horizontal */
     border: 2px solid #ffd8e09d; /* Opcional, añade un borde */
