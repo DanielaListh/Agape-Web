@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const regexTextarea = /^[,.a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
 
   function validarInput(input){ //imput en el form osea nombre de especialidad medica
+    
     if (!input.value.trim()) {
       mostrarErrorMsgNombre("El nombre de la especialidad medica es necesaria");
       return false;

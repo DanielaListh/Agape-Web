@@ -40,6 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if(!regex.test(valor)){
       mostrarParrafoError("no se admiten numeros ni caracteres especiales");
       selectCoincidencias.style.display = 'none';
+      inputBusqueda.value = inputBusqueda.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");//el caracter que no coincide es reemplazado por "" 
+      return;
+    }
+    if(inputBusqueda.value.length > 10){
+      mostrarParrafoError("Como maximo se admiten 10 caracteres");
+      inputBusqueda.value = inputBusqueda.value.slice(0, 10);//corta el contenido que supera los 250
       return;
     }
 
