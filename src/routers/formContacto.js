@@ -10,6 +10,10 @@ const router = Router();
 
 const resend = new Resend(RESEND_API_KEY);
 
+//prueba
+console.log("RESEND_API_KEY en entorno:", RESEND_API_KEY);
+
+
 router.post("/", async (req, res) => {
   const { nombre, email, telefono, mensaje } = req.body;
 
