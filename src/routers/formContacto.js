@@ -1,12 +1,14 @@
 import dotenv from "dotenv";
 dotenv.config(); // Esto carga tu .env
 
+import { RESEND_API_KEY } from '../config.js'; // o desde donde lo tengas
+
 import { Router } from "express";
 import { Resend } from "resend";
 
 const router = Router();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(RESEND_API_KEY);
 
 router.post("/", async (req, res) => {
   const { nombre, email, telefono, mensaje } = req.body;
