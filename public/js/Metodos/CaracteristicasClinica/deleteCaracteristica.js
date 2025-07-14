@@ -55,7 +55,7 @@ function actualizarModal(caracteristica) {
     const nombreField = modal.querySelector("#nombreCaracteristica span");
     const descripcionField = modal.querySelector("#descripcionCaracteristica span");
     const fechaField = modal.querySelector("#fechaActualizacion span");
-    const imgField = modal.querySelector(".previa-img img");
+    const imgField = modal.querySelector(".previa-img-caracteristica img");
     const avisoField = modal.querySelector(".texto-aviso span");
     const btnEliminar = modal.querySelector(".btn-eliminar");
 

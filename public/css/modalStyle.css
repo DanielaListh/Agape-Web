@@ -102,3 +102,60 @@
     transition: 0.4s;
 }
 
+.modal-container-genero {
+    margin: auto;/*centrado horizontal y vertical auto*/
+    width: 70%;
+    max-width: 500px;
+    height: 250px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    padding: 10px;
+    border: 2px solid #f9cbd8;
+    justify-items: center;
+}
+
+.modal-container-provincia{
+    margin: auto;/*centrado horizontal y vertical auto*/
+    width: 70%;
+    max-width: 500px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    padding: 10px;
+    border: 2px solid #f9cbd8;
+    justify-items: center;
+}
+
+.texto-aviso-provincia{
+    margin-top: -210px;
+    text-align: center;
+    color: #003064;
+}
+
+
+.btns-eliminar-provincia{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+}
+
+.btns-eliminar-provincia button {
+    background-color: #f9cbd8;
+    color: #003064;
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    align-items: center;
+    padding: 10px 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.eliminar-confirmacion:hover,
+.eliminar-cancelacion:hover{
+    background-color: #ab526c;
+    border: 1px solid #a91b46;
+    color: #0569d396;
+    transition: 0.4s;
+}

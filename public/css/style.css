@@ -330,8 +330,8 @@ body{
 /*mensaje en el input password*/
 .password-container{
   position: relative;
-  margin-left: 40px;
-  width: 310px;
+  margin-left: 60px;
+  width: 440px;
   height: 30px;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
@@ -339,8 +339,7 @@ body{
 
 .password-input{
   margin-bottom: 5px;
-  margin-left: -70px;
-  width: 240px;
+  width: 300px;
   height: 30px;
   padding: 10px;
   font-size: 1rem;
@@ -866,7 +865,6 @@ input[type="file"]::-webkit-file-upload-button:hover{
  align-content: space-between;
  align-items: center;
  justify-content: center;
- margin-top: -40px;
 }
 
 .content-h2{
@@ -1011,7 +1009,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
 /*Contacto*/
 
 #contacto{
-  scroll-margin-top: 50px; /* Ajusta según el alto de tu navbar */
+  scroll-margin-top: 60px; /* Ajusta según el alto de tu navbar */
 }
 
 .container-contacto {
@@ -1021,7 +1019,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin:0px 80px 10px 40px;
+  margin:0px 80px 0px 40px;
   background-image: url(/css/Imagenes/eclipse4.png);
   background-size: auto;
   gap: 10px;
@@ -1032,10 +1030,6 @@ input[type="file"]::-webkit-file-upload-button:hover{
   height: 450px;
   width: 500px;
   border-radius: 30px;
-}
-
-.container-contacto p {
-  margin: 10px 0;
 }
 
 
@@ -1287,5 +1281,152 @@ input::placeholder, textarea::placeholder {
   justify-content: center;
 }
 
+
+/* responsive para telefono */
+
+/* responsive para telefono */
+
+@media screen and (max-width: 768px) {
+  
+  .menu-container{
+  width: 200vw;
+  justify-content: center;
+  }
+
+  .mini-content-portada{
+  height: 20vh;
+  }
+
+  .isotipo{
+    width: 40vw;
+  }
+
+  .contain-button-indice a{
+    font-size: 1.2rem;  
+    padding: 0;
+    margin: 0;
+  }
+
+  .content-navbar{
+    background-color: #85acd7;
+    height: 10vh;
+  }
+
+  .menu-icono{
+    display: block;
+    height: 5vh;
+  }
+
+  .navbar{
+    display: none;
+  }
+
+  .direccion-spot{
+    display: none;
+  }
+
+  /*carrusel*/
+  .Content-Carousel{
+    margin-top: 5px;
+    width: 197vw;
+    height: 90vh;
+    background-image: none;
+  }
+
+  .transparency{
+    width: auto;
+    height: 90vh;
+    margin: 5px;
+    padding: 0;
+  }
+
+  .carousel{
+    width: 195vw;
+    height: 90vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .carousel-images img{
+    height: 90vh;
+  }
+
+  .tittle{
+    margin-top: 440px;
+    margin-left: -70px;
+  }
+
+  .btn-info h2{
+    display: none;
+  }
+
+  .btn-info button{
+    margin-top: 250px;
+    margin-right: -40px;
+  }
+
+  .buscador-container{
+    display: none;
+  }
+
+  /*Notitas*/
+  .sobre-nosotros{
+    width: 200vw;
+  }
+
+  .sobre-nosotros h2{
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .sobre-nosotros h3{
+    font-size: 2rem;
+  }
+
+
+  /*Nuestra historia*/
+  .historia{
+    width: 200vw;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .historia-transparency{
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  .historia-content img{
+    display: none;
+  }
+
+  .historia-content{
+    padding-left: 60px;
+  }
+
+  .historia-content h2{
+    font-size: 3rem;
+  }
+
+  #p1,
+  #p2 {
+    font-size: 2rem;
+  }
+
+  .historia-content-content p{
+    font-size: 1.3rem;
+  }
+
+  /*servicios*/
+  .content-h2{
+    width: 200vw;
+    margin-top: 600px;
+  }
+
+}
 
 

@@ -152,6 +152,38 @@ const obtenerUsuario = async (req, res) => {
     }
 };
 
+//hacer get de nombre de usuario
+const usuarioNombre = async (req, res) => {
+    let { nombreUsuario } = req.params;
+
+    if (!nombreUsuario) {
+        return res.status(400).json({ error: "Error: El parámetro debe ser un texto válido." });
+    }
+
+    nombreUsuario = nombreUsuario.trim();
+    const regex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]{1,50}$/;
+
+    if (!regex.test(nombreUsuario)) {
+        return res.status(400).json({
+            error: "Error: El nombre de usuario debe contener solo letras y tener un máximo de 50 caracteres."
+        });
+    }
+
+    try {
+        const [rows] = await connection.query(
+            "SELECT * FROM usuarios WHERE nombre_usuario LIKE CONCAT(?, '%')",
+            [`${nombreUsuario}%`]
+        );
+        if (rows.length === 0) {
+            return res.status(404).json({ error: "Error: No existe el usuario buscado" });
+        }
+        res.json(rows);
+    } catch (error) {
+        res.status(500).json({ error: "Error: intente más tarde" });
+    }
+};
+
+
 // PUT actualizar usuario
 const actualizarUsuario = async (req, res) => {
     const { idUsuario } = req.params;
@@ -233,6 +265,7 @@ export {
     loginUsuario,
     obtenerUsuarios,
     obtenerUsuario,
+    usuarioNombre,
     actualizarUsuario,
     eliminarUsuario,
     // obtenerPerfilUsuario (cuando lo sume)

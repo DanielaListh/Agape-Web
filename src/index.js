@@ -85,6 +85,14 @@ app.get('/adminHome', (req,res) => { // la ruta raiz del proyecto o pag principa
    res.sendFile(path.join(__dirname, '../public/html/adminHome.html'));
 });
 
+app.get('/adminHome/MiPerfil', (req,res) => {
+   res.sendFile(path.join(__dirname, '../public/html/Usuarios/perfilAdmin.html'));
+})
+
+app.get('/adminHome/verUsuarios', (req,res) =>{
+   res.sendFile(path.join(__dirname, '../public/html/Usuarios/verUsuarios.html'));
+})
+
 //Caracteristicas Clinicas
 // servir la pagina html cuando se hace una solicitus get a /adminHome
 app.get('/adminHome/verCaracteristicasClinicas', (req,res) => { // la ruta raiz del proyecto o pag principal del sitio

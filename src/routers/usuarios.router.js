@@ -7,10 +7,11 @@ import path from  'path';
 import { fileURLToPath } from 'url';
 
 import{
-     crearUsuario,
+    crearUsuario,
     loginUsuario,
     obtenerUsuarios,
     obtenerUsuario,
+    usuarioNombre,
     //obtenerPerfilUsuario,
     actualizarUsuario,
     eliminarUsuario,
@@ -74,7 +75,24 @@ router.get("/protected", usuariosMiddleware, (req, res) => {
 router.get('/', obtenerUsuarios);
 
 // ruta para ver info de un solo usuario
-router.get('/:idUsuario', obtenerUsuario);
+//router.get('/:idUsuario', obtenerUsuario);
+
+// Método GET para una (1) sola especialidad
+router.get('/:parametro', (req, res) => {
+    let { parametro } = req.params;
+
+    const id = Number(parametro);
+
+    if (!isNaN(id) && Number.isInteger(id)) {// isNaN = es un no numero, !isNaN = si es un numero
+        // Es un ID valido (entero)
+        req.params.idUsuario = id;
+        obtenerUsuario(req, res);// no se ejecuta
+    } else {
+        // Es un nombre
+        req.params.nombreUsuario = parametro.trim();
+        usuarioNombre(req, res);
+    }
+});
 
 //metodo put, busca por id y actualizar
 router.put('/:idUsuario', upload, actualizarUsuario);

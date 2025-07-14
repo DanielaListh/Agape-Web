@@ -5,6 +5,14 @@ function irHome(){
     window.location.href= 'http://localhost:3000/adminHome/';
 }
 
+function irPerfil(){
+    window.location.href = 'http://localhost:3000/adminHome/MiPerfil';
+}
+
+function verUsuarios(){
+    window.location.href = 'http://localhost:3000/adminHome/verUsuarios';
+}
+
 //CARACTERISTICAS CLINICAS
 function verCaracteristicasClinicas(){
     window.location.href = 'http://localhost:3000/adminHome/verCaracteristicasClinicas';

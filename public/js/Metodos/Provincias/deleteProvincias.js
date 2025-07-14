@@ -61,8 +61,8 @@ document.addEventListener("click", async (event) => {
 
     const idField = modal.querySelector("#idProvincia span");
     const nombreField = modal.querySelector("#nombreProvincia span");
-    const avisoField = modal.querySelector(".texto-aviso span");
-    const btnEliminar = modal.querySelector(".btn-eliminar");
+    const avisoField = modal.querySelector(".texto-aviso-provincia span");
+    const btnEliminar = modal.querySelector(".btn-eliminar-provi");
 
     if(!idField || !nombreField || !btnEliminar){
       console.error("uno o mas elementos del modal no fueron encontrados");
@@ -92,13 +92,13 @@ document.addEventListener("click", async (event) => {
   }
   
   // Evento para cerrar el modal al hacer clic en "Cancelar"
-  document.querySelector(".btn-cancelar").addEventListener("click", () => {
+  document.querySelector(".btn-cancelar-provi").addEventListener("click", () => {
    const modal = document.querySelector(".modal");
     modal.classList.remove("modal--show");//ocultamos el modal
   });
   
   // Evento para eliminar el registro
-  document.querySelector(".btn-eliminar").addEventListener("click", async (event) => {
+  document.querySelector(".btn-eliminar-provi").addEventListener("click", async (event) => {
     const idEstado = event.target.dataset.idEstado;
   
     try {
