@@ -78,17 +78,10 @@
                         <a href="#">Usuarios</a>
                         <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
                         <ul class="submenu-content">
-                            <li><a href="#">Lista de usuarios</a></li>
-                            <li><a href="#">Agregar usuario</a></li>
-                            <li><a href="#">Editar usuario</a></li>
+                            <li><a href="#" onclick="verUsuarios()">Ver usuarios</a></li>
                         </ul>
                     </li>
                 </ul>
-            </li>
-
-            <li class="submenu">
-                <a class="submenu_a" href="#">Estadísticas</a>
-                <img class="arrow list_arrow" class="list_arrow" src="/css/Imagenes/arrow.svg" alt="">
             </li>
         </ul>
     </nav>
@@ -101,7 +94,7 @@
             <div id="icon-user-perfil" class="icon-user-perfil"><button><img src="/css/Imagenes/user.svg" alt=""></button></div>
             <div id="sub-menu" class="sub-menu hidden">
               <ul>
-                  <li><a class="a-link" href="#" id="logout">Ver perfil</a></li>
+                  <!--<li><a class="a-link" href="#" id="logout">Ver perfil</a></li> -->
                   <li><a class="a-link" href="#" id="logout" onclick="cerrarSession()">Cerrar Sesion</a></li>
               </ul>
             </div>
@@ -109,7 +102,7 @@
     
         <h1>Usuarios</h1>
         
-        <div class="content-view">
+        <div class="content-view-usuarios">
     
           <div class="tittle">
             <div class="barra-rosa"></div>
@@ -140,7 +133,7 @@
           </div>
     
           <div class="board-view">
-            <div id="tabla-usuarios" class="board-content">
+            <div id="tabla-usuarios" class="board-content-usuarios">
             </div>
           </div>
     
@@ -156,10 +149,14 @@
             <div class="info-especialidades">
                 <div class="info-izq">
                     <ul>
-                        <li class="p-label" id="idEspecialidad">ID: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="nombreEspecialidad">Nombre: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="descripcionEspecialidad">Descripción: <span style="font-weight: 400;"></span></li>
-                        <li class="p-label" id="fechaAltaEspecialidad">Fecha de alta: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="idUsuario">ID: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="nombreUsuario">Nombre: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="correoElectronico">Email: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="password">password: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="fechaNacimiento">Fecha Nacimiento: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="idGenero">ID Genero: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="idRol">ID Rol: <span style="font-weight: 400;"></span></li>
+                        <li class="p-label" id="fechaAltaUsuario">Fecha de alta: <span style="font-weight: 400;"></span></li>
                     </ul>
                 </div>
                 <div class="info-der">
@@ -185,7 +182,7 @@
     <script src="/js/usuarios/getUsuarios.js"></script>
     <script src="/js/llamadoDeRutasAdmin.js"></script>
     <script src="/js/usuarios/cerrarSesion.js"></script>
-    <script src="/js/Metodos/EspecialidadesMedicas/deleteEspecialidadMedica.js"></script>
+    <script src="/js/usuarios/deleteUsuario.js"></script>
     <script src="/js/seguridadHomeAdmin.js"></script>
 
 </body>

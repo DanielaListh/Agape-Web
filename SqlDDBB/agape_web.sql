@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 20-05-2025 a las 16:37:03
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 15-07-2025 a las 17:57:31
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bbdd_antares`
+-- Base de datos: `agape_web`
 --
 
 -- --------------------------------------------------------
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `administradores` (
-  `id_usuario` int(11) DEFAULT NULL,
-  `permisos` text DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `permisos` varchar(255) DEFAULT 'none',
   `estado_conexion` tinyint(1) DEFAULT 0,
-  `ultima_conexion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `ultima_conexion` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,19 +39,30 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id_usuario`, `permisos`, `estado_conexion`, `ultima_conexion`) VALUES
-(43, 'none', 0, '2025-03-13 16:46:30'),
-(44, 'none', 0, '2025-03-13 16:51:34'),
-(45, 'none', 0, '2025-03-16 23:02:31'),
-(46, 'none', 0, '2025-03-16 23:21:06'),
-(47, 'none', 0, '2025-03-25 23:48:57'),
-(48, 'none', 0, '2025-03-25 23:49:11'),
-(49, 'none', 0, '2025-03-25 23:49:26'),
-(50, 'none', 0, '2025-03-25 23:50:01'),
-(59, 'none', 0, '2025-04-08 17:06:19'),
-(62, 'none', 0, '2025-04-08 23:34:21'),
-(65, 'none', 0, '2025-04-25 17:28:58'),
-(69, 'none', 0, '2025-04-25 19:07:32'),
-(70, 'none', 0, '2025-04-25 21:14:32');
+(72, 'none', 0, '2025-07-15 13:45:37');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `caracteristicas_clinica`
+--
+
+CREATE TABLE `caracteristicas_clinica` (
+  `idCaracteristicaClinica` int(11) NOT NULL,
+  `nombrecaracterClinica` varchar(100) NOT NULL,
+  `descripcioncaracterClinica` text NOT NULL,
+  `imgcaracterClinica` varchar(255) NOT NULL,
+  `fecha_actualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `caracteristicas_clinica`
+--
+
+INSERT INTO `caracteristicas_clinica` (`idCaracteristicaClinica`, `nombrecaracterClinica`, `descripcioncaracterClinica`, `imgcaracterClinica`, `fecha_actualizacion`) VALUES
+(1, 'Atención Personalizada', 'nuestro equipo ofrece un alto servicio a  sus pacientes', 'uploads/heartIcon.png', '2025-07-14 17:02:49'),
+(2, 'Diagnósticos de calidad', 'Nuestros analisis son realizados con la mas alta presicion y con los mejores dispositivos médicos de diagnóstico', 'uploads/xrayicon.png', '2025-07-14 17:05:57'),
+(4, 'Años de Experiencia', 'Contamos con  años de trayectoria profesional en el diagnóstico preciso de diversas afecciones médicas', 'uploads/clinic2.png', '2025-07-14 23:40:18');
 
 -- --------------------------------------------------------
 
@@ -101,15 +112,12 @@ CREATE TABLE `especialidades_medicas` (
 --
 
 INSERT INTO `especialidades_medicas` (`id_especialidad_medica`, `nombre_especialidad_med`, `descripcion_especialidad_med`, `fecha_alta_especialidad_med`, `imagen_especialidad_med`) VALUES
-(42, 'Cardiología', 'Diagnóstico y tratamiento de enfermedades del corazón y del sistema circulatorio', '2025-04-02 14:10:42', './uploads/Especialidades-Medicas.png'),
-(43, 'Pediatría', 'Cuidado integral de la salud de los niños desde el nacimiento hasta la adolescencia, incluye la prevención, tratamiento de enfermedades y apoyo en su desarrollo físico y emocional', '2025-04-02 14:30:31', './uploads/Especialidades-Medicas (1).png'),
-(44, 'Oftalmología', 'Diagnóstico tratamiento y prevención de enfermedades relacionadas con los ojos y la visión', '2025-04-02 14:49:11', './uploads/Especialidades-Medicas (2).png'),
-(45, 'Odontología', 'Prevención diagnóstico y tratamiento de enfermedades y trastornos de los dientes, encías y boca', '2025-04-02 14:52:11', './uploads/Especialidades-Medicas (3).png'),
-(46, 'Ginecología', 'Atención médica de la salud reproductiva y enfermedades del sistema reproductor femenino', '2025-04-02 14:55:15', './uploads/Especialidades-Medicas (4).png'),
+(43, 'Pediatría', 'Cuidado integral de la salud de los niños desde el nacimiento hasta la adolescencia, incluye la prevención, tratamiento de enfermedades y apoyo en su desarrollo físico y emocional', '2025-07-15 12:44:07', 'uploads/pediatria.png'),
+(44, 'Oftalmología', 'Diagnóstico tratamiento y prevención de enfermedades relacionadas con los ojos y la visión', '2025-07-15 12:52:28', 'uploads/otalmo.png'),
+(45, 'Odontología', 'Prevención diagnóstico y tratamiento de enfermedades y trastornos de los dientes, encías y boca', '2025-07-15 12:51:25', 'uploads/odontologia.png'),
+(46, 'Ginecología', 'Atención médica de la salud reproductiva y enfermedades del sistema reproductor femenino', '2025-07-15 12:49:59', 'uploads/ginecologia.png'),
 (47, 'Imagenología', 'Uso de técnicas de imagen como ecografias para diagnosticar enfermedades', '2025-04-02 14:56:12', './uploads/imagenologia.png'),
-(48, 'caracolas muackataaaaa', 'las caracolas se mueven mucho', '2025-04-30 16:39:16', './uploads/DiseÃ±o sin tÃ­tulo (3).png'),
-(52, 'Laboratorio', 'Analizamos muestras biológicas como sangre y orina para diagnosticar y tratar enfermedades', '2025-04-08 17:16:58', './uploads/Especialidades-Medicas (6).png'),
-(53, 'prueba', 'otra prueba', '2025-04-08 19:40:42', './uploads/Especialidades-Medicas (5).png');
+(52, 'Laboratorio', 'Analizamos muestras biológicas como sangre y orina para diagnosticar y tratar enfermedades', '2025-04-08 17:16:58', './uploads/Especialidades-Medicas (6).png');
 
 -- --------------------------------------------------------
 
@@ -261,7 +269,7 @@ CREATE TABLE `medicos` (
 --
 
 INSERT INTO `medicos` (`id_usuario`, `codigo_medico`, `biografia_medico`) VALUES
-(51, 'none', 'none');
+(73, 'none', 'none');
 
 -- --------------------------------------------------------
 
@@ -372,20 +380,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_electronico`, `password`, `fecha_nacimiento`, `fecha_alta_sistema`, `id_rol`, `imagen_perfil_usuario`, `id_genero`, `es_borrado`) VALUES
-(43, 'prueba55', 'danielabh1997@gmail.com', '$2a$08$MKP85hQG9AC8l9/pDpXTlefIu9i92r7WdlgZtyy2RY6YBuGmT7YE2', '2025-03-06', '2025-03-13 13:46:29', 3, './uploads/icon-duda.png', 2, 0),
-(44, 'Auyandome', 'auyandome1@gmail.com', '$2a$08$2qWwBgS7jv19PJaKy1xKvOcU33wHk5qyH8xgIfqlWAyryZNtmDmCW', '2025-03-03', '2025-03-13 13:51:34', 3, './uploads/edit (1).png', 1, 0),
-(45, 'pampita', 'pampita@gmail.com', '$2a$08$bzIX1wnD2L4TBP/BObje.eZo1Q188XDsQ2DN3szFcexYuDnfNO5S6', '2025-03-12', '2025-03-16 20:02:30', 3, './uploads/DiseÃ±o sin tÃ­tulo (2).png', 2, 0),
-(46, 'AnaMaria', 'maria@gmail.com', '$2a$08$j2BHnrzKXEfbqFu3XIscn.d1hyAQB8FPTnCwFRlTVecq2lJyUtBW6', '2025-03-03', '2025-03-16 20:21:06', 3, './uploads/Front Page Notion.png', 2, 0),
-(47, 'auuu', 'auu@gmail.com', '$2a$08$lXXKBAL2SqhZUG8F3QLcdu5I4I2LqSJNcp3qPYacmolrnBPClRY1a', '2025-03-03', '2025-03-25 20:48:57', 3, './uploads/Front Page Notion (1).png', 1, 0),
-(48, 'auuu', 'auu@gmail.com', '$2a$08$zdXjYLNI0mS8WUutXvG1i.fMgH7wJdVhbw6iJyK9UiaO5Np3BbNle', '2025-03-03', '2025-03-25 20:49:11', 3, './uploads/Front Page Notion (1).png', 1, 0),
-(49, 'auuu', 'auu@gmail.com', '$2a$08$LmmUIG3tphN79O9L09PX/edwbZXwcyDIOx/k1kzRu390GhVX514Da', '2025-03-03', '2025-03-25 20:49:26', 3, './uploads/Front Page Notion (1).png', 1, 0),
-(50, 'auuu1', 'auu1@gmail.com', '$2a$08$ZZ0QiTYLWPLozFdBk5MCTeZL2UBW0j0Z35n6FZ/ReYc3mxaXUPa/O', '2025-03-03', '2025-03-25 20:50:01', 3, './uploads/Front Page Notion (1).png', 1, 0),
-(51, 'danita', 'danita@gmail.com', '$2a$08$C6HuUKJF92Ybr51DoZuhauEJezJmxuhUnlsxUgp/ZzxQ0u1oMSfTi', '2025-04-01', '2025-04-03 23:56:25', 2, './uploads/gastro.png', 2, 0),
-(59, 'Miguel', 'miguelEdu@gmail.com', '$2a$08$76JUccWxVEF3ZVo5XhT37.uFlK/3jg9ZU8zihg7rX.MTOyEozRyjO', '2025-03-31', '2025-04-08 13:06:19', 3, './uploads/Banner Para Linkedin Recursos Humanos FotogrÃ¡fico Gris Claro (1).png', 1, 0),
-(62, 'prueba1111', 'prueba111@gmail.com', '$2a$08$7zsQLaYmsWsBgO/KfXdsRu4NBhE3LPr.O9kh0hQSvRHqbYPgs/bRW', '2025-04-01', '2025-04-08 19:34:21', 3, './uploads/Especialidades-Medicas (6).png', 1, 0),
-(65, 'dalilagebelluis', 'dalila@gmail.com', '$2a$08$OTkqqlvDYLpC1PJOiodTLuoP/0MVkxcvM7s3xOtMdJCuiFmCMkjvq', '0000-00-00', '2025-04-25 13:28:58', 3, './uploads/DiseÃ±o sin tÃ­tulo (5).png', 2, 0),
-(69, 'luisgerardo', 'luis@gmail.com', '$2a$08$uOOqi1LqhoReB/vWbL.CWe1/3N/1.KLe6eqW3aBjBPVSn3HzfX3RK', '2025-04-09', '2025-04-25 15:07:31', 3, './uploads/DiseÃ±o sin tÃ­tulo (5).png', 3, 0),
-(70, 'paulitoLindo', 'paulito1@gmail.com', '$2a$08$vnjz3Ka3thIKrqR6shVnEuZJymung9PZjpiNMNDK5SzBknchDdW4K', '0000-00-00', '2025-04-25 17:14:32', 3, './uploads/DiseÃ±o sin tÃ­tulo (5).png', 1, 0);
+(71, 'paulitoFR', 'paulitoFr@gmail.com', '$2a$08$QydwmBbrMiaS2q61qXy.ZOSVA3xePcls5VjHG3vCDO0heKPJ.vCXW', '2003-01-29', '2025-07-14 17:54:49', 1, 'uploads/paulito.png', 1, 0),
+(72, 'pampita', 'pampita@gmail.com', '$2a$08$VWnnJV5ZuwBDtipFTux6PuGJKH2KB1fnW7P0KuQPbJpT8cGMXlSMK', '2000-07-07', '2025-07-15 10:45:37', 3, 'uploads/img user base 150150.png', 2, 0),
+(73, 'Fabiana', 'fabiana@gmail.com', '$2a$08$Bc1WAUSisWp/Jliz8w7yUuNMXWQAf5OBTxxQNk3AKBkS9Z021ZEYS', '1998-11-17', '2025-07-15 10:48:38', 2, 'uploads/doctora.png', 2, 0),
+(74, 'Danielita', 'dani@gmail.com', '$2a$08$boS2xlcMcEBT6D3mHbKJjOBa5sFNLCXZcdOxv3C4hgWsgHLM5/Rg6', '1997-11-17', '2025-07-15 10:49:11', 1, 'uploads/dani.png', 2, 0);
 
 --
 -- Índices para tablas volcadas
@@ -395,7 +393,13 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_electronico`, `p
 -- Indices de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- Indices de la tabla `caracteristicas_clinica`
+--
+ALTER TABLE `caracteristicas_clinica`
+  ADD PRIMARY KEY (`idCaracteristicaClinica`);
 
 --
 -- Indices de la tabla `ciudades`
@@ -516,6 +520,18 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `administradores`
+--
+ALTER TABLE `administradores`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT de la tabla `caracteristicas_clinica`
+--
+ALTER TABLE `caracteristicas_clinica`
+  MODIFY `idCaracteristicaClinica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `ciudades`
 --
 ALTER TABLE `ciudades`
@@ -531,7 +547,7 @@ ALTER TABLE `direcciones`
 -- AUTO_INCREMENT de la tabla `especialidades_medicas`
 --
 ALTER TABLE `especialidades_medicas`
-  MODIFY `id_especialidad_medica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_especialidad_medica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `estados`
@@ -603,7 +619,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- Restricciones para tablas volcadas
@@ -613,7 +629,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  ADD CONSTRAINT `administradores_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `administradores_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `ciudades`

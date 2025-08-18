@@ -287,7 +287,7 @@ descripcionEspecialidadMedica.addEventListener("input", function () {// no deber
             throw new Error(errorData.message || "Error en la solicitud");
           }
 
-          alert("Especialidad médica creada con éxito.");
+          alert("Especialidad médica modificada con éxito.");
           form.reset();
           window.location.href = "http://localhost:3000/adminHome/verEspecialidades/";
         } catch (error) {

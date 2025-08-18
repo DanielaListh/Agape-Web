@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = {
       nombre: form.nombre.value,
       email: form.email.value,
-      telefonono: form.telefono.value,
+      telefono: form.telefono.value,
       mensaje: form.mensaje.value
     };
 

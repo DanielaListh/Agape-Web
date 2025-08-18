@@ -1,4 +1,4 @@
-// OBTENER LAS ESPECIALIDADES MEDICAS DE LA BBDD TRAIDAS CON FETCH Y MOSTRARLAS EN EL FRONT
+// OBTENER los usuarios
 
 //obtiene todas las especialidades medicas existentes automaticamente
 async function ObtenerUsuarios() {
@@ -14,9 +14,6 @@ async function ObtenerUsuarios() {
     console.log(data);
     mostrarEnTabla(data);//pasamos explícitamente el array data como argumento a la función mostrarEnTabla 
 
-    // mover hacia arriba de la tabla pero no anda bien ya que no va hasta el extremo superior del div
-    //const tablaContenedor = document.getElementById('tabla-especialidades-medicas');
-    //tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setTimeout(() => {
       tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 300);
@@ -27,7 +24,7 @@ async function ObtenerUsuarios() {
 }
 
 // funciones de validaciones
-const inputNombre = document.getElementById('nombreUsuario');
+const inputNombre = document.getElementById('nombreUsuario');//input para buscar por nombre
 const errorMsgInput = document.getElementById("p-error");
 
 function mostrarErrorInput(mensaje){
@@ -89,7 +86,8 @@ async function buscarUsuario(){
     const parrafoError = document.querySelector(".p-error");
     parrafoError.textContent = "Lo sentimos, ocurrio un error inesperado";
     setTimeout(() => parrafoError.textContent = "", 6000);
-    alert(error.message);
+    //alert(error.message);
+    console.log(error.message);
   }
 }
 
@@ -104,7 +102,7 @@ function mostrarEnTabla(data){
   const baseUrl="http://localhost:3000/"; // la barra al final / es importante para cumplir con toda la ruta
 
   //creo la tabla y el encabezado
-  let tabla = '<table><thead><tr><th>ID</th><th>Nombre</th><th>Email</th><th>Fecha Nacimiento</th><th>Rol</th><th>Genero</th><th>Fecha de Alta</th><th>Imagen</th><th><th></th></th></tr></thead><tbody>';
+  let tabla = '<table><thead><tr><th>ID</th><th>Nombre</th><th>Email</th><th>Password</th><th>Fecha Nacimiento</th><th>Rol</th><th>Genero</th><th>Fecha de Alta</th><th>Imagen</th><th><th></th></th></tr></thead><tbody>';
 
   //add las filas de datos
   data.forEach(usuario => {
@@ -117,21 +115,12 @@ function mostrarEnTabla(data){
         <td>${usuario.id_usuario}</td>
         <td>${usuario.nombre_usuario}</td>
         <td>${usuario.correo_electronico}</td>
+        <td>${usuario.password}</td>
         <td>${usuario.fecha_nacimiento}</td>
         <td>${usuario.id_rol}</td>
         <td>${usuario.id_genero}</td>
         <td>${usuario.fecha_alta_sistema}</td>
         <td><img src="${imgURL}" width="200"></td>
-        <td class="btn-edit">
-          <button data-id-usuario="${usuario.id_usuario}">
-            <img src=/css/Imagenes/edit.png alt="editar" width="30">
-          </button>
-        </td>
-        <td class="btn-trash">
-          <button data-id-usuario="${usuario.id_usuario}">
-            <img src=/css/Imagenes/delete.png alt="eliminar" width="30">
-          </button>
-        </td>
       </tr>
       `
   });
@@ -145,17 +134,17 @@ function mostrarEnTabla(data){
 //////////////////////
 
 // agregado de eneto al hacer click en el btn de editar, toma el id del registro y lo redirecciona al  form para editar
-document.addEventListener("click", (event) =>{
-  const btnEdit = event.target.closest(".btn-edit button");
-  if(btnEdit){
-    const idUsuario = btnEdit.getAttribute("data-id-usuario");
-    if(idUsuario){
-      window.location.href = `http://localhost:3000/adminHome/modificarUsuario?id=${idUsuario}`;
-      //observar que se coloca `` para el enlace, esto ayuda a el string con interpolacion, a que la variable pueda pasar por una
-      //variable en la ruta 
-    }
-  }
-});
+//document.addEventListener("click", (event) =>{
+  //const btnEdit = event.target.closest(".btn-edit button");
+  //if(btnEdit){
+    //const idUsuario = btnEdit.getAttribute("data-id-usuario");
+    //if(idUsuario){
+    //  window.location.href = `http://localhost:3000/adminHome/modificarUsuario?id=${idUsuario}`;
+     // //observar que se coloca `` para el enlace, esto ayuda a el string con interpolacion, a que la variable pueda pasar por una
+     // //variable en la ruta 
+   // }
+ // }
+//});
 
 
 //////////////////////

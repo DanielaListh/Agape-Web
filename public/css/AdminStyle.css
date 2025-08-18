@@ -191,6 +191,17 @@ body {
     width: 85%;
 }
 
+/*para visualizacion de usuarios*/
+.content-view-usuarios {
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    height: 460px;
+    padding: 10px;
+    margin: 10px 5px 10px 5px;
+    padding-left: 10px;
+    width: 96%;
+}
+
 /*en el home de admin*/
 #imgEclipse {
     background-image: url(/css/Imagenes/eclipse1.png);

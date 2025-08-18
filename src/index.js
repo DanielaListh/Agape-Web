@@ -30,6 +30,13 @@ app.use(express.json()); // en el cuerpo de la peticion vendra un json y se tran
 app.use(express.urlencoded({ extended: true })); // para datos de formularios
 app.use(cors());// Para permitir peticiones desde el frontend
 
+app.use(cors({
+  origin: 'https://tu-dominio-vercel.vercel.app', // reemplaza por la URL real de tu frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true // si usas cookies o autenticación con credenciales
+}));
+
+
 //Archivos estaticos
 //se utilizan para servir archivos estaticos en una web
 //Esto permite que Express sirva correctamente tus archivos CSS, JavaScript e imágenes.
@@ -85,9 +92,9 @@ app.get('/adminHome', (req,res) => { // la ruta raiz del proyecto o pag principa
    res.sendFile(path.join(__dirname, '../public/html/adminHome.html'));
 });
 
-app.get('/adminHome/MiPerfil', (req,res) => {
-   res.sendFile(path.join(__dirname, '../public/html/Usuarios/perfilAdmin.html'));
-})
+//app.get('/adminHome/MiPerfil', (req,res) => {
+  // res.sendFile(path.join(__dirname, '../public/html/Usuarios/perfilAdmin.html'));
+//})
 
 app.get('/adminHome/verUsuarios', (req,res) =>{
    res.sendFile(path.join(__dirname, '../public/html/Usuarios/verUsuarios.html'));

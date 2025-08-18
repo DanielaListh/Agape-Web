@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar Especialidades Medicas</title>
+    <title>Modificar Usuarios</title>
     <link rel="stylesheet" href="/css/AdminStyle.css">
 </head>
 <body>
@@ -77,6 +77,7 @@
                         <img class="arrow list_arrow" src="/css/Imagenes/arrow.svg" alt="">
                         <ul class="submenu-content">
                             <li><a href="#" onclick="verUsuarios()">Ver usuarios</a></li>
+                            <li><a href="#">Editar usuario</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -97,17 +98,17 @@
             </div>
         </div>
     
-        <h1>Especialidades Médicas</h1>
+        <h1>Usuarios</h1>
         
         <div class="content-view-modify">
             <div class="tittle">
                 <div class="barra-rosa"></div>
-                <h3>Modificar Especialidad Médica</h3>
+                <h3>Modificar Usuario</h3>
             </div>
             <div class="container-search">
                 <div class="search-modify">
-                    <label for="inputNombreEspecialidadMedica">Ingresa el nombre de la especialidad</label>
-                    <input id="inputNombreEspecialidadMedica" type="text" placeholder="nombre especialidad">
+                    <label for="inputNombreUsuario">Ingresa el nombre del usuario</label>
+                    <input id="inputNombreUsuario" type="text" placeholder="nombre usuario">
                     <select id="listaCoincidencias" size="2" style="display:none;"></select>
                     <div class="mensaje-error">
                         <p id="p-error"></p>
@@ -120,29 +121,45 @@
             </div>
 
             <div class="content-form-modify-espec-medicas">
-                <form class="form-modify-EspMedicas" id="form-Modify-EspMedicas" action="http://localhost:3000/especialidades/" method="PUT" enctype="multipart/form-data">
+                <form class="form-modify-EspMedicas" id="form-Modify-Usuarios" action="http://localhost:3000/usuarios/" method="PUT" enctype="multipart/form-data">
                     <div class="content-data-p">
                         <div class="datos-espec-medicas">
                             <p>ID<span id="spamId" class="span-datos-especialidad-medica"></span></p>
                         </div>
                         <div class="datos-espec-medicas">
-                            <p>Fecha Act.<span id="spamFecha" class="span-datos-especialidad-medica"></span></p>
+                            <p>Fecha Nacimiento.<span id="spamFechaNacimiento" class="span-datos-especialidad-medica"></span></p>
+                        </div>
+                        <div class="datos-espec-medicas">
+                            <p>Fecha Act.<span id="spamFechaActualizacion" class="span-datos-especialidad-medica"></span></p>
+                        </div>
+                        <div class="datos-espec-medicas">
+                            <p>ID Rol.<span id="idRol" class="span-datos-especialidad-medica"></span></p>
+                        </div>
+                        <div class="datos-espec-medicas">
+                            <p>ID Genero.<span id="idRol" class="span-datos-especialidad-medica"></span></p>
                         </div>
                     </div>
                     
-
                     <div class="form-contend-modify">
-                        <label for="nombreEspecialidadMedica">Nombre especialidad</label>
+                        <label for="nombreUsuario">Nombre Usuario</label>
                         <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                        <input id="nombreEspecialidadMedica" type="text" name="nombreEspecialidadMedica" required />
+                        <input id="nombreUsuario" type="text" name="nombreUsuario" required />
                         <div class="error-msg">
                             <p id="error-msg-nombre"></p>
                         </div>
                     </div>
                     <div class="form-contend-descripcion-modify">
-                        <label for="descripcionMed">Descripción especialidad</label>
+                        <label for="email">Email</label>
                         <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
-                        <textarea name="descripcionMed" id="descripcionMed" rows="5" cols="10" required></textarea>
+                        <input name="email" id="email" rows="5" cols="10" required></input>
+                        <div class="error-msg">
+                            <p id="error-msg-descripcion"></p>
+                        </div>
+                    </div>
+                    <div class="form-contend-descripcion-modify">
+                        <label for="email"></label>
+                        <a href=""><img src="/css/Imagenes/icon-duda.png" width="15"></a><br>
+                        <input name="email" id="email" rows="5" cols="10" required></input>
                         <div class="error-msg">
                             <p id="error-msg-descripcion"></p>
                         </div>

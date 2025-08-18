@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
             throw new Error(errorData.message || "Error en la solicitud");
           }
 
-          alert("Caracteristica creada con éxito.");
+          alert("Caracteristica modificada con éxito.");
           form.reset();
           window.location.href = "http://localhost:3000/adminHome/verCaracteristicasClinicas/";
         } catch (error) {
