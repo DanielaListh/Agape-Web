@@ -1,31 +1,5 @@
 {
-    "name": "agape_api_restful",
-    "version": "1.0.0",
-    "description": "Agape Web is a RESTful API website I am developing to enhance my skills in technologies such as HTML5, CSS, JavaScript, Node.js, Express, Jsonwebtoken, bcryptjs, Cors, and Mysql2. The project centers on a clinic that provides specialized medical consultations across various fields, with a strong emphasis on promoting holistic health and the overall",
-    "main": "src/app.js",
-    "type": "module",
-    "scripts": {
-        "start": "node src/app.js",
-        "dev": "nodemon src/app.js",
-        "watch": "node --watch src/app.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Daniela Berrios",
-    "license": "MIT",
-    "dependencies": {
-        "bcryptjs": "^2.4.3",
-        "cors": "^2.8.5",
-        "dotenv": "^16.4.5",
-        "express": "^4.21.1",
-        "jsonwebtoken": "^9.0.2",
-        "multer": "^1.4.5-lts.1",
-        "mysql2": "^3.11.3",
-        "nodemailer": "^6.10.0",
-        "resend": "^4.6.0",
-        "toastify-js": "^1.12.0",
-        "uuid": "^11.1.0"
-    },
-    "devDependencies": {
-        "nodemon": "^3.1.7"
-    }
+  "dependencies": {
+    "styled-components": "^6.1.19"
+  }
 }
