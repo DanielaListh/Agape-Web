@@ -17,16 +17,18 @@ import{
 const router = express.Router();
 
 // Obtener __dirname (porque no existe directamente en ES Modules)
-//const __filename = fileURLToPath(import.meta.url);
-//const __dirname = path.dirname(__filename);//por que??
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configura multer para aceptar solo archivos de imagen
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/');
+        console.log(path.join(__dirname, '../../uploads'));//test
+        cb(null, path.join(__dirname, '../../uploads'));//guarda el archivo en la carpeta
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+        const safeName = file.fieldname + '-' + Date.now() + path.extname(file.originalname); // le da un nombre seguro
+        cb(null, safeName);
     }
 });
 
@@ -75,6 +77,7 @@ router.get('/:parametro', (req, res) => {
 
 // Método POST para crear
 //ejemplo: router.post('/', upload, controller.crearEspecialidad);
+/*
 router.post('/', (req, res, next) => {
     upload(req, res, function (err) {
       if (err) {
@@ -82,7 +85,11 @@ router.post('/', (req, res, next) => {
       }
       next();
     });
+    console.log("llego al controlador");
 }, crearCaracteristicaClinica);
+*/
+
+router.post('/', upload, crearCaracteristicaClinica);
   
 
 // Método PUT para buscar por nombre y actualizar

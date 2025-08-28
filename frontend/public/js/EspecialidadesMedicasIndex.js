@@ -21,7 +21,7 @@ const renderEspecialidadesMedicas = (data) => {
         `;
 
     data.forEach( especialidad => {
-        const imgURL = baseUrl + especialidad.imagen_especialidad_med;
+        const imgURL = new URL(especialidad.imagen_especialidad_med, baseUrl).href;
         divHijo += `
           <div class="divNieto">
             <div class="preview-img"><img src="${imgURL}" alt="${especialidad.nombre_especialidad_med}" width="200"></div>

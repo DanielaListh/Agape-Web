@@ -1,12 +1,5 @@
+import multer from 'multer';
 import { connection } from '../db/db.js';
-import fs from 'fs';
-
-// guardar la img en ruta
-function saveImage(file) {
-    const newPath = `uploads/${file.originalname}`;
-    fs.renameSync(file.path, newPath);
-    return newPath;
-}
 
 // Get todas las especialidades
 const especialidadesMedicas = async (req, res) => {
@@ -78,7 +71,7 @@ const crearEspecialidad = async (req, res) => {
         return res.status(400).send('No se subió ningún archivo');
     }
 
-    const imagenUrl = saveImage(req.file);
+    const imagenUrl = `/uploads/${req.file.filename}`;
     const { nombreEspecialidadMedica, descripcionMed } = req.body;
 
     try {
@@ -111,7 +104,7 @@ const modificarEspecialidad = async (req, res) => {
         return res.status(400).send('No se subió ningún archivo');
     }
 
-    const imagenUrl = saveImage(req.file);
+    const imagenUrl = `/uploads/${req.file.filename}`;
     const { nombreEspecialidadMedica, descripcionMed } = req.body;
 
     try {

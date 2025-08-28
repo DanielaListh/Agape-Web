@@ -17,9 +17,9 @@ async function ObtenerCaracteristicasClinica() {
     // mover hacia arriba de la tabla pero no anda bien ya que no va hasta el extremo superior del div
     //const tablaContenedor = document.getElementById('tabla-especialidades-medicas');
     //tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => {
-        tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
+      //setTimeout(() => {
+      //  tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      //}, 300);
     }
     catch(error){
       console.error('Hubo un problema con la solicitud: ' + error); // los errores los vere en la consola
@@ -111,7 +111,8 @@ function mostrarEnTabla(data){
   data.forEach(caracteristica => {
 
     //url completa de las img
-    const imgURL = baseUrl + caracteristica.imgcaracterClinica;
+    //const imgURL = baseUrl + caracteristica.imgcaracterClinica;
+    const imgURL = new URL(caracteristica.imgcaracterClinica, baseUrl).href;
 
       tabla += `
       <tr>

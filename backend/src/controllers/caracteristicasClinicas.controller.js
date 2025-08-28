@@ -1,13 +1,5 @@
 import { connection } from '../db/db.js';
-import fs from 'fs';
 
-// guardar la img en ruta
-function saveImage(file) {
-    //const newPath = `../uploads/${file.originalname}`;
-    const newPath = `uploads/${file.originalname}`;
-    fs.renameSync(file.path, newPath);
-    return newPath;
-}
 
 // GET todas las características
 const caracteristicasClinica = async (req, res) => {
@@ -73,12 +65,14 @@ const CaracteristicaClinicaNombre = async (req, res) => {
 
 // POST crear
 const crearCaracteristicaClinica = async (req, res) => {
+
     if (!req.file) {
         //return res.status(400).send('No se subió ningún archivo');
         return res.status(400).json({ error: "No se subió ningún archivo" });
     }
 
-    const imagenUrl = saveImage(req.file);
+    //const imagenUrl = saveImage(req.file);//devuelve ruta abdoluta, antigua
+    const imagenUrl = `/uploads/${req.file.filename}`;// para no depender del servidor
     const { nombrecaracterClinica, descripcioncaracterClinica } = req.body;
 
     try {
@@ -97,6 +91,8 @@ const crearCaracteristicaClinica = async (req, res) => {
         console.log("Error al insertar característica:", error);
         res.status(500).json({ error: "Error: intente más tarde" });
     }
+    console.log(req.body);
+    console.log(req.file);
 };
 
 // PUT modificar
@@ -111,7 +107,7 @@ const modificarCaracteristica = async (req, res) => {
         return res.status(400).send('No se subió ningún archivo');
     }
 
-    const imagenUrl = saveImage(req.file);
+    const imagenUrl = `/uploads/${req.file.filename}`;
     const { nombrecaracterClinica, descripcioncaracterClinica } = req.body;
 
     try {

@@ -124,7 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const baseUrl = "http://localhost:3000/";
     //const imgURL = baseUrl + especialidad.imagenEspecialidadMedica;
-    const imgURL = baseUrl + caracteristica.imgcaracterClinica.replace('./', '');
+    //const imgURL = baseUrl + caracteristica.imgcaracterClinica.replace('./', '');
+    const imgUrl = new URL(caracteristica.imgcaracterClinica.replace('./',''), baseUrl).href;
 
 
     idCaracteristicaClinica.textContent = caracteristica.idCaracteristicaClinica;

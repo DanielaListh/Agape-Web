@@ -127,7 +127,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const baseUrl = "http://localhost:3000/";
     //const imgURL = baseUrl + especialidad.imagenEspecialidadMedica;
-    const imgURL = baseUrl + especialidad.imagen_especialidad_med.replace('./', '');
+    //const imgURL = baseUrl + especialidad.imagen_especialidad_med.replace('./', '');
+    const imgURL = new URL(especialidad.imagen_especialidad_med.replace('./',''), baseUrl).href;
+    //////////////////////////// CUIDAO DE ERROR
 
 
     idEspecialidadMedica.textContent = especialidad.id_especialidad_medica;

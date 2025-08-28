@@ -22,14 +22,17 @@ import {
 
 const router = express.Router();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configura multer para aceptar solo archivos de imagen
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/');
+        cb(null, path.join(__dirname, '../../uploads/'));
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+        const safeName = file.fieldname + '-' + Date.now() + path.extname(file.originalname) ;
+        cb(null, safeName);
     }
 });
 
@@ -76,6 +79,7 @@ router.get('/:parametro', (req, res) => {
 
 // Método POST para crear
 //router.post('/', upload, controller.crearEspecialidad);
+/*
 router.post('/', (req, res, next) => {
     upload(req, res, function (err) {
       if (err) {
@@ -84,7 +88,9 @@ router.post('/', (req, res, next) => {
       next();
     });
   }, crearEspecialidad);
-  
+  */
+
+router.post('/', upload, crearEspecialidad,);
 
 // Método PUT para buscar por nombre y actualizar
 router.put('/:idEspecialidad', upload, modificarEspecialidad);

@@ -18,7 +18,8 @@ const renderCaracteristicas = (data) => {
     let notes = "";
 
     data.forEach( caracteristica => {
-        const imgURL = baseUrl + caracteristica.imgcaracterClinica;
+        //const imgURL = baseUrl + caracteristica.imgcaracterClinica;
+        const imgURL = new URL(caracteristica.imgcaracterClinica, baseUrl).href;
         notes += `
         <div class="notes">
             <div class="preview-img-caracteristica">

@@ -1,6 +1,7 @@
 // OBTENER LAS ESPECIALIDADES MEDICAS DE LA BBDD TRAIDAS CON FETCH Y MOSTRARLAS EN EL FRONT
 
 //obtiene todas las especialidades medicas existentes automaticamente
+
 async function ObtenerEspecialidadesMedicas() {
   const link='http://localhost:3000/especialidades/';
 
@@ -17,9 +18,9 @@ async function ObtenerEspecialidadesMedicas() {
     // mover hacia arriba de la tabla pero no anda bien ya que no va hasta el extremo superior del div
     //const tablaContenedor = document.getElementById('tabla-especialidades-medicas');
     //tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(() => {
-      tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 300);
+    //setTimeout(() => {
+    //  tablaContenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //}, 300);
   }
   catch(error){
     console.error('Hubo un problema con la solicitud: ' + error); // los errores los vere en la consola
@@ -112,7 +113,8 @@ function mostrarEnTabla(data){
   data.forEach(especialidad => {
 
     //url completa de las img
-    const imgURL = baseUrl + especialidad.imagen_especialidad_med;
+    //const imgURL = baseUrl + especialidad.imagen_especialidad_med;
+    const imgURL = new URL(especialidad.imagen_especialidad_med, baseUrl).href;
 
       tabla += `
       <tr>
