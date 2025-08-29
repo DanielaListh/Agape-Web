@@ -230,9 +230,8 @@ body{
 
 .form-container {
   display: flex;
-  align-items: center;
-  height: 674px;
-  margin-top: -50PX;
+  height: auto;
+  margin: 10px 0;
 }
 
 /*width = ancho, height = alto*/
@@ -240,7 +239,7 @@ body{
 .imageSingup img {/*esta es la imagen de registro y login*/
   width: 100%;
   min-width: 800px;
-  height: 600px;
+  height: 450px;
   border-radius: 50px;
   overflow: hidden;
   object-fit: cover;
@@ -249,7 +248,7 @@ body{
 .imageSingup img{
   width: 100%;
   min-width: 800px;
-  height: 600px;
+  height: 450px;
   border-radius: 50px;
   overflow: hidden;
   object-fit: cover;
@@ -269,8 +268,9 @@ body{
 }
 
 .form-login {
-  width: 40%;
-  height: 600px;
+  margin-left: 40px;
+  width: 50%;
+  height: 450px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50px;
@@ -287,7 +287,7 @@ body{
 
 .form-login h2 {
   text-align: center;
-  margin:50px 20px;
+  margin:20px 20px;
   color: #333;
   font-size: 2.5rem;
 }
@@ -339,7 +339,7 @@ body{
 
 .password-input{
   margin-bottom: 5px;
-  width: 300px;
+  width: 200px;
   height: 30px;
   padding: 10px;
   font-size: 1rem;
@@ -351,7 +351,8 @@ body{
 
 .toggle-btn{ /*es el btn donde se mostrara el mensaje Mostrar o Ocultar*/
   position: absolute;
-  margin-top: 5px;
+  margin-left: 5px;
+  margin-top: 25px;
   background:none;
   cursor:pointer;
   font-size: 1rem;
@@ -361,7 +362,8 @@ body{
   font-weight: 600;
 }
 
-.form-login input {
+
+.email-input-login{
   margin-top: 20px;
   margin-bottom: 20px;
   justify-content: center;
@@ -373,6 +375,23 @@ body{
   font-size: 1rem;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
+  outline: none;
+}
+
+.password-input-login{
+  margin-left: -70px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  width: 60%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1.5px solid #003064;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: rgba(215, 9, 9, 0.005);
+  color: #333;
+  outline: none;
 }
 
 
@@ -481,9 +500,9 @@ input[type="file"]::-webkit-file-upload-button:hover{
   margin: 5px 0;
 }
 
-.form-login button {
+.btn-submit-login {
   width: 200px;
-  height: 50px;
+  height: 40px;
   color: #285fc5;
   border:3px solid #285fc5;
   cursor: pointer;
@@ -491,7 +510,23 @@ input[type="file"]::-webkit-file-upload-button:hover{
   font-size: 1rem;
   font-weight: 600;
   background-color: rgba(255, 255, 255, 0.1);
-  margin: 20px;
+  margin: 10px;
+}
+
+.div-texto-validacion{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  width: auto;
+  padding: 5px 0;
+}
+
+/*validacion de login*/
+.texto-validacion-login{
+  height: 25px;
+  width: 300px;
+  color: #ba0606;
 }
 
 .btn-submit:hover {

@@ -65,21 +65,20 @@ document.addEventListener("DOMContentLoaded", function () {
             selectCoincidencias.style.display = 'none';
             return;
         }
-
         //render
         selectCoincidencias.innerHTML = ''; // Limpiar previas
         caracteristicas.forEach(caracteristica => {
             const option = document.createElement('option');
             option.value = caracteristica.nombrecaracterClinica;//muestra el valor
             option.textContent = caracteristica.nombrecaracterClinica;// y el contexto del texto
-            selectCoincidencias.appendChild(option);
+            selectCoincidencias.appendChild(option);// option estara dentro de la lista de coincidencias
         });
-        selectCoincidencias.style.display = 'block';
+        selectCoincidencias.style.display = 'block';//mostrar las caracteristicas en la lista
     }
 
     //Cuando el usuario selecciona una coincidencia
     selectCoincidencias.addEventListener('change', async function () {
-    const nombreSeleccionado = selectCoincidencias.value;
+    const nombreSeleccionado = selectCoincidencias.value;// nombre seleccionado es el valor traido de selectCoincidencias
     selectCoincidencias.style.display = 'none';// al seleccionar una concidencia ya correcta, se quita el menu
 
     try {
@@ -132,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     nombreCaracteristica.value = caracteristica.nombrecaracterClinica;
     descripcionCaracteristica.value = caracteristica.descripcioncaracterClinica;
     fechaActualizacion.textContent = caracteristica.fecha_actualizacion;
-    imagenCaracteristica.src = imgURL;
+    imagenCaracteristica.src = imgUrl;///////////////
 
     // se busca formatear la fecha para presentarla en el front de una manera mas accesible
     const fechaFormat = new Date(fechaActualizacion).toISOString().split("T")[0];

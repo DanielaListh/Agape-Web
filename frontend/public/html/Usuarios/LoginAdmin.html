@@ -57,10 +57,14 @@
         <div class="form-container">
             <form id="form-login" class="form-login" action="http://localhost:3000/usuarios/login/" method="POST" enctype="multipart/form-data">
               <h2>Log In</h2>
-                <input type="email" id="correoElectronico" name="correoElectronico" placeholder="escribe tu email" required>
-                <input type="password" id="password" name="password" placeholder="coloca tu contraseña" required>
+                <input type="email" id="correoElectronico" class="email-input-login" name="correoElectronico" placeholder="escribe tu email" required>
+                <input type="password" id="password" class="password-input-login" name="password" placeholder="coloca tu contraseña" required>
+                <button type="button" id="toggle-password" class="toggle-btn">Mostrar</button>
+                <div class="div-texto-validacion">
+                  <p id="textoValidacionLogin" class="texto-validacion-login"></p>
+                </div>
               <div>
-                  <button id="redirectBtn" type="submit">Login</button>
+                  <button id="redirectBtn" class="btn-submit-login" type="submit">Login</button>
               </div>
               <div class="or-login">
                 <div class="linea-div"></div>
@@ -73,7 +77,7 @@
           
 
           <div class="imageSingup">
-            <img src="/css/Imagenes/Screenshot (1).png" alt="personal medico atendiendo a paciente">
+            <img src="/css/Imagenes/picClinic.jpg" alt="personal medico atendiendo a paciente">
         </div>
 
           <div id="notificacion" class="notificacion"> ¡Inicio de sesion exitoso! </div>
@@ -137,6 +141,7 @@
 
     <script src="/js/usuarios/envioFormLogin.js"></script>
     <script src="/js/rutasIndex.js"></script>
+    <script src="/js/passwordToggle.js"></script>
     
 
 </body>
