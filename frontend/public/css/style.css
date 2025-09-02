@@ -231,7 +231,7 @@ body{
 .form-container {
   display: flex;
   height: auto;
-  margin: 10px 0;
+  margin: 10px;
 }
 
 /*width = ancho, height = alto*/
@@ -256,8 +256,8 @@ body{
 /*formulario de registro*/
 
 .form {
-  width: 40%;
-  height: 600PX;/*height: 25px;*/
+  width: 50%;
+  height: 450PX;/*height: 25px;*/
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50px;
@@ -282,7 +282,8 @@ body{
 .form h2 {
   text-align: center;
   color: #333;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin:20px 20px;
 }
 
 .form-login h2 {
@@ -309,13 +310,11 @@ body{
   color: #4cb5f9;
 }
 
-#nombreUsuario,
-#correoElectronico,
-#fechaNacimiento{
-  margin-top: 7px;
-  margin-bottom: 5px;
+
+#correoElectronico{
+  margin:10px;
   justify-content: center;
-  width: 80%;
+  width: 70%;
   height: 30px;
   padding: 10px;
   border: none;
@@ -328,31 +327,25 @@ body{
 }
 
 /*mensaje en el input password*/
-.password-container{
-  position: relative;
-  margin-left: 60px;
-  width: 440px;
+.password-input{
+  width: 60%;
   height: 30px;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
-}
-
-.password-input{
-  margin-bottom: 5px;
-  width: 200px;
-  height: 30px;
+  margin: 10px;
+  justify-content: center;
   padding: 10px;
+  border: none;
   font-size: 1rem;
   background-color: rgba(215, 9, 9, 0.005);
   color: #333;
-  border: none;
-  outline: none;/*se coloca outline none para evitar que se marque un borde al rededor del input al hacer click sobre el*/
+  outline: none;
 }
 
-.toggle-btn{ /*es el btn donde se mostrara el mensaje Mostrar o Ocultar*/
+.toggle-btn{ /*es el btn donde se mostrara el mensaje Mostrar o Ocultar, para registro y login*/ 
   position: absolute;
   margin-left: 5px;
-  margin-top: 25px;
+  margin-top: 5px;
   background:none;
   cursor:pointer;
   font-size: 1rem;
@@ -394,35 +387,32 @@ body{
   outline: none;
 }
 
-
-.form select {
-  margin: 7px;
+.select-option{
+  display: flex;
+  margin: 10px;
+  padding: 10px;
   justify-content: center;
-  width: 80%;
-  padding: 5px;
+}
+
+.campoRol {
+  margin: 10px;
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
   font-size: 1rem;
-  color: #333;
+  color: #003064;
   appearance: none; /* Para ocultar el icono por defecto */ 
   -webkit-appearance: none; 
   -moz-appearance:none;
   outline: none;
+  background-color: rgba(255, 255, 255, 0.005);
 }
 
-select {
-  background-color: rgba(255, 255, 255, 0.005);
-  color: #333; 
-  width: 200px; 
-  appearance: none; /* Para ocultar el icono por defecto */ -webkit-appearance: none; -moz-appearance: none;
-}
 
 /* aplicar estilos a los options, se busca que se vea minimalista*/
-select option {
-  background-color: rgba(252, 201, 135, 0.621);
-  color: #333;
-  padding: 8px 12px;
+.campoRol option {
+  background-color: rgba(255, 233, 204, 0.621);
+  color: #003064;
   font-size: 1rem;
 }
 
@@ -431,75 +421,13 @@ select:hover {
   outline: none;
 }
 
-/*mejorar la estetica del input file (imagenes)*/
-/*ocultamos el imput file, y mediante clases e id hacemos llamada al imput desde el label*/
-.content-img{
- justify-items: center;
-}
-.content-img p { /*label para subir la img*/
-  display: inline-block;
-  color: #1e1e1e;
-  height: 20px;
-  font-size: 1rem;
-}
-
-#imagenPerfil {
-  margin-bottom: 5px;
-}
-
-input[type="file"]::-webkit-file-upload-button{
-  color: #003064;
-  appearance: none;
-  background-color: #fde2ea00;
-  cursor: pointer;
-  height: 25px;
-  border: 2px solid #38b6ff;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-input[type="file"]::-webkit-file-upload-button:hover{
-  border: 1px solid #ff91b0;
-  transition: 0.6s;
-}
-
-.imgUpLoadRegistro{
-  width: 150px;
-  height: 130px;
-  border-radius: 20px;
-  border: 1.5px solid #333;
-}
-
-.imgSubidaRegistro {
-  width: 150px;
-  height: 130px;
-  border-radius: 20px;
-}
-
-.custom-imagenPerfil:hover {
-  background-color: rgba(215, 9, 9, 0.005);
-  color: #df9d01;
-}
-
 .error-msg-registro{
-  margin: 5px 0;
+  margin: 5px;
   color: #ba0606;
-  height: 22px;
+  height: 25px;
 }
 
-.btn-submit {
-  width: 200px;
-  height: 30px;
-  color: #285fc5;
-  border:3px solid #285fc5;
-  cursor: pointer;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 5px 0;
-}
-
+.btn-submit,
 .btn-submit-login {
   width: 200px;
   height: 40px;

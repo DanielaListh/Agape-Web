@@ -12,28 +12,28 @@ function saveImage(file) {
     return newPath;
 }
 
+
+// version nueva, al crear un usuario este tomara valores por default, se agrega una img default 
 const crearUsuario = async (req, res) => {
     try {
-        const imagenUrl = req.file ? saveImage(req.file) : null;
-        const { nombreUsuario, correoElectronico, password, fechaNacimiento, idGenero, idRol } = req.body;
+        //const imagenUrl = req.file ? saveImage(req.file) : null;// sera una img por default
+        //como agregar una imagen por defecto cada vez que se crea un usuario?
+        const imagenUrl = 'userDefault.jpg'
+
+        const { correoElectronico, password, idRol } = req.body;
         const rolInt = parseInt(idRol, 10);
         const hash = bcrypt.hashSync(password, 8);
 
         const sqlUsuario = `
             INSERT INTO usuarios (
-                nombre_usuario, correo_electronico, password, fecha_nacimiento,
-                id_rol, imagen_perfil_usuario, id_genero, es_borrado
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+                correo_electronico, password, id_rol, imagen_perfil_usuario) 
+                VALUES (?, ?, ?, ?)`;
 
         const [result] = await connection.query(sqlUsuario, [
-            nombreUsuario,
             correoElectronico,
             hash,
-            fechaNacimiento,
             rolInt,
             imagenUrl,
-            idGenero,
-            false
         ]);
 
         const idUsuario = result.insertId;
@@ -68,6 +68,7 @@ const crearUsuario = async (req, res) => {
         res.status(500).json({ error: "Error al crear el usuario" });
     }
 };
+
 
 
 ////////////////////////////
@@ -183,6 +184,11 @@ const usuarioNombre = async (req, res) => {
     }
 };
 
+// Noticias de version nueva
+// los datos nombre_usuario, fecha_nacimiento, id_genero, imagen_perfil_usuario son datos que
+// al crearse un nuevo usuario tendran el valor de nulos por default, ya que se desea poder 
+//registrar un usuario con solo 3 datos. 
+// Con esto, al actualizar un usuario se podran modificar esos valores nulos por los personales
 
 // PUT actualizar usuario
 const actualizarUsuario = async (req, res) => {

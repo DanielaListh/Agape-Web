@@ -59,36 +59,17 @@
             </div>
             <form class="form" id="form-registro" action="http://localhost:3000/usuarios/register" method="POST" enctype="multipart/form-data">
               <h2>Regístrate</h2>
-                <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Elije un nombre de usuario" required>
                 <input type="email" id="correoElectronico" name="correoElectronico" placeholder="Elije un email" required>
-                <div class="password-container">
-                  <input type="password" id="password" name="password" class="password-input" placeholder="Crea tu contraseña" required>
-                  <button type="button" id="toggle-password" class="toggle-btn">Mostrar</button>
-                </div>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-                <div>
-                  <label for="idRol"></label>
-                  <select class="campoRol" id="idRol" name="idRol" required>
+                <input type="password" id="password" name="password" class="password-input" placeholder="Crea tu contraseña" required>
+                <button type="button" id="toggle-password" class="toggle-btn">Mostrar</button>
+                <label for="idRol"></label>
+                <div class="select-option">
+                    <select class="campoRol" id="idRol" name="idRol" required>
                       <option value="1">Paciente</option>
                       <option value="2">Médico</option>
                       <option value="3">Administrador</option>
-                  </select>
-                </div>
-              <div>
-               <label for="idGenero"></label>
-                  <select id="idGenero" name="idGenero" required>
-                      <option value="1">Masculino</option>
-                      <option value="2">Femenino</option>
-                      <option value="3">Binario</option>
-                  </select>
-              </div>
-              <div class="content-img"> 
-                <p>Selecciona una imagen para tu perfil</p>
-                <input type="file" id="imagenPerfil" name="imagenUrl" accept=".png, .jpg, .jpeg, image/*" required>
-                <div id="preview-registro">
-                  <div class="imgUpLoadRegistro"></div>
-                </div>
-              </div>
+                    </select>
+                  </div>
               <div class="error-msg-registro">
                 <p id="error-msg"></p>
               </div>
@@ -106,7 +87,6 @@
               <a href="#" onclick="irLoginAdmin()" class="login-link"><span class="color3">si ya tienes cuenta, </span><span class="color4">Inicia Sesión</span></a>
           </form>
           <div id="notificacion" class="notificacion"> ¡Registro creado exitosamente! </div>
-
         </div>
     </div>
 
@@ -166,7 +146,6 @@
   <script src="/js/usuarios/crearUsuario.js"></script>
   <script src="/js/rutasIndex.js"></script>
   <script src="/js/passwordToggle.js"></script>
-  <script src="/js/usuarios/previewImagenRegistro.js"></script>
 
 </body>
 </html>
