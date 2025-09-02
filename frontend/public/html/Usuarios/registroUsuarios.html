@@ -59,11 +59,12 @@
             </div>
             <form class="form" id="form-registro" action="http://localhost:3000/usuarios/register" method="POST" enctype="multipart/form-data">
               <h2>Regístrate</h2>
-                <input type="email" id="correoElectronico" name="correoElectronico" placeholder="Elije un email" required>
-                <input type="password" id="password" name="password" class="password-input" placeholder="Crea tu contraseña" required>
+                <input type="email" id="correoElectronico" name="correoElectronico" placeholder="Agrega tu email" required>
+                <input type="password" id="password" name="password" placeholder="Crea tu contraseña" required>
                 <button type="button" id="toggle-password" class="toggle-btn">Mostrar</button>
                 <label for="idRol"></label>
                 <div class="select-option">
+                  <label for="idRol">Selecciona tu perfil</label>
                     <select class="campoRol" id="idRol" name="idRol" required>
                       <option value="1">Paciente</option>
                       <option value="2">Médico</option>
@@ -77,7 +78,7 @@
                 <input type="checkbox" onclick="agreesubmit(this)" name="condiciones"/> Estoy de acuerdo con los <a href="#" target="_blank" class="enlace-terminos">términos y condiciones</a><br/>
               </div> -->
               <div>
-                  <button class="btn-submit" type="submit">Regístrate</button>
+                  <button class="btn-submit-login" type="submit">Regístrate</button>
               </div>
               <div class="or">
                 <div class="linea-div"></div>
@@ -86,7 +87,6 @@
               </div>
               <a href="#" onclick="irLoginAdmin()" class="login-link"><span class="color3">si ya tienes cuenta, </span><span class="color4">Inicia Sesión</span></a>
           </form>
-          <div id="notificacion" class="notificacion"> ¡Registro creado exitosamente! </div>
         </div>
     </div>
 

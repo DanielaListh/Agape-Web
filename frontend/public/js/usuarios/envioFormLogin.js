@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     if(!data.user || !data.user.id_rol){//verificamos si los datos existen
                         console.error("Error: la respuesta no contiene user o id_rol", data);
-                        showError("Error en la respuesta del servidor");
+                        showError("Acceso inválido. Inténtelo otra vez.");
                         return;
                     }
 
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (data.user.id_rol === 3) {// si el irRol es 3 en lo traido de user data
                         window.location.href = 'http://localhost:3000/adminHome/';// nos redirige a el homeAdmin
                     } else {
-                        showError("Acceso denegado: No eres un administrador");// se muestra en el front
+                        showError("Acceso solo para administradores");// se muestra en el front
                     }
             } catch (error) {
                 console.error('Error:', error);
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function showError(message) {
-    const errorMensajeElement = document.getElementById('errorMessage');
+    const errorMensajeElement = document.getElementById('textoValidacionLogin');
     if (errorMensajeElement) {
         errorMensajeElement.innerText = message;
     }

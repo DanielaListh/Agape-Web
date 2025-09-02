@@ -265,6 +265,7 @@ body{
   justify-content: center;
   text-align: center;
   align-items: center;
+  margin-right: 40px;
 }
 
 .form-login {
@@ -307,16 +308,16 @@ body{
 }
 
 .form a:hover, .form-login a:hover{
-  color: #4cb5f9;
+  color: #ffb50a;
 }
 
 
-#correoElectronico{
-  margin:10px;
+#correoElectronico, #password{
   justify-content: center;
   width: 70%;
   height: 30px;
   padding: 10px;
+  margin: 15px 10px;
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
@@ -327,25 +328,21 @@ body{
 }
 
 /*mensaje en el input password*/
-.password-input{
-  width: 60%;
-  height: 30px;
-  border-bottom: 1.5px solid #003064;
-  border-radius: 5px;
-  margin: 10px;
-  justify-content: center;
-  padding: 10px;
-  border: none;
-  font-size: 1rem;
-  background-color: rgba(215, 9, 9, 0.005);
-  color: #333;
+#password{
+  width: 59%;
+  margin-left: -30px;
+}
+
+#correoElectronico:hover,
+#password:hover{
+  border-color: #ffb50a;
   outline: none;
 }
 
 .toggle-btn{ /*es el btn donde se mostrara el mensaje Mostrar o Ocultar, para registro y login*/ 
   position: absolute;
-  margin-left: 5px;
-  margin-top: 5px;
+  margin-left: -15px;
+  margin-top: 10px;
   background:none;
   cursor:pointer;
   font-size: 1rem;
@@ -355,36 +352,8 @@ body{
   font-weight: 600;
 }
 
-
-.email-input-login{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  justify-content: center;
-  width: 80%;
-  padding: 10px;
-  border: none;
-  border-bottom: 1.5px solid #003064;
-  border-radius: 5px;
-  font-size: 1rem;
-  background-color: rgba(215, 9, 9, 0.005);
-  color: #333;
-  outline: none;
-}
-
-.password-input-login{
-  margin-left: -70px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  justify-content: center;
-  width: 60%;
-  padding: 10px;
-  border: none;
-  border-bottom: 1.5px solid #003064;
-  border-radius: 5px;
-  font-size: 1rem;
-  background-color: rgba(215, 9, 9, 0.005);
-  color: #333;
-  outline: none;
+.toggle-btn:hover{
+  color: #ffb50a;
 }
 
 .select-option{
@@ -394,8 +363,14 @@ body{
   justify-content: center;
 }
 
+.select-option label{
+  color: #003064;
+  margin-right: 15px;
+}
+
 .campoRol {
-  margin: 10px;
+  width: 110px;
+  padding-left: 5px;
   border: none;
   border-bottom: 1.5px solid #003064;
   border-radius: 5px;
@@ -406,6 +381,7 @@ body{
   -moz-appearance:none;
   outline: none;
   background-color: rgba(255, 255, 255, 0.005);
+  cursor: pointer;
 }
 
 
@@ -414,15 +390,16 @@ body{
   background-color: rgba(255, 233, 204, 0.621);
   color: #003064;
   font-size: 1rem;
+  padding: 0 10px;
+  cursor: pointer;
 }
 
 select:hover {
-  border-color: #df9d01;
+  border-color: #ffb50a;
   outline: none;
 }
 
 .error-msg-registro{
-  margin: 5px;
   color: #ba0606;
   height: 25px;
 }
@@ -458,14 +435,15 @@ select:hover {
 }
 
 .btn-submit:hover {
-  border:3px solid #4cb5f9;
+  border:3px solid #ffb50a;
   transition: 0.5s;
-  color: #4cb5f9;
+  color: #ffb50a;
 }
 
-.form-login button:hover {
-  border:3px solid #4cb5f9;
-  color: #4cb5f9;
+.btn-submit-login:hover {
+  border:3px solid #ffb50a;
+  color: #ffb50a;
+  transition: 0.5s;
 }
 
 .form .login-link {
@@ -478,10 +456,11 @@ select:hover {
   text-align: center;
 }
 
+
 .or {
   display: flex;
   align-items: center;
-  pad: 10px 30px;
+  padding: 5px 30px;
   justify-content: center;
   align-items: center;
 }
@@ -489,7 +468,7 @@ select:hover {
 .or-login {
   display: flex;
   align-items: center;
-  padding: 20px 0px;
+  padding: 15px 30px;
   justify-content: center;
   align-items: center;
 }
@@ -516,7 +495,7 @@ select:hover {
 }
 
 .color4:hover{
-  color: #8b5402;
+  color: #ff7b00;
 }
 
 /*notificacion de envio de formulario*/
