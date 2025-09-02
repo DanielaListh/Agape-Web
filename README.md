@@ -3,12 +3,6 @@ Agape Web is a RESTful API website I am developing to enhance my skills in techn
 
 Agape Web es un sitio web basado en API RESTful que estoy desarrollando para mejorar mis habilidades en tecnologías como HTML5, CSS, JavaScript, Node.js, Express, Jsonwebtoken, bcryptjs, Cors y Mysql2. El proyecto se centra en una clínica que ofrece consultas médicas especializadas en diversas áreas, con un fuerte énfasis en la promoción de la salud holística y el bienestar general de sus pacientes. El sitio también incorpora funcionalidades como el registro y el inicio de sesión de usuarios para garantizar una experiencia segura y personalizada.
 
-link de proyecto local
-http://localhost:3000/Agape/
-
-link de vercel frontend
-https://agape-web-frontend.vercel.app/
-
 link presentación
 https://www.canva.com/design/DAGssKSsn0E/E8t5IYjxy9-3HWXq9PBhtA/view?utm_content=DAGssKSsn0E&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h107421d8c7
 
