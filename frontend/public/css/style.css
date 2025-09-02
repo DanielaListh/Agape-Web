@@ -91,7 +91,7 @@ body{
 }
 
 .direccion-spot a:hover{
-  color: #4cb5f9;
+  color: #ffb50a;
 }
 
 .contain-button-indice {
@@ -116,8 +116,8 @@ body{
 }
 
 .button-indice:hover{
-  background-color: #4cb5f9;
-  border:3px solid #4cb5f9;
+  background-color: #ffb50a;
+  border:3px solid #ffb50a;
 }
 
 
@@ -127,7 +127,7 @@ body{
   display: flex;
   align-items: center;
   justify-content:center;
-  background-color: #f6f6f4;
+  background-color: #fff4f7;
   height: 35px;
   border-radius: 10px;
 }
@@ -180,7 +180,7 @@ body{
 .navbar ul li a:hover::after {
   width: 100%;
   left: 0;
-  background: #38b6ff;
+  background: #ffb50a;
 }
 
 
@@ -205,18 +205,23 @@ body{
 
 ::-webkit-scrollbar-thumb { 
   border-radius: 10px; border: 
-  3px solid  #85acd7 ; 
+  3px solid  #ffb50a ; 
 } 
 
 ::-webkit-scrollbar-thumb:hover { 
-  background-color: #85acd7; 
+  background-color: #ffb50a; 
 }
 
 
 /*registro y login*/
 
-.body-image {
-  background-image: url(/css/Imagenes/eclipse1.png);
+.body-image-registro {
+  background-image: url(/css/Imagenes/eclipse-24.png);
+  background-size: cover;
+}
+
+.body-image-login {
+  background-image: url(/css/Imagenes/eclipse-23.png);
   background-size: cover;
 }
 
@@ -282,7 +287,7 @@ body{
 
 .form h2 {
   text-align: center;
-  color: #333;
+  color: #003064;
   font-size: 2.5rem;
   margin:20px 20px;
 }
@@ -290,12 +295,12 @@ body{
 .form-login h2 {
   text-align: center;
   margin:20px 20px;
-  color: #333;
+  color: #003064;
   font-size: 2.5rem;
 }
 
 .form label, .form a, .form-login label, .form-login a {
-  color: #333;
+  color: #003064;
   font-size: 1rem;
 }
 
@@ -323,7 +328,7 @@ body{
   border-radius: 5px;
   font-size: 1rem;
   background-color: rgba(215, 9, 9, 0.005);
-  color: #333;
+  color: #003064;
   outline: none;
 }
 
@@ -475,18 +480,18 @@ select:hover {
 
 .O {
   margin: 0 10px;
-  color: #333;
+  color: #003064;
 }
 
 .linea-div {
   max-width: 200px;
   flex-grow: 1;
   height: 1px;
-  background-color: #333;
+  background-color: #003064;
 }
 
 .color3 {
-  color: #333;
+  color: #003064;
 }
 
 /*inicia secion link spam*/
@@ -598,7 +603,7 @@ select:hover {
   padding: 10px 20px;
   border-radius: 25px;
   background-color: rgba(255, 255, 255, 0.02);
-  border: 3px solid #b9d5f1;
+  border: 1px solid #ffffff00;
   cursor: pointer;
 }
 
@@ -625,8 +630,7 @@ select:hover {
 }
 
 .btn-info button:hover{
-  transition: 0.9s;
-  border: 3px solid #ffa200;
+  border: 1px solid #ffffff00;
 }
 
 .btn-info a:hover{
@@ -634,17 +638,20 @@ select:hover {
   transition: 0.9s;
 }
 
-/*Sobre nosotros*/
-
-#sobreNosotros {
-  scroll-margin-top: 150px; /* Ajusta según el alto de tu navbar */
+/* Seccion Sobre nosotros*/
+#sobreNosotros{
+  scroll-margin-top: 50px; /* Ajusta según el alto de tu navbar */
 }
 
 .sobre-nosotros {
   text-align: center;
-  margin-top: 40px;
-  height: auto;
+  margin: 40px 0;
   padding: 20px 0;
+  margin-top: 20px;
+  background-image: url(/css/Imagenes/eclipse-26.png);
+  background-size:cover;
+  height: 600px;
+  align-content: center;
 }
 
 .sobre-nosotros h2{
@@ -673,12 +680,11 @@ select:hover {
 .notes {
   display: flex;
   /*para que ocupe varias lineas y no una sola*/
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
   width: 370px;
   height: 220px;
   border-radius: 20px;
   color: #003064;
-  box-shadow: 1px 1px 7px #888888;
   align-items: center;
   text-align: center;
   flex-direction: column;
@@ -687,7 +693,7 @@ select:hover {
 
 
 .notes:hover{
-  box-shadow: 3px 3px 7px #0091ff;
+  box-shadow: 3px 3px 7px #ffa200;
   transition: 0.7s;
 }
 
@@ -706,26 +712,28 @@ select:hover {
 }
 
 
-
 /*Historia*/
 #nuestraHistoria {
+  align-content: center;
+  height: 700px;
+}
+
+#h2-tittle{
   scroll-margin-top: 120px; /* Ajusta según el alto de tu navbar */
 }
 
 .historia {
-  background-image: url(/css/Imagenes/eclipse3.png);
+  background-image: url(/css/Imagenes/eclipse-22.png);
   background-size: cover;
-  height: 700px;
-  margin: 20px 0px;
+  margin: 5px 0px;
 }
 
 .historia-transparency {
   display: flex;
-  margin: 90px 70px;
+  margin: 0px 70px;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: center;
-  background-color: rgba(185, 213, 241, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   align-content: space-between;
   border-radius: 50px;
   height: auto;
@@ -752,7 +760,8 @@ select:hover {
 
 .historia-content h3 {
   font-size: 2rem;
-  
+  color: #003064;
+
 }
 
 .historia-content p{
@@ -760,17 +769,20 @@ select:hover {
   margin-bottom: 30px;
   text-align: justify;
   margin-right: 30px;
+  color: #003064;
 }
 
 .p1 {
   font-weight:bolder;
   text-align: justify;
+  color: #003064;
 }
 
 .historia-content-content{
   display:inline-block;
   justify-content: space-around;
   margin-top: 10px;
+  color: #003064;
 }
 
 /*Logo ws*/
@@ -800,13 +812,10 @@ select:hover {
 
 #servicios {
   scroll-margin-top: 110px; /* Ajusta según el alto de tu navbar */
-}
-
-#servicios {
- display: block;
- align-content: space-between;
- align-items: center;
- justify-content: center;
+  display: block;
+  align-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
 
 .content-h2{
@@ -841,7 +850,8 @@ select:hover {
 }
 
 .color2 {
-  color: #0091ff;
+  color: #ffa200;
+  
 }
 
 
@@ -912,16 +922,16 @@ select:hover {
   align-items: center;
   text-align: center;
   margin: 20px 5px 20px 10px;
-  background-color: rgba(0, 48, 100, 1);
+  background-color: #ffe7ed;
   border-radius: 20px;
   height: 450px;
   padding: 0px 5px 5px 5px;
 }
 
 .divNieto:hover {
-  background-color: rgb(9, 83, 161);
+  background-color: #ffd6e1;
   transition: 0.3s;
-  box-shadow: 3px 3px 7px #01518a;
+  box-shadow: 4px 4px 7px #ffecf1;
 }
 
 .divNieto h3 {
@@ -929,7 +939,7 @@ select:hover {
   font-size: 1.5rem;
   cursor: pointer;
   margin-top: 5px;
-  color:#fbefd7;
+  color:#003064;
 }
 
 .divNieto img {
@@ -945,7 +955,7 @@ select:hover {
   margin-top: 10px;
   text-align: center;
   margin-bottom: 20px;
-  color: #fbefd7;
+  color: #003064;
 }
 
 /*Contacto*/
@@ -961,16 +971,15 @@ select:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin:0px 80px 0px 40px;
-  background-image: url(/css/Imagenes/eclipse4.png);
-  background-size: auto;
-  gap: 10px;
+  margin:0px 40px 0px 40px;
+  background-image: url(/css/Imagenes/eclipse-24.png);
+  background-size: cover;
+  gap:20px;
 }
 
 .img-contact img { 
-  width: 45%;
+  width: 400px;
   height: 450px;
-  width: 500px;
   border-radius: 30px;
 }
 
@@ -978,7 +987,7 @@ select:hover {
 .contact {
   width: 40%;
   height: 450px;
-  background-color: rgba(249, 203, 216, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 30px;
 }
 
@@ -1129,7 +1138,7 @@ input::placeholder, textarea::placeholder {
 /*footer*/
 
 .footer {
-  background-color: #003064;
+  background-color: #ffffffbb;
   padding: 10px;
   font-family: Arial, sans-serif;
   height: 260px;
@@ -1149,14 +1158,14 @@ input::placeholder, textarea::placeholder {
 }
 
 .list-footer h3 {
-  color: #ffffff;
+  color: #003064;
   margin-bottom: 10px;
 }
 
 
 .list-footer a {
   margin: 5px 0;
-  color: #ffffff;
+  color: #003064;
 }
 
 .list-footer a:hover{
@@ -1169,7 +1178,7 @@ input::placeholder, textarea::placeholder {
 }
 
 .redes h3 {
-  color: #ffffff;
+  color: #003064;
   margin-left: 75px;
 }
 
@@ -1183,7 +1192,7 @@ input::placeholder, textarea::placeholder {
 /*iconos de redes en el footer*/
 
 .icon-facebook {
-  color: #ffffff; /* Color de Facebook */
+  color: #003064; /* Color de Facebook */
   font-size: 25px; /* Tamaño del icono */
   margin-right: 5px; /* Espacio entre iconos */
 }
@@ -1195,7 +1204,7 @@ input::placeholder, textarea::placeholder {
 }
 
 .icon-instagram {
-  color: #ffffff; /* Color de Instagram */
+  color: #003064; /* Color de Instagram */
   font-size: 29px; /* Tamaño del icono */
   margin-right: 10px; /* Espacio entre iconos */
 }
@@ -1210,12 +1219,12 @@ input::placeholder, textarea::placeholder {
 .linea-divisoria {
   border-top: 1px solid;
   margin: 10px 110px;
-  color: #ffffff;
+  color: #003064;
 }
 
 .derechos-reservados {
   display: flex;
-  color: #ffffff;
+  color: #003064;
   font-size: 14px;
   font-weight: bold;
   margin: 10px 0;
@@ -1311,10 +1320,7 @@ input::placeholder, textarea::placeholder {
     display: none;
   }
 
-  /*Notitas*/
-  .sobre-nosotros{
-    width: 200vw;
-  }
+/*secion de valores de empresa, Notitas*/
 
   .sobre-nosotros h2{
     font-size: 3rem;

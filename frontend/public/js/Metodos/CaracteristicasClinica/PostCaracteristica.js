@@ -115,8 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
       image.src = event.target.result;
 
       image.onload = async () => {
-        if (image.width !== 512 || image.height !== 512) {
-          mostrarErrorMsgImagen("La imagen debe ser de 512*512px.");
+        if (image.width !== 256 || image.height !== 256) {
+          mostrarErrorMsgImagen("La imagen debe ser de 256*256px.");
           return;
         }
 
