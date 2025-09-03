@@ -1,40 +1,23 @@
-import Swal from "sweetalert2";
+document.addEventListener("DOMContentLoaded", function () {
+    const logout = document.getElementById("logout");
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("logout").addEventListener("click", cerrarSession);
-});
-
-function cerrarSession(){
-    
-    Swal.fire({
-            title:'¿Desea cerrar la sesión?',
-            text:'Esta acción cerrará su sesión actual',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText:'Cerrar sesion',
-            cancelButtonText: 'Cancelar'
-    }).then((result) =>{
-        if(result.isConfirmed){
-            localStorage.removeItem("token");
-            localStorage.removeItem("userRole");
-
-            Swal.fire({
-                title: 'Sesion cerrada',
-                timer: 1500,
-                icon: 'success',
-                showConfirmButton: false
-            }).then(()=>{
-                window.location.href = 'http://localhost:3000/Agape/loginAdmin/';
-            });
-        } else {
-            Swal.fire({
-                title: 'sesion activa',
-                text: '',
-                icon: 'info',
-                confirmButtonText: 'OK'
-            });
-        }
+    if (!logout) {
+        console.log("no se obtuvo el id de logout");
+        return;
+    }
+    logout.addEventListener("click", function (event) {
+        event.preventDefault();
+        cerrarSession();
     });
+})
+
+function cerrarSession() {
+    //que hace la funcion?
+    //verifica que al hacer clic en el boton traido por logout avise que se va a cerrar sesion
+    localStorage.removeItem("token");
+    localStorage.removeItem("userRole");
+    alert("Session cerrada");
+    window.location.href = "/Agape/loginAdmin";    
 }
 
 //el metodo ya esta siendo llamado desde el script del admin

@@ -1248,24 +1248,31 @@ input::placeholder, textarea::placeholder {
   height: 20vh;
   }
 
-  .isotipo{
+  .isotipo img{
+    width: 50vw;
+    height: 20vh;
+  }
+
+  .button-indice{
+    border-radius: 8px;
+    padding: 3;
     width: 40vw;
   }
 
   .contain-button-indice a{
-    font-size: 1.2rem;  
-    padding: 0;
-    margin: 0;
+    font-size: 0.8rem;  
   }
 
+  
+
   .content-navbar{
-    background-color: #85acd7;
+    background-color: #f9dfe7;
     height: 10vh;
   }
 
   .menu-icono{
     display: block;
-    height: 5vh;
+    width: 10vw;;
   }
 
   .navbar{
@@ -1279,27 +1286,24 @@ input::placeholder, textarea::placeholder {
   /*carrusel*/
   .Content-Carousel{
     margin-top: 5px;
-    width: 197vw;
+    width: 200vw;
     height: 90vh;
     background-image: none;
   }
 
   .transparency{
-    width: auto;
-    height: 90vh;
-    margin: 5px;
-    padding: 0;
+    height: 80vh;
   }
 
   .carousel{
-    width: 195vw;
-    height: 90vh;
+    width: 200vw;
+    height: 80vh;
     padding: 0;
     margin: 0;
   }
 
   .carousel-images img{
-    height: 90vh;
+    height: 80vh;
   }
 
   .tittle{
@@ -1312,8 +1316,7 @@ input::placeholder, textarea::placeholder {
   }
 
   .btn-info button{
-    margin-top: 250px;
-    margin-right: -40px;
+    display: none;
   }
 
   .buscador-container{
@@ -1322,12 +1325,35 @@ input::placeholder, textarea::placeholder {
 
 /*secion de valores de empresa, Notitas*/
 
+  .sobre-nosotros{
+    width: 200vw;
+    margin: 20px 0;
+    height: auto;
+  }
+
   .sobre-nosotros h2{
-    font-size: 3rem;
-    margin: 0;
+    font-size: 4rem;
   }
 
   .sobre-nosotros h3{
+    font-size: 3rem;
+  }
+
+  .content-notes{
+    display: block;
+  }
+
+  .notes{
+    width: 150vw;
+    height: auto;
+    margin: 50px 0;
+  }
+
+  .notes h4{
+    font-size: 3rem;
+  }
+
+  .notes p{
     font-size: 2rem;
   }
 
@@ -1335,16 +1361,15 @@ input::placeholder, textarea::placeholder {
   /*Nuestra historia*/
   .historia{
     width: 200vw;
+    height: auto;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    margin: 20vw 0vw;
   }
 
   .historia-transparency{
     width: auto;
-    margin: 0;
-    padding: 0;
+    height: auto;
     display: block;
   }
 
@@ -1357,7 +1382,7 @@ input::placeholder, textarea::placeholder {
   }
 
   .historia-content h2{
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   #p1,
@@ -1365,8 +1390,16 @@ input::placeholder, textarea::placeholder {
     font-size: 2rem;
   }
 
+  #p1{
+    font-weight: 600;
+  }
+
+  .historia-content-content{
+    display: flex;
+  }
+
   .historia-content-content p{
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
 
   /*servicios*/

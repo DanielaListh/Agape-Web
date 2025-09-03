@@ -8,6 +8,9 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 //import { connection } from './db/db.js';
+import Swal from 'sweetalert2';
+
+Swal.fire('¡Vite funcionando con SweetAlert2!');
 
 // Routers
 import caracteristicasClinicasRouter from './routers/caracteristicasClinicas.router.js';
@@ -62,19 +65,19 @@ app.use('/estados', estadosRouter);
 // vistas HTML (servir las paginas)
 // Ejemplo de ruta específica al home del modulo admin
 app.get('/Agape', (req, res) => {
-   res.sendFile(path.join(__dirname, '../../frontend/public/index.html'));
+   res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
 
 //ruta para ir a el registro de admin
 app.get('/Agape/registerAdmin', (req,res) =>{
-   console.log('accediendo al registro');
+   //console.log('accediendo al registro');
    res.sendFile(path.join(__dirname, '../../frontend/public/html/Usuarios/registroUsuarios.html'));
 })
 
 // servir la pagina html cuando se hace una solicitud
 // ruta cuando se quiere loguear un admin
 app.get('/Agape/loginAdmin', (req,res) => { 
-   console.log('accediendo a /loginAdmin');
+   //console.log('accediendo a /loginAdmin');
    res.sendFile(path.join(__dirname,'../../frontend/public/html/Usuarios/loginAdmin.html'));
 });
 
