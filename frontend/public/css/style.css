@@ -878,35 +878,12 @@ select:hover {
   height: auto;
 }
 
-
-
-.input-buscador{
-  border-radius: 25px;
-  height: 40px;
-  text-align: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px #ffffff solid;
-  font-size: medium;
-  color: #003064;
-  /*outline: none;*/ /*el outlline resalta automaticamente el input*/
-  outline-color: #0091ff;
-}
-
-.input-buscador::placeholder{
-  color: #868686;
-}
-
-.input-buscador:hover{
-  transition: 0.8s;
-  border: 2px #0091ff solid;
-}
-
 /*Servicios del index traidos de la base de datos*/
 
 .Servicios-Container {/*div padre*/
   display: flex;
   padding: 0px 50px  5px 100px;
+  background-color: #003064;
 }
 
 .divHijo{
@@ -1254,15 +1231,26 @@ input::placeholder, textarea::placeholder {
     height: 15vh;
   }
 
+  .btn-ws-responsive{
+    display: block;
+  }
+
+  .logo-ws {
+    position: fixed;/* mantiene el logo pegado a una parte especifica */
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: block; /* Asegura que se muestren dentro de la sección */
+  }
+
   .button-indice{
-    border-radius: 8px;
-    width: 20vw;
+    display: none;
   }
 
   .contain-button-indice a{
-    font-size: 0.8rem;  
-    margin: 0px;
-    padding: 0px;
+    display: none;
   }
 
   .content-navbar{
@@ -1435,31 +1423,245 @@ input::placeholder, textarea::placeholder {
   /*servicios*/
   .Servicios{
     width: 100vw;
-    height: 90vh;
+    height: auto;
     margin: 0;
     padding: 0;
-    background-color: #f9dfe7;
-    justify-content: center;
-    align-items: center;
   }
 
   .Servicios-Container{
     padding: 0;
+    margin: 0;
+    height: auto;
   }
 
   .content-h2{
-    width: 200vw;
-    margin-top: 600px;
+    width: 100vw;
+    margin-top: 20px;
+    display: block;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .h2-servicios1 {
+    margin: 5px;
+    font-size: 1.2rem;
+    height: auto;
+    text-align: center;
+  }
+
+  .h2-servicios2 { 
+    font-size: 1.2rem;
+    height: auto;
+    margin: 5px;
+    width: 100vw;
+    text-align:center;
+    color: #003064;
+  }
+
+  .buscador-container {
+    display: block;
+    width: auto;
+    background-color: rgba(255, 223, 236, 0.3);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    margin: 15px; /*margin 0px auto hace que el auto se centre horizontalmente*/
+    border-radius: 25px;
+    color: #003064;
+  }
+
+  .buscador {
+    display: flex;
+    gap: 0px;
+    align-items: center;
+    text-align: center;
+    height: auto;
+  }
+
+  /*Servicios del index traidos de la base de datos*/
+
+  .Servicios-Container {/*div padre*/
+    display: flex;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+  .divHijo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;/*para que ocupe varias lineas y no una sola*/
+    height: auto;
+    margin: 5% 6%;
+    padding: 0;
+  }
+
+  .divNieto {
+    width:85vw;
+    align-items: center;
+    text-align: center;
+    margin: 10% 0;
+    background-color: #ffe7ed;
+    border-radius: 20px;
+    height: auto; /*independientemente del contenido, este se ajusta en altura*/
+    padding: 5%;
+  }
+
+  .divNieto:hover {
+    background-color: #ffd6e1;
+    transition: 0.3s;
+    box-shadow: 4px 4px 7px #ffecf1;
+  }
+
+  .divNieto h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 5px;
+    color:#003064;
+  }
+
+  .divNieto img {
+    align-items: center;
+    width: 200px;
+    height: 230px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  .divNieto p{
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #003064;
+  }
+
+  /*flecha */
+
+  .flecha {
+    display: none;
   }
 
 
   /*seccion de contacto*/
-  .container-contacto{
-    width: 100vw;
-    height: 100vh;
-    margin: 20vh 0;
-    padding: 0;
+
+
+  .container-contacto {
+    background-image: none;
+    background-size: cover;
+    height: 200vh;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin:0;
+    background-image: url(/css/Imagenes/eclipse-24.png);
+    background-size: cover;
   }
+
+  .img-contact img { 
+    display: none;
+  }
+
+
+  .contact {
+    width: 100vw;
+    height: 200vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+  }
+
+  .contact p {
+    text-align: start;
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    line-height: 150%;
+    color: #003064;
+    margin: 0;
+  }
+
+  .contact h2 {
+    text-align: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    font-family: Arial, serif;
+    font-weight: 700;
+    color:#003064;
+    
+  }
+
+  input::placeholder, textarea::placeholder {
+    font-size: 1rem;
+    color: #003064;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact-row input, .contact-row textarea {
+    padding: 10px;
+    width: 400px;
+    background-color: transparent;
+    border: transparent;
+    border-bottom: 3px #003064 solid;
+    color: #003064;
+    font-size: medium;
+  }
+
+  .contact-row input:hover, 
+  .contact-row textarea:hover {
+    border-bottom: 3px #ffa200 solid;
+    transition: 0.8s;
+  }
+
+  .contact-row i {
+    margin-left: 10px;
+  }
+
+  .contact label {
+    display: block;
+    text-align: start;
+    font-weight: lighter;
+    opacity: 0.7;
+    margin-left: 160px;
+    margin-bottom: 10px;
+  }
+
+  .contact button {
+    align-items: center;
+    justify-content: center;
+    margin-top:  10px;
+    padding: 5px 5px ;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    width: 120px;
+    background-color: rgba(215, 9, 9, 0.005);
+    color: #003064;
+    border: 3px #003064 solid;
+  }
+  .contact button:hover{
+    color: #ffa200;
+    transition: all 0.8s;
+    background-color: rgba(215, 9, 9, 0.005);
+    border: 3px #ffa200 solid;
+  }
+
 
 }
 
