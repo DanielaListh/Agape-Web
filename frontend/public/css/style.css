@@ -1240,30 +1240,30 @@ input::placeholder, textarea::placeholder {
 @media screen and (max-width: 768px) {
   
   .menu-container{
-  width: 200vw;
-  justify-content: center;
+  width: 100vw;
   }
 
   .mini-content-portada{
-  height: 20vh;
+  height: 15vh;
+  padding: 0;
+  margin: 0;
   }
 
   .isotipo img{
-    width: 50vw;
-    height: 20vh;
+    width: 35vw;
+    height: 15vh;
   }
 
   .button-indice{
     border-radius: 8px;
-    padding: 3;
-    width: 40vw;
+    width: 20vw;
   }
 
   .contain-button-indice a{
     font-size: 0.8rem;  
+    margin: 0px;
+    padding: 0px;
   }
-
-  
 
   .content-navbar{
     background-color: #f9dfe7;
@@ -1286,29 +1286,37 @@ input::placeholder, textarea::placeholder {
   /*carrusel*/
   .Content-Carousel{
     margin-top: 5px;
-    width: 200vw;
-    height: 90vh;
+    width: 100vw;
+    height: 60vh;
     background-image: none;
   }
 
   .transparency{
-    height: 80vh;
+    height: 60vh;
   }
 
   .carousel{
-    width: 200vw;
-    height: 80vh;
+    width: 100vw;
+    height: 50vh;
     padding: 0;
     margin: 0;
   }
 
   .carousel-images img{
-    height: 80vh;
+    height: 50vh;
   }
 
   .tittle{
-    margin-top: 440px;
-    margin-left: -70px;
+    margin-top: 500px;
+    margin-left: -120px;
+  }
+
+  .tittle h4{
+    font-size: 1.2rem;
+  }
+
+  .tittle h1{
+    font-size: 3rem;
   }
 
   .btn-info h2{
@@ -1326,86 +1334,131 @@ input::placeholder, textarea::placeholder {
 /*secion de valores de empresa, Notitas*/
 
   .sobre-nosotros{
-    width: 200vw;
-    margin: 20px 0;
+    width: 100vw;
     height: auto;
+    justify-content: center;
   }
 
   .sobre-nosotros h2{
-    font-size: 4rem;
+    font-size: 2rem;
   }
 
   .sobre-nosotros h3{
-    font-size: 3rem;
+    font-size: 1.5rem;
   }
 
   .content-notes{
     display: block;
+    margin: 0;
+    padding: 0;
   }
 
   .notes{
-    width: 150vw;
+    width:90vw;
     height: auto;
-    margin: 50px 0;
+    margin: 10vw 0;
   }
 
   .notes h4{
-    font-size: 3rem;
+    font-size: 1.3rem;
   }
 
   .notes p{
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
 
   /*Nuestra historia*/
   .historia{
-    width: 200vw;
+    width: 100vw;
     height: auto;
-    justify-content: center;
-    align-items: center;
-    margin: 20vw 0vw;
+    padding: 0;
+    margin: 0;
+    justify-self: center;
+    align-self: center;
   }
 
   .historia-transparency{
-    width: auto;
-    height: auto;
+    width: 100vw;
+    height: 85vh;
+    margin: 0;
+    padding: 0;
     display: block;
   }
 
-  .historia-content img{
-    display: none;
+  .historia-content{
+    display: block;
+    width: 100vw;
+    justify-items: center;
+    align-items: center;
   }
 
-  .historia-content{
-    padding-left: 60px;
+  .historia-content img{
+    width: 95vw;
+    height: 250px;
+    margin: 0;
   }
 
   .historia-content h2{
-    font-size: 4rem;
-  }
-
-  #p1,
-  #p2 {
     font-size: 2rem;
+    justify-self: center;
   }
 
   #p1{
+    width: 90vw;
+    font-size: 0.9rem;
     font-weight: 600;
+    margin: 0;
+    text-align: center;
+  }
+
+  #p2{
+    display: none;
   }
 
   .historia-content-content{
     display: flex;
+    width: 95vw;
+    margin:0;
+    padding: 10px 10px;
+  }
+
+  .historia-content-content div{
+    width: 10vw;
   }
 
   .historia-content-content p{
-    font-size: 2rem;
+    font-size: 1rem;
+    margin: 0;
   }
 
   /*servicios*/
+  .Servicios{
+    width: 100vw;
+    height: 90vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f9dfe7;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Servicios-Container{
+    padding: 0;
+  }
+
   .content-h2{
     width: 200vw;
     margin-top: 600px;
+  }
+
+
+  /*seccion de contacto*/
+  .container-contacto{
+    width: 100vw;
+    height: 100vh;
+    margin: 20vh 0;
+    padding: 0;
   }
 
 }
