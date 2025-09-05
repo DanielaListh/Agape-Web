@@ -779,7 +779,7 @@ select:hover {
 }
 
 .historia-content-content{
-  display:inline-block;
+  display:flex;
   justify-content: space-around;
   margin-top: 10px;
   color: #003064;
@@ -1025,18 +1025,6 @@ input::placeholder, textarea::placeholder {
   transition: 0.8s;
 }
 
-.contact-row i {
-  margin-left: 10px;
-}
-
-.contact label {
-  display: block;
-  text-align: start;
-  font-weight: lighter;
-  opacity: 0.7;
-  margin-left: 160px;
-  margin-bottom: 10px;
-}
 
 .contact button {
   align-items: center;
@@ -1242,7 +1230,7 @@ input::placeholder, textarea::placeholder {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    display: block; /* Asegura que se muestren dentro de la sección */
+    display: none; /* Asegura que se muestren dentro de la sección */
   }
 
   .button-indice{
@@ -1551,14 +1539,12 @@ input::placeholder, textarea::placeholder {
 
   .container-contacto {
     background-image: none;
-    background-size: cover;
-    height: 200vh;
+    background-size: none;
+    width: 100vw;
+    max-width: 100vw;
+    height: auto;
     display: block;
-    align-items: center;
-    justify-content: center;
     margin:0;
-    background-image: url(/css/Imagenes/eclipse-24.png);
-    background-size: cover;
   }
 
   .img-contact img { 
@@ -1568,98 +1554,132 @@ input::placeholder, textarea::placeholder {
 
   .contact {
     width: 100vw;
-    height: 200vh;
+    height: auto;
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 30px;
+    border-radius: 0px;
   }
 
   .contact p {
-    text-align: start;
+    width: auto;
     font-size: 1rem;
-    font-weight: normal;
     letter-spacing: 1px;
     line-height: 150%;
-    color: #003064;
-    margin: 0;
+    padding: 5px;
   }
 
   .contact h2 {
-    text-align: center;
-    justify-content: center;
-    font-size: 2.2rem;
-    font-family: Arial, serif;
-    font-weight: 700;
-    color:#003064;
-    
-  }
-
-  input::placeholder, textarea::placeholder {
-    font-size: 1rem;
-    color: #003064;
+    font-size: 1.5rem;
   }
 
   .contact-form {
-    display: flex;
-    flex-direction: column;
     gap: 15px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+    margin-top: 10px;
   }
 
   .contact-row {
     display: flex;
-    align-items: center;
     gap: 10px;
   }
 
   .contact-row input, .contact-row textarea {
-    padding: 10px;
-    width: 400px;
-    background-color: transparent;
-    border: transparent;
-    border-bottom: 3px #003064 solid;
-    color: #003064;
-    font-size: medium;
-  }
-
-  .contact-row input:hover, 
-  .contact-row textarea:hover {
-    border-bottom: 3px #ffa200 solid;
-    transition: 0.8s;
-  }
-
-  .contact-row i {
-    margin-left: 10px;
-  }
-
-  .contact label {
-    display: block;
-    text-align: start;
-    font-weight: lighter;
-    opacity: 0.7;
-    margin-left: 160px;
-    margin-bottom: 10px;
+    padding: 10px 0px;
+    width: 90vw;
   }
 
   .contact button {
-    align-items: center;
-    justify-content: center;
-    margin-top:  10px;
-    padding: 5px 5px ;
-    font-weight: 600;
-    font-size: 1.1rem;
+    margin-top:  30px;
+    padding: 5px;
     border-radius: 50px;
-    width: 120px;
-    background-color: rgba(215, 9, 9, 0.005);
-    color: #003064;
-    border: 3px #003064 solid;
+    width: 50vw;
+    height: 8vh;
   }
-  .contact button:hover{
-    color: #ffa200;
-    transition: all 0.8s;
-    background-color: rgba(215, 9, 9, 0.005);
-    border: 3px #ffa200 solid;
+
+  /*Modal de envio de formulario exitoso*/
+
+  .modal {
+    display: none;
+    width: 100vw; 
+    height: 100vh;
+    align-content: center;
+    justify-items: center;
+  }
+
+  .modal-contenido {
+    padding: 10px;
+    border-radius: 20px;
+    width: 90vw;
+    height: 40vh;
+  }
+
+  .modal-contenido button{
+    margin: 10px;
+  }
+
+  /*footer*/
+
+  .footer {
+    margin-top: 30px;
+    padding: 10px;
+    height: auto;
+    width: 100vw;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    background-color: #f9dfe7ac;
+  }
+
+  .list-footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1px;
+  }
+
+  .list-footer div {
+    margin: 5px;
+    width: auto;
+    text-align: center;
+  }
+
+  .list-footer h3 {
+    color: #003064;
+    margin-bottom: 5px;
+  }
+
+
+  .list-footer a {
+    margin: 5px 0;
+    color: #003064;
+  }
+
+  .redes {
+    margin: 20px 0;
+    width: 100vw;
+  }
+
+  .redes-content{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .redes h3 {
+    color: #003064;
+    margin: 0;
+  }
+
+  /*gap: margen entre filas y columnas en un grid o flexbox*/
+  .redes div {
+    display: flex;
+    gap: 10px;
+  }
+
+  .linea-divisoria {
+    display: none;
+  }
+
+  .derechos-reservados {
+    font-size: 0.9rem;
+    margin: 20px 0;
   }
 
 
