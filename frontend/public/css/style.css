@@ -107,7 +107,8 @@ body{
   font-size: 0.8rem;
 }
 
-.button-indice {
+#buttonIndice,
+#buttonIndiceContacto {
   border-radius: 25px;
   margin-right: 20px;
   padding: 10px;
@@ -120,6 +121,9 @@ body{
   border:3px solid #ffb50a;
 }
 
+.button-indice-responsive{
+  display: none;
+}
 
 /*barra de navegacion*/
 
@@ -152,6 +156,14 @@ body{
   margin-right:20px;
   position: relative;
   text-align: center;
+}
+
+.logo-ws-responsive{
+  display: none;
+}
+
+.direccion-spot-responsive{
+  display: none;
 }
 
 /*fijarse la letra con respecto a la resolucion de la pantalla*/
@@ -753,18 +765,25 @@ select:hover {
   margin: 10px;
 }
 
-.historia-content h2{
-  color: #ffa200;
-  font-size: 2.5rem;
+.historia-content-text {
+  display: block;
+  margin: 0 60px 0  0;
+  align-items: center;
 }
 
-.historia-content h3 {
+.historia-content-text h2{
+  color: #ffa200;
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+.historia-content-text h3 {
   font-size: 2rem;
   color: #003064;
 
 }
 
-.historia-content p{
+.historia-content-text p{
   font-size: 0.9rem;
   margin-bottom: 30px;
   text-align: justify;
@@ -772,7 +791,7 @@ select:hover {
   color: #003064;
 }
 
-.p1 {
+#p1 {
   font-weight:bolder;
   text-align: justify;
   color: #003064;
@@ -816,30 +835,26 @@ select:hover {
   align-content: space-between;
   align-items: center;
   justify-content: center;
+  height: auto;
 }
 
 .content-h2{
   display: block;
-  margin-bottom: 20px;
-  justify-content: center;
-  align-items: center;
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position:right;
-  height: 200px;
+  justify-items: center;
+  height: auto;
 }
 
 .h2-servicios1 {
-  margin-top: 40px;
+  margin-top: 0;
   font-size: 2.5rem;
-  height: 100px;
+  height: auto;
   text-align: center;
 }
 
 .h2-servicios2 { 
   font-size: 2.5rem;
-  height: 200px;
-  margin-top: -40px;
+  height: auto;
+  margin-top: 0;
   width: auto;
   text-align:center;
   color: #003064;
@@ -857,33 +872,20 @@ select:hover {
 
 .buscador-container {
   background-color: rgba(255, 223, 236, 0.3);
-  justify-content: center;
-  align-items: center;
   text-align: center;
   padding: 10px 10px;
-  margin: -90px auto; /*margin 0px auto hace que el auto se centre horizontalmente*/
-  width: 850px;
+  margin: 10px 0; /*margin 0px auto hace que el auto se centre horizontalmente*/
+  width: 800px;
+  height: auto;
   border-radius: 25px;
   color: #003064;
 }
 
-.buscador {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: auto;
-}
-
 /*Servicios del index traidos de la base de datos*/
-
 .Servicios-Container {/*div padre*/
+  margin: 30px 0;
   display: flex;
   padding: 0px 50px  5px 100px;
-  background-color: #003064;
 }
 
 .divHijo{
@@ -901,7 +903,7 @@ select:hover {
   margin: 20px 5px 20px 10px;
   background-color: #ffe7ed;
   border-radius: 20px;
-  height: 450px;
+  height: auto;
   padding: 0px 5px 5px 5px;
 }
 
@@ -1215,8 +1217,9 @@ input::placeholder, textarea::placeholder {
   }
 
   .isotipo img{
-    width: 35vw;
-    height: 15vh;
+    height: 10vh;
+    max-width: 25vw;
+
   }
 
   .btn-ws-responsive{
@@ -1224,31 +1227,44 @@ input::placeholder, textarea::placeholder {
   }
 
   .logo-ws {
-    position: fixed;/* mantiene el logo pegado a una parte especifica */
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
     display: none; /* Asegura que se muestren dentro de la sección */
   }
 
-  .button-indice{
-    display: none;
+  .contain-button-indice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    gap: 10px;
   }
 
   .contain-button-indice a{
+    color: white;
+    font-weight: 500;
+    font-size: 0.7rem;
+  }
+
+  #buttonIndiceContacto{
     display: none;
   }
 
+  #buttonIndice {
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    background-color: #003064;
+    border:3px solid #003064;
+  }
+
+
   .content-navbar{
     background-color: #f9dfe7;
-    height: 10vh;
+    height: 5vh;
   }
 
   .menu-icono{
     display: block;
-    width: 10vw;;
+    width: 5vw;;
   }
 
   .navbar{
@@ -1257,6 +1273,16 @@ input::placeholder, textarea::placeholder {
 
   .direccion-spot{
     display: none;
+  }
+
+  .direccion-spot-responsive{
+    display: flex;
+    width: auto;
+    height: auto;
+  }
+
+  .direccion-spot-responsive img{
+    height: 40px;
   }
 
   /*carrusel*/
@@ -1327,10 +1353,12 @@ input::placeholder, textarea::placeholder {
     display: block;
     margin: 0;
     padding: 0;
+    justify-items: center;
   }
 
   .notes{
     width:90vw;
+    max-width: 70%;
     height: auto;
     margin: 10vw 0;
   }
@@ -1347,60 +1375,84 @@ input::placeholder, textarea::placeholder {
   /*Nuestra historia*/
   .historia{
     width: 100vw;
-    height: auto;
+    min-height: 800px;
+    max-height: auto;
     padding: 0;
-    margin: 0;
+    margin: 50px 0;
     justify-self: center;
     align-self: center;
   }
 
   .historia-transparency{
     width: 100vw;
-    height: 85vh;
-    margin: 0;
+    height: auto;
+    margin: 20px 0;
     padding: 0;
     display: block;
+    background-color: #ffffffb6;
   }
 
   .historia-content{
+    display: flex;
+    height: auto;
+    width: 100vw;
+    justify-content: center;
+    align-content: center;
+    margin:0;
+  }
+
+  .historia-content img{
+    width: 90vw;
+    max-height: 50vh;
+    margin: 0;
+  }
+
+  .historia-content-text{
     display: block;
     width: 100vw;
     justify-items: center;
     align-items: center;
+    height: auto;
+    margin:0;
   }
 
-  .historia-content img{
-    width: 95vw;
-    height: 250px;
-    margin: 0;
-  }
-
-  .historia-content h2{
+  .historia-content-text h2{
     font-size: 2rem;
     justify-self: center;
+    height: auto;
+    margin: 10px 0;
   }
 
   #p1{
     width: 90vw;
+    height: auto;
     font-size: 0.9rem;
     font-weight: 600;
-    margin: 0;
+    margin: 10px 0;
     text-align: center;
   }
 
   #p2{
-    display: none;
+    width: 90vw;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align: center;
+    height: auto;
+    margin: 10px 0;
   }
 
   .historia-content-content{
     display: flex;
-    width: 95vw;
+    width: 100vw;
     margin:0;
-    padding: 10px 10px;
+    padding: 10px;
+    height: auto;
   }
 
   .historia-content-content div{
-    width: 10vw;
+    width: auto;
+    height: auto;
+    margin: 10px;
   }
 
   .historia-content-content p{
@@ -1419,15 +1471,15 @@ input::placeholder, textarea::placeholder {
   .Servicios-Container{
     padding: 0;
     margin: 0;
+    width: auto;
     height: auto;
   }
 
   .content-h2{
     width: 100vw;
-    margin-top: 20px;
+    margin: 0;
     display: block;
-    margin-bottom: 5px;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
     height: auto;
   }
@@ -1450,13 +1502,14 @@ input::placeholder, textarea::placeholder {
 
   .buscador-container {
     display: block;
-    width: auto;
+    height: auto;
+    width: 80vw;
     background-color: rgba(255, 223, 236, 0.3);
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 5px;
-    margin: 15px; /*margin 0px auto hace que el auto se centre horizontalmente*/
+    margin: 15px 0; /*margin 0px auto hace que el auto se centre horizontalmente*/
     border-radius: 25px;
     color: #003064;
   }
@@ -1482,15 +1535,18 @@ input::placeholder, textarea::placeholder {
     flex-direction: row;
     flex-wrap: wrap;/*para que ocupe varias lineas y no una sola*/
     height: auto;
-    margin: 5% 6%;
+    margin: 0;
     padding: 0;
+    justify-content: center;
+    width: 100vw;
   }
 
   .divNieto {
-    width:85vw;
+    width: 260px;
+    max-width: 320px;
     align-items: center;
     text-align: center;
-    margin: 10% 0;
+    margin: 10% 2%;
     background-color: #ffe7ed;
     border-radius: 20px;
     height: auto; /*independientemente del contenido, este se ajusta en altura*/

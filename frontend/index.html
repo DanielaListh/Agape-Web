@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ágape Clínica Familiar</title>
-  <link rel="icon" href="/css/Imagenes/agapeIsotipo.png" type="image/x-icon">
+  <link rel="icon" href="/css/Imagenes/imagenotipo.png" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
   <link
@@ -23,18 +23,20 @@
     <div class="menu-container">
       <div class="mini-content-portada">
         <div class="isotipo">
-          <a href="#"><img src="/css/Imagenes/AgapeLogoPink.png" alt=""></a>
+          <a href="#"><img src="/css/Imagenes/logotipo.png" alt=""></a>
         </div>
         <div class="direccion-spot">
           <img src="/css/Imagenes/gps.png" alt="">
           <a href="https://maps.app.goo.gl/yqhJ7Sezm5qkZNsz6">Ágape Clínica Familiar Recoleta</a>
         </div>
+        <div class="direccion-spot-responsive">
+          <img src="/css/Imagenes/gps.png" alt="">
+          <a href="https://maps.app.goo.gl/yqhJ7Sezm5qkZNsz6"></a>
+        </div>
         <div class="contain-button-indice">
-          <a aria-label="Consulta por nuestro WhatsApp" href="https://wa.me/584245212184">
-            <img src="/css/Imagenes/wsLogo.png" alt="WhatsApp Logo" class="logo-ws-responsive" />
-          </a>
-          <button class="button-indice"><a href="tel:+584245212184">contáctanos</a></button>
-          <button class="button-indice"><a href="#resultadosDeExamenes">Resultado de Exámenes</a></button>
+          <button id="buttonIndiceContacto"><a href="tel:+584245212184">contáctanos</a></button>
+          <button id="buttonIndice"><a href="#resultadosDeExamenes">Resultado de Exámenes</a></button>
+          
         </div>
       </div>
       <div class="content-navbar">
@@ -94,7 +96,7 @@
         <div class="historia-content">
           <img class="historia-content-img" src="/css/Imagenes/recepcion.jpeg" alt="">
         </div>
-        <div class="historia-content">
+        <div class="historia-content-text">
           <h2 class="h2-yellow" id="h2-tittle">Nuestra Historia</h2>
           <p id="p1">
             Somos un centro médico. Ofrecemos distintas especialidades ginecología,
@@ -103,10 +105,7 @@
           </p>
           <p id="p2">Somos un centro médico. Ofrecemos distintas especialidades ginecología,
             radiólogo, odontología, internista, pediatría y medicina general. Para mayor
-            información contáctanos o visita nuestras redes sociales. Somos un centro médico.
-            Ofrecemos distintas especialidades ginecología, radiólogo, odontología, internista,
-            pediatría y medicina general. Para mayor información contáctanos o visita nuestras redes sociales.
-            Contamos con:
+            información contáctanos o visita nuestras redes sociales.
           </p>
           <div class="historia-content-content">
             <div >
@@ -140,18 +139,15 @@
               todos puedan acceder a servicios médicos de alta calidad a un costo accesible</p>
           </div>
       </div>
-      
-
-
       <a href="#servicios"><img src="/css/Imagenes/arrow.png" alt="" class="flecha"></a>
-
+      <!-- servicios-container es el contenedor donde sera renderizado dinamicamente la tabla especialidades medicas -->
       <div id="servicios-container" class="Servicios-Container"></div>
-
-
-      <a aria-label="Consulta por nuestro WhatsApp" href="https://wa.me/584245212184">
-        <img src="/css/Imagenes/wsLogo.png" alt="WhatsApp Logo" class="logo-ws" />
-      </a>          
     </div>
+
+    <a aria-label="Consulta por nuestro WhatsApp" href="https://wa.me/584245212184">
+      <img src="/css/Imagenes/wsLogo.png" alt="WhatsApp Logo" class="logo-ws" />
+    </a>          
+    
 
     <section class="container-contacto" id="contacto">
       <div class="img-contact">
