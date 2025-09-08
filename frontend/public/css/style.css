@@ -1214,11 +1214,13 @@ input::placeholder, textarea::placeholder {
   height: 15vh;
   padding: 0;
   margin: 0;
+  width: 100vw;
   }
 
   .isotipo img{
-    height: 10vh;
+    height: 6vh;
     max-width: 25vw;
+    margin: 5px;
 
   }
 
@@ -1227,7 +1229,10 @@ input::placeholder, textarea::placeholder {
   }
 
   .logo-ws {
-    display: none; /* Asegura que se muestren dentro de la sección */
+    bottom: 100px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   .contain-button-indice {
@@ -1283,6 +1288,8 @@ input::placeholder, textarea::placeholder {
 
   .direccion-spot-responsive img{
     height: 40px;
+    width: 35px;
+    margin: 5px;
   }
 
   /*carrusel*/
@@ -1336,9 +1343,12 @@ input::placeholder, textarea::placeholder {
 /*secion de valores de empresa, Notitas*/
 
   .sobre-nosotros{
+    margin: 0;
     width: 100vw;
     height: auto;
     justify-content: center;
+    background-image: url(/css/Imagenes/eclipse-26.png);
+    background-size:auto;
   }
 
   .sobre-nosotros h2{
