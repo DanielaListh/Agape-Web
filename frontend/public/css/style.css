@@ -1158,28 +1158,16 @@ input::placeholder, textarea::placeholder {
 
 /*iconos de redes en el footer*/
 
-.icon-facebook {
+.icon-redes {
   color: #003064; /* Color de Facebook */
   font-size: 25px; /* Tamaño del icono */
   margin-right: 5px; /* Espacio entre iconos */
 }
 
-.icon-facebook:hover {
+.icon-redes:hover {
   color: #fabc5e; /* Color de Facebook */
   font-size: 25px; /* Tamaño del icono */
   margin-right: 5px; /* Espacio entre iconos */
-}
-
-.icon-instagram {
-  color: #003064; /* Color de Instagram */
-  font-size: 29px; /* Tamaño del icono */
-  margin-right: 10px; /* Espacio entre iconos */
-}
-
-.icon-instagram:hover {
-  color: #fabc5e; /* Color de Instagram */
-  font-size: 29px; /* Tamaño del icono */
-  margin-right: 10px; /* Espacio entre iconos */
 }
 
 
@@ -1261,19 +1249,56 @@ input::placeholder, textarea::placeholder {
     border:3px solid #003064;
   }
 
-
-  .content-navbar{
-    background-color: #f9dfe7;
-    height: 5vh;
-  }
-
   .menu-icono{
     display: block;
-    width: 5vw;;
+    width: 5vw;
+    cursor: pointer;
   }
 
-  .navbar{
-    display: none;
+  /*Nav bar responsive*/
+
+ .content-navbar {
+    width: 100vw;
+    display: block;
+    align-items: none;
+    justify-content:none;
+    background-color: #fff4f7;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .navbar {
+    margin: 0px;
+    padding: 5px;
+    height: 5vh;
+    justify-items: center;
+  }
+
+  .navbarUl {
+    width: 50vw;
+    height: 300px;
+    display: block;
+    margin: 2px;
+    list-style-type:none;
+    list-style-position:none; 
+    text-decoration: none;
+    background-color: #f3f9ff;
+  }
+
+  .navbar li {
+    display: flex;
+    padding: 1px;
+    cursor: pointer;
+  }
+
+  /*fijarse la letra con respecto a la resolucion de la pantalla*/
+
+  .navbar a{
+    color: #003064;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0;
   }
 
   .direccion-spot{
