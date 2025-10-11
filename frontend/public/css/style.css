@@ -653,11 +653,10 @@ select:hover {
 .sobre-nosotros {
   text-align: center;
   margin: 40px 0;
-  padding: 20px 0;
-  margin-top: 20px;
   background-image: url(/css/Imagenes/eclipse-26.png);
   background-size:cover;
   height: 600px;
+  justify-items: center;
   align-content: center;
 }
 
@@ -676,11 +675,11 @@ select:hover {
 .content-notes{
   margin-top: 50px;
   display: flex;
-  padding: 10px 20px  5px 40px;
+  padding: 10px;
+  width: 80vw;
   height: auto;
   gap: 20px;
-  justify-content: center;
-  margin: 20px 5px 20px 5px;
+  justify-items: center;
   flex-wrap: wrap;
 }
 
@@ -688,7 +687,7 @@ select:hover {
   display: flex;
   /*para que ocupe varias lineas y no una sola*/
   background-color: rgba(255, 255, 255, 0.5);
-  width: 370px;
+  width: 300px;
   height: 220px;
   border-radius: 20px;
   color: #003064;
@@ -733,11 +732,13 @@ select:hover {
   background-image: url(/css/Imagenes/eclipse-22.png);
   background-size: cover;
   margin: 5px 0px;
+  justify-items: center;
+  align-items: center;
 }
 
 .historia-transparency {
+  width: 80vw;
   display: flex;
-  margin: 0px 70px;
   flex-direction: row;
   flex-wrap: nowrap;
   background-color: rgba(255, 255, 255, 0.5);
@@ -749,21 +750,20 @@ select:hover {
 
 .historia-content {
   display: block;
-  margin: 0 60px 0  0;
+  margin: 0 10px 0  0;
   align-items: center;
 }
 
-.historia-content-img {
+.historia-content img {
   border-radius: 50px;
   width: 400px;
   height: 440px;
-  margin-left: 20px;
   margin: 10px;
 }
 
 .historia-content-text {
   display: block;
-  margin: 0 60px 0  0;
+  margin: 10px;
   align-items: center;
 }
 
@@ -821,8 +821,6 @@ select:hover {
   padding-left: 10px;
 }
 
-/*Servicios*/
-
 #servicios {
   scroll-margin-top: 110px; /* Ajusta según el alto de tu navbar */
   display: block;
@@ -851,11 +849,11 @@ select:hover {
 }
 
 .p-buscador {
+  width: 70vw;
   text-align: center;
   font-size: 1rem;
   font-weight: normal;
   letter-spacing: 1px;
-  line-height: 150%;
   color: #003064;
   margin-left: 20px;
   margin-top: 30px;
@@ -867,21 +865,20 @@ select:hover {
 .Servicios-Container {/*div padre*/
   margin: 30px 0;
   display: flex;
-  width: 99vw;
+  width: auto;
   background-image: url(/css/Imagenes/eclipse-24.png);
   background-size: cover;
   background-image: linear-gradient();
+  justify-content: center;
 }
 
 .divHijo{
+  width: 80vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;/*para que ocupe varias lineas y no una sola*/
-  padding-right: 70px;
-  margin-left: 10px;
   gap: 15px;
-  align-items: center;
-  justify-content: center;  
+  
 }
 
 .divNieto {
@@ -1165,9 +1162,6 @@ input::placeholder, textarea::placeholder {
     display: block;
   }
 
-  .logo-ws {
-    margin: auto;
-  }
 
   .contain-button-indice {
     display: flex;
@@ -1321,9 +1315,8 @@ input::placeholder, textarea::placeholder {
   .sobre-nosotros{
     width: 100vw;
     height: auto;
-    justify-content: center;
-    background-image: url(/css/Imagenes/eclipse-26.png);
-    background-size:auto;
+    background-image: url(/css/Imagenes/eclipse-24.png);
+    background-size: cover;
   }
 
   .sobre-nosotros h2{
@@ -1355,45 +1348,48 @@ input::placeholder, textarea::placeholder {
     font-size: 1rem;
   }
 
+  .logo-ws {
+    right: 30px;
+  }
+
 
   /*Nuestra historia*/
   .historia{
-    width: 100vw;
+    width: auto;
     min-height: 800px;
     max-height: auto;
-    margin: 50px 0;
-    justify-self: center;
-    align-self: center;
+    margin: 20px 0;
   }
 
   .historia-transparency{
-    width: 95vw;
     height: auto;
     margin: 20px 0;
-    padding: 5px;
+    padding: 0;
     display: block;
-    background-color: #ffffffb6;
+    background-color: #ffffff8b;
+    box-shadow: none;
+    justify-content: center;
+    align-items: center;
   }
 
   .historia-content{
-    display: flex;
     height: auto;
-    width: 100vw;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    margin: 5px 0;
+    padding: 0;
   }
 
   .historia-content img{
-    width: 85vw;
+    width: 89vw;
     max-height: 50vh;
   }
 
   .historia-content-text{
-    display: block;
-    width: 100vw;
-    justify-items: center;
-    align-items: center;
     height: auto;
+    justify-items: center;
+    align-content: center;
+    margin: 0;
   }
 
   .historia-content-text h2{
@@ -1423,7 +1419,7 @@ input::placeholder, textarea::placeholder {
 
   .historia-content-content{
     display: flex;
-    width: 100vw;
+    width: 90vw;
     padding: 10px;
     height: auto;
   }
@@ -1431,39 +1427,44 @@ input::placeholder, textarea::placeholder {
   .historia-content-content div{
     width: auto;
     height: auto;
-    margin: 10px;
   }
 
   .historia-content-content p{
     font-size: 1rem;
   }
 
-  /*servicios*/
   .Servicios{
-    width: 100vw;
     padding: 0;
-    margin: 20px 6px;
-    justify-content: center;
-    align-items:center ;
+    margin-top: 100px;
+    justify-items: center;
+    align-items:center;
+    height: auto;
   }
 
-  .Servicios-Container{
-    padding: 0;
-    margin: 0;
+  .content-servicios{
     height: auto;
+    margin-top: 50px;
+    width: 90vw;
+  }
+
+  .content-servicios h2{
+    font-size: 2rem;
   }
 
   .p-buscador {
     margin:5px 0;
     font-size: 0.8rem;
   }
+  
 
   /*Servicios del index traidos de la base de datos*/
 
   .Servicios-Container {/*div padre*/
     display: flex;
+    margin: 0;
     padding: 0;
     background-color: #ffffff;
+    height: auto;
   }
 
   .divHijo{
