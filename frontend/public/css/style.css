@@ -2,6 +2,11 @@
 @import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
 /* nos permite traer los iconos de la lista */
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
 *{
   margin: 0;
@@ -1438,8 +1443,8 @@ input::placeholder, textarea::placeholder {
   .Servicios{
     width: 100vw;
     height: auto;
-    margin: 0;
     padding: 0;
+    margin: 0;
   }
 
   .Servicios-Container{
@@ -1454,8 +1459,11 @@ input::placeholder, textarea::placeholder {
     margin: 0;
     display: block;
     justify-items: center;
+    justify-content: center;
+    align-content: center;
     align-items: center;
     height: auto;
+    margin: 20px 0;
   }
 
   .h2-servicios1 {
@@ -1471,20 +1479,6 @@ input::placeholder, textarea::placeholder {
     margin: 5px;
     width: 100vw;
     text-align:center;
-    color: #003064;
-  }
-
-  .buscador-container {
-    display: block;
-    height: auto;
-    width: 80vw;
-    background-color: rgba(255, 223, 236, 0.3);
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 5px;
-    margin: 15px 0; /*margin 0px auto hace que el auto se centre horizontalmente*/
-    border-radius: 25px;
     color: #003064;
   }
 
@@ -1521,16 +1515,9 @@ input::placeholder, textarea::placeholder {
     align-items: center;
     text-align: center;
     margin: 10% 2%;
-    background-color: #ffe7ed;
     border-radius: 20px;
     height: auto; /*independientemente del contenido, este se ajusta en altura*/
     padding: 5%;
-  }
-
-  .divNieto:hover {
-    background-color: #ffd6e1;
-    transition: 0.3s;
-    box-shadow: 4px 4px 7px #ffecf1;
   }
 
   .divNieto h3 {

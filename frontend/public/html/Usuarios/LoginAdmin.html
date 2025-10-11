@@ -18,37 +18,38 @@
 <body class="body-image-login">
 
   <!-- Navbar -->
-  <div class="menu-container">
-    <div class="mini-content-portada">
-      <div class="isotipo">
-        <a href="#"><img src="/css/Imagenes/AgapeLogoPink.png" alt=""></a>
-      </div>
-      <div class="direccion-spot">
-        <img src="/css/Imagenes/gps.png" alt="">
-        <a href="https://maps.app.goo.gl/yqhJ7Sezm5qkZNsz6">Ágape Clínica Familiar Recoleta</a>
-      </div>
-      <div class="contain-button-indice">
-        <button id="buttonIndiceContacto"><a href="tel:+5491153315361">contáctanos</a></button>
-        <button id="buttonIndice"><a href="#resultadosDeExamenes">Resultado de Exámenes</a></button>
-      </div>
-    </div>
-    <div class="content-navbar">
-      <input class="checkbox" type="checkbox" id="menu" />
-      <label for="menu">
-        <img src="/Imagenes/menu.png" class="menu-icono" alt="">
-      </label>
-      <nav class="navbar">
-        <ul>
-          <li><a href="/Agape/">Home</a></li>
-          <li><a id="sobreNosotros" href="/Agape/#sobreNosotros">Sobre Nosotros</a></li>
-          <li><a id="nuestraHistoria" href="/Agape/#nuestraHistoria">Nuestra Historia</a></li>
-          <li><a id="servicios" href="/Agape/#servicios">Servicios que Ofrecemos</a></li>
-          <li><a id="contacto" href="/Agape/#contacto">Contacto</a></li>
-          <li><a id="LoginAdmin" href="#" onclick="irLoginAdmin()">Login</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
+  <header class="menu-container">
+                <div class="mini-content-portada">
+                    <figure class="isotipo">
+                        <a href="/Agape"><img src="/css/Imagenes/Logotipo.png" alt="Logotipo Ágape"></a>
+                    </figure>
+                    <address class="direccion-spot">
+                        <img src="/css/Imagenes/gps.png" alt="Icono GPS">
+                        <a href="https://maps.app.goo.gl/yqhJ7Sezm5qkZNsz6">Ágape Clínica Familiar Recoleta</a>
+                    </address>
+                    <address class="direccion-spot-responsive">
+                        <a href="https://maps.app.goo.gl/yqhJ7Sezm5qkZNsz6"><img src="/css/Imagenes/gps.png" alt="Icono GPS"></a>
+                    </address>
+                    <div class="contain-button-indice">
+                        <a href="tel:+5491153315361"><button class="buttonBasic" id="buttonIndiceContacto">Contáctanos</button></a>
+                        <a href="#resultadosDeExamenes"><button class="buttonBasic" id="buttonIndice">Resultado de Exámenes</button></a>
+                    </div>
+                </div>
+
+                <nav class="content-navbar">
+                    <input class="checkbox" type="checkbox" id="menu">
+                    <img src="/css/Imagenes/menu.png" id="menuBar" class="menu-icono" alt="Menú">
+                    <ul id="listaNavegacion" class="navbarUl">
+                        <li><i id="iconX" class="fa-solid fa-x"></i></li>
+                        <li><a href="/Agape">Home</a></li>
+                        <li><a href="#sobreNosotros">Sobre Nosotros</a></li>
+                        <li><a href="#nuestraHistoria">Nuestra Historia</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a id="LoginAdmin" href="#" onclick="irLoginAdmin()">Login</a></li>
+                    </ul>
+                </nav>
+            </header>
 
 
     <div class="container">
