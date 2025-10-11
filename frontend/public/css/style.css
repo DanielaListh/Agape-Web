@@ -70,7 +70,7 @@ body{
 }
 
 .isotipo img {
-  height: 60px;
+  height: 50px;
 }
 
 .direccion-spot {
@@ -82,12 +82,13 @@ body{
 }
 
 .direccion-spot img{
-  height: 40px;
+  height: 30px;
 }
 
 .direccion-spot a{
   color: #003064;
   font-weight: 500;
+  font-style: normal;
 }
 
 .direccion-spot a:hover{
@@ -101,16 +102,17 @@ body{
   margin: 20px;
 }
 
-.contain-button-indice button{
+.buttonBasic {
   border-radius: 25px;
   margin-right: 20px;
   padding: 10px;
   background-color: #003064;
   border:3px solid #003064;
   cursor: pointer;
+  color: #f3f9ff;
 }
 
-.contain-button-indice button:hover{
+.buttonBasic:hover{
   transition: 0.3s;
   background-color: #f8ad2b;
   border:3px solid #f8ad2b;
@@ -142,12 +144,14 @@ body{
   border-radius: 10px;
 }
 
+/*
 .navbar {
   margin-top: 30px;
   padding-bottom: 20px;
 }
+*/
 
-.navbar ul {
+.content-navbar ul {
   margin-top: -8px;
   list-style-type: none;
   display: flex;
@@ -157,7 +161,7 @@ body{
   align-items: center;
 }
 
-.navbar li {
+.content-navbar li {
   display: inline;/*los enlaces de tipo texto los convertimos en bloque para que el margin y padin se a;adan*/
   margin-right:20px;
   position: relative;
@@ -174,7 +178,7 @@ body{
 
 /*fijarse la letra con respecto a la resolucion de la pantalla*/
 
-.navbar a{
+.content-navbar a{
   color: #003064;
   text-align: center;
   font-size: 1.1rem;
@@ -183,7 +187,7 @@ body{
 
 /*after: selecciona el elemento navbar y agrega un copntenido despues, le añade dinamismo */
 
-.navbar ul li a::after {
+.content-navbar ul li a::after {
   content: '';
   position: absolute;
   width: 0;
@@ -195,7 +199,7 @@ body{
   transition: width 0.2s ease;
 }
 
-.navbar ul li a:hover::after {
+.content-navbar ul li a:hover::after {
   width: 100%;
   height: 1.5px;
   left: 0;
@@ -617,15 +621,6 @@ select:hover {
   margin-right: 20px;
 }
 
-.btn-info button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid #ffffff00;
-  cursor: pointer;
-}
-
 .infoAlcance {
   font-size: 1.5rem;
   font-weight: 200;
@@ -646,15 +641,6 @@ select:hover {
   color: #ffffff;
   font-weight: 700;
   font-size: 1.3rem;
-}
-
-.btn-info button:hover{
-  border: 1px solid #ffffff00;
-}
-
-.btn-info a:hover{
-  color: #f8ad2b;
-  transition: 0.9s;
 }
 
 /* Seccion Sobre nosotros*/
@@ -756,6 +742,7 @@ select:hover {
   align-content: space-between;
   border-radius: 50px;
   height: auto;
+  box-shadow: 3px 3px 7px #ffa200;
 }
 
 .historia-content {
@@ -822,16 +809,14 @@ select:hover {
   display: block; /* Asegura que se muestren dentro de la sección */
 }
 
-/*flecha */
-
 .flecha {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 60px;
   cursor: pointer;
   position: -webkit-sticky;
   position: sticky;
   top: 855px;
-  right: 1500px;
+  padding-left: 10px;
 }
 
 /*Servicios*/
@@ -845,26 +830,14 @@ select:hover {
   height: auto;
 }
 
-.content-h2{
+.content-servicios {
   display: block;
   justify-items: center;
   height: auto;
 }
 
-.h2-servicios1 {
-  margin-top: 0;
+.content-servicios h2{
   font-size: 2.5rem;
-  height: auto;
-  text-align: center;
-}
-
-.h2-servicios2 { 
-  font-size: 2.5rem;
-  height: auto;
-  margin-top: 0;
-  width: auto;
-  text-align:center;
-  color: #003064;
 }
 
 .color1{
@@ -873,51 +846,64 @@ select:hover {
 
 .color2 {
   color: #ffa200;
-  
 }
 
-
-.buscador-container {
-  background-color: rgba(255, 223, 236, 0.3);
+.p-buscador {
   text-align: center;
-  padding: 10px 10px;
-  margin: 10px 0; /*margin 0px auto hace que el auto se centre horizontalmente*/
-  width: 800px;
-  height: auto;
-  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 150%;
   color: #003064;
+  margin-left: 20px;
+  margin-top: 30px;
 }
+
 
 /*Servicios del index traidos de la base de datos*/
+
 .Servicios-Container {/*div padre*/
   margin: 30px 0;
   display: flex;
-  padding: 0px 50px  5px 100px;
+  width: 99vw;
+  background-image: url(/css/Imagenes/eclipse-24.png);
+  background-size: cover;
+  background-image: linear-gradient();
 }
 
 .divHijo{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;/*para que ocupe varias lineas y no una sola*/
-  padding-right: 10px;
+  padding-right: 70px;
   margin-left: 10px;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;  
 }
 
 .divNieto {
-  width:320px;
+  width:280px;
   align-items: center;
   text-align: center;
-  margin: 20px 5px 20px 10px;
-  background-color: #ffe7ed;
+  margin: 20px 5px 20px 5px;
+  background-color: #ffffff7e;
   border-radius: 20px;
   height: auto;
   padding: 0px 5px 5px 5px;
 }
 
 .divNieto:hover {
-  background-color: #ffd6e1;
   transition: 0.3s;
-  box-shadow: 4px 4px 7px #ffecf1;
+  box-shadow: 4px 4px 7px #f8ad2b;
+}
+
+.preview-img img{
+  align-items: center;
+  width: 220px;
+  height: 260px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 .divNieto h3 {
@@ -926,14 +912,6 @@ select:hover {
   cursor: pointer;
   margin-top: 5px;
   color:#003064;
-}
-
-.divNieto img {
-  align-items: center;
-  width: 250px;
-  height: 260px;
-  margin-top: 20px;
-  border-radius: 10px;
 }
 
 .divNieto p{
@@ -971,6 +949,7 @@ select:hover {
 
 
 .contact {
+  padding: 20px;
   width: 40%;
   height: 450px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -978,14 +957,7 @@ select:hover {
 }
 
 .contact p {
-  text-align: start;
-  font-size: 1rem;
-  font-weight: normal;
-  letter-spacing: 1px;
-  line-height: 150%;
   color: #003064;
-  margin-left: 20px;
-  margin-top: 30px;
 }
 
 .contact h2 {
@@ -1000,7 +972,7 @@ select:hover {
 
 input::placeholder, textarea::placeholder {
   font-size: 1rem;
-  color: #003064;
+  color: #0030649e;
 }
 
 .contact-form {
@@ -1018,42 +990,23 @@ input::placeholder, textarea::placeholder {
   gap: 10px;
 }
 
-.contact-row input, .contact-row textarea {
+.contact-form input, 
+.contact-form textarea {
   padding: 10px;
-  width: 400px;
+  width: 360px;
   background-color: transparent;
   border: transparent;
   border-bottom: 3px #003064 solid;
   color: #003064;
-  font-size: medium;
+  font-size: 1rem;
 }
 
-.contact-row input:hover, 
-.contact-row textarea:hover {
+.contact-form input:hover, 
+.contact-form textarea:hover {
   border-bottom: 3px #ffa200 solid;
   transition: 0.3s;
 }
 
-
-.contact button {
-  align-items: center;
-  justify-content: center;
-  margin-top:  10px;
-  padding: 5px 5px ;
-  font-weight: 600;
-  font-size: 1.1rem;
-  border-radius: 50px;
-  width: 120px;
-  background-color: rgba(215, 9, 9, 0.005);
-  color: #003064;
-  border: 3px #003064 solid;
-}
-.contact button:hover{
-  color: #ffa200;
-  transition: all 0.3s;
-  background-color: rgba(215, 9, 9, 0.005);
-  border: 3px #ffa200 solid;
-}
 
 /*Modal de envio de formulario exitoso*/
 .modal {
@@ -1112,7 +1065,7 @@ input::placeholder, textarea::placeholder {
 /*footer*/
 
 .footer {
-  background-color: #ffffffbb;
+  background-color: #ffffff93;
   padding: 10px;
   font-family: Arial, sans-serif;
   height: auto;
@@ -1161,7 +1114,7 @@ input::placeholder, textarea::placeholder {
 
 .footer p {
   justify-self: center;
-  color: #003064b9;
+  color: #ff80a6;
   font-size: 1rem;
   font-weight: 400;
   margin: 20px 0;
@@ -1211,10 +1164,7 @@ input::placeholder, textarea::placeholder {
   }
 
   .logo-ws {
-    bottom: 100px;
-    right: 50px;
-    width: 40px;
-    height: 40px;
+    margin: auto;
   }
 
   .contain-button-indice {
@@ -1499,7 +1449,7 @@ input::placeholder, textarea::placeholder {
     height: auto;
   }
 
-  .content-h2{
+  .content-servicios{
     width: 100vw;
     margin: 0;
     display: block;
@@ -1606,8 +1556,6 @@ input::placeholder, textarea::placeholder {
     margin-bottom: 10px;
     color: #003064;
   }
-
-  /*flecha */
 
   .flecha {
     display: none;
