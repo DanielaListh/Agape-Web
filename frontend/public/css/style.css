@@ -1208,18 +1208,12 @@ input::placeholder, textarea::placeholder {
     justify-self: center;
   }
 
-  .navbar {
-    width: 100vw;
-    display: block;
-    margin-top: 7px;
-  }
-
   .navbarUl {
+    display: none;
     flex-direction: column;
     position:static;
-    width: 80%;
+    width: auto;
     height: fit-content;
-    display: flex;
     list-style-type:none;
     list-style-position:none; 
     background-color: #fff4f7;
@@ -1355,34 +1349,35 @@ input::placeholder, textarea::placeholder {
 
   /*Nuestra historia*/
   .historia{
-    width: auto;
+    width: 100vw;
     min-height: 800px;
     max-height: auto;
     margin: 20px 0;
   }
 
   .historia-transparency{
-    height: auto;
+    width: fit-content;
     margin: 20px 0;
     padding: 0;
     display: block;
     background-color: #ffffff8b;
     box-shadow: none;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
   }
 
   .historia-content{
+    width: fit-content;
     height: auto;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
     margin: 5px 0;
     padding: 0;
   }
 
   .historia-content img{
-    width: 89vw;
     max-height: 50vh;
+    width: fit-content;
   }
 
   .historia-content-text{
@@ -1400,7 +1395,7 @@ input::placeholder, textarea::placeholder {
   }
 
   #p1{
-    width: 90vw;
+    width: fit-content;
     height: auto;
     font-size: 0.9rem;
     font-weight: 600;
@@ -1409,7 +1404,7 @@ input::placeholder, textarea::placeholder {
   }
 
   #p2{
-    width: 90vw;
+    width: fit-content;
     font-size: 0.9rem;
     font-weight: 400;
     text-align: center;
@@ -1418,24 +1413,28 @@ input::placeholder, textarea::placeholder {
   }
 
   .historia-content-content{
+    justify-content: center;
+    align-content: center;
     display: flex;
-    width: 90vw;
-    padding: 10px;
+    width: fit-content;
+    padding: 10px 5px;
     height: auto;
+
   }
 
   .historia-content-content div{
-    width: auto;
+    width: 23vw;
     height: auto;
   }
 
   .historia-content-content p{
     font-size: 1rem;
+    margin: 0;
   }
 
   .Servicios{
     padding: 0;
-    margin-top: 100px;
+    margin-top: 20px;
     justify-items: center;
     align-items:center;
     height: auto;
@@ -1444,11 +1443,13 @@ input::placeholder, textarea::placeholder {
   .content-servicios{
     height: auto;
     margin-top: 50px;
-    width: 90vw;
+    width: auto;
   }
 
   .content-servicios h2{
+    width: fit-content;
     font-size: 2rem;
+    text-align: center;
   }
 
   .p-buscador {
