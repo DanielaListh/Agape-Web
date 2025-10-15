@@ -49,7 +49,7 @@ body{
   background-color: rgb(255, 255, 255);
   width: 100%;
   top:0;
-  z-index: 10; 
+  z-index: 30; 
   /*el z-index determina el nivel de apilamiento 
   de los elementos posicionados, controla que 
   elemento se superpone a otro por su valor */
@@ -66,9 +66,11 @@ body{
   justify-content: center;
   align-items: center;
   height: 80px;
+  gap: 20px;
 }
 
 .isotipo {
+  margin: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,8 +84,9 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100px;
-  min-width: 400px;
+  min-height: auto;
+  min-width: auto;
+  margin: 10px;
 }
 
 .direccion-spot img{
@@ -104,12 +107,13 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  width: fit-content;
 }
 
 .buttonBasic {
+  width: auto;
+  margin: 10px;
   border-radius: 25px;
-  margin-right: 20px;
   padding: 10px;
   background-color: #003064;
   border:3px solid #003064;
@@ -528,51 +532,27 @@ select:hover {
   color: #ff7b00;
 }
 
-/*notificacion de envio de formulario*/
-.notificacion {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #0059ff;
-  color: #f0f0f0;
-  padding: 10px 20px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 48, 100, 1);
-  display: none;
-}
-
 /*portada se refiere a la imagen y la info con en boton*/
 /*carusel*/
 
 .Content-Carousel {
-  height: auto;
   justify-content: center;
   align-items: center;
-  border-radius: 30px;
-  background-image: url(/css/Imagenes/eclipse-2.png);
-  background-size:cover;
-  margin-top: -25px;
-}
-
-.transparency {
-  background-color: rgba(255, 250, 250, 0.3);
-  height: 480PX;
-  
+  margin-bottom: 50px;
 }
 
 .carousel {
-  margin: 30px 30px 30px 30px;
-  width: 95%;
-  height: 460px;
+  margin: 5px 20px;
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
 }
 
 .carousel-images img {
   width: 100%;
+  max-height: 85vh;
   display: none;
+  border-radius: 20px;
 }
 
 .carousel-images img.active {
@@ -581,11 +561,12 @@ select:hover {
 
 .portada-info {
   display: flex;
-  margin-left: 140px;
+  margin-top: -420px;
+  width: auto;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0px 90px 0px 0px;
-  margin-top: -600px;
+  padding: 40px;
+  gap: 50px;  
 }
 
 .tittle{
@@ -652,10 +633,10 @@ select:hover {
 
 .sobre-nosotros {
   text-align: center;
-  margin: 40px 0;
+  margin: 70px 0;
   background-image: url(/css/Imagenes/eclipse-26.png);
   background-size:cover;
-  height: 600px;
+  justify-self: center;
   justify-items: center;
   align-content: center;
 }
@@ -673,13 +654,14 @@ select:hover {
 
 /*padre de las notas*/
 .content-notes{
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   padding: 10px;
-  width: 80vw;
+  width: auto;
   height: auto;
   gap: 20px;
   justify-items: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -687,8 +669,8 @@ select:hover {
   display: flex;
   /*para que ocupe varias lineas y no una sola*/
   background-color: rgba(255, 255, 255, 0.5);
-  width: 300px;
-  height: 220px;
+  width: 230px;
+  height: 240px;
   border-radius: 20px;
   color: #003064;
   align-items: center;
@@ -721,7 +703,7 @@ select:hover {
 /*Historia*/
 #nuestraHistoria {
   align-content: center;
-  height: 700px;
+  height: auto;
 }
 
 #h2-tittle{
@@ -731,13 +713,15 @@ select:hover {
 .historia {
   background-image: url(/css/Imagenes/eclipse-22.png);
   background-size: cover;
-  margin: 5px 0px;
+  margin: 70px 0px;
   justify-items: center;
   align-items: center;
 }
 
 .historia-transparency {
-  width: 80vw;
+  width: auto;
+  margin: 5px 110px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -757,7 +741,7 @@ select:hover {
 .historia-content img {
   border-radius: 50px;
   width: 400px;
-  height: 440px;
+  height: auto;
   margin: 10px;
 }
 
@@ -765,6 +749,7 @@ select:hover {
   display: block;
   margin: 10px;
   align-items: center;
+  width: auto;
 }
 
 .historia-content-text h2{
@@ -785,12 +770,19 @@ select:hover {
   text-align: justify;
   margin-right: 30px;
   color: #003064;
+  width: auto;
+  height: auto;
 }
 
 #p1 {
   font-weight:bolder;
   text-align: justify;
   color: #003064;
+  margin: 10px 0;
+}
+
+#p2{
+  margin: 10px 0;
 }
 
 .historia-content-content{
@@ -804,7 +796,7 @@ select:hover {
 .logo-ws {
   position: fixed;/* mantiene el logo pegado a una parte especifica */
   bottom: 50px;
-  right: 50px;
+  right: 25px;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -870,19 +862,24 @@ select:hover {
   background-size: cover;
   background-image: linear-gradient();
   justify-content: center;
+  justify-items: center;
+  align-items: center;
 }
 
 .divHijo{
-  width: 80vw;
+  width: auto;
+  padding: 5px 20px;
+  margin: 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;/*para que ocupe varias lineas y no una sola*/
   gap: 15px;
-  
+  justify-content: center;
+  align-items: center;
 }
 
 .divNieto {
-  width:280px;
+  width:260px;
   align-items: center;
   text-align: center;
   margin: 20px 5px 20px 5px;
@@ -930,27 +927,31 @@ select:hover {
 .container-contacto {
   background-image: linear-gradient();
   background-size: cover;
-  height: 100vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin:0px 40px 0px 40px;
+  margin-top:60px;
   background-image: url(/css/Imagenes/eclipse-24.png);
   background-size: cover;
   gap:20px;
+  padding: 40px;
 }
 
 .img-contact img { 
   width: 400px;
-  height: 450px;
+  max-height: 430px;
+  height: auto;
   border-radius: 30px;
 }
 
 
 .contact {
   padding: 20px;
-  width: 40%;
-  height: 450px;
+  min-width:330px;
+  width: 400px;
+  max-height: 430px;
+  height: auto;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 30px;
 }
@@ -992,7 +993,7 @@ input::placeholder, textarea::placeholder {
 .contact-form input, 
 .contact-form textarea {
   padding: 10px;
-  width: 360px;
+  width: fit-content;
   background-color: transparent;
   border: transparent;
   border-bottom: 3px #003064 solid;
@@ -1064,7 +1065,7 @@ input::placeholder, textarea::placeholder {
 /*footer*/
 
 .footer {
-  background-color: #ffffff93;
+  background-color: #fff4f7;
   padding: 10px;
   font-family: Arial, sans-serif;
   height: auto;
