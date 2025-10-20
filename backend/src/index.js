@@ -69,14 +69,14 @@ app.get('/Agape', (req, res) => {
 });
 
 //ruta para ir a el registro de admin
-app.get('/Agape/registerAdmin', (req,res) =>{
+app.get('/registerAdmin', (req,res) =>{
    //console.log('accediendo al registro');
    res.sendFile(path.join(__dirname, '../../frontend/registroUsuarios.html'));
 })
 
 // servir la pagina html cuando se hace una solicitud
 // ruta cuando se quiere loguear un admin
-app.get('/Agape/loginAdmin', (req,res) => { 
+app.get('/loginAdmin', (req,res) => { 
    //console.log('accediendo a /loginAdmin');
    res.sendFile(path.join(__dirname,'../../frontend/loginAdmin.html'));
 });
