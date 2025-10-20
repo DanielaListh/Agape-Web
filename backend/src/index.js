@@ -64,6 +64,7 @@ app.use('/estados', estadosRouter);
 
 // vistas HTML (servir las paginas)
 // Ejemplo de ruta específica al home del modulo admin
+//estas rutas no son tomadas por vercel, pues el mismo vercel se encarga de servirlas
 app.get('/Agape', (req, res) => {
    res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
