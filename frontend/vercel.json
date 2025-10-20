@@ -1,9 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/LoginAdmin", "destination": "/LoginAdmin.html" },
-    { "source": "/registroUsuarios", "destination": "/registroUsuarios.html" }
-  ]
-}
-
-
