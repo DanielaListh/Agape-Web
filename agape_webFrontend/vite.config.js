@@ -5,7 +5,6 @@ import { defineConfig } from 'vite';
 // esto le dice a vite que compile desde agape_webFrontend y genere el build en dist/
 
 export default defineConfig({
-  root: 'agape_webFrontend',
   build: {
     outDir: 'dist',
     emptyOutDir: true
