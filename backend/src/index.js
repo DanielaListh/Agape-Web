@@ -79,7 +79,7 @@ app.get('/Agape/registerAdmin', (req,res) =>{
 // ruta cuando se quiere loguear un admin
 app.get('/Agape/loginAdmin', (req,res) => { 
    //console.log('accediendo a /loginAdmin');
-   res.sendFile(path.join(__dirname,'../../frontend/loginAdmin.html'));
+   res.sendFile(path.join(__dirname,'../../frontend/LoginAdmin.html'));
 });
 
 //rutas dentro del modulo admin
