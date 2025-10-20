@@ -3,9 +3,9 @@
 // osea que no es necesario que un usuario se loguee
 
 function irLoginAdmin(){
-    window.location.href = '/loginAdmin'; // Redirigir al login
+    window.location.href = '/Agape/loginAdmin'; // Redirigir al login
 }
 
 function irRegistroAdmin(){
-    window.location.href = '/registerAdmin'; // Redirigir al registrp
+    window.location.href = '/Agape/registerAdmin'; // Redirigir al registrp
 }
