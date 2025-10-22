@@ -1599,6 +1599,7 @@ input::placeholder, textarea::placeholder {
   .list-footer{
     display: block;
     margin: 2px;
+    min-width: 200px;
     height: auto;
     justify-items: center;
     align-items: center;
