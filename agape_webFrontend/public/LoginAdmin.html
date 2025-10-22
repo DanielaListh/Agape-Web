@@ -54,7 +54,7 @@
 
     <div class="container">
       <div class="form-container">
-            <form id="form-login" class="form-login" action="http://localhost:3000/usuarios/login/" method="POST" enctype="multipart/form-data">
+            <form id="form-login" class="form-login">
               <h2>Log In</h2>
                 <input type="email" id="correoElectronico" class="email-input-login" name="correoElectronico" placeholder="pedrito@gmail.com" required>
                 <input type="password" id="password" class="password-input-login" name="password" placeholder="a1B2c3&" required>
@@ -102,11 +102,11 @@
             
         </footer>
 
-    <script src="/js/usuarios/envioFormLogin.js"></script>
+    <!--<script src="/js/usuarios/envioFormLogin.js"></script>-->
+    <script type="module" src="/public/js/usuarios/envioFormLogin"></script>
     <script src="/js/rutasIndex.js"></script>
     <script src="/js/passwordToggle.js"></script>
     <script src="/js/navBarLandingPage.js"></script>
-    
 
 </body>
 </html>

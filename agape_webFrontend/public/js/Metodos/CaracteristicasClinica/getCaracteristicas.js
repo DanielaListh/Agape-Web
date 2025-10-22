@@ -1,4 +1,4 @@
-// OBTENER LAS ESPECIALIDADES MEDICAS DE LA BBDD TRAIDAS CON FETCH Y MOSTRARLAS EN EL FRONT
+// OBTENER LAS ESPECIALIDADES MEDICAS DE LA BBDD TRAIDAS CON FETCH Y MOSTRARLAS EN EL FRONT del ADMIN
 
 //obtiene todas las especialidades medicas existentes automaticamente
 async function ObtenerCaracteristicasClinica() {

@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById('form-login');
 
@@ -49,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         showError("Acceso solo para administradores");// se muestra en el front
                     }
             } catch (error) {
-                console.error('Error:', error);
-                showError('Error: No se pudo conectar con el servidor');
+                //console.error('Error:', error);
+                showError('No se pudo conectar con el servidor');
             }
         });
     } else {

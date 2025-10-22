@@ -1605,14 +1605,12 @@ input::placeholder, textarea::placeholder {
     align-items: center;
   }
 
-
   .list-footer a{
     display: block;
     margin: 5px;
     height: auto;
     font-weight: 500;
   }
-
 
   .redes {
     display: block;
