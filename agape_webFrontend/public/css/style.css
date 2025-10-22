@@ -253,7 +253,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
 }
 
@@ -266,6 +266,7 @@ body{
 /*width = ancho, height = alto*/
 
 .imageSingup img {/*esta es la imagen de registro y login*/
+  display: flex;
   width: 100%;
   min-width: 800px;
   height: 450px;
@@ -274,14 +275,6 @@ body{
   object-fit: cover;
 }
 
-.imageSingup img{
-  width: 100%;
-  min-width: 800px;
-  height: 450px;
-  border-radius: 50px;
-  overflow: hidden;
-  object-fit: cover;
-}
 /*formulario de registro*/
 
 .form {
@@ -1650,10 +1643,33 @@ input::placeholder, textarea::placeholder {
     margin: 20px 0;
   }
 
+  /* login responsive*/
 
-}
+  .form-container {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 20px;
+  }
 
-@media (min-width:600px) and (max-width:899px){
-  
+  .form-login, .form {
+    margin: 0;
+    width: 90vw;
+    height: auto;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .error-msg-registro{
+    height: 40px;
+    margin: 10px 0;
+  }
+
+  .imageSingup {
+    display: none;
+  }
+
+
 
 }
