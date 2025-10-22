@@ -8,9 +8,9 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 //import { connection } from './db/db.js';
-import Swal from 'sweetalert2';
+//import Swal from 'sweetalert2';
 
-Swal.fire('¡Vite funcionando con SweetAlert2!');
+//Swal.fire('¡Vite funcionando con SweetAlert2!');
 
 // Routers
 import caracteristicasClinicasRouter from './routers/caracteristicasClinicas.router.js';
@@ -43,13 +43,13 @@ app.use(cors({
 //Archivos estaticos
 //se utilizan para servir archivos estaticos en una web
 //Esto permite que Express sirva correctamente tus archivos CSS, JavaScript e imágenes.
-app.use('/css', express.static(path.join(__dirname, '../../frontend/public/css')));
-app.use('/js', express.static(path.join(__dirname, '../../frontend/public/js')));
-app.use('/imagenes', express.static(path.join(__dirname, '../../frontend/public/css/imagenes')));
+app.use('/css', express.static(path.join(__dirname, '../../agape_webFrontend/public/css')));
+app.use('/js', express.static(path.join(__dirname, '../../agape_webFrontend/public/js')));
+app.use('/imagenes', express.static(path.join(__dirname, '../../agape_webFrontend/public/css/imagenes')));
 //servir archivos estaticos desde la carpeta 'uploads'
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 //config de archivos estaticos para la carpeta html
-app.use(express.static(path.join(__dirname, '../../frontend/public')));
+app.use(express.static(path.join(__dirname, '../../agape_webFrontend/public')));
 
 
 // Routers API
@@ -66,20 +66,20 @@ app.use('/estados', estadosRouter);
 // Ejemplo de ruta específica al home del modulo admin
 //estas rutas no son tomadas por vercel, pues el mismo vercel se encarga de servirlas
 app.get('/Agape', (req, res) => {
-   res.sendFile(path.join(__dirname, '../../frontend/index.html'));
+   res.sendFile(path.join(__dirname, '../../agape_webFrontend/index.html'));
 });
 
 //ruta para ir a el registro de admin
 app.get('/Agape/registerAdmin', (req,res) =>{
    //console.log('accediendo al registro');
-   res.sendFile(path.join(__dirname, '../../frontend/registroUsuarios.html'));
+   res.sendFile(path.join(__dirname, '../../agape_webFrontend/public/registroUsuarios.html'));
 })
 
 // servir la pagina html cuando se hace una solicitud
 // ruta cuando se quiere loguear un admin
 app.get('/Agape/loginAdmin', (req,res) => { 
    //console.log('accediendo a /loginAdmin');
-   res.sendFile(path.join(__dirname,'../../frontend/LoginAdmin.html'));
+   res.sendFile(path.join(__dirname,'../../agape_webFrontend/public/LoginAdmin.html'));       
 });
 
 //rutas dentro del modulo admin

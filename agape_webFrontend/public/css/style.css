@@ -133,10 +133,6 @@ body{
   font-size: 0.8rem;
 }
 
-.navbarUl i{
-  display: none;
-}
-
 .button-indice-responsive{
   display: none;
 }
@@ -161,7 +157,6 @@ body{
 */
 
 .content-navbar ul {
-  margin-top: -8px;
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -522,6 +517,7 @@ select:hover {
 .color3 {
   color: #003064;
 }
+
 
 /*inicia secion link spam*/
 .color4 {
@@ -940,7 +936,7 @@ select:hover {
 
 .img-contact img { 
   width: 400px;
-  max-height: 430px;
+  max-height: 470px;
   height: auto;
   border-radius: 30px;
 }
@@ -950,7 +946,7 @@ select:hover {
   padding: 20px;
   min-width:330px;
   width: 400px;
-  max-height: 430px;
+  max-height: 470px;
   height: auto;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 30px;
@@ -958,6 +954,8 @@ select:hover {
 
 .contact p {
   color: #003064;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .contact h2 {
@@ -1131,6 +1129,7 @@ input::placeholder, textarea::placeholder {
   
   .menu-container{
     width: 100vw;
+    height: auto;
   }
 
   .mini-content-portada{
@@ -1195,59 +1194,41 @@ input::placeholder, textarea::placeholder {
  .content-navbar {
     width: 100vw;
     display: block;
-    background-color: #fff4f7;
+    background-color: #ffd8e3;
     height: auto;
-    border-radius: 10px;
+    border-radius: 2px;
+    padding: 5px;
+    justify-items: center;
+    align-items: center;
+  }
+  .content-navbar ul {
+    display: none;
   }
 
   .menu-icono{
-    display: flex;
+    display: block;
     width: 10vw;
-    height: 5vh;
-    margin: 5px;
     cursor: pointer;
     justify-self: center;
+    margin: 5px;
   }
 
   .navbarUl {
     display: none;
     flex-direction: column;
     position:static;
-    width: auto;
-    height: fit-content;
-    list-style-type:none;
-    list-style-position:none; 
-    background-color: #fff4f7;
-    z-index: 30;
-    padding: 10px;
-    border-radius: 10px;
-    transition: 0.4s;
+    z-index: 40;
+    transition: 0.5s;
+    margin-top: 3vh;
   }
 
   .navbar li {
-    width: 60vw;
-    height: 22px;
-    display: block;
-    margin: 5px;
-    cursor: pointer;
-    text-align: left;
+    height: 6vh;
+    margin-top: 2vh;
   }
 
-  .navbar ul li a::after {
-    background: #ffffff00;
-  }
-
-  .navbar ul li a:hover::after {
-    background: #ffb50a00;
-  }
-
-  .navbarUl i{
-    display: block;
-    padding-top: 5%;
-    padding-left: 80%;
-    width: 20px;
-    color: #003064;
-    cursor: pointer;
+  .navbarUl.show {
+    display: flex;
   }
 
   /*fijarse la letra con respecto a la resolucion de la pantalla*/
@@ -1305,7 +1286,7 @@ input::placeholder, textarea::placeholder {
     display: none;
   }
 
-/*secion de valores de empresa, Notitas*/
+  /*secion de valores de empresa, Notitas*/
 
   .sobre-nosotros{
     width: 100vw;
@@ -1344,7 +1325,7 @@ input::placeholder, textarea::placeholder {
   }
 
   .logo-ws {
-    right: 30px;
+    right: 60px;
   }
 
 
@@ -1396,21 +1377,23 @@ input::placeholder, textarea::placeholder {
   }
 
   #p1{
-    width: fit-content;
+    width: auto;
     height: auto;
     font-size: 0.9rem;
     font-weight: 600;
     margin: 10px 0;
+    padding: 15px;
     text-align: center;
   }
 
   #p2{
-    width: fit-content;
+    width: auto;
     font-size: 0.9rem;
     font-weight: 400;
     text-align: center;
     height: auto;
     margin: 10px 0;
+    padding: 15px;
   }
 
   .historia-content-content{
@@ -1529,11 +1512,13 @@ input::placeholder, textarea::placeholder {
   .container-contacto {
     background-image: none;
     background-size: none;
-    width: 100vw;
     max-width: 100vw;
     height: auto;
     display: block;
     margin:0;
+    padding: 0;
+    justify-items: center;
+    align-items: center;
   }
 
   .img-contact img { 
@@ -1542,18 +1527,19 @@ input::placeholder, textarea::placeholder {
 
 
   .contact {
-    width: 100vw;
+    width: 90vw;
     height: auto;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 0px;
+    padding: 15px;
+    justify-items: center;
+    align-items: center;
   }
 
   .contact p {
     width: auto;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    line-height: 150%;
-    padding: 5px;
+    font-size: 0.9rem;
+    text-align: center;
   }
 
   .contact h2 {
@@ -1607,10 +1593,9 @@ input::placeholder, textarea::placeholder {
   /*footer*/
 
   .footer {
+    display: block;
     margin-top: 30px;
     padding: 10px;
-    height: auto;
-    width: 100vw;
     justify-content: center;
     justify-items: center;
     align-items: center;
@@ -1618,15 +1603,26 @@ input::placeholder, textarea::placeholder {
     background-color: #f9dfe7ac;
   }
 
+  .list-footer{
+    display: block;
+    margin: 2px;
+    height: auto;
+    justify-items: center;
+    align-items: center;
+  }
+
 
   .list-footer a{
-    margin: 2px;
+    display: block;
+    margin: 5px;
+    height: auto;
+    font-weight: 500;
   }
 
 
   .redes {
+    display: block;
     margin: 20px 0;
-    width: 100vw;
   }
 
   .redes-content{
@@ -1641,7 +1637,7 @@ input::placeholder, textarea::placeholder {
 
   /*gap: margen entre filas y columnas en un grid o flexbox*/
   .redes div {
-    display: flex;
+    display: block;
     gap: 10px;
   }
 
@@ -1654,5 +1650,10 @@ input::placeholder, textarea::placeholder {
     margin: 20px 0;
   }
 
+
+}
+
+@media (min-width:600px) and (max-width:899px){
+  
 
 }

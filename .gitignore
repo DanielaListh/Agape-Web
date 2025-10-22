@@ -4,7 +4,8 @@
 
 // se ignora .env porque si lo subimos al githhub nuestro proyecto queda expuesto
 .env
-/frontend/config.js
+/agape_webFrontend/public/config.js
+/backend/src/config.js
 
 #ignorar carpeta de node modules
 node_modules/
