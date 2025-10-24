@@ -1,0 +1,173 @@
+/*estos estilos aplican solamente al div board-content y los objetos internos a el como la tabla*/
+
+.board-content {
+    margin-top: 20px;
+    width: 750px; /* Ajusta el ancho según necesites */
+    height: auto;
+    max-height: 320px; /* Ajusta la altura según necesites */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    overflow-x: hidden; /* Opcional, oculta el scroll horizontal */
+    border: 2px solid #ffd8e09d; /* Opcional, añade un borde */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+    border-radius: 5px;
+}
+
+/* Estilo del scroll del div que contiene la tabla*/
+
+.board-content::-webkit-scrollbar {
+    width: 6px; /* ancho del scroll vertical */
+}
+
+  /* fondo del area de la barra */
+.board-content::-webkit-scrollbar-track {
+    background: #ffdddf1d;
+}
+
+/* Color de la barra de desplazamiento */
+.board-content::-webkit-scrollbar-thumb {
+    background: #fde2ea;;
+    border-radius: 5px;
+}
+
+/* Color cuando pasas el mouse sobre la barra */
+.board-content::-webkit-scrollbar-thumb:hover {
+    background: #ff8fab;
+}
+  
+
+table{
+    width: 100%; /*para que la tabla ocupe el 100% del div */
+    border-collapse: collapse; /*elimina los espcacios de los bordes*/
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+}
+
+th {
+    position: sticky;
+    height: 20px;
+    top: 0;
+    background-color: #fff0f0;
+    color: #003064;
+    font-weight: 500;
+    z-index: 1;
+    
+}
+
+td {
+    justify-content: baseline;
+    align-items: center;
+    font-size: 0.9em;
+    border: 1px solid #ffe9e980;
+    
+}
+
+.btn-edit, .btn-trash {
+    background-color: #fbf2f200;
+    cursor: pointer;
+}
+
+td button {
+    background-color: #fff0f000;
+    border: 1px solid #fff0f000;
+}
+
+button img {
+    width: 25px;
+    cursor: pointer;
+}
+
+
+/*tabla Usuarios*/
+
+.board-content-usuarios {
+    margin-top: 20px;
+    width: 890px; /* Ajusta el ancho según necesites */
+    height: auto;
+    max-height: 320px; /* Ajusta la altura según necesites */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    overflow-x: auto; /* Opcional, oculta el scroll horizontal */
+    border: 2px solid #ffd8e09d; /* Opcional, añade un borde */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+    border-radius: 5px;
+    
+}
+
+/* Estilo del scroll del div que contiene la tabla*/
+
+.board-content-usuarios::-webkit-scrollbar {
+    width: 6px; /* ancho del scroll vertical */
+}
+
+  /* fondo del area de la barra */
+.board-content-usuarios::-webkit-scrollbar-track {
+    background: #ffdddf1d;
+}
+
+/* Color de la barra de desplazamiento */
+.board-content-usuarios::-webkit-scrollbar-thumb {
+    background: #fde2ea;;
+    border-radius: 5px;
+}
+
+/* Color cuando pasas el mouse sobre la barra */
+.board-content-usuarios::-webkit-scrollbar-thumb:hover {
+    background: #ff8fab;
+}
+  
+
+.board-content-usuarios table{
+    width: 100%; /*para que la tabla ocupe el 100% del div */
+    border-collapse: collapse; /*elimina los espcacios de los bordes*/
+}
+
+.board-content-usuarios th, 
+.board-content-usuarios td {
+    padding: 8px;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-content-usuarios th {
+    position: sticky;
+    height: 20px;
+    top: 0;
+    background-color: #fff0f0;
+    color: #003064;
+    font-weight: 500;
+    z-index: 1;
+    
+}
+
+.board-content-usuarios td {
+    justify-content: baseline;
+    align-items: center;
+    font-size: 0.8em;
+    border: 1px solid #ffe9e980;
+    word-wrap: break-word;
+    max-width: 150px; /* Limita el ancho de todas las celdas */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    
+}
+
+.btn-edit, .btn-trash {
+    background-color: #fbf2f200;
+    cursor: pointer;
+}
+
+.board-content-usuarios td button {
+    background-color: #fff0f000;
+    border: 1px solid #fff0f000;
+}
+
+.board-content-usuarios button img {
+    width: 25px;
+    cursor: pointer;
+}

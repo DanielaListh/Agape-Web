@@ -1,0 +1,1674 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
+/* nos permite traer los iconos de la lista */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  list-style-type:none;
+}
+
+body{
+  font-family: "Open Sans", sans-serif;
+  /*background-image: url(/css/ImageAntaresWeb/fondo.jpg);*/
+  background-size: cover; /* la imagen cubra toda el área */ 
+  background-position: center; /* Centra la imagen en la pantalla */ 
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+}
+
+/* Index*/
+
+.portada {
+  display: block;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-icono{
+  display: none;
+}
+
+.menu-container {
+  position: sticky;
+  position: -webkit-sticky;
+  align-items: center;
+  justify-content: center;
+  height: auto;/*aprox 115px*/
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  top:0;
+  z-index: 30; 
+  /*el z-index determina el nivel de apilamiento 
+  de los elementos posicionados, controla que 
+  elemento se superpone a otro por su valor */
+}
+
+.checkbox {
+  display: none;
+}
+
+/*pre barra de navegacion*/
+
+.mini-content-portada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  gap: 20px;
+}
+
+.isotipo {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.isotipo img {
+  height: 50px;
+}
+
+.direccion-spot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+  min-width: auto;
+  margin: 10px;
+}
+
+.direccion-spot img{
+  height: 30px;
+}
+
+.direccion-spot a{
+  color: #003064;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.direccion-spot a:hover{
+  color: #ffb50a;
+}
+
+.contain-button-indice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
+.buttonBasic {
+  width: auto;
+  margin: 10px;
+  border-radius: 25px;
+  padding: 10px;
+  background-color: #003064;
+  border:3px solid #003064;
+  cursor: pointer;
+  color: #f3f9ff;
+}
+
+.buttonBasic:hover{
+  transition: 0.3s;
+  background-color: #f8ad2b;
+  border:3px solid #f8ad2b;
+}
+
+.contain-button-indice a{
+  color: white;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.button-indice-responsive{
+  display: none;
+}
+
+/*barra de navegacion*/
+
+.content-navbar {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content:center;
+  background-color: #fff4f7;
+  height: 35px;
+  border-radius: 10px;
+}
+
+/*
+.navbar {
+  margin-top: 30px;
+  padding-bottom: 20px;
+}
+*/
+
+.content-navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  list-style-position: inside; 
+  text-align: center;
+  align-items: center;
+}
+
+.content-navbar li {
+  display: inline;/*los enlaces de tipo texto los convertimos en bloque para que el margin y padin se a;adan*/
+  margin-right:20px;
+  position: relative;
+  text-align: center;
+}
+
+
+.direccion-spot-responsive{
+  display: none;
+}
+
+/*fijarse la letra con respecto a la resolucion de la pantalla*/
+
+.content-navbar a{
+  color: #003064;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/*after: selecciona el elemento navbar y agrega un copntenido despues, le añade dinamismo */
+
+.content-navbar ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1.5px;
+  display: block;
+  margin-top: 0;
+  right: 0;
+  background: #ffffff;
+  transition: width 0.2s ease;
+}
+
+.content-navbar ul li a:hover::after {
+  width: 100%;
+  height: 1.5px;
+  left: 0;
+  background: #ffb50a;
+}
+
+
+
+/*esta es la imagen del logo de la empresa en la barra de navegacion*/
+.img-menu-login{
+  width: 120px;
+  height: 70px;
+  margin-top: 15px;
+}
+
+/* Estilos personalizados para la barra de desplazamiento */ 
+
+::-webkit-scrollbar { 
+  width: 10px;
+  
+} 
+
+::-webkit-scrollbar-track { 
+  background: #f3f9ff; 
+} 
+
+::-webkit-scrollbar-thumb { 
+  border-radius: 10px; border: 
+  3px solid  #ffb50a ; 
+} 
+
+::-webkit-scrollbar-thumb:hover { 
+  background-color: #ffb50a; 
+}
+
+
+/*registro y login*/
+
+.body-image-registro {
+  background-image: url(/css/Imagenes/eclipse-24.png);
+  background-size: cover;
+}
+
+.body-image-login {
+  background-image: url(/css/Imagenes/eclipse-23.png);
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.form-container {
+  display: flex;
+  height: auto;
+  margin: 10px;
+}
+
+/*width = ancho, height = alto*/
+
+.imageSingup img {/*esta es la imagen de registro y login*/
+  display: flex;
+  width: 100%;
+  min-width: 800px;
+  height: 450px;
+  border-radius: 50px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+/*formulario de registro*/
+
+.form {
+  width: 50%;
+  height: 450PX;/*height: 25px;*/
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  margin-left:20px; /*marginleft 20px para registro y margin rigth 20px para login*/
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.form-login {
+  margin-left: 40px;
+  width: 50%;
+  height: 450px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  margin-right: 20px; /*marginleft 20px para registro y margin rigth 20px para login*/
+  justify-content: center;
+  text-align: center;
+}
+
+.form h2 {
+  text-align: center;
+  color: #003064;
+  font-size: 2.5rem;
+  margin:20px 20px;
+}
+
+.form-login h2 {
+  text-align: center;
+  margin:20px 20px;
+  color: #003064;
+  font-size: 2.5rem;
+}
+
+.form label, .form a, .form-login label, .form-login a {
+  color: #003064;
+  font-size: 1rem;
+}
+
+.terminos-condiciones input, 
+.terminos-condiciones label {
+  display: flex;
+  align-items: flex-start; /* alinea verticalmente los elementos */
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.form a:hover, .form-login a:hover{
+  color: #ffb50a;
+}
+
+
+#correoElectronico, #password{
+  justify-content: center;
+  width: 70%;
+  height: 30px;
+  padding: 10px;
+  margin: 15px 10px;
+  border: none;
+  border-bottom: 1.5px solid #003064;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: rgba(215, 9, 9, 0.005);
+  color: #003064;
+  outline: none;
+}
+
+/*mensaje en el input password*/
+#password{
+  width: 59%;
+  margin-left: -30px;
+}
+
+#correoElectronico:hover,
+#password:hover{
+  border-color: #ffb50a;
+  outline: none;
+}
+
+.toggle-btn{ /*es el btn donde se mostrara el mensaje Mostrar o Ocultar, para registro y login*/ 
+  position: absolute;
+  margin-left: -15px;
+  margin-top: 10px;
+  background:none;
+  cursor:pointer;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  color: #003064;
+  font-weight: 600;
+}
+
+.toggle-btn:hover{
+  color: #ffb50a;
+}
+
+.select-option{
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.select-option label{
+  color: #003064;
+  margin-right: 15px;
+}
+
+.campoRol {
+  width: 110px;
+  padding-left: 5px;
+  border: none;
+  border-bottom: 1.5px solid #003064;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #003064;
+  appearance: none; /* Para ocultar el icono por defecto */ 
+  -webkit-appearance: none; 
+  -moz-appearance:none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.005);
+  cursor: pointer;
+}
+
+
+/* aplicar estilos a los options, se busca que se vea minimalista*/
+.campoRol option {
+  background-color: rgba(255, 233, 204, 0.621);
+  color: #003064;
+  font-size: 1rem;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+select:hover {
+  border-color: #ffb50a;
+  outline: none;
+}
+
+.error-msg-registro{
+  color: #ba0606;
+  height: 25px;
+}
+
+.btn-submit,
+.btn-submit-login {
+  width: 200px;
+  height: 40px;
+  color: #285fc5;
+  border:3px solid #285fc5;
+  cursor: pointer;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 10px;
+}
+
+.div-texto-validacion{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  width: auto;
+  padding: 5px 0;
+}
+
+/*validacion de login*/
+.texto-validacion-login{
+  height: 25px;
+  width: 300px;
+  color: #ba0606;
+}
+
+.btn-submit:hover {
+  border:3px solid #ffb50a;
+  transition: 0.5s;
+  color: #ffb50a;
+}
+
+.btn-submit-login:hover {
+  border:3px solid #ffb50a;
+  color: #ffb50a;
+  transition: 0.5s;
+}
+
+.form .login-link {
+  display: block;
+  text-align: center;
+}
+
+.form-login .login-link {
+  display: block;
+  text-align: center;
+}
+
+
+.or {
+  display: flex;
+  align-items: center;
+  padding: 5px 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.or-login {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.O {
+  margin: 0 10px;
+  color: #003064;
+}
+
+.linea-div {
+  max-width: 200px;
+  flex-grow: 1;
+  height: 1px;
+  background-color: #003064;
+}
+
+.color3 {
+  color: #003064;
+}
+
+
+/*inicia secion link spam*/
+.color4 {
+  color: #285fc5;
+}
+
+.color4:hover{
+  color: #ff7b00;
+}
+
+/*portada se refiere a la imagen y la info con en boton*/
+/*carusel*/
+
+.Content-Carousel {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.carousel {
+  margin: 5px 20px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-images img {
+  width: 100%;
+  max-height: 85vh;
+  display: none;
+  border-radius: 20px;
+}
+
+.carousel-images img.active {
+  display: block;
+}
+
+.portada-info {
+  display: flex;
+  margin-top: -420px;
+  width: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 50px;  
+}
+
+.tittle{
+  margin-top: 230px;
+}
+
+.portada-info h1 {
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.portada-info h1:hover{
+  color: #ffa200;
+  transition: 0.9s;
+}
+
+.portada-info h4{
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.portada-info h2{
+  color: white;
+}
+
+.btn-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0px;
+  width: 250px;
+  margin-top: 200px;
+  margin-right: 20px;
+}
+
+.infoAlcance {
+  font-size: 1.5rem;
+  font-weight: 200;
+  justify-content: center;
+  align-items: center;
+}
+
+.unclick {
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-info a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* Seccion Sobre nosotros*/
+#sobreNosotros{
+  scroll-margin-top: 50px; /* Ajusta según el alto de tu navbar */
+}
+
+.sobre-nosotros {
+  text-align: center;
+  margin: 70px 0;
+  background-image: url(/css/Imagenes/eclipse-26.png);
+  background-size:cover;
+  justify-self: center;
+  justify-items: center;
+  align-content: center;
+}
+
+.sobre-nosotros h2{
+  margin: 5px 0px;
+  color: #003064;
+  font-size: 2.5rem;
+}
+
+.sobre-nosotros h3 {
+  color: #003064;
+  font-size: 1.2rem;
+}
+
+/*padre de las notas*/
+.content-notes{
+  margin-top: 30px;
+  display: flex;
+  padding: 10px;
+  width: auto;
+  height: auto;
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.notes {
+  display: flex;
+  /*para que ocupe varias lineas y no una sola*/
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 230px;
+  height: 240px;
+  border-radius: 20px;
+  color: #003064;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+
+.notes:hover{
+  box-shadow: 3px 3px 6px #ffa200;
+  transition: 0.7s;
+}
+
+.notes h4 {
+  font-size: 1.2rem;
+  margin: 10px 0px;
+}
+
+.notes p{
+  font-size: 0.8rem;
+}
+
+.notes img {
+  width: 80px;
+  height: 80px;
+}
+
+
+/*Historia*/
+#nuestraHistoria {
+  align-content: center;
+  height: auto;
+}
+
+#h2-tittle{
+  scroll-margin-top: 120px; /* Ajusta según el alto de tu navbar */
+}
+
+.historia {
+  background-image: url(/css/Imagenes/eclipse-22.png);
+  background-size: cover;
+  margin: 70px 0px;
+  justify-items: center;
+  align-items: center;
+}
+
+.historia-transparency {
+  width: auto;
+  margin: 5px 110px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: rgba(255, 255, 255, 0.5);
+  align-content: space-between;
+  border-radius: 50px;
+  height: auto;
+  box-shadow: 3px 3px 6px #ffa200;
+}
+
+.historia-content {
+  display: block;
+  margin: 0 10px 0  0;
+  align-items: center;
+}
+
+.historia-content img {
+  border-radius: 50px;
+  width: 400px;
+  height: auto;
+  margin: 10px;
+}
+
+.historia-content-text {
+  display: block;
+  margin: 10px;
+  align-items: center;
+  width: auto;
+}
+
+.historia-content-text h2{
+  color: #ffa200;
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+.historia-content-text h3 {
+  font-size: 2rem;
+  color: #003064;
+
+}
+
+.historia-content-text p{
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  text-align: justify;
+  margin-right: 30px;
+  color: #003064;
+  width: auto;
+  height: auto;
+}
+
+#p1 {
+  font-weight:bolder;
+  text-align: justify;
+  color: #003064;
+  margin: 10px 0;
+}
+
+#p2{
+  margin: 10px 0;
+}
+
+.historia-content-content{
+  display:flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  color: #003064;
+}
+
+/*Logo ws*/
+.logo-ws {
+  position: fixed;/* mantiene el logo pegado a una parte especifica */
+  bottom: 50px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: block; /* Asegura que se muestren dentro de la sección */
+}
+
+.flecha {
+  width: 70px;
+  height: 60px;
+  cursor: pointer;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 855px;
+  padding-left: 10px;
+}
+
+#servicios {
+  scroll-margin-top: 110px; /* Ajusta según el alto de tu navbar */
+  display: block;
+  align-content: space-between;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.content-servicios {
+  display: block;
+  justify-items: center;
+  height: auto;
+}
+
+.content-servicios h2{
+  font-size: 2.5rem;
+}
+
+.color1{
+  color:#003064;
+}
+
+.color2 {
+  color: #ffa200;
+}
+
+.p-buscador {
+  width: 70vw;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: #003064;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+
+/*Servicios del index traidos de la base de datos*/
+
+.Servicios-Container {/*div padre*/
+  margin: 30px 0;
+  display: flex;
+  width: auto;
+  background-image: url(/css/Imagenes/eclipse-24.png);
+  background-size: cover;
+  background-image: linear-gradient();
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.divHijo{
+  width: auto;
+  padding: 5px 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;/*para que ocupe varias lineas y no una sola*/
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.divNieto {
+  width:260px;
+  align-items: center;
+  text-align: center;
+  margin: 20px 5px 20px 5px;
+  background-color: #ffffff7e;
+  border-radius: 20px;
+  height: auto;
+  padding: 0px 5px 5px 5px;
+}
+
+.divNieto:hover {
+  transition: 0.3s;
+  box-shadow: 3px 3px 6px #ffa200;
+}
+
+.preview-img img{
+  align-items: center;
+  width: 220px;
+  height: 260px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.divNieto h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 5px;
+  color:#003064;
+}
+
+.divNieto p{
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #003064;
+}
+
+/*Contacto*/
+
+#contacto{
+  scroll-margin-top: 60px; /* Ajusta según el alto de tu navbar */
+}
+
+.container-contacto {
+  background-image: linear-gradient();
+  background-size: cover;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:60px;
+  background-image: url(/css/Imagenes/eclipse-24.png);
+  background-size: cover;
+  gap:20px;
+  padding: 40px;
+}
+
+.img-contact img { 
+  width: 400px;
+  max-height: 470px;
+  height: auto;
+  border-radius: 30px;
+}
+
+
+.contact {
+  padding: 20px;
+  min-width:330px;
+  width: 400px;
+  max-height: 470px;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+}
+
+.contact p {
+  color: #003064;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.contact h2 {
+  text-align: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-family: Arial, serif;
+  font-weight: 700;
+  color:#003064;
+  
+}
+
+input::placeholder, textarea::placeholder {
+  font-size: 1rem;
+  color: #0030649e;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  padding: 10px;
+  width: fit-content;
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 3px #003064 solid;
+  color: #003064;
+  font-size: 1rem;
+}
+
+.contact-form input:hover, 
+.contact-form textarea:hover {
+  border-bottom: 3px #ffa200 solid;
+  transition: 0.3s;
+}
+
+
+/*Modal de envio de formulario exitoso*/
+.modal {
+  display:none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: #000000a9;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-contenido {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 3px solid #ff91b0;
+}
+
+.modal-contenido h3{
+  margin: 20px;
+  color: #003064;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.modal-contenido p{
+  margin: 5px;
+  color: #003064;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.modal-contenido button{
+  margin: 20px;
+  border: 2px solid #f9dfe7;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  background-color: #f9dfe7;
+  color: #003064;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.modal-contenido button:hover{
+  color: white;
+  background-color: #fabc5e;
+  border: 2px solid #fabc5e;
+  transition: 0.4s;
+}
+
+
+/*footer*/
+
+.footer {
+  background-color: #fff4f7;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  height: auto;
+  width: 100%;
+}
+
+.list-footer {
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.list-footer a {
+  color: #003064;
+  font-weight: 500;
+}
+
+.list-footer a:hover{
+ color: #fabc5e;
+ transition: all 0.4s;
+}
+
+.redes {
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+}
+
+/*iconos de redes en el footer*/
+.icon-redes {
+  color: #003064; /* Color de Facebook */
+  font-size: 25px; /* Tamaño del icono */
+}
+
+.icon-redes:hover {
+  color: #fabc5e; /* Color de Facebook */
+}
+
+
+.linea-divisoria {
+  border-top: 1px solid;
+  margin: 10px 110px;
+  color: #003064;
+}
+
+.footer p {
+  justify-self: center;
+  color: #ff80a6;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+/* responsive para telefono */
+@media screen and (max-width: 768px) {
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  
+  .menu-container{
+    width: 100vw;
+    height: auto;
+  }
+
+  .mini-content-portada{
+    height: 15vh;
+    width: 100vw;
+  }
+
+  .isotipo img{
+    height: 6vh;
+    max-width: 25vw;
+    margin: 5px;
+  }
+  .direccion-spot{
+    display: none;
+  }
+
+  .direccion-spot-responsive{
+    display: flex;
+    width: auto;
+    height: auto;
+  }
+
+  .direccion-spot-responsive img{
+    height: 40px;
+    width: 35px;
+    margin: 5px;
+  }
+
+  .btn-ws-responsive{
+    display: block;
+  }
+
+
+  .contain-button-indice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    gap: 10px;
+  }
+
+  .contain-button-indice a{
+    color: white;
+    font-weight: 500;
+    font-size: 0.7rem;
+  }
+
+  #buttonIndiceContacto{
+    display: none;
+  }
+
+  #buttonIndice {
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    background-color: #003064;
+    border:3px solid #003064;
+  }
+
+  /*Nav bar responsive*/
+
+ .content-navbar {
+    width: 100vw;
+    display: block;
+    background-color: #ffd8e3;
+    height: auto;
+    border-radius: 2px;
+    padding: 5px;
+    justify-items: center;
+    align-items: center;
+  }
+  .content-navbar ul {
+    display: none;
+  }
+
+  .menu-icono{
+    display: block;
+    width: 10vw;
+    cursor: pointer;
+    justify-self: center;
+    margin: 5px;
+  }
+
+  .navbarUl {
+    display: none;
+    flex-direction: column;
+    position:static;
+    z-index: 40;
+    transition: 0.5s;
+    margin-top: 3vh;
+  }
+
+  .navbar li {
+    height: 6vh;
+    margin-top: 2vh;
+  }
+
+  .navbarUl.show {
+    display: flex;
+  }
+
+  /*fijarse la letra con respecto a la resolucion de la pantalla*/
+
+  .navbar a{
+    color: #003064;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  /*carrusel*/
+  .Content-Carousel{
+    width: 100vw;
+    height: 50vh;
+    background-image: none;
+  }
+
+  .transparency{
+    height: auto;
+    width: 100vw;
+  }
+
+  .carousel{
+    width: 100vw;
+    height: 50vh;
+    margin-left: -2px;
+  }
+
+  .carousel-images img{
+    height: 50vh;
+  }
+
+  .tittle{
+    margin-top: 500px;
+    margin-left: -120px;
+  }
+
+  .tittle h4{
+    font-size: 1.2rem;
+  }
+
+  .tittle h1{
+    font-size: 3rem;
+  }
+
+  .btn-info h2{
+    display: none;
+  }
+
+  .btn-info button{
+    display: none;
+  }
+
+  .buscador-container{
+    display: none;
+  }
+
+  /*secion de valores de empresa, Notitas*/
+
+  .sobre-nosotros{
+    width: 100vw;
+    height: auto;
+    background-image: url(/css/Imagenes/eclipse-24.png);
+    background-size: cover;
+  }
+
+  .sobre-nosotros h2{
+    font-size: 2rem;
+  }
+
+  .sobre-nosotros h3{
+    font-size: 1.5rem;
+  }
+
+  .content-notes{
+    display: block;
+    justify-items: center;
+  }
+
+  .notes{
+    width:90vw;
+    max-width: 70%;
+    height: auto;
+    margin: 10vw 0;
+    box-shadow: 3px 3px 6px #ffa200;
+  }
+
+  .notes h4{
+    font-size: 1.3rem;
+  }
+
+  .notes p{
+    font-size: 1rem;
+  }
+
+  .logo-ws {
+    right: 60px;
+  }
+
+
+  /*Nuestra historia*/
+  .historia{
+    width: 100vw;
+    min-height: 800px;
+    max-height: auto;
+    margin: 20px 0;
+  }
+
+  .historia-transparency{
+    width: fit-content;
+    margin: 20px 0;
+    padding: 0;
+    display: block;
+    background-color: #ffffff8b;
+    box-shadow: none;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .historia-content{
+    width: fit-content;
+    height: auto;
+    justify-items: center;
+    align-items: center;
+    margin: 5px 0;
+    padding: 0;
+  }
+
+  .historia-content img{
+    max-height: 50vh;
+    width: fit-content;
+  }
+
+  .historia-content-text{
+    height: auto;
+    justify-items: center;
+    align-content: center;
+    margin: 0;
+  }
+
+  .historia-content-text h2{
+    font-size: 2rem;
+    justify-self: center;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  #p1{
+    width: auto;
+    height: auto;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 10px 0;
+    padding: 15px;
+    text-align: center;
+  }
+
+  #p2{
+    width: auto;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align: center;
+    height: auto;
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  .historia-content-content{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    width: fit-content;
+    padding: 10px 5px;
+    height: auto;
+
+  }
+
+  .historia-content-content div{
+    width: 23vw;
+    height: auto;
+  }
+
+  .historia-content-content p{
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .Servicios{
+    padding: 0;
+    margin-top: 20px;
+    justify-items: center;
+    align-items:center;
+    height: auto;
+  }
+
+  .content-servicios{
+    height: auto;
+    margin-top: 50px;
+    width: auto;
+  }
+
+  .content-servicios h2{
+    width: fit-content;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .p-buscador {
+    margin:5px 0;
+    font-size: 0.8rem;
+  }
+  
+
+  /*Servicios del index traidos de la base de datos*/
+
+  .Servicios-Container {/*div padre*/
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    height: auto;
+  }
+
+  .divHijo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;/*para que ocupe varias lineas y no una sola*/
+    height: auto;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    width: 100vw;
+  }
+
+  .divNieto {
+    width: 260px;
+    max-width: 320px;
+    align-items: center;
+    text-align: center;
+    margin: 10% 2%;
+    border-radius: 20px;
+    height: auto; /*independientemente del contenido, este se ajusta en altura*/
+    padding: 5%;
+    box-shadow: 3px 3px 6px #ffa200;
+  }
+
+
+
+  .divNieto h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 5px;
+    color:#003064;
+  }
+
+  .divNieto img {
+    align-items: center;
+    width: 200px;
+    height: 230px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  .divNieto p{
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #003064;
+  }
+
+  .flecha {
+    display: none;
+  }
+
+
+  /*seccion de contacto*/
+
+
+  .container-contacto {
+    background-image: none;
+    background-size: none;
+    max-width: 100vw;
+    height: auto;
+    display: block;
+    margin:0;
+    padding: 0;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .img-contact img { 
+    display: none;
+  }
+
+
+  .contact {
+    width: 90vw;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0px;
+    padding: 15px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .contact p {
+    width: auto;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .contact h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-form {
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .contact-row input, .contact-row textarea {
+    padding: 10px 0px;
+    width: 90vw;
+  }
+
+  .contact button {
+    margin-top:  30px;
+    padding: 5px;
+    border-radius: 50px;
+    width: 50vw;
+    height: 8vh;
+  }
+
+  /*Modal de envio de formulario exitoso*/
+
+  .modal {
+    display: none;
+    width: 100vw; 
+    height: 100vh;
+    align-content: center;
+    justify-items: center;
+  }
+
+  .modal-contenido {
+    padding: 10px;
+    border-radius: 20px;
+    width: 90vw;
+    height: 40vh;
+  }
+
+  .modal-contenido button{
+    margin: 10px;
+  }
+
+  /*footer*/
+
+  .footer {
+    display: block;
+    margin-top: 30px;
+    padding: 10px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    background-color: #f9dfe7ac;
+  }
+
+  .list-footer{
+    display: block;
+    margin: 2px;
+    min-width: 200px;
+    height: auto;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .list-footer a{
+    display: block;
+    margin: 5px;
+    height: auto;
+    font-weight: 500;
+  }
+
+  .redes {
+    display: block;
+    margin: 20px 0;
+  }
+
+  .redes-content{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .redes h3 {
+    color: #003064;
+    margin: 0;
+  }
+
+  /*gap: margen entre filas y columnas en un grid o flexbox*/
+  .redes div {
+    display: block;
+    gap: 10px;
+  }
+
+  .linea-divisoria {
+    display: none;
+  }
+
+  .derechos-reservados {
+    font-size: 0.9rem;
+    margin: 20px 0;
+  }
+
+  /* login responsive*/
+
+  .form-container {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .form-login, .form {
+    margin: 0;
+    width: 90vw;
+    height: auto;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .error-msg-registro{
+    height: 40px;
+    margin: 10px 0;
+  }
+
+  .imageSingup {
+    display: none;
+  }
+
+
+
+}

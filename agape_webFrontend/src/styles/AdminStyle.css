@@ -1,0 +1,1006 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+ background-color: #f6f6f4;
+ font-family: "Opens Sans", sans-serif;
+ height: 100vh;
+}
+
+/*nav*/
+
+.sidebar {
+    background-color: white;
+    width: 340px;
+    position: fixed; /*recordar poner fixed a la tabla*/
+    height: 100vh;/*ocupa el 100% del area visible de la pag*/
+    overflow-y:auto;
+}
+
+.logo img {
+    display: block;
+    height: 140px;
+    margin: 0 0 0 50px;
+}
+
+/*ul*/
+.menu {
+    color: #003064;
+    display: block;
+    padding: 5px 0;/*0*/
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.menu li {
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.submenu {
+    max-width:300px ;
+}
+
+.submenu li {
+    width: 80%;
+    border-left: 2px solid #003064;
+    transition: height .4s;
+}
+
+.menu li a {
+    color: #003064;
+    text-decoration: none;
+}
+
+.menu a:hover{
+    color: #ff91b0;
+    transition: .5s;
+}
+
+
+
+/* Ocultar los submenus por defecto */
+.submenu-content {
+    display: none;
+    list-style: none;
+    padding-left: 15px;
+}
+
+/* Estilo cuando el menu esta abierto */
+.submenu.open > .submenu-content {
+    display: block;
+}
+
+/* Ajuste para nietos */
+.submenu .submenu .submenu-content {
+    padding-left: 20px;
+}
+
+
+.submenu a:hover{
+    color: #ff91b0;
+    transition: .6s;
+}
+
+.submenu img {
+ height: 20px;
+}
+
+.list_arrow {
+    height: 20px;
+    transition: transform .3s;
+}
+
+.arrow.rotate {
+    transform: rotate(90deg);
+}
+
+
+/* Contenedor padre*/
+
+.contenedor-padre {
+    display: flexbox;
+    margin-left: 340px;
+    width: 73%;
+    height: auto;
+}
+
+/*Barra horizontal Superior*/
+.barra-horizontal-sup{
+    width: 90%;
+    margin: 0 10px;
+    display: flex;
+    background-color: white;
+    height: 50px;
+    border-radius: 15px;
+    justify-content: end;
+    gap: 5px;
+    position: relative;
+}
+
+.barra-horizontal-sup button{
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+    background-color: #f6f6f400;
+    border: 1px solid #f6f6f400;
+}
+
+.barra-horizontal-sup img{
+    display: inline-block;
+    padding: 10px 5px;
+    margin-right: 5px;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+}
+
+#sub-menu{
+  position: absolute;
+  top: 110%;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 1000;
+  height: auto;
+  width: 150px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.hidden {
+ display: none;
+ 
+}
+
+.a-link {
+    color: #003064;
+    font-weight: 400;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+.a-link:hover {
+    color: #ff91b0;
+    transition: 0.4s;
+}
+
+/*contenedor hijo*/
+
+.contenedor-padre h1{
+    color: #003064;
+    font-family: "Open Sans", serif;
+    font-weight: 800;
+    margin: 10px;
+    font-size: 1.5rem;
+}
+
+.content-view {
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    height: 460px;
+    padding: 10px;
+    margin: 10px;
+    padding-left: 40px;
+    width: 85%;
+}
+
+/*para visualizacion de usuarios*/
+.content-view-usuarios {
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    height: 460px;
+    padding: 10px;
+    margin: 10px 5px 10px 5px;
+    padding-left: 10px;
+    width: 96%;
+}
+
+/*en el home de admin*/
+#imgEclipse {
+    background-image: url(/css/Imagenes/eclipse1.png);
+    background-repeat: no-repeat;
+}
+
+/*titulo visualizar*/
+
+.tittle {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.barra-rosa {
+    height: 25px;
+    width: 8px;
+    background-color: #f9cbd8;
+    margin-right: 5px;
+}
+
+.content-view h3{
+    color: #003064;
+    font-family: "Open Sans", serif;
+    font-weight: 700;
+}
+
+/* search-content parte de botones y de busqueda por id*/
+
+.search-content{
+    margin: 8px;
+    display: flex;
+    height: 80px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.refresh button{
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    background-color: #f9cbd8;
+    height: 30px;
+    width: 180px;
+    margin: 5px 0;
+    margin-right: 60px;
+    font-family: "Open Sans", serif;
+    font-weight: 500;
+    color: #003064;
+    cursor: pointer;
+}
+
+.refresh button:hover{
+    background-color: #fde2ea;
+    border: 1px solid #fde2ea;
+    color: #0569d396;
+    transition: 0.4s;
+}
+
+.barra-rosa2 {
+    height: 40px;
+    width: 5px;
+    background-color: #f9cbd8;
+    margin-right: 5px;
+}
+
+.search {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+}
+
+.search input{
+    cursor: pointer;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 0.9em; 
+    border-radius: 5px;
+    height: 30px;
+    border: 3px solid #f9cbd8;  
+}
+
+.search input::placeholder{
+    color: #e3b5c2;
+}
+
+.search input:hover{
+    border: 3px solid #ff91b0;
+}
+
+.search img{
+    margin-left: 80px;
+}
+
+.search a{
+    margin-left: 185px;
+    margin-bottom: -15 px;
+}
+
+.search label{
+    align-items: flex-start;
+    font-family: "Opens Sans", sans-serif;
+    color: #003064;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+/*mensaje de error de la busqueda de los puts*/
+.mensaje-error{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 370px;
+    min-width: 370px;
+    height: 20px;
+}
+
+.p-error{
+    color: #af0622;
+}
+
+#p-error{
+    color: #fd2e69;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+.search-btn button {
+    background-color: #f9cbd8;
+    color: #003064;
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    align-items: center;
+    padding: 10px 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-btn button:hover{
+    background-color: #fde2ea;
+    border: 1px solid #fde2ea;
+    color: #0569d396;
+    transition: 0.4s;
+}
+
+/*Crear del CRUD*/
+
+.content-view-create{
+    background-color: white;
+    border-radius: 25px;
+    height: auto;
+    min-height: 440px;
+    max-height: 500;
+    margin: 5px 10px;
+    width: 500px;
+    padding: 20px;
+    padding-bottom: 0;
+    padding-left: 60px;
+}
+
+.content-view-create h3{
+    color: #003064;
+    font-family: "Open Sans", serif;
+    font-weight: 700;
+}
+
+.form-Create-EM{
+    height: 390px;
+    padding: 10px 10px 10px 20px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto; /* Habilita el scroll vertical */
+    overflow-x: hidden;
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+/*estilos de scroll*/
+.form-Create-EM::-webkit-scrollbar {
+    width: 6px; /* ancho del scroll vertical */
+}
+
+  /* fondo del area de la barra */
+.form-Create-EM::-webkit-scrollbar-track {
+    background: #ffdddf1d;
+}
+
+/* Color de la barra de desplazamiento */
+.form-Create-EM::-webkit-scrollbar-thumb {
+    background: #fde2ea;;
+    border-radius: 5px;
+}
+
+/* Color cuando pasas el mouse sobre la barra */
+.form-Create-EM::-webkit-scrollbar-thumb:hover {
+    background: #ff8fab;
+}
+
+.form-contend-nombre-post, 
+.form-contend-descripcion-post {
+    margin-bottom: 5px;
+    margin-left: -19px;
+    width: 600px;
+}
+
+.form-contend-nombre-post{
+  height: 87px;
+}
+
+.form-contend-descripcion-post{
+    height: 132px;
+}
+
+
+.form-contend-nombre-post label,
+.form-contend-descripcion-post label{
+    color: #003064;
+    font-family: 'Opens sans', sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+.form-contend-nombre-post input{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #f9cbd8;
+    height: 40px;
+    width: 370px;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 1em; 
+    margin-bottom: 5px;
+    font-family: sans-serif;
+}
+
+.form-contend-descripcion-post textarea{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #f9cbd8;
+    height: 80px;
+    width: 350px;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 1em;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+}
+
+
+.form-contend-nombre-post input::placeholder,
+.form-contend-descripcion-post input::placeholder{
+    color: #e3b5c2;
+}
+
+.form-contend-nombre-post input:hover,
+.form-contend-descripcion-post input:hover{
+    border: 2px solid #ff91b0;
+    transition: 0.6s;
+}
+
+.error-msg{
+    margin: 5px 0;
+    padding: 3px;
+    height: 20px;
+}
+
+#error-msg-nombre,
+#error-msg-descripcion,
+#error-msg-imagen{
+    color: #c10339;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.form-contend-img-post{
+    margin-left: -19px;
+}
+
+.form-contend-img-post label{
+    color: #003064;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    
+}
+
+.form-contend-img-post input{
+    cursor: pointer;
+    outline: none;
+    font-weight: 400;
+    font-size: 0.8em;
+}
+
+/* el pseudo elemento webkit-file-upload-button que es intrinseco en input */
+/**/
+input[type="file"]::-webkit-file-upload-button {
+    color: #003064;
+    appearance: none;
+    background-color: #fde2ea00;
+    border-radius: 5px;
+    border: 1px solid #fde2ea;
+    cursor: pointer;
+    height: 30px;
+    margin-top: 6px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover{
+    border: 1px solid #ff91b0;
+    transition: 0.6s;
+}
+
+/*es el div donde se mostrara la imagenSubida*/
+.imgUpLoad{ 
+    margin-top: 10px;
+    border: 2px solid #f9cbd8;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.imgSubida{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+/*div de error*/
+
+.errorMsgNombrePost,
+.errorMsgDescripcionPost,
+.errorMsgImgPost{
+    width: 430px;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.errorMsgNombrePost,
+.errorMsgDescripcionPost,
+.errorMsgImgPost p{
+    color: #af0622;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+/*boton submit crear*/
+
+.create button{
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    background-color: #f9cbd8;
+    height: 30px;
+    width: 180px;
+    margin: 10px 10px;
+    font-family: "Open Sans", serif;
+    font-weight: 500;
+    color: #003064;
+    cursor: pointer;
+}
+
+.create button:hover{
+    background-color: #fde2ea;
+    border: 1px solid #fde2ea;
+    color: #0569d396;
+    transition: 0.4s;
+}
+
+/*MODIFICAR DE ESPECIALIDADES MEDICAS*/
+.content-view-modify{
+    background-color: white;
+    border-radius: 25px;
+    height: 450px;
+    margin: 5px 10px;
+    width: 500px;
+    padding: 20px;
+    padding-bottom: 0;
+    padding-left: 60px;
+}
+
+.content-view-modify h3{
+    color: #003064;
+    font-family: "Open Sans", serif;
+    font-weight: 700;
+}
+
+.container-search{
+    position: relative; /* importante para usar position absolute en hijos */
+    display: flex;
+    align-items: center;
+}
+
+.search-modify {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+    position: relative;/*importante para el select*/
+}
+
+.search-modify input{
+    cursor: pointer;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 0.9em; 
+    border-radius: 5px;
+    height: 20px;
+    border: 3px solid #f9cbd8;  
+}
+
+/*input de busqueda, select options*/
+#listaCoincidencias{
+    position: absolute;
+    top: 65%; /* aparece debajo del input*/
+    background-color: #ffe8eebb;
+    border: 1px solid #f4c9d5;
+    color: #003064;
+    /*z-index: 400;*/ /*creia que era la posicion de apilamiento de los objetos pero no, era el top*/
+    display: none;/*debe ir por default*/
+}
+
+.search-modify input::placeholder{
+    color: #e3b5c2;
+}
+
+.search-modify input:hover{
+    border: 3px solid #ff91b0;
+}
+
+.search-modify img{
+    margin-left: 80px;
+}
+
+.search-modify a{
+    margin-left: 185px;
+    margin-bottom: -15 px;
+}
+
+.search-modify label{
+    align-items: flex-start;
+    font-family: "Opens Sans", sans-serif;
+    color: #003064;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.search-btn-modify button {
+    background-color: #f9cbd8;
+    color: #003064;
+    border-radius: 20px;
+    border: 1px solid #f4c9d5;
+    align-items: center;
+    padding: 10px 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-btn-modify button:hover{
+    background-color: #fde2ea;
+    border: 1px solid #fde2ea;
+    color: #0569d396;
+    transition: 0.4s;
+}
+
+/*DIV que contiene el form*/
+.content-form-modify-espec-medicas{
+    margin: 10px 5px 5px 5px;
+    padding: 10px;
+    height: 310px;
+    border-radius: 15px;
+    overflow-y: auto; /* Habilita el scroll vertical */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+/* Estilo del scroll del div que contiene la tabla*/
+
+.content-form-modify-espec-medicas::-webkit-scrollbar {
+    width: 6px; /* ancho del scroll vertical */
+}
+
+  /* fondo del area de la barra */
+.content-form-modify-espec-medicas::-webkit-scrollbar-track {
+    background: #ffdddf1d;
+}
+
+/* Color de la barra de desplazamiento */
+.content-form-modify-espec-medicas::-webkit-scrollbar-thumb {
+    background: #fde2ea;;
+    border-radius: 5px;
+}
+
+/* Color cuando pasas el mouse sobre la barra */
+.content-form-modify-espec-medicas::-webkit-scrollbar-thumb:hover {
+    background: #ff8fab;
+}
+
+.content-data-p{
+ display: flex;
+ gap: 10px;
+}
+
+
+.datos-espec-medicas p{
+    display: flex;
+    align-items: center;
+    color: #003064;
+    font-family: 'Opens sans', sans-serif;
+    margin-bottom: 3px;
+}
+
+
+.span-datos-especialidad-medica {
+    margin-left: 5px;
+    border: 2px solid #f4c9d5;
+    height: 20px;
+    padding-left: 5px;
+    padding-right: 4px;
+    width: auto;
+    min-width: 100px;
+    max-width: 200px;
+    border-radius: 5px;
+    color: #d0a6b2;
+    align-items: center;
+}
+
+.form-contend-modify, 
+.form-contend-descripcion-modify {
+    padding: 5px 0px;
+}
+
+.form-contend-modify label,
+.form-contend-descripcion-modify label{
+    color: #003064;
+    font-family: 'Opens sans', sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+.form-contend-modify input{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #f9cbd8;
+    height: 40px;
+    width: 370px;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 1em; 
+    font-family: sans-serif;
+}
+
+.form-contend-descripcion-modify textarea{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #f9cbd8;
+    height: 80px;
+    width: 350px;
+    outline: none;
+    padding-left: 5px;
+    color: #003064;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: sans-serif;
+}
+
+
+.form-contend-modify input::placeholder,
+.form-contend-descripcion-modify input::placeholder{
+    color: #e3b5c2;
+}
+
+.form-contend-modify input:hover,
+.form-contend-descripcion-modify input:hover{
+    border: 2px solid #ff91b0;
+    transition: 0.6s;
+}
+
+.form-contend-img-modify{
+    display: block;
+    height: auto;
+}
+
+.form-contend-img-modify label{
+    color: #003064;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.form-contend-img-modify input{
+    display: flex;/*en este caso ayuda a que el imput esta abajo de la imagen*/
+    margin-top: 5px;
+    cursor: pointer;
+    outline: none;
+    font-weight: 400;
+    font-size: 0.8em;
+}
+
+/*aqui se mostrara la imagen traida del get*/
+/*preview es un div, donde se muestra de manera dinamica un div y dentro de ese div se renderiza una imagen*/ 
+
+.imgSubidaPut{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    border: 2px solid #f9cbd8;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* el pseudo elemento webkit-file-upload-button que es intrinseco en input */
+/**/
+input[type="file"]::-webkit-file-upload-button {
+    color: #003064;
+    appearance: none;
+    background-color: #fde2ea00;
+    border-radius: 5px;
+    border: 1px solid #fde2ea;
+    cursor: pointer;
+    height: 30px;
+    margin-top: 6px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover{
+    border: 1px solid #ff91b0;
+    transition: 0.6s;
+}
+
+/*boton de submit para el modificar*/
+.modify button{
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    background-color: #f9cbd8;
+    height: 30px;
+    width: 180px;
+    margin: 10px 10px;
+    font-family: "Open Sans", serif;
+    font-weight: 500;
+    color: #003064;
+    cursor: pointer;
+}
+
+.modify button:hover{
+    background-color: #fde2ea;
+    color: #0569d396;
+    transition: 0.4s;
+}
+
+/*Perfil de usuario Administrador*/
+
+
+.content-view-perfilUsuario{
+    background-color: #ffffff;
+    border-radius: 25px;
+    height: 600px;
+    padding: 10px;
+    margin: 10px;
+    padding-left: 60px;
+}
+
+.Titulo2{
+    color: #003064;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.content-formulario-y-eliminar{
+    display: flex;
+}
+
+.content-formulario{
+    display: flex;
+    background-color: #ffffffc0;
+    width: 650px;
+    height: 550px;
+    border-radius: 20px;
+}
+
+.content-imgPerfil{
+    display: block;
+    width: 300px;
+    margin: 10px;
+}
+
+.imgPerfil{
+    background-color: #000000;
+    margin: 10px 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.buttonEditarImagen{
+ margin: 5px 90px;
+}
+
+.buttonEditarImagen button{
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    background-color: #f9cbd8;
+    height: 30px;
+    width: 100px;
+    margin: 10px 10px;
+    font-family: "Open Sans", serif;
+    font-weight: 500;
+    color: #003064;
+    cursor: pointer;
+}
+
+.subTitulo{
+    color: #003064;
+}
+
+.dataIneditable{
+    padding: 5px;
+    display: block;
+}
+
+.dataIneditable-Id,
+.dataIneditable-Rol,
+.dataIneditable-Fecha{
+    display: flex;
+    padding: 5px;
+    height: 20px;
+    align-items: center;
+}
+
+.dataIneditable-Id p,
+.dataIneditable-Rol p,
+.dataIneditable-Fecha p{
+    margin: 5px;
+    color: #003064;
+    font-weight: 500;
+}
+
+.dataIneditable-Id input,
+.dataIneditable-Rol input,
+.dataIneditable-Fecha input{
+    pad: 2px;
+    color: #003064;
+    font-weight: 400;
+    border: 1px solid #9f9a9cd1;
+}
+
+/*form*/
+.dataEditable{
+    display: block;
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.dataEditable p{
+    color: #003064;
+}
+
+/*div eliminar perfil*/
+
+.content-eliminar-perfil{
+    background-color: #ffffff80;
+    height: 100px;
+    width: 300px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 400px;
+    margin-left: 10px;
+}
+
+.tituloBorrar{
+    font-weight: 600;
+    color: #003064;
+}
+
+.textoBorrar{
+    font-size: 0.9em;
+    font-weight: 400;
+    color: #003064;
+}
+
+.buttonEliminarPerfil{
+    margin: 5px 70px;
+}
+
+.buttonEliminarPerfil button{
+    border-radius: 20px;
+    border: 1px solid #f9cbd8;
+    background-color: #f9cbd8;
+    height: 30px;
+    width: 100px;
+    margin: 10px 10px;
+    font-family: "Open Sans", serif;
+    font-weight: 500;
+    color: #003064;
+    cursor: pointer;
+}
