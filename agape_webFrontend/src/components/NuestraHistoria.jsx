@@ -1,13 +1,14 @@
 import React from "react";
 import '../styles/style.css';
 import { FunctionRegion } from "@supabase/supabase-js";
+import recepcion from "../assets/Imagenes/recepcion.jpeg";
 
 export default function NuestraHistoria() {
     return (
         <section id="nuestraHistoria" className="historia">
             <div className="historia-transparency">
                 <figure className="historia-content">
-                    <img src="/css/Imagenes/recepcion.jpeg" alt="Recepción clínica" />
+                    <img src={recepcion} alt="Recepción clínica" />
                 </figure>
                 <article className="historia-content-text">
                     <h2 id="h2-tittle">Nuestra Historia</h2>

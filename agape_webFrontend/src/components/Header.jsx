@@ -1,5 +1,8 @@
-import React from 'react';
+import { Link } from 'react-router-dom'; // Importa el componente Link para la navegación interna
 import '../styles/style.css';
+import Logotipo from "../assets/Imagenes/Logotipo.png";
+import gps from "../assets/Imagenes/gps.png";
+import menu from "../assets/Imagenes/menu.png";
 
 export default function Header() {
   return (
@@ -7,20 +10,20 @@ export default function Header() {
       <div className="mini-content-portada">
         <figure className="isotipo">
           <a href="/">
-            <img src="/css/Imagenes/Logotipo.png" alt="Logotipo Ágape" />
+            <img src={Logotipo} alt="Logotipo Ágape" />
           </a>
         </figure>
 
         <address className="direccion-spot">
-          <img src="/css/Imagenes/gps.png" alt="Icono GPS" />
-          <a href="https://maps.app.goo.gl/yqhJ7Sezm5qkZNsz6" target="_blank" rel="noopener noreferrer">
-            Ágape Clínica Familiar Recoleta
+          <img src={gps} alt="Icono GPS" />
+          <a href="https://maps.app.goo.gl/PQNdAbRmXzZugeku7" target="_blank" rel="noopener noreferrer">
+            Ágape Clínica Familiar Barinas
           </a>
         </address>
 
         <address className="direccion-spot-responsive">
-          <a href="https://maps.app.goo.gl/yqhJ7Sezm5qkZNsz6" target="_blank" rel="noopener noreferrer">
-            <img src="/css/Imagenes/gps.png" alt="Icono GPS" />
+          <a href="https://maps.app.goo.gl/PQNdAbRmXzZugeku7" target="_blank" rel="noopener noreferrer">
+            <img src={gps} alt="Icono GPS" />
           </a>
         </address>
 
@@ -29,21 +32,22 @@ export default function Header() {
             <button className="buttonBasic" id="buttonIndiceContacto">Contáctanos</button>
           </a>
           <a href="#resultadosDeExamenes">
-            <button className="buttonBasic" id="buttonIndice">Resultado de exámenes</button>
+            <button className="buttonBasic" id="buttonIndice">Resultado de exámenes (version 2.0)</button>
           </a>
         </div>
       </div>
 
       <nav className="content-navbar">
         <input className="checkbox" type="checkbox" id="menu" />
-        <img src="/css/Imagenes/menu.png" id="menuBar" className="menu-icono" alt="Menú" />
+        <img src={menu} id="menuBar" className="menu-icono" alt="Menú" />
         <ul id="listaNavegacion" className="navbarUl">
           <li><a href="/">Home</a></li>
           <li><a href="#sobreNosotros">Sobre Nosotros</a></li>
           <li><a href="#nuestraHistoria">Nuestra Historia</a></li>
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#contacto">Contacto</a></li>
-          <li><a id="LoginAdmin" href="/pages/Login">Login</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+          <li><Link id="LoginAdmin" to="/Login">Login</Link></li>
         </ul>
       </nav>
     </header>

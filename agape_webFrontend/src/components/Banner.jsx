@@ -1,15 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import '../styles/style.css';
+import Img1 from '../assets/Imagenes/Img1.png';
+import Img2 from '../assets/Imagenes/Img2.png';
+import Img3 from '../assets/Imagenes/Img3.png';
 
 //este es el carrusel que figura en el index.htm, con las imagenes pasando
 
 export default function Banner() {
 
-    const images = [
-        "/css/Imagenes/33.png",
-        "/css/Imagenes/34.png",
-        "/css/Imagenes/35.png"
-    ];
+    const images = [Img1, Img2, Img3];
 
     //para saber cual img mostrar
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,8 +40,7 @@ export default function Banner() {
                                 />
 
                             ))}
-                        <button onClick={() => setCurrentIndex((currentIndex - 1 + images.length) % images.length)}>◀</button>
-                        <button onClick={() => setCurrentIndex((currentIndex + 1 ) % images.length)}>▶</button>
+                        
                             <article className="portada-info">
                                 <header className="tittle">
                                     <h4>Clínica Familiar</h4>

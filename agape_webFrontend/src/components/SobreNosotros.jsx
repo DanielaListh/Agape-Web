@@ -41,9 +41,9 @@ export default function SobreNosotros() {
                     <p>No se encontraron resultados</p>
                 )}
                 {caracteristicas.map((caracteristica) => {
-                    const imgURL = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/caracteristicasClinicasImg/${caracteristica.imgcaracterclinica}`;
+                    const imgURL = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/caracterisClinicas/${caracteristica.imgcaracterclinica}`;
                     return (
-                        <div key={caracteristica.idcaracterclinica} className='notes'>
+                        <div key={caracteristica.idcaracteristicaclinica} className='notes'>
                             <div className='preview-img-caracteristica'>
                                 <img
                                     src={imgURL}
