@@ -33,7 +33,6 @@ body {
     color: #003064;
     display: block;
     padding: 5px 0;/*0*/
-    margin-left: 20px;
     text-decoration: none;
     font-weight: 700;
 }
@@ -54,11 +53,11 @@ body {
 }
 
 .submenu {
-    max-width:300px ;
+    width:380px;
 }
 
 .submenu li {
-    width: 80%;
+    width: 90%;
     border-left: 1.5px solid #003064b7;
     transition: height .4s;
 }
@@ -115,7 +114,7 @@ body {
 .contenedor-padre {
     display: flexbox;
     margin-left: 340px;
-    width: 73%;
+    width: 77%;
     height: auto;
 }
 
@@ -146,8 +145,8 @@ body {
     margin-right: 5px;
     justify-content: center;
     align-items: center;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 35px;
 }
 
 #sub-menu{
@@ -196,7 +195,7 @@ body {
     padding: 10px;
     margin: 10px;
     padding-left: 40px;
-    width: 85%;
+    width: 90%;
 }
 
 /*para visualizacion de usuarios*/

@@ -7,10 +7,11 @@ import { useState } from "react";
 export default function SidebarAdmin() {
   const [openMenus, setOpenMenus] = useState({});
 
+    // Función para alternar la visibilidad de los submenús
   const toggleMenu = (menu) => {
-    setOpenMenus((prev) => ({
-      ...prev,
-      [menu]: !prev[menu],
+    setOpenMenus((prev) => ({ // Mantiene el estado anterior de los menús y solo cambia el menú específico que se ha clickeado
+      ...prev, // Mantiene el estado anterior de los menús
+      [menu]: !prev[menu], 
     }));
   };
 
