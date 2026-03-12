@@ -47,7 +47,7 @@ export default function Header() {
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#contacto">Contacto</a></li>
           <li><a href="#ubicacion">Ubicación</a></li>
-          <li><Link id="LoginAdmin" to="/Login">Login</Link></li>
+          <li><Link to="/login">Login</Link></li>
         </ul>
       </nav>
     </header>

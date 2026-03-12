@@ -24,8 +24,8 @@ body {
 
 .logo img {
     display: block;
-    height: 140px;
-    margin: 0 0 0 50px;
+    width: 170px;
+    margin: 20px auto; /*centrar img al sidebar*/
 }
 
 /*ul*/
@@ -43,17 +43,7 @@ body {
     cursor: pointer;
 }
 
-.submenu {
-    max-width:300px ;
-}
-
-.submenu li {
-    width: 80%;
-    border-left: 2px solid #003064;
-    transition: height .4s;
-}
-
-.menu li a {
+.menu li a{
     color: #003064;
     text-decoration: none;
 }
@@ -63,11 +53,18 @@ body {
     transition: .5s;
 }
 
+.submenu {
+    max-width:300px ;
+}
 
+.submenu li {
+    width: 80%;
+    border-left: 1.5px solid #003064b7;
+    transition: height .4s;
+}
 
 /* Ocultar los submenus por defecto */
 .submenu-content {
-    display: none;
     list-style: none;
     padding-left: 15px;
 }
@@ -78,12 +75,19 @@ body {
 }
 
 /* Ajuste para nietos */
-.submenu .submenu .submenu-content {
-    padding-left: 20px;
+
+
+.submenu button{
+    color: #003064;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    background-color: transparent;
 }
 
 
-.submenu a:hover{
+.submenu button:hover{
     color: #ff91b0;
     transition: .6s;
 }
@@ -101,6 +105,10 @@ body {
     transform: rotate(90deg);
 }
 
+.submenu-content a:hover{
+    color: #ff91b0;
+    transition: .6s;
+}
 
 /* Contenedor padre*/
 

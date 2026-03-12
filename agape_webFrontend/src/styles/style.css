@@ -239,22 +239,25 @@ body{
 
 /*registro y login*/
 
-.body-image-registro {
-  background-image: url(../assets/Imagenes/eclipse-24.png);
-  background-size: cover;
-}
 
-.body-image-login {
-  background-image: url(../assets/Imagenes/eclipse-23.png);
-  background-size: cover;
-}
-
-.container {
+.container-registro {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 100vw;
   overflow-x: hidden;
+  background-image: url(../assets/Imagenes/eclipse-24.png);
+  background-size: cover;
+}
+
+.container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-image: url(../assets/Imagenes/eclipse-23.png);
+  background-size: cover;
 }
 
 .form-container {
@@ -281,7 +284,7 @@ body{
   width: 50%;
   height: 450PX;/*height: 25px;*/
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.708);
   border-radius: 50px;
   margin-left:20px; /*marginleft 20px para registro y margin rigth 20px para login*/
   justify-content: center;
@@ -299,7 +302,29 @@ body{
   border-radius: 50px;
   margin-right: 20px; /*marginleft 20px para registro y margin rigth 20px para login*/
   justify-content: center;
+  justify-items: center;
   text-align: center;
+}
+
+.form-login input{
+  display: flex;
+  flex-direction: column;
+}
+
+.separador{
+  display: flex;
+  width: 200px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.separador input{
+  margin: 20px 0;
+}
+.separador button{
+  padding-left: 20px;
 }
 
 .form h2 {
@@ -311,7 +336,7 @@ body{
 
 .form-login h2 {
   text-align: center;
-  margin:20px 20px;
+  margin:40px 20px;
   color: #003064;
   font-size: 2.5rem;
 }
@@ -334,9 +359,9 @@ body{
 }
 
 
-#correoElectronico, #password{
+.email-input, .password-input{
   justify-content: center;
-  width: 70%;
+  width: 75%;
   height: 30px;
   padding: 10px;
   margin: 15px 10px;
@@ -349,14 +374,7 @@ body{
   outline: none;
 }
 
-/*mensaje en el input password*/
-#password{
-  width: 59%;
-  margin-left: -30px;
-}
-
-#correoElectronico:hover,
-#password:hover{
+.email-input-login:hover, .password-input-login:hover{
   border-color: #ffb50a;
   outline: none;
 }

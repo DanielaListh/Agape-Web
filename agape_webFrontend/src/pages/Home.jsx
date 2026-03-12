@@ -13,7 +13,6 @@ import Ubicacion from '../components/Ubicacion';
 export default function Home() {
   return (
     <>
-      <Header />
       <Banner />
       <SobreNosotros />
       <NuestraHistoria />
@@ -21,7 +20,6 @@ export default function Home() {
       <Contacto />
       <ModalExito />
       <Ubicacion />
-      <Footer />
       
     </>
   );
